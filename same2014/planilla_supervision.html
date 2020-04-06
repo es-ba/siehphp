@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type='text/css' href=planilla_supervision.css>
+</head>
+<body>
+    <table class=plasup_tabla>
+        <tr>
+            <td colspan=18>aca van los logos 
+        <tr>
+            <td colspan=15 class=titulo>PLANILLA DE SUPERVISIÓN (*Encuestador*)
+            <td colspan=3>F-ARIP-34 Rev. 4
+        <tr>
+            <td colspan=2>SUPERVISOR
+            <td colspan=2>Nombre
+			<td colspan=7>{*$per_apellido+$per_nombre}
+			<td>Código
+			<td>{$tem.cod_supe}
+			<td colspan=2>Fecha de entrega (dd/mm/aa)
+			<td colspan=3>{$tem.fecha_carga_supe}
+        <tr>
+            <td>Comuna
+            <td>UP
+            <td>Lote
+            <td>Encuesta
+            <td>Hogar N°
+			<td colspan=4>Calle
+			<td>Nro.
+			<td>Piso
+			<td>Dpto.
+			<td>Hab.
+			<td>Ident. Edificio
+			<td>Dirigida 1/Aleatoria 2
+			<td>Pres. 1/Telef. 2
+			<td>Cód. (*Enc)
+			<td>Rea
+        <tr>
+            <td>{$tem.comuna}
+            <td>{$tem.up}
+            <td>{$tem.lote}
+            <td>{$tem.enc}
+            <td class=ingresable>{$hog}
+            <td colspan=4>{$tem.cnombre}
+			<td>{$tem.hn}
+			<td>{$tem.hp}
+			<td>{$tem.hd}
+			<td>{$tem.hab}
+			<td>{$tem.}
+			<td>{$tem.}
+			<td>{$tem.}
+			<td>{$tem.cod_enc}
+			<td>{$tem.rea_enc}
+    </table>
+</body>
+</html>

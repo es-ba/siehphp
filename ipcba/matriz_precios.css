@@ -1,0 +1,35 @@
+table.matriz_precios{
+    border:1px solid black;
+}
+/* desde .matriz_precio: saco
+    display:inline-block;
+*/
+table.matriz_precios td{
+    border:1px solid black;
+    text-align:right;
+}
+
+.matriz_precio{
+    min-width:100px;
+}
+
+.matriz_tipoprecio{
+    min-width:50px;
+}
+
+.matriz_es_imputado{
+    font-size:80%;
+}
+
+.matriz_panel{
+    font-size:70%;
+}
+
+.matriz_tarea{
+    font-size:70%;
+}
+
+.matriz_variacion{
+    min-width:20px;
+    font-style:italic;
+}

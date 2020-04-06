@@ -1,0 +1,13 @@
+update encu.tabulados set tab_filtro='hog=1', tab_cel_exp='hogares' where tab_tab='CUADRO 14';
+update encu.tabulados set tab_filtro='edad>=10', tab_columna='cond_activ' where tab_tab='CUADRO 33';
+update encu.tabulados set tab_filtro='t_intens >0' where tab_tab='CUADRO 34';
+update encu.tabulados set tab_filtro='cond_activ=1', tab_columna='t_ramocu' where tab_tab='CUADRO 35';
+update encu.tabulados set tab_filtro='cond_activ=1', tab_columna='categori' where tab_tab='CUADRO 36';
+update encu.tabulados set tab_filtro='edad>=10 and cond_activ=2' where tab_tab='CUADRO 37';
+update encu.tabulados set tab_filtro='edad>=10 and cond_activ=3 and e_nivel <> 9' where tab_tab='CUADRO 38';
+update encu.tabulados set tab_filtro='cond_activ=1 and e_nivel = 1' where tab_tab='CUADRO 39';
+update encu.tabulados set tab_filtro='categori = 3' where tab_tab='CUADRO 40';
+update encu.tabulados set tab_filtro='edad >= 10 and cond_activ = 1', tab_columna='t39_comu' where tab_tab='CUADRO 41';
+update encu.tabulados set tab_filtro='cond_activ=2' where tab_tab='CUADRO 42';
+update encu.tabulados set tab_filtro='tipodes=1' where tab_tab='CUADRO 43';
+update encu.tabulados set tab_filtro='cond_activ=1 and t35=1 and tsemref <> 2 and t_suboc3 <> 99' where tab_tab='CUADRO 44';

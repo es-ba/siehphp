@@ -1,0 +1,278 @@
+.celda_input_grillita_fecha{width:120px; height:26px;}
+.celda_input_grillita_hora{width:100px; height:26px;}
+.celda_input_grillita_anotacion{width:500px; height:26px;}
+.mensaje_alerta{
+    font-weight:bold; background-color:orange;
+}
+
+.desp_ope{
+    border-color:green;
+/*    background:#E94CBC; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.desp_for{
+    border-color:red;
+/*    background:#CEEFBC; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.desp_todo{
+    border-width:2px;
+    border-style:solid;
+    padding:4px;
+    margin-top:3px;
+}
+
+.desp_encabezado{
+    border-width:1px;
+    border-style:solid;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    padding-left:4px;
+}
+
+.desp_celda{
+    margin:10px;
+}
+
+.encabezado_bloque{
+    border:2px solid black;
+}
+
+.blo_blo{
+    font-weight:bold;
+    display:inline;
+}
+
+.blo_texto{
+    display:inline;
+}
+
+.blo_aclaracion{
+    font-size:82%;
+    font-style:italic;
+    display:inline;
+}
+
+.tabla_contenido_formulario{
+    border:2px solid black;
+    width:760px;
+}
+
+.pre_pre{
+    display:inline;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.opc_var{
+    font-weight:bold;
+}
+
+.var_desp_nombre{
+    font-weight:bold;
+}
+
+.pre_texto{
+    display:inline;
+}
+
+.var_var{
+    display:none;
+    margin-right:10px;
+    /* margin-left:10px; */
+}
+
+.td_texto_variable_multiple .var_var{
+    display:inline;
+    margin-right:10px;
+    font-size:75%;
+    font-weight:bold;
+}
+
+.var_texto{
+    display:inline;
+}
+
+.encabezado_pregunta{
+    col-span:3;
+    border-top:1px solid black;
+}
+
+
+td {
+vertical-align: top;
+text-align: left;
+}
+.hori_pre_pre {
+font-family: Arial;
+font-size: 60%; 
+}
+
+.hori_pre_texto {
+font-family: Arial;
+font-size: 70%;
+}
+
+
+.sin_dato{
+    background-color:silver; height:6px; font-size:60%; font-weight:bold;
+}
+
+.celda_input{
+    vertical-align:top;
+}
+.input_combo{width:210px}
+.input_opciones {width:50px}
+.input_marcar{width:50px}
+.input_anio{width:70px}
+.input_anios{width:50px}
+.input_edad{width:50px}
+.input_fecha{width:120px}
+.input_fecha_corta{width:120px}
+.input_horas{width:50px}
+.input_info_numero{width:50px}
+.input_numeros{width:50px}
+.input_opciones{width:40px}
+.input_si_no{width:40px}
+.input_solo12no_tiene{width:40px}
+.input_texto{width:180px; resize:none}
+.input_texto_especificar{width:180px; resize:none}
+.input_texto_libre{width:370px; resize:none}
+.input_marcar_nulidad{width:30px}
+.input_meses{width:50px}
+.input_monetaria{width:100px; /* float:right*/}
+.input_si_no_nosabe3{width:40px}
+.input_observaciones{width:350px}
+
+.opc_ok{background-color:lightGreen;}
+.opc_sosa{background-color:red;}
+.opc_inex{background-color:orange;}
+.opc_salt{background-color:gray;}
+.opc_ocusal{display:none;}
+.opc_blanco{background-color:White;}
+.opc_tono{background-color:LightGrey;}
+.opc_adel{background-color:Gold;}
+.opc_omit{background-color:Pink;}
+.opc_homi{background-color:SandyBrown;}
+.opc_rana{background-color:Yellow;}
+.opc_rano{background-color:Peru;}
+.opc_tipo{background-color:Chocolate;}
+.opc_nsnc{background-color:Aquamarine;}
+.opc_sinesp{background-color:Violet;}
+.opc_inconsistente{background-color:Yellow;}
+.pro_detec{background-color:red;}
+.achiar_letra{
+    font-size:75%;
+}
+
+.elemento_angosto{
+    width:75px;
+}
+
+.celda_matriz_formulario{
+    min-width:7px;
+}
+
+.celda_matriz_formulario[id=var_nombre]{
+    width:70px;
+}
+
+.renglon_variable td{
+    border-top:1px dashed grey;
+}
+
+.renglon_opciones td{
+    border-top:0px none transparent;
+}
+
+.encabezado_variable{
+    width:350px;
+}
+
+.td_input_multiple{
+    text-align:right;
+}
+
+.opcion_codigo_deshabilitar{
+    background-color:black;
+}
+
+.opcion_codigo{
+    padding-right:5px;
+}
+
+.div_mensaje_alerta{
+    border:2px FireBrick solid;
+    background-color:Gold;
+    font-weight:bold;
+    font-size:80%;
+}
+
+td.pre_aclaracion_superior{
+    border:1px solid grey;
+    background-color:#DDD;
+}
+
+.mini_grilla{
+    font-size:80%;
+    font-family:arial;
+}
+
+.mini_grilla caption{
+    font-size:70%;
+    font-weight:bold;
+    background-color:rgba(255,255,255,0.7);
+}
+
+.mini_grilla_titulo{
+    border:1px solid gray;
+    margin:0px;
+    padding:2px;
+    font-size:70%;
+    background:#DDD;
+    border-collapse:collapse;
+}
+
+.mini_grilla table{
+    border-collapse:collapse;
+    background-color:rgba(255,255,255,0.7);
+}
+
+td.mini_grilla{
+    border:1px solid gray;
+    margin:0px;
+    padding:3px;
+    border-collapse:collapse;
+}
+
+.datos_supervision{
+    border:1px solid rgb(90,90,90);
+    background-color:rgb(200,200,200);
+    padding:4px;
+    font-family:arial;
+    font-size:80%;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:4px;
+    margin-bottom:4px;
+}
+.confidencial_ley{
+    width: 754px;
+    border:1px solid gray;
+    font-size:65%;
+    font-family:arial;
+    /*background-color:khaki*;*/
+    margin-top:4px;
+    margin-bottom:5px;
+}
+
+#var_modulo_1{
+    max-height:20px
+}

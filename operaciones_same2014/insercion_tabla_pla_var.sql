@@ -1,0 +1,2 @@
+INSERT INTO pla_var (plavar_planilla, plavar_ope, plavar_var, plavar_orden, plavar_tlg)
+select plavar_planilla, dbo.ope_actual(), plavar_var, plavar_orden,/*CAMPOS_AUDITORIA*/ from encu_anterior.pla_var;

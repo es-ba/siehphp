@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Ejercicio 1 - GetElementsByName</title>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+</head>
+ 
+<body>
+
+<div id="primerElemento">
+			<h1>Gobierno de la Ciudad de Buenos Aires<p>
+			<h2>Estad&iacute;sticas y censos<p>
+			<p id="centro">Primer p dentro del div primerElemento<p>
+			<p id="centro">Segundo p dentro del div primerElemento<p>
+</div>
+
+<div id="segundoElemento>
+	<p id="element1">Primer elemento dentro del div segundoElemento<p>
+	<p id="element2">Segundo elemento dentro del div segundoElemento<p>
+</div>
+
+<p>Esta página muestra un mensaje complejo. Es un p suelto dentro del body</p>
+<p>Segundo parrafo</p>
+<br/>
+<p>Esta página muestra un mensaje complejo</p>
+<br/>
+
+ <br/>
+ <div id="contenido">
+ Prueba de contenido ajax que sera reemplazado por una llamada Ajax</div>
+ 
+ <br/>
+ <br/>
+
+<a href="#"id="boton">Guardar</a>
+
+<div id="loader" style="display:none">
+	<img src="ajax-loader.gif"/>
+</div>
+
+
+</body>
+
+
+</html>
+
+
+<script>
+	$(document).ready(function(){
+    $("#boton").click(function(){
+		$.ajax({url: "./demo_ajax_load.txt", success: function(result){
+		            $("#contenido").html(result);
+		}});
+    });
+	
+	$(document).ajaxStart(function(){
+		$('#loader').css('display','block');
+	});
+	
+	$(document).ajaxComplete(function (){
+		$('#loader').slideUp(2000);
+	});
+	
+});
+</script>
+

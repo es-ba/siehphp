@@ -1,0 +1,2 @@
+copy bu.eah12_bu_viv from  'C:\base_usuarios\Pasaje_baseapostgres\.....VIV.txt' delimiter ';' null '' csv header ;
+copy bu.eah12_bu_ind from  'C:\base_usuarios\Pasaje_baseapostgres\.....IND.txt' delimiter ';' null '' csv header ;    

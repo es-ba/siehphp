@@ -1,0 +1,43 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!
+
+../enapross/enapross_icon.png
+../enapross/enapross_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../enapross/enapross.css
+../enapross/dbo_enapross.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../enapross/estructura_enapross.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../enapross/logo_app.png
+../enapross/logo_esperar.png
+../enapross/enapross_fondo_t.png
+../enapross/enapross_icon.gif
+../enapross/enapross_icon_test.gif
+../enapross/enapross_icon_desa.gif
+../enapross/enapross_icon_capa.gif
+../enapross/enapross.php?hacer=hoja_de_ruta
+../enapross/enapross.php?hacer=hoja_de_ruta_super
+../enapross/enapross.php?hacer=formularios_de_la_vivienda
+../enapross/enapross.php?hacer=desplegar_formulario&todo={"tra_ope":"enapross","tra_for":"S1","tra_mat":""}
+../enapross/enapross.php?hacer=desplegar_formulario&todo={"tra_ope":"enapross","tra_for":"S1","tra_mat":"P"}
+../enapross/enapross.php?hacer=desplegar_formulario&todo={"tra_ope":"enapross","tra_for":"A1","tra_mat":""}
+../enapross/enapross.php?hacer=desplegar_formulario&todo={"tra_ope":"enapross","tra_for":"I1","tra_mat":""}
+../enapross/enapross.php?hacer=desplegar_formulario&todo={"tra_ope":"enapross","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../enapross/enapross.php?hacer=cargar_dispositivo  ../enapross/enapross.php?hacer=aviso_offline

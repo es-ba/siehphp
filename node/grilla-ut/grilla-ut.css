@@ -1,0 +1,97 @@
+#div_destino_ut{
+}
+
+#div_destino_ut table{
+    width: 100%
+}
+
+#div_destino_ut td{
+    overflow: hidden;
+}
+
+#grilla-ut-zona-derecha{
+    vertical-align:top;
+    overflow: hidden;
+}
+
+#grilla-ut-zona-izquierda{
+    vertical-align:top;
+    overflow: hidden;
+    width:380px; 
+    max-width:380px; 
+    height:733px; 
+    background-image:url(0a24horas.png); 
+    background-size: 380px 733px;
+    background-repeat: no-repeat;
+}
+#tabla-rescate{
+    height:256px;
+    border: 1px solid black;
+    font-family:Arial;
+    font-size:150%;
+}
+#tabla-rescate div{
+    margin: 4px
+}
+#tabla-rescate td:first-child{
+    max-width:350px;
+    vertical-align:top;
+}
+#cartel-rescate{
+    font-family:Arial;
+    font-weight: bold
+}
+#boton-cerrar{
+    margin: 10px
+}
+.edit-desde{
+    width:55px;
+    font-size:120%;
+}
+.edit-hasta{
+    width:55px;
+    font-size:120%;
+}
+.edit-codigo{
+    width:40px;
+    font-size:120%;
+}
+.edit-rescate{
+    width:15px;
+    font-size:120%;
+}
+.edit-detalle{
+    width:270px;
+    font-size:120%;
+}
+
+.caja-fija{
+    position:absolute;
+    border-bottom:1px solid green;
+    overflow:hidden;
+    font-weight:bold;
+    font-family:arial;
+    padding:1px;
+    margin:0px;
+    box-sizing:border-box;
+    text-align:center;
+    font-size:70%;
+}
+
+.abr-actividad{
+    font-size:70%
+}
+
+.edit-warning{
+    background-color:#FF4;
+}
+
+.ico-actividad{
+    width:42px
+}
+
+.inconsistencia{background-color:yellow; font-family:arial; font-size:80%}
+.advertencia{   background-color:yellow; font-family:arial; font-size:80%}
+.consistencia_ayu{background-color:yellow; font-family:arial; font-size:70%}
+.inconsistencia:before{content:"Error: ";    font-weight:bold; text-decoration:underline; color:Red }
+.advertencia:before{content:"Advertencia: "; font-weight:bold; }

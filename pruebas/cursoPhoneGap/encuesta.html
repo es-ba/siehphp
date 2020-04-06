@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+         <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <title>Encuesta</title>
+    </head>
+    
+    <body>
+        <form>
+            <p>Which of the next string instruments do you like the most?</p>
+            <input type="radio" name="instrument" class="clearable">Violin    
+            <br>
+            <input type="radio" name="instrument"  class="clearable">Guitar
+        </form>
+        <form>
+            <br>
+            <p>Which of the next wind instruments do you like the most?</p>
+            <input type="radio" name="instrument"  class="clearable">Flute
+            <br>
+            <input type="radio" name="instrument"  class="clearable">Trompet
+        </form>
+        <form>
+            <br>
+            <p>Which of the next percussion instruments do you like the most?</p>
+            <input type="radio" name="instrument"  class="clearable">Drums
+            <br>
+            <input type="radio" name="instrument"  class="clearable">Bongo
+        </form>
+        <form>
+            <br>
+            <p>Choose all of the songs that you know</p>
+            <input type="checkbox" name="music"  class="clearable">Don´t speak
+            <br>
+            <input type="checkbox" name="music"  class="clearable">Modern Love
+            <br>
+            <input type="checkbox" name="music"  class="clearable">Oh! Darling
+            <br>
+            <input type="checkbox" name="music"  class="clearable">I want to break free
+            <br>
+            <input type="checkbox" name="music"  class="clearable">My way
+            <p>Choose all of the musicians that you know</p>
+            <input type="checkbox" name="musicians"  class="clearable">Gwen Stefani
+            <br>
+            <input type="checkbox" name="musicians"  class="clearable">David bowie
+            <br>
+            <input type="checkbox" name="musicians"  class="clearable">The Beatles
+            <br>
+            <input type="checkbox" name="musicians"  class="clearable">Freddy Mercury
+            <br>
+            <input type="checkbox" name="musicians"  class="clearable">Frank Sinatra
+            
+            <p>Musical genre</p>
+            <select id="clearableSelect">
+              <option value="Opera">Opera</option>
+              <option value="Jazz">Jazz</option>
+              <option value="Blues">Blues</option>
+              <option value="Rock">Rock</option>
+              <option value="Folk">Folk</option>
+              <option value="Pop">Pop</option>
+            </select>
+            <br/>
+            
+            <p>Favorite composer</p>
+            <Ol>
+                <li>Verdi</li>
+                <li>Mozart</li>
+                <li>Bizet</li>
+            </Ol>
+            <br>
+              <p>Favorite opera</p>
+            <Ol>
+                <li>Traviata</li>
+                <li>La flauta mágica</li>
+                <li>Carmen</li>
+            </Ol>
+            <br>
+            
+            <p>If you were a sound, how would you describe yourself?</p>
+            <input type="text" id="toAnswer">
+            <a id="insertAnswerButton" href="#"> Click here to enter the answer</a>
+            <div id="answer"></div>
+            <script>
+                $(document).ready(function(){
+                    //$('#toAnswer').attr('required', true);
+                    $('#insertAnswerButton').click(function(){  
+                        var toAnswer=$('#toAnswer').val();
+                        if(toAnswer != ''){
+                            $('#answer').html('If I were a sound, I would be ' + toAnswer);
+                           <!-- borrar el elemento nuevo --> 
+                            $('#toAnswer').val('');
+                        }
+                    });
+                })
+            </script> 
+            <br>
+            <a id="erase" href="#"> Click here to start again</a>
+            <script>
+                $(document).ready(function(){
+                    $('#erase').click(function(){
+                        $('#toAnswer').val('');
+                        $('.clearable').prop('checked', false);
+                        $('#answer').empty();
+                        $('#clearableSelect').val('')
+                    })
+                })
+            </script>
+            <a id="thanks" href="http://localhost/curso-phone/agradecimiento.html"> Click here to submit</a>
+        </form>    
+    
+    </body>
+    
+    
+</html>

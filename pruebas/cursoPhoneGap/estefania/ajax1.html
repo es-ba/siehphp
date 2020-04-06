@@ -1,0 +1,25 @@
+<!DOCTTYPE html>
+<html>
+    <head>
+        <script src="http://localhost/yeah/pruebas/cursoPhoneGap/jquery-1.11.2.min.js"></script>
+
+        
+        <script> 
+            $(document).ready(function(){
+                $('button').click(function(){
+                    $.ajax({url: 'http://localhost/yeah/pruebas/cursoPhoneGap/estefania/html1.html',
+                    async: false,
+                    success: function(result){
+                        $('div').html(result);
+                        }
+                        
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div><h2>Let AJAX change this text</h2></div>
+        <button>Change Content</button>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+//document.write("<p>" + Date() + localStorage.getItem("unodotre") + "</p>");
+//localStorage.setItem("unodotre",123);
+//localStorage.clear();
+//localStorage.save("grabado.txt");
+for(i = 0; i < 1000 ; i++)
+{
+    document.write('<div><p title=' + localStorage.getItem(localStorage.key(i)) + '><b>' + localStorage.key(i) + '</b></p>');// + localStorage.getItem(localStorage.key(i)));
+    if (localStorage.key(i).match("claves_")=="claves_"){
+        document.write('<div style="color:green;">' + localStorage.getItem(localStorage.key(i)) + '</div>');
+    }else if (localStorage.key(i).match("miembros_")=="miembros_"){
+        document.write('<div style="color:red;">' + localStorage.getItem(localStorage.key(i)) + '</div>');
+    }else{
+        document.write('<div style="color:orange;">'  + localStorage.getItem(localStorage.key(i)) + '</div>');
+    }
+    document.write('</div>');
+}
+</script>
+
+</body>
+</html>

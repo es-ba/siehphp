@@ -1,0 +1,78 @@
+
+@page{ 
+    size: 210mm 297mm lanscape;
+    margin: 10mm 0mm 0mm 10mm;
+}    
+
+@media print{
+    @page{ width: auto; }
+    .app_titulo{display:none;}
+    .no_imprimir{display:none;}
+    .div_proceso_formulario_usuario_ip{display:none;}
+
+}
+
+/* líneas de debug:  */
+.etiqueta_table{    border:1pt solid transparent;}
+.div_salta_pagina{  border:2px solid transparent;}
+.etiqueta_td{       border:1mm solid transparent;}
+.etiqueta_td_sepa_h{border:1mm solid transparent;}
+.etiqueta_td_sepa_v{border:1mm solid transparent;}
+/* fin-lineas de debug */
+
+.etiqueta_table{
+    font-family:arial;
+    font-size:10pt;
+    border-collapse:collapse;
+}
+
+.div_salta_pagina{
+    page-break-after:always;
+}
+
+.etiqueta_tr{
+    height:28mm;
+}
+
+.etiqueta_td{
+    width: 87mm;
+    vertical-align:top;
+    text-align:left;   
+}
+
+.etiqueta_tr_sepa_h{
+    height:10mm;
+}
+
+.etiqueta_td_sepa_v{
+    width: 8mm; 
+}
+.etiqueta_nombre {
+    font-size:12pt;
+}
+.etiqueta_localidad {
+    font-size:9pt;
+    font-weight:bold;
+    padding-left:8pt;
+}
+.etiqueta_ultima_linea{
+    font-size:9pt;
+    text-indent:10pt;
+    margin-top:2px; 
+    margin-right:5mm;
+    border-top:1px solid black;
+}
+.etiqueta_organismo {
+    font-weight:bold;
+}
+.etiqueta_participacion_ref{
+    text-align:right;
+    font-size:8pt;
+    margin-left:25mm;   
+    /* left: ; */
+}    
+.etiqueta_referencia{
+    text-align:right;
+    font-size:8pt;
+    margin-left:3mm;
+}

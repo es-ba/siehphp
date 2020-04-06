@@ -1,0 +1,1 @@
+"C:\Program Files\PostgreSQL\9.1\bin\"pg_dump.exe --host localhost --port 5432 --username "postgres" --format plain --data-only --inserts --column-inserts --no-privileges --no-tablespaces --no-unlogged-table-data --file "consistencias_pp2012.sql" --table "encu.consistencias" "pp2012_produc_db"

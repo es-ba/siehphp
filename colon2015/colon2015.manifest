@@ -1,0 +1,45 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!
+
+../colon2015/colon2015_icon.png
+../colon2015/colon2015_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../colon2015/colon2015.css
+../colon2015/dbo_colon2015.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../colon2015/estructura_colon2015.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../colon2015/logo_app.png
+../colon2015/logo_esperar.png
+../colon2015/colon2015_fondo_t.png
+../colon2015/colon2015_icon.gif
+../colon2015/colon2015_icon_test.gif
+../colon2015/colon2015_icon_desa.gif
+../colon2015/colon2015_icon_capa.gif
+../colon2015/colon2015.php?hacer=hoja_de_ruta
+../colon2015/colon2015.php?hacer=hoja_de_ruta_super
+../colon2015/colon2015.php?hacer=formularios_de_la_vivienda
+../colon2015/colon2015.php?hacer=desplegar_formulario&todo={"tra_ope":"colon2015","tra_for":"S1","tra_mat":""}
+../colon2015/colon2015.php?hacer=desplegar_formulario&todo={"tra_ope":"colon2015","tra_for":"S1","tra_mat":"P"}
+../colon2015/colon2015.php?hacer=desplegar_formulario&todo={"tra_ope":"colon2015","tra_for":"A1","tra_mat":""}
+../colon2015/colon2015.php?hacer=desplegar_formulario&todo={"tra_ope":"colon2015","tra_for":"I1","tra_mat":""}
+../colon2015/colon2015.php?hacer=desplegar_formulario&todo={"tra_ope":"colon2015","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../colon2015/colon2015.php?hacer=cargar_dispositivo  ../colon2015/colon2015.php?hacer=aviso_offline

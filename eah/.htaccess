@@ -1,0 +1,7 @@
+AddType text/cache-manifest .manifest
+AddType text/cache-manifest manifest
+
+# Solo para desarrollo:
+# ExpiresActive On
+# ExpiresDefault "access"
+

@@ -1,0 +1,31 @@
+server:
+  port: 3033
+  base-url: /spos
+db:
+  motor: postgresql
+  host: localhost
+  database: sieh_db
+  search_path: 
+  - rrhh
+  - his
+  schema: spos
+  user: tedede_php
+login:
+  table: usuarios
+  userFieldName: usu_usu
+  passFieldName: usu_clave
+  infoFieldList: [usu_usu, usu_rol, usu_nombre]
+  activeClausule: usu_activo
+  messages:
+    userOrPassFail: el nombre de usuario no existe o la clave no corresponde
+    lockedFail: el usuario se encuentra bloqueado
+    inactiveFail: es usuario está marcado como inactivo
+  plus:
+    loginForm:
+      formTitle: entrada
+      usernameLabel: usuario
+      passwordLabel: clave
+      buttonLabel: entrar
+    successRedirect: /index
+    fileStore: true
+    secret: asdfk3k3ahvhfpq93393

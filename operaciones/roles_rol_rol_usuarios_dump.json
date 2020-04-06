@@ -1,0 +1,137 @@
+{ json_dumper:1
+, tablas:
+  { roles:
+    [ { rol:"ana_campo", descripcion:"analista de campo"
+      , rol_rol:
+        [ { principal:"mues_campo"}
+        ]
+      }
+    , { rol:"ana_ing", descripcion:"analista de ingreso"
+      , rol_rol:
+        [ { principal:"procesamiento"}
+        , { principal:"sup_ing"}
+        ]
+      
+      , rol_rol:
+        [ { delegado:"ingresador"}
+        ]
+      }
+    , { rol:"aux_info_campo", descripcion:"auxiliar informático de campo"
+      , rol_rol:
+        [ { principal:"coor_campo"}
+        , { principal:"mues_campo"}
+        , { principal:"subcoor_campo"}
+        ]
+      
+      , rol_rol:
+        [ { delegado:"coor_campo"}
+        , { delegado:"recepcionista"}
+        , { delegado:"subcoor_campo"}
+        ]
+      }
+    , { rol:"coor_campo", descripcion:"coordinador de campo"
+      , rol_rol:
+        [ { principal:"aux_info_campo"}
+        , { principal:"mues_campo"}
+        ]
+      
+      , rol_rol:
+        [ { delegado:"aux_info_campo"}
+        , { delegado:"ingresador"}
+        , { delegado:"recepcionista"}
+        , { delegado:"subcoor_campo"}
+        ]
+      }
+    , { rol:"encuestador", descripcion:"encuestador"}
+    , { rol:"ingresador", descripcion:"ingresador"
+      , rol_rol:
+        [ { principal:"ana_ing"}
+        , { principal:"coor_campo"}
+        , { principal:"mues_campo"}
+        , { principal:"procesamiento"}
+        , { principal:"subcoor_campo"}
+        , { principal:"sup_ing"}
+        ]
+      }
+    , { rol:"mues_campo", descripcion:"administradores de muestra y coordinadores de tareas de campo"
+      , rol_rol:
+        [ { delegado:"ana_campo"}
+        , { delegado:"aux_info_campo"}
+        , { delegado:"coor_campo"}
+        , { delegado:"ingresador"}
+        , { delegado:"recepcionista"}
+        , { delegado:"subcoor_campo"}
+        ]
+      }
+    , { rol:"procesamiento", descripcion:"área procesamiento del APDI"
+      , rol_rol:
+        [ { delegado:"ana_ing"}
+        , { delegado:"ingresador"}
+        , { delegado:"sup_ing"}
+        ]
+      }
+    , { rol:"programador", descripcion:"programadores y otras tareas informáticas"}
+    , { rol:"prueba", descripcion:"usuarios de prueba del sistema"}
+    , { rol:"recepcionista", descripcion:"recepcionista"
+      , rol_rol:
+        [ { principal:"aux_info_campo"}
+        , { principal:"coor_campo"}
+        , { principal:"mues_campo"}
+        , { principal:"subcoor_campo"}
+        ]
+      }
+    , { rol:"recuperador", descripcion:"recuperador"}
+    , { rol:"subcoor_campo", descripcion:"subcoordinador de campo"
+      , rol_rol:
+        [ { principal:"aux_info_campo"}
+        , { principal:"coor_campo"}
+        , { principal:"mues_campo"}
+        ]
+      
+      , rol_rol:
+        [ { delegado:"aux_info_campo"}
+        , { delegado:"ingresador"}
+        , { delegado:"recepcionista"}
+        ]
+      }
+    , { rol:"sup_ing", descripcion:"supervisor de ingreso"
+      , rol_rol:
+        [ { principal:"procesamiento"}
+        ]
+      
+      , rol_rol:
+        [ { delegado:"ana_ing"}
+        , { delegado:"ingresador"}
+        ]
+      }
+    , { rol:"supervisor", descripcion:"supervisor"}
+    , { rol:"tematica", descripcion:"ARIP, temática, definiciones"}
+    ]
+  , rol_rol:
+    [ { principal:"ana_ing", delegado:"ingresador"}
+    , { principal:"aux_info_campo", delegado:"coor_campo"}
+    , { principal:"aux_info_campo", delegado:"recepcionista"}
+    , { principal:"aux_info_campo", delegado:"subcoor_campo"}
+    , { principal:"coor_campo", delegado:"aux_info_campo"}
+    , { principal:"coor_campo", delegado:"ingresador"}
+    , { principal:"coor_campo", delegado:"recepcionista"}
+    , { principal:"coor_campo", delegado:"subcoor_campo"}
+    , { principal:"mues_campo", delegado:"ana_campo"}
+    , { principal:"mues_campo", delegado:"aux_info_campo"}
+    , { principal:"mues_campo", delegado:"coor_campo"}
+    , { principal:"mues_campo", delegado:"ingresador"}
+    , { principal:"mues_campo", delegado:"recepcionista"}
+    , { principal:"mues_campo", delegado:"subcoor_campo"}
+    , { principal:"procesamiento", delegado:"ana_ing"}
+    , { principal:"procesamiento", delegado:"ingresador"}
+    , { principal:"procesamiento", delegado:"sup_ing"}
+    , { principal:"subcoor_campo", delegado:"aux_info_campo"}
+    , { principal:"subcoor_campo", delegado:"ingresador"}
+    , { principal:"subcoor_campo", delegado:"recepcionista"}
+    , { principal:"sup_ing", delegado:"ana_ing"}
+    , { principal:"sup_ing", delegado:"ingresador"}
+    ]
+  , usuarios:
+    []
+  }
+}

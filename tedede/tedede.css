@@ -1,0 +1,81 @@
+.editor_tabla .boton_barra_grilla{
+    border:0px;
+    opacity:50%;
+}
+
+.celda_filtrar {
+    border:2px solid silver;
+    border-collapse: collapse;
+    padding:2;
+    background:PaleTurquoise;
+    font-size:70%;
+    text-align:left;
+    contenteditable:true;
+}
+.celda_comun             {border:2px solid silver;border-collapse: collapse;background-color:Khaki; font-family:arial;font-size:70%; max-width:300px; overflow-x:hidden;}
+.celda_con_scroll   {border:2px solid silver;border-collapse: collapse;background-color:Khaki; font-family:arial;font-size:70%; max-width:300px; overflow-x:scroll;}
+.editor_tabla           {border:2px solid silver;border-collapse: collapse;}
+.tabla_titulos td     {border:2px solid silver;border-collapse: collapse;background-color:#F0E0C0; text-align:center; font-size:80%; }
+.tabla_titulos         {border:2px solid silver;border-collapse: collapse;background-color:#F0E0C0; text-align:left; font-size:60%; font-family:arial }
+.tabla_titulos input {border:2px solid silver;border-collapse: collapse;font-size:70% }
+.tabla_botonera td {margin:0px; padding:0px;background-color:#F0E0C0;text-align:center; white-space:nowrap}
+.tabla_botonera input {margin:0px; padding:0px; padding-left:2px; border:0px}
+.tabla_botonera .editor_registro_boton {font-size:30%}
+.editor_botonera_registro input {font-size:60%; margin:0px; }
+.editor_botonera_registro {border:1px solid silver;border-collapse: collapse;background-color:#F0E0C0; text-align:center; font-size:80%; }
+.cabezal_matriz{font-size:90%; font-weight:bold; font-familly:arial; background-color:Khaki; text-align:center; border:0px;}
+.cabezal_matriz_otros{font-size:90%; font-familly:arial; background-color:Khaki; text-align:left; border:0px;}
+.div_proceso_formulario_aclaracion{
+    font-size:80%;
+}
+.demora_proceso{
+    font-size:60%; font-weight:bold; font-family:courier; border:1px solid silver; background-color:#FFE0F0; float:right;
+}
+
+.grilla_fila_cursor td{
+border-top: 3px solid silver;
+border-bottom: 3px solid silver;
+}
+.celda_insertando {background-color:LightGreen}
+
+.tabulado {
+    font-family:arial;
+    border-bottom:1px solid black;
+    border-collapse:separate;
+}
+
+.tabulado caption{
+    font-size:10pt;
+}
+
+.tabulado thead tr:last-child td{
+    border-bottom:1px solid black;
+}
+
+.tabulado thead tr td{
+    font-size:10pt;
+}
+
+.tabulado td{
+    font-size:9pt;
+    padding-left:8px;
+    padding-right:8px;
+}
+
+.tabulado td.sup{
+    text-align:left;
+}
+
+.tabulado tbody td{
+    text-align:right;
+}
+
+.tabulado thead td{
+    text-align:center;
+}
+.tabulado_titulo {
+    font-size:80%;
+}
+.log_manifest{
+    font-size:75%;
+}

@@ -1,0 +1,2 @@
+drop database if exists etoi143_copia_db;
+create database etoi143_copia_db WITH OWNER = tedede_owner ENCODING = 'UTF8';

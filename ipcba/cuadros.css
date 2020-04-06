@@ -1,0 +1,108 @@
+.cuadro td{
+    padding:3px;
+}
+
+.cuadro{
+  border-bottom:2px solid black;
+  border-top:2px solid black;
+  border-collapse:collapse;
+  font-size:90%;
+  background-color:white;
+}
+
+.encabezado{
+    border:1px solid black;
+    vertical-align:middle;
+    text-align:center;
+    height:50px;
+}
+
+.encabezadop{
+    border:1px solid black;
+    vertical-align:middle;
+    text-align:right;
+    height:50px;
+}
+
+.encabezadou{
+    border:1px solid black;
+    vertical-align:middle;
+    height:50px;
+}
+
+.encabezado td{
+    border:1px solid black;
+    vertical-align:middle;
+    text-align:center;
+    height:50px;
+}
+
+.numerico{
+    text-align:right;
+}
+
+.rojo{
+    background-color:red;
+}
+
+.niv_gen{
+    font-weight:bold;
+    border-top:2px solid black;
+}
+
+.niv_pad{
+    font-weight:bold;
+}
+
+.niv_gen td{
+    padding-top:16px;
+    padding-bottom:12px;
+}
+
+.centrado{
+    text-align:center;
+}
+
+.centradob{
+    border:1px solid black;
+    text-align:center;
+}
+
+.izquierda{
+    border:1px solid black;
+    text-align:left;
+}
+
+.derecha{
+     border:1px solid black;
+     text-align:right;
+}
+
+.nowrap{
+    white-space:nowrap;
+}
+
+.cuadro_encabezado p{
+    margin:0px;
+    background-color:white;
+}
+
+.cuadro_pie p{
+    margin:0px;
+    font-size:80%;
+    background-color:white;
+}
+
+.cuadro_pie1 p{
+    margin:0px;
+    font-size:80%;
+    background-color:white;
+    font-style: italic;
+}
+
+.cuadro_piehogar p{
+    margin:0px;
+    font-size:80%;
+    background-color:white;
+    font-style: italic;
+}

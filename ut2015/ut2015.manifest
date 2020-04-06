@@ -1,0 +1,92 @@
+CACHE MANIFEST
+# v 2.43 !
+# Cosas a cachear !!!
+
+../ut2015/ut2015_icon.png
+../ut2015/ut2015_icon_capa.png
+../ut2015/ut2015_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../ut2015/ut2015.css
+../ut2015/dbo_ut2015.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../ut2015/estructura_ut2015.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../ut2015/logo_app.png
+../ut2015/logo_esperar.png
+../ut2015/ut2015_fondo_t.png
+../ut2015/ut2015_icon.gif
+../ut2015/ut2015_icon_test.gif
+../ut2015/ut2015_icon_desa.gif
+../ut2015/ut2015_icon_capa.gif
+../ut2015/ut2015.php?hacer=hoja_de_ruta
+../ut2015/ut2015.php?hacer=hoja_de_ruta_super
+../ut2015/ut2015.php?hacer=formularios_de_la_vivienda
+../ut2015/ut2015.php?hacer=desplegar_formulario&todo={"tra_ope":"ut2015","tra_for":"S1","tra_mat":""}
+../ut2015/ut2015.php?hacer=desplegar_formulario&todo={"tra_ope":"ut2015","tra_for":"S1","tra_mat":"P"}
+# ../ut2015/ut2015.php?hacer=desplegar_formulario&todo={"tra_ope":"ut2015","tra_for":"A1","tra_mat":""}
+../ut2015/ut2015.php?hacer=desplegar_formulario&todo={"tra_ope":"ut2015","tra_for":"I1","tra_mat":""}
+#../ut2015/ut2015.php?hacer=desplegar_formulario&todo={"tra_ope":"ut2015","tra_for":"SUP","tra_mat":""} #descomentar para la supervision
+#../ut2015/ut2015.php?hacer=desplegar_formulario&todo={"tra_ope":"ut2015","tra_for":"SUP","tra_mat":"P"} #descomentar para la supervision
+../node/grilla-ut/grilla-ut.html?todo={"tra_ope":"ut2015","tra_for":"I1","tra_mat":""}
+../node/grilla-ut/best-globals.js
+../node/grilla-ut/js-to-html.js
+../node/grilla-ut/tedede.js
+../node/grilla-ut/grilla-ut.js
+../node/grilla-ut/grilla-ut.css
+../node/grilla-ut/img/act_1.png
+../node/grilla-ut/img/act_21.png
+../node/grilla-ut/img/act_22.png
+../node/grilla-ut/img/act_31.png
+../node/grilla-ut/img/act_32.png
+../node/grilla-ut/img/act_33.png
+../node/grilla-ut/img/act_34.png
+../node/grilla-ut/img/act_35.png
+../node/grilla-ut/img/act_36.png
+../node/grilla-ut/img/act_37.png
+../node/grilla-ut/img/act_411.png
+../node/grilla-ut/img/act_412.png
+../node/grilla-ut/img/act_413.png
+../node/grilla-ut/img/act_414.png
+../node/grilla-ut/img/act_421.png
+../node/grilla-ut/img/act_422.png
+../node/grilla-ut/img/act_423.png
+../node/grilla-ut/img/act_431.png
+../node/grilla-ut/img/act_432.png
+../node/grilla-ut/img/act_433.png
+../node/grilla-ut/img/act_51.png
+../node/grilla-ut/img/act_52.png
+../node/grilla-ut/img/act_61.png
+../node/grilla-ut/img/act_62.png
+../node/grilla-ut/img/act_71.png
+../node/grilla-ut/img/act_72.png
+../node/grilla-ut/img/act_73.png
+../node/grilla-ut/img/act_74.png
+../node/grilla-ut/img/act_81.png
+../node/grilla-ut/img/act_82.png
+../node/grilla-ut/img/act_84.png
+../node/grilla-ut/img/act_911.png
+../node/grilla-ut/img/act_912.png
+../node/grilla-ut/img/act_921.png
+../node/grilla-ut/img/act_922.png
+../node/grilla-ut/0a24horas.png
+../node/grilla-ut/mini_Error.png
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+seleccion_miembro.js
+#seleccion_miembro_sup.js  #descomentar para la supervision
+
+FALLBACK:
+../ut2015/ut2015.php?hacer=cargar_dispositivo  ../ut2015/ut2015.php?hacer=aviso_offline

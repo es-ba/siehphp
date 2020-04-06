@@ -1,0 +1,1 @@
+<?php//UTF-8:SÍheader('Location: sechi2016.php');?>

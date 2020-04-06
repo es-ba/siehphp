@@ -1,0 +1,45 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!
+
+../sechi2016/sechi2016_icon.png
+../sechi2016/sechi2016_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../sechi2016/sechi2016.css
+../sechi2016/dbo_sechi2016.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../sechi2016/estructura_sechi2016.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../sechi2016/logo_app.png
+../sechi2016/logo_esperar.png
+../sechi2016/sechi2016_fondo_t.png
+../sechi2016/sechi2016_icon.gif
+../sechi2016/sechi2016_icon_test.gif
+../sechi2016/sechi2016_icon_desa.gif
+../sechi2016/sechi2016_icon_capa.gif
+../sechi2016/sechi2016.php?hacer=hoja_de_ruta
+../sechi2016/sechi2016.php?hacer=hoja_de_ruta_super
+../sechi2016/sechi2016.php?hacer=formularios_de_la_vivienda
+../sechi2016/sechi2016.php?hacer=desplegar_formulario&todo={"tra_ope":"sechi2016","tra_for":"S1","tra_mat":""}
+../sechi2016/sechi2016.php?hacer=desplegar_formulario&todo={"tra_ope":"sechi2016","tra_for":"S1","tra_mat":"P"}
+../sechi2016/sechi2016.php?hacer=desplegar_formulario&todo={"tra_ope":"sechi2016","tra_for":"A1","tra_mat":""}
+../sechi2016/sechi2016.php?hacer=desplegar_formulario&todo={"tra_ope":"sechi2016","tra_for":"I1","tra_mat":""}
+../sechi2016/sechi2016.php?hacer=desplegar_formulario&todo={"tra_ope":"sechi2016","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../sechi2016/sechi2016.php?hacer=cargar_dispositivo  ../sechi2016/sechi2016.php?hacer=aviso_offline

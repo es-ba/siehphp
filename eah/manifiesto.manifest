@@ -1,0 +1,34 @@
+CACHE MANIFEST
+# V2.63
+# Cosas a cachear
+
+imagenes/cargando.gif
+imagenes/cross_icon.png
+imagenes/eah_icon.gif
+imagenes/Logo_DGEyC.png
+imagenes/logo_prototipo.png
+imagenes/logo_prototipo_t.png
+imagenes/mini_confirmado.png
+imagenes/mini_Error.png
+imagenes/mini_loading.gif
+imagenes/tick_icon.png
+imagenes/tilde.png
+imagenes/tilde64.png
+
+gen/estructura_yeah.js
+comunes.js
+editor.js
+encuesta.js
+yeah.css
+menu_ipad.php
+formulario.php?usar=S1&matriz=
+formulario.php?usar=S1&matriz=P
+formulario.php?usar=A1&matriz=
+formulario.php?usar=A1&matriz=X
+formulario.php?usar=I1&matriz=
+formulario.php?usar=I1&matriz=U
+formulario.php?usar=MD&matriz=
+
+FALLBACK:
+admin_ipad.php menu_ipad.php
+index.php menu_ipad.php

@@ -1,0 +1,1 @@
+<?php//UTF-8:SÍheader('Location: colon2015.php');?>

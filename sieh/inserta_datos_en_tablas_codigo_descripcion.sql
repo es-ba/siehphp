@@ -1,0 +1,22 @@
+set search_path = rrhh, public;
+
+insert into cod_area_estud      select * from "COD_AREA_ESTUD";
+insert into cod_entr_entrvdor   select * from "COD_ENTR_ENTRVDOR";
+insert into cod_entr_perfil     select * from "COD_ENTR_PERFIL";
+insert into cod_estad_selecc    select * from "COD_ESTAD_SELECC";
+insert into cod_exp             select * from "COD_EXP";
+insert into cod_exp1            select * from "COD_EXP1";
+insert into cod_niv_est         select * from "COD_NIV_EST";
+insert into cod_op_ev_anual     select * from "COD_OP_EV_ANUAL";
+insert into cod_op_ev_puest_rec select * from "COD_OP_EV_PUEST_REC";
+insert into cod_op_nov          select * from "COD_OP_NOV";
+insert into cod_op_resp_llam    select * from "COD_OP_RESP_LLAM";
+insert into cod_op_tip_enc      select * from "COD_OP_TIP_ENC";
+insert into cod_or_sec          select * from "COD_OR_SEC";
+insert into cod_puestos         select * from "COD_PUESTOS";
+insert into cod_resul_entrev    select * from "COD_RESUL_ENTREV";
+insert into cod_resul_llam      select * from "COD_RESUL_LLAM";
+insert into cod_tipo_contr      select * from "COD_TIPO_CONTR";
+insert into cod_tipo_operativo  select * from "COD_TIPO_OPERATIVO";
+insert into cod_ubic_dgeyc      select * from "COD_UBIC_DGEyC";
+insert into cod_ult_situacion   select * from "COD_ULT_SITUACION";

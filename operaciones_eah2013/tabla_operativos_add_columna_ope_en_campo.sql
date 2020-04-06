@@ -1,0 +1,1 @@
+alter table encu.operativos add column ope_en_campo boolean DEFAULT false;

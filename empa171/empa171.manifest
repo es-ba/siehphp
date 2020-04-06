@@ -1,0 +1,46 @@
+CACHE MANIFEST
+# V 2.38
+# Cosas a cachear !!!
+
+../empa171/empa171_icon.png
+../empa171/empa171_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../empa171/empa171.css
+../empa171/dbo_empa171.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../empa171/estructura_empa171.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../empa171/logo_app.png
+../empa171/logo_esperar.png
+../empa171/empa171_fondo_t.png
+../empa171/empa171_icon.gif
+../empa171/empa171_icon_test.gif
+../empa171/empa171_icon_desa.gif
+../empa171/empa171_icon_capa.gif
+../empa171/empa171.php?hacer=hoja_de_ruta
+../empa171/empa171.php?hacer=hoja_de_ruta_super
+../empa171/empa171.php?hacer=formularios_de_la_vivienda
+../empa171/empa171.php?hacer=desplegar_formulario&todo={"tra_ope":"empa171","tra_for":"S1","tra_mat":""}
+../empa171/empa171.php?hacer=desplegar_formulario&todo={"tra_ope":"empa171","tra_for":"S1","tra_mat":"P"}
+../empa171/empa171.php?hacer=desplegar_formulario&todo={"tra_ope":"empa171","tra_for":"A1","tra_mat":""}
+../empa171/empa171.php?hacer=desplegar_formulario&todo={"tra_ope":"empa171","tra_for":"I1","tra_mat":""}
+../empa171/empa171.php?hacer=desplegar_formulario&todo={"tra_ope":"empa171","tra_for":"GH","tra_mat":""}
+../empa171/empa171.php?hacer=desplegar_formulario&todo={"tra_ope":"empa171","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../empa171/empa171.php?hacer=cargar_dispositivo  ../empa171/empa171.php?hacer=aviso_offline

@@ -1,0 +1,46 @@
+[ 
+	{ enc:'EAH2011'
+	, prefija_for_nombre_variable: false
+	, formularios:
+		[
+			{ for: 'I1'
+			, nombre: 'Individual'
+			, preguntas:
+				[
+					{ pre:'T1'
+					, texto:'¿La semana pasada trabajó?'
+					, tipo:'simple'
+					, tipovar:'opciones'
+					, opciones:
+						[
+							{ opc:'1'
+							, texto:'Sí'
+							, salta_pre:'T7'
+							}
+						,
+							{ opc:'2'
+							, texto:'No'
+							}
+						]
+					}
+				,
+					{ pre:'T2'
+					, texto:'En esta semana hizo alguna changa...?'
+					, tipo:'simple'
+					, tipovar:'opciones'
+					}
+				]
+			}
+		,
+			{ for: 'A1'
+			, nombre: 'Vivienda'
+			....
+			}
+		]
+	}
+, 
+	{ enc:'NUTRICION'
+	, prefija_for_nombre_variable: true
+	...
+	}
+[

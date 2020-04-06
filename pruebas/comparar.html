@@ -1,0 +1,23 @@
+<h1>probando comparaciones</h1>
+<textarea id=que_ver>
+0==0
+"0"==0
+!!"0"
+!!0
+"0"!=0
+0==false
+0==true
+"0"==false
+(!"0")==false
+(!!"0")==false
+"0"==true
+</textarea>
+<script>
+var txt_frases=que_ver.value;
+frases=txt_frases.split('\n');
+frases.map(function(frase){
+    var renglon=document.createElement('div');
+    document.body.appendChild(renglon);
+    renglon.textContent=frase+' : '+eval(frase);
+});
+</script>

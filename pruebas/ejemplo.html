@@ -1,0 +1,85 @@
+<html>
+<h1>Java Script</h1>
+<textarea id=editando cols=80 rows=4 style='font-family:courier new; font-size:100%'>
+</textarea>
+<br>
+<button onclick='Probar()'>Probar</button>
+<script>
+///////////////
+var innerTextModificable=document.createElement("div").textContent!==undefined;
+if(!innerTextModificable){
+    if('Element' in window){
+        Object.defineProperty(Element.prototype, "innerText", {
+            get: function() {return this.textContent; },
+            set: function(y) { this.textContent=y; }
+        });
+    }
+}
+
+//////////////
+var t=document.createElement('br');
+document.body.appendChild(t); 
+//////////////
+var t=document.createElement('textarea');
+t.id='salida';
+t.rows=10;
+t.cols=100;
+t.style.fontFamily='courier new';
+document.body.appendChild(t); 
+
+var div_ejecutables=document.createElement('div');
+div_ejecutables.id='ejecutables';
+document.body.appendChild(div_ejecutables); 
+
+//////////////
+//////////////
+var ele_editando=document.getElementById('editando');
+ele_editando.onkeydown=function(evento){
+  if(evento.which==115 || evento.which==116){ // F4 y F5
+    window.Probar();
+    event.preventDefault();
+  }
+}
+//////////////
+var t=document.createElement('br');
+document.body.appendChild(t); 
+//////////////
+function Probar(){
+  var codigo=document.getElementById('editando').value;
+  var ele_salida=document.getElementById('salida');
+  window.corrida=(window.corrida||1)+1;
+  AgregarEjecutable(codigo,window.corrida);
+  try{
+    ele_salida.value+=corrida+': '+eval(codigo)+'\n';
+  }catch(e){
+    ele_salida.value+=corrida+' ERROR : '+(typeof(e)=='object'?e.message||e.error:e)+'\n';
+  }
+}
+
+function AgregarEjecutable(sentencia,corrida){
+    var div3=document.createElement('div');
+    if(corrida){
+        var numero=document.createElement('pre');
+        numero.textContent=corrida;
+        numero.style.fontStyle='italic';
+        numero.style.float='left';
+        div3.appendChild(numero); 
+    }
+    var renglon=document.createElement('pre');
+    renglon.textContent=sentencia;
+    renglon.onclick=function(){
+        editando.value=this.textContent;
+    }
+    div3.appendChild(renglon); 
+    ejecutables.appendChild(div3); 
+}
+
+
+AgregarEjecutable("localStorage.getItem('hoja_de_ruta')");
+AgregarEjecutable("localStorage.getItem('estado_carga')");
+AgregarEjecutable("localStorage.setItem('estado_carga','cargado')");
+AgregarEjecutable("localStorage.setItem('estado_carga','descargado')");
+AgregarEjecutable("localStorage clear();");
+//////////////
+</script>
+</html>

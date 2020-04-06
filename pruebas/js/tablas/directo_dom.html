@@ -1,0 +1,39 @@
+<head>
+<link href="tablas.css" rel="stylesheet">
+</head>
+<body>
+<h1>Prueba de tablas version directo DOM</h1>
+<script src='datos.js'></script>
+<script>
+function reloj(){
+    return 0;
+}
+
+function render_tabla(tabla){
+    var table=document.createElement('table');
+    table.className='tabla1'; // conecto con CSS
+    for(var iFila=0; iFila<tabla.length; iFila++){
+        var fila=tabla[iFila];
+        var tr=table.insertRow(-1);
+        for(var iCol=0; iCol<fila.length; iCol++){
+            var celda=fila[iCol];
+            var td=tr.insertCell(-1);
+            td.textContent=celda;
+            td.contentEditable=true;
+        }
+    }
+    document.body.appendChild(table);
+}
+
+window.addEventListener('load',function(){
+    var empece=reloj();
+    render_tabla(datos_tabla);
+    setTimeout(function(){
+        var termine=reloj();
+        var p=document.createElement('p');
+        p.textContent='tarde '+(termine-empece);
+        document.body.appendChild(p);
+    },1);
+});
+</script>
+</body>

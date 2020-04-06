@@ -1,0 +1,2 @@
+INSERT INTO formularios (for_ope, for_for, for_nombre, for_es_principal, for_orden, for_tlg) 
+select dbo.ope_actual(), for_for, for_nombre, for_es_principal, for_orden, /*CAMPOS_AUDITORIA*/ from encu_anterior.formularios;

@@ -1,0 +1,593 @@
+@page {width: 100%; text-align:center;margin-top: 0.2in;margin-bottom: 0.05in;}
+body{
+    font-size:24px;
+}
+
+td{
+    /* maquetado * border:1px dashed green; */
+    vertical-align:top;
+}
+
+.div_prinicipal{
+    width:768px;
+}
+
+.div_mayus{
+    visibility:hidden;
+    color:red;
+    width:80px;
+    height:30px;
+}
+
+
+.tabla_preguntas_horizontales td{
+    /* maquetado * border:1px dashed red; */
+}
+
+.app_titulo{
+    margin:10px;
+    padding:6px;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    font:200% blue;
+    font-family:arial;
+    top-margin:2px;
+/* según:
+http://www.colorzilla.com/gradient-editor/ 
+otro que se puede usar:
+http://gradients.glrzad.com/
+*/     
+background: #fceabb; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #fceabb 0%, #fccd4d 50%, #f8b500 59%, #fbdf93 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fceabb), color-stop(50%,#fccd4d), color-stop(59%,#f8b500), color-stop(100%,#fbdf93)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* IE10+ */
+background: linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.desp_ope{
+    border-color:green;
+/*    background:#E94CBC; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.desp_for{
+    border-color:red;
+/*    background:#CEEFBC; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.desp_todo{
+    border-width:2px;
+    border-style:solid;
+    padding:4px;
+    margin-top:3px;
+}
+
+.desp_encabezado{
+    border-width:1px;
+    border-style:solid;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    padding-left:4px;
+}
+
+.desp_celda{
+    margin:10px;
+}
+
+.encabezado_bloque{
+    border:2px solid black;
+}
+
+.blo_blo{
+    font-weight:bold;
+    display:inline;
+}
+
+.blo_texto{
+    display:inline;
+}
+
+.blo_aclaracion{
+    font-size:82%;
+    font-style:italic;
+    display:inline;
+}
+
+.tabla_contenido_formulario{
+    border:2px solid black;
+    width:760px;
+}
+
+.pre_pre{
+    display:inline;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.opc_var{
+    font-weight:bold;
+}
+
+.pre_texto{
+    display:inline;
+}
+
+.var_var{
+    display:none;
+    margin-right:10px;
+    /* margin-left:10px; */
+}
+
+.var_texto{
+    display:inline;
+}
+
+.encabezado_pregunta{
+    col-span:3;
+    border-top:1px solid black;
+}
+
+
+td {
+vertical-align: top;
+text-align: left;
+}
+.hori_pre_pre {
+font-family: Arial;
+font-size: 60%; 
+}
+
+.hori_pre_texto {
+font-family: Arial;
+font-size: 70%;
+}
+
+
+.sin_dato{
+    background-color:silver; height:6px; font-size:60%; font-weight:bold;
+}
+
+.celda_input{
+    vertical-align:top;
+}
+.input_combo{width:210px}
+.input_opciones {width:50px}
+.input_marcar{width:50px}
+.input_anio{width:70px}
+.input_anios{width:50px}
+.input_edad{width:50px}
+.input_fecha{width:120px}
+.input_fecha_corta{width:120px}
+.input_horas{width:50px}
+.input_info_numero{width:50px}
+.input_numeros{width:50px}
+.input_opciones{width:40px}
+.input_si_no{width:40px}
+.input_solo12no_tiene{width:40px}
+.input_texto{width:180px; resize:none}
+.input_texto_especificar{width:180px; resize:none}
+.input_texto_libre{width:370px; resize:none}
+.input_marcar_nulidad{width:30px}
+.input_meses{width:50px}
+.input_monetaria{width:100px; float:right}
+.input_si_no_nosabe3{width:40px}
+.input_observaciones{width:350px}
+
+.opc_ok{background-color:lightGreen;}
+.opc_sosa{background-color:red;}
+.opc_inex{background-color:orange;}
+.opc_salt{background-color:gray;}
+.opc_blanco{background-color:White;}
+.opc_tono{background-color:LightGrey;}
+.opc_adel{background-color:Gold;}
+.opc_omit{background-color:Pink;}
+.opc_homi{background-color:SandyBrown;}
+.opc_rana{background-color:Yellow;}
+.opc_rano{background-color:Peru;}
+.opc_tipo{background-color:Chocolate;}
+.opc_nsnc{background-color:Aquamarine;}
+.opc_sinesp{background-color:Violet;}
+.opc_inconsistente{background-color:Yellow;}
+.pro_detec{background-color:red;}
+.achiar_letra{
+    font-size:75%;
+}
+
+.elemento_angosto{
+    width:75px;
+}
+
+.celda_matriz_formulario{
+    min-width:25px;
+}
+
+.celda_matriz_formulario[id=var_nombre]{
+    width:120px;
+}
+
+.renglon_variable td{
+    border-top:1px dashed grey;
+}
+
+.renglon_opciones td{
+    border-top:0px none transparent;
+}
+
+.encabezado_variable{
+    width:350px;
+}
+
+.td_input_multiple{
+    text-align:right;
+}
+
+.opcion_codigo_deshabilitar{
+    background-color:black;
+}
+
+.opcion_codigo{
+    padding-right:5px;
+}
+
+.div_mensaje_alerta{
+    border:2px FireBrick solid;
+    background-color:Gold;
+    font-weight:bold;
+    font-size:80%;
+}
+
+.matriz_horizontal {
+    border: 1px green solid;
+    border-collapse: collapse;
+    font-size: 75%;
+}
+
+.matriz_horizontal td {
+border: 1px green solid;
+border-collapse: collapse;
+}
+
+.tabla_remito_enc{border:1px solid black; border-collapse: collapse; width:890px; font-size:80%}
+.tabla_remito_fila{page-break-inside:avoid;page-break-after:avoid}
+.tabla_remito_enc td{border:1px solid black; border-collapse: collapse; min-width:120px; text-align:center;}
+.tabla_remito{width:890px;font-size:17px}
+.tabla_remito tr{width:890px;font-size:17px}
+.tabla_remito th{border:1px solid black; font-size:80%}
+.tabla_remito_td{border-top:1px solid black; min-width:25px; padding-left:2px;padding-bottom:0px; padding-top:0px;}
+.tabla_remito_obs_ant{page-break-inside:avoid}
+.tabla_remito_obs_ant td{font-size:70%}
+.tabla_remito_cnombre15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
+.tabla_remito_barrio15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
+.tabla_remito_ident_edif15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
+.tabla_remito_obs15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
+@media print{
+    .app_titulo{display:none;}
+    .no_imprimir{display:none;}
+    .editor_tabla{border:1px solid black;border-collapse: collapse;}
+    .editor_tabla td{border:1px solid black; background-color:Khaki; font-family:arial;font-size:80%; max-width:300px}
+    .div_proceso_formulario_usuario_ip{display:none;}
+}
+.tabla_remito_totales{border-bottom:1px solid black; border-top:2px solid black}
+/* .tabla_remito_totales{border-bottom:1px solid black; border-top:2px solid black} */
+.pre_aclaracion{font-size:82%; font-style:italic}
+.opcion_aclaracion{font-size:82%; font-style:italic}
+.var_aclaracion{font-size:82%; font-style:italic}
+td.boton_abrir_formulario{
+    white-space:nowrap;
+}
+
+.mensaje_error{
+    font-weight:bold; color:red;
+}
+
+.mensaje_error_grave{
+    font-weight:bold; 
+    color:brown;
+    border:2px dashed black;
+    background:orange;
+}
+
+.div_app_menu_1{
+}
+
+.app_menu_1{
+    display:inline-block;
+    border:2px solid brown;
+    border-radius: 3px;
+    padding-left:2px;
+    padding-right:2px;
+    vertical-align:top;
+}
+
+.div_app_menu_1_in{
+    display:inline-block;
+}
+
+.app_menu_2{
+    display:inline-block;
+    vertical-align:top;
+}
+
+.div_app_menu_2{
+    border-top:1px dotted brown;
+}
+
+.div_app_menu_2_in{
+    display:inline-block;
+}
+
+.div_app_menu_2{
+}
+
+.div_app_menu{
+}
+
+.info_expandible{
+    color:gray;
+}
+
+.opcion_salto{
+    font-size:80%; 
+    white-space:nowrap;
+    padding-top:6px;
+}
+
+.opcion_salto_grande{
+    font-size:100%; 
+    white-space:nowrap;
+    padding-top:6px;
+}
+
+.logo_principal{
+    border-radius: 10px;
+}
+
+.consistencias_a_revisar{
+    background-color:#DDD;
+}
+
+.inconsistencia{background-color:yellow; font-family:arial; font-size:80%}
+.advertencia{   background-color:yellow; font-family:arial; font-size:80%}
+.consistencia_ayu{background-color:yellow; font-family:arial; font-size:70%}
+.inconsistencia:before{content:"Error: ";    font-weight:bold; text-decoration:underline; color:Red }
+.advertencia:before{content:"Advertencia: "; font-weight:bold; }
+
+.id_opcion{
+    font-size:70%; font-family:arial; border:1px solid gray; vertical-align:10%;
+}
+
+textarea{ 
+    font-size:90%;
+    border:1px solid gray;
+    font-family:arial;
+    padding:1px;
+} 
+
+input[type="text"]{ 
+    font-size:90%;
+    border:1px solid gray;
+    padding:1px;
+} 
+
+input[type="number"]{ 
+    font-size:90%;
+    border:1px solid gray;
+    padding:1px;
+} 
+
+input[type="tel"]{ 
+    font-size:90%;
+    border:1px solid gray;
+    padding:1px;
+} 
+
+input[type="password"]{ 
+    font-size:80%;
+    border:1px solid gray;
+    padding:1px;
+} 
+
+input[type="button"]{ 
+    font-size:80%;
+    border: 2px outset buttonface;
+    border-radius:6px;
+} 
+
+input[type="button"]:active{ 
+    font-size:80%;
+    border: 2px inset buttonface;
+    border-radius:6px;
+} 
+
+input:not([type]){ 
+    font-size:80%;
+    border:1px solid gray;
+    padding:1px;
+} 
+
+.valor_empty_string{
+    background-image:url(../imagenes/vacio_str.png);
+    background-repeat:no-repeat;
+    background-size:14px;
+}
+
+.datos_seguimiento{
+    font-size:80%;
+    font-family:arial;
+    color:gray;
+    /* font-style:italic; */
+    font-weight:bold;
+    display:block;
+}
+
+.mostrar_opciones_boton{
+    vertical-align:bottom;
+    position:relative; 
+    left:-8px; 
+    margin-right:0px;
+}
+
+.mostrar_opciones_lista{
+    min-width:80%;
+    display:none;
+    font-size:75%;
+    border:1px solid gray;
+    border-collapse: collapse;
+}
+
+.mostrar_opciones_lista td{
+    background-color:#EEE;
+    font-family:arial;
+    font-size:75%;
+    border:1px solid gray;
+    border-collapse: collapse;
+}
+
+#estado_ud_completo_ok {
+    background-color:green;
+}
+#estado_ud_vacio {
+    background-color:blue;
+}
+#estado_ud_incompleto {
+    background-color:red;
+}
+#estado_ud_completo_con_error{
+    background-color:yellow;
+}
+
+.derecha{
+    text-align:right;
+    padding-right:4px;
+}
+.izquierda{
+    text-align:left;
+    padding-left:4px;
+}
+.oculto{
+    visibility:hidden;
+}
+
+.instalando{
+    border-bottom:1px dashed violet;
+    display:inline;
+}
+
+.clave_blanqueada{
+    background-color:#FED;
+}
+
+.hdr_celda{
+    border:2px solid silver;
+    /* border-collapse:collapse; */
+    /* margin:0px; */
+}
+.hdr_celda_sin_borde{
+    border:2px solid silver;
+    border-collapse:collapse;
+    margin:0px; */
+}
+.hdr_titulo{
+    border:2px solid silver;
+    background-color:#EEF;
+    text-align:center;
+    font-family:arial;
+    font-size:80%;
+    /* border-collapse:collapse; */
+    /* margin:0px; */
+}
+.pie_titulo{
+    border:2px solid silver;
+    background-color:Khaki;
+    text-align:left;
+    font-family:arial;
+    font-size:80%;
+    border-collapse:collapse;
+    border:0px;
+    margin:0px; 
+}
+
+.hdr_tabla{
+    border-collapse: collapse;
+}
+.pie_tabla{
+    border-collapse: collapse;
+    border:0px;
+}
+
+#contolador_cuantas_instancias_aviso{
+    position:fixed;
+    top:0px;
+    left:0px;
+    font-size:80%;
+    border:2px dashed brown;
+    background-color:#FED;
+    max-width:700px;
+}
+
+#boton_backup{
+    float:right;
+}
+
+#resultado_backup{
+    border:1px solid violet;
+    min-height:60px;
+    font-size:60%;
+    font-family:sans serif, courier new;
+}
+
+.debug_inline{
+    background-color:#DCB;
+    font-size:80%;
+    color:#123;
+}
+
+.codigo{
+    font-family:courier new;
+}
+
+.div_proceso_formulario_titulo{
+    font-family:arial;
+    border:1px solid gray;
+    border-radius: 4px;
+    text-align:center;
+}
+
+.div_proceso_formulario_usuario_ip{
+    font-family:arial;
+    font-size:70%;
+    border:1px solid gray;
+    border-radius: 4px;
+    margin-right:0;
+    padding-right:0;
+    position:fixed;
+    background-color:white;
+    right:0px;
+    top:0px;
+}
+
+.opcion_texto{
+	margin-right:15px;
+}
+
+#boton_A1__{
+    font-size:14px;
+}
+
+#encabezado_pagina{
+    width:768px;
+}
+
+.columna_estado{
+    background-color:#FEA;
+}

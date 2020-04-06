@@ -1,0 +1,42 @@
+CACHE MANIFEST
+# V 2.07
+# Cosas a cachear !!!
+
+../lamp2015pp/lamp2015pp_icon.png
+../lamp2015pp/lamp2015pp_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/encu_especiales.js
+../lamp2015pp/lamp2015pp.css
+../lamp2015pp/dbo_lamp2015pp.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../lamp2015pp/estructura_lamp2015pp.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../lamp2015pp/logo_app.png
+../lamp2015pp/logo_esperar.png
+../lamp2015pp/lamp2015pp_fondo_t.png
+../lamp2015pp/lamp2015pp_icon.gif
+../lamp2015pp/lamp2015pp_icon_test.gif
+../lamp2015pp/lamp2015pp_icon_desa.gif
+../lamp2015pp/lamp2015pp_icon_capa.gif
+../lamp2015pp/lamp2015pp.php?hacer=hoja_de_ruta
+../lamp2015pp/lamp2015pp.php?hacer=hoja_de_ruta_super
+../lamp2015pp/lamp2015pp.php?hacer=formularios_de_la_vivienda
+../lamp2015pp/lamp2015pp.php?hacer=desplegar_formulario&todo={"tra_ope":"lamp2015pp","tra_for":"S1","tra_mat":""}
+../lamp2015pp/lamp2015pp.php?hacer=desplegar_formulario&todo={"tra_ope":"lamp2015pp","tra_for":"S1","tra_mat":"P"}
+../lamp2015pp/lamp2015pp.php?hacer=desplegar_formulario&todo={"tra_ope":"lamp2015pp","tra_for":"A1","tra_mat":""}
+../lamp2015pp/lamp2015pp.php?hacer=desplegar_formulario&todo={"tra_ope":"lamp2015pp","tra_for":"I1","tra_mat":""}
+../lamp2015pp/lamp2015pp.php?hacer=desplegar_formulario&todo={"tra_ope":"lamp2015pp","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../lamp2015pp/lamp2015pp.php?hacer=cargar_dispositivo  ../lamp2015pp/lamp2015pp.php?hacer=aviso_offline

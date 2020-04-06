@@ -1,0 +1,10 @@
+AddType text/cache-manifest .manifest
+AddType text/cache-manifest manifest
+
+# Solo para desarrollo:
+ExpiresActive On
+ExpiresDefault "access"
+
+
+RewriteEngine On
+RewriteRule   ^tabulado$               http://localhost:3003/tabulado     [L,P]

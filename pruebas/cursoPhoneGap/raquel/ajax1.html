@@ -1,0 +1,30 @@
+<DOCTYPE html>
+<html>
+   <head>
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> </script> 
+   <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+   <script>
+   $(document).ready(function() {
+       $("button").click(function(){
+         $.ajax({url:"http://localhost/yeah/pruebas/cursoPhoneGap/Graciela/ajax4.html",
+         async: false,
+         success: function(result){
+          $("div").html(result);
+          }});
+    });
+ 
+   });
+   </script> 
+   </head>
+   <body>
+   <div><h2>LEt AJAX change this text </h2> </div>
+   <button> Change Content </button>
+   </body>
+</html> 

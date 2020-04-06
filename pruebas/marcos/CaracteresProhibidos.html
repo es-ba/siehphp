@@ -1,0 +1,138 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    </head>
+    <body onload = "TEST_buscar_y_reemplazar_espacios_raros();">
+        
+        <div>
+            <a href="index.php"><img src='imagenes/logo_prototipo.png' ></a>
+        </div>
+        <div  style="overflow:auto;position:absolute;top:0px;left:0px;height:100%;width:100%;">
+                <input id= "input" type="text" value="" size="100" ></input>
+                 <input type="button" value="presione para probar la funcion verificarString()" onclick="prueba();"></input>
+                 
+        </div>
+        <div id= "desc_tabla" style="overflow:auto;position:absolute;top:20px;left:0px;height:100%;width:100%;"></div>
+    </body>
+    <script type="text/javascript">
+        function verificarString(string){
+            var caractProhibidos = ["+","-"];
+            for (i=0;i<caractProhibidos.length; i++){
+                while(string.indexOf(caractProhibidos[i]) != -1){
+                    string = string.replace(caractProhibidos[i],"");
+                }
+            }
+            return string;
+        }
+        function prueba(){
+            
+            
+            var input = document.getElementById("input");
+            
+            var caracteresProhibidos = {};
+            caracteresProhibidos.formula = /[^a-zA-Z0-9_\.,\*\(\)\+\$@!#:\spaceÁÉÍÓÚÜÑñáéíóúüçÇ¿¡<>=]+/;
+            caracteresProhibidos.castellano = /[^a-zA-Z0-9_\.,\*\(\)\+\$@!#:\spaceÁÉÍÓÚÜÑñáéíóúüçÇ¿¡]+/;
+            caracteresProhibidos.extendido = /[^a-zA-Z0-9_\.,\*\(\)\+\$@!#:\space]+/;
+            caracteresProhibidos.codigo = /\W+/;
+            
+            quitarCaracteres(input.value, caracteresProhibidos.codigo);
+        }
+        function TEST_buscar_y_reemplazar_espacios_raros(){
+        /*
+            esta es la version de lo de posgresql
+        //*/
+            var entrada;var esperado;
+             var entradas = ["algo" + String.fromCharCode(160) + "asi",
+                        "algo "+ String.fromCharCode(9) + String.fromCharCode(160) + "asi tambien",
+                        "algo" + String.fromCharCode(13) + String.fromCharCode(10) + "bueno",
+                        String.fromCharCode(10) + "nuevo caso"
+                        ];
+            
+            esperado = ["algo asi",
+                        "algo asi tambien",
+                        "algo bueno",
+                        " nuevo caso",
+                        ];
+            for(i = 0; i< entradas.length; i ++){
+                var resultado = buscar_y_reemplazar_espacios_raros(entradas[i]);
+                if ( resultado != esperado[i]){
+                    alert("entrada: (" + entradas[i] + ") es  != de esperado: (" + esperado[i] + ")");
+                    /*
+                    var j = 0;
+                    while(j < entradas[i].length){
+                        if(entrada[i].charCodeAt(j) != esperado.charCodeAt(j)){
+                            alert("entrada.charCodeAt("+j+") : " + entradas[i].charCodeAt(j) + " esperado.charCodeAt("+ j +"): " + esperado[i].charCodeAt(j));
+                        }
+                        j++;
+                    }
+                    //*/
+                }
+            }
+            
+        
+        }
+        function buscar_y_reemplazar_espacios_raros(string){
+            /*
+            var regex = new RegEx(String.fromCharCode(160) + "{2,}");
+            
+            var algo = String.fromCharCode(160);
+            alert(algo.charCodeAt(0));
+            alert("String.fromCharCode(160): "+String.fromCharCode(160));
+            //*/
+            // 9 - 10 - 13 - 160 
+            // es la reescritura de la func de postgres en js.
+            var i = 0; var cuantos = 0; var nuevaCadena = "";
+            var caracter;
+            while(i<= string.length){
+                string.charCodeAt(i); 
+                while(string.charCodeAt(i) != 9 && string.charCodeAt(i) != 10 && string.charCodeAt(i) != 13 && string.charCodeAt(i) != 160 && i<=string.length){
+                    nuevaCadena += string.charAt(i);
+                    i++;
+                }
+                
+                while(string.charCodeAt(i) == 9 || string.charCodeAt(i) == 10 || string.charCodeAt(i) == 13 || string.charCodeAt(i) == 160 && i<=string.length){
+                    cuantos ++;
+                    i++;
+                }
+                if(cuantos > 0){
+                    cuantos = 0;
+                    if (i <= string.length){
+                        if(string.charCodeAt(i) != 32){
+                            if (nuevaCadena.charCodeAt(nuevaCadena.length -1) != 32){
+                            nuevaCadena += String.fromCharCode(32);
+                            }
+                            
+                        }
+                    }else{
+                        if (nuevaCadena.charCodeAt(nuevaCadena.length -1) != 32){
+                            nuevaCadena += String.fromCharCode(32);
+                        }
+                    }
+                }
+            }
+            return nuevaCadena;
+            
+        }
+        
+        
+        function quitarCaracteres(string,regex){
+        var ER_formula = regex;
+            if (ER_formula.test(string) == true && string.length > 0){
+                var arrayErr = Array();
+                arrayErr = string.match(regex);
+                alert("los caracter/es: " + arrayErr + "no están permitidos! Cantidad: " + arrayErr.toString().length);
+                string = string.replace(ER_formula,"");
+            }
+            return string;
+        }
+        </script>
+    
+</html>

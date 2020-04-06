@@ -1,0 +1,6 @@
+﻿insert into encu.preguntas (pre_ope, pre_for, pre_mat, pre_blo, pre_pre, pre_texto, pre_orden, pre_tlg) values ('same2013','TEM','','','per','Código de persona',680,1);	insert into encu.variables (var_ope, var_for, var_mat, var_pre, var_var, var_tipovar, var_tlg) values ('same2013','TEM','','per','per', 'numeros',1);
+insert into encu.preguntas (pre_ope, pre_for, pre_mat, pre_blo, pre_pre, pre_texto, pre_orden, pre_tlg) values ('same2013','TEM','','','rol','Rol',690,1);	insert into encu.variables (var_ope, var_for, var_mat, var_pre, var_var, var_tipovar, var_tlg) values ('same2013','TEM','','rol','rol', 'texto',1);
+insert into encu.preguntas (pre_ope, pre_for, pre_mat, pre_blo, pre_pre, pre_texto, pre_orden, pre_tlg) values ('same2013','TEM','','','en_campo','Encuesta en campo',700,1);	insert into encu.variables (var_ope, var_for, var_mat, var_pre, var_var, var_tipovar, var_tlg) values ('same2013','TEM','','en_campo','en_campo', 'numeros',1);
+alter table encu.plana_tem_ add column pla_per integer;
+alter table encu.plana_tem_ add column pla_rol text;
+alter table encu.plana_tem_ add column pla_en_campo integer;

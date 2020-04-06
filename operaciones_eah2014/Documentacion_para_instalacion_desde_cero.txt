@@ -1,0 +1,25 @@
+A partir del siguiente backup:
+C:\desarrollos\yeah\trunk\fuentes\alserver\operaciones_eah2014\eah2014_sin_encu_para_instalar.backup
+- comun
+- dbo
+- de_ejemplo
+- operaciones
+Atención: el esquema encu NO se backapea ya que se crea con "?hacer=instalar&sin_login"
+
+#3173 Se suben la carpeta eah2014 con todos los archivos renombrados y un replace de 2013 por 2014 por dentro
+#3174 se Sube la carpeta operaciones_2014 con este archivo dentro mas el backup antes mencionado, y se copia todos los sql reemplazando 2013 por 2014
+
+Importante: el permiso de la base en produ es php_owner y en configuracion_local.php tedede_php.
+
+cuando se copia "insercion_tabla_tem.sql" toma datos de 2013, por lo tanto hay que reemplazar eah2012 por eah2013.
+acto seguido, se debe crear el esquema eah2013 y allí copiar un backup del encu de 2013.
+Revisar que esten todas las tablas del año anterior, sino crearlas o poneras para instalar, ya sea marcandolas como hijas de alguna que se instala o crea o en el php inicial suelta según corresponda.
+Fijarse que esten los datos inserttados o insertarlos (todos con tlg=1)
+
+Sobre la base en produccion correr: 
+{{{
+grant all on database eah2014_produc_db to tedede_php;
+
+}}}
+
+Si es necesario subir el timeout en producción.

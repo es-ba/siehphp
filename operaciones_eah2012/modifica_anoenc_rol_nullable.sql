@@ -1,0 +1,1 @@
+alter table encu.anoenc alter column anoenc_rol drop not null;

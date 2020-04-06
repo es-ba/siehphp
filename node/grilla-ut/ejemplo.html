@@ -1,0 +1,29 @@
+﻿<head>
+    <link rel="stylesheet" type="text/css" href="grilla-ut.css">
+</head>
+<body>
+<div id=div_destino_ut>
+</div>
+<script src="best-globals.js"></script>
+<script src="js-to-html.js"></script>
+<!-- <script src="detect-browser.js"></script> -->
+<script src="typed-controls.js"></script>
+<script src="grilla-ut.js"></script>
+<script>
+
+var grillaUt = new GrillaUt();
+
+grillaUt.cargar([
+    {desde:'00:00', hasta:'02:20', codigo:'302', detalle:'no está seguro'},
+    {desde:'02:20', hasta:'08:00', codigo:'413', detalle:''},
+    {desde:'08:20', hasta:'10:00', codigo:'911', detalle:''},
+    {desde:'10:00', hasta:'19:00', codigo:'52'  , detalle:''},
+    {desde:'13:00', hasta:'14:10', codigo:'421' , detalle:''},
+]);
+
+grillaUt.acomodar();
+
+grillaUt.desplegar('div_destino_ut');
+
+</script>
+</body>

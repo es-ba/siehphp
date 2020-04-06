@@ -1,0 +1,1 @@
+﻿delete from encu.personal where per_per not in (135,427, 144, 129,515, 514, 601);

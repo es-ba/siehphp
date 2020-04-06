@@ -1,0 +1,16 @@
+node_modules
+.git
+
+Tabla_plana_*.estructura.json
+estructura_*.js
+
+*.backup
+*.dump
+
+ruta_principal*
+*local.*
+local*
+*.dsn
+configuracion_local
+
+ajus/documentacion

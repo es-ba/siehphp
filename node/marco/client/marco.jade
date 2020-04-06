@@ -1,0 +1,6 @@
+h1 Marco
+mixin menu(nombre, url)
+  li
+    a(href="./"+(url||nombre))=nombre
++menu("prueba")
++menu("logout", "login")

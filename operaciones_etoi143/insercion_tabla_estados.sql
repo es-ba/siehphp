@@ -1,0 +1,2 @@
+﻿insert into encu.estados (est_ope,est_est, est_nombre, est_editar_encuesta, est_criterio, est_tlg) 
+select dbo.ope_actual(),est_est, est_nombre, est_editar_encuesta, est_criterio, /*CAMPOS_AUDITORIA*/ from encu_anterior.estados;

@@ -1,0 +1,163 @@
+﻿<?php
+$html="
+<body>
+    <table class=plasup_tabla>
+        <tr>
+            <td colspan=18></td> 
+        </tr>
+        <tr>
+            <td colspan=15 class=titulo>PLANILLA DE SUPERVISIÓN</td>
+            <td colspan=3>F-ARIP-34 Rev. 4</td>
+        </tr>
+        <tr>
+            <td colspan=2><img src=../imagenes/logo_sechi.png style='width:101px; height:58px'</td>
+            <td colspan=2>SUPERVISOR Nombre</td>
+            <td colspan=7 class='variable_existente'>{$per->per_apellido} {$per->per_nombre}</td>
+            <td colspan=1>Código</td>
+            <td colspan=1 class='variable_existente'>{$cod_sup}</td>
+            <td colspan=2>Fecha de entrega (dd/mm/aa)</td>
+            <td colspan=3 class='variable_existente'>{$fecha_carga_sup}</td>
+        </tr>
+        <tr class=fila_60>
+            <td>Comuna</td>
+            <td>UP</td>
+            <td>Lote</td>
+            <td>Encuesta</td>
+            <td>Hogar N°</td>
+            <td colspan=4>Calle</td>
+            <td>Nro.</td>
+            <td>Piso</td>
+            <td>Dpto.</td>
+            <td>Hab.</td>
+            <td>Ident. Edificio</td>
+            <td class='formato_reducido alinea_izq'>Dirigida 1<br>Aleatorio 2<br>Obligatoria 3</td>
+            <td class='formato_reducido alinea_izq'>Presencial 3<br>Telefónica 4</td>
+            <td>Cód</td>
+            <td>Rea</td>
+        </tr>
+        <tr class=fila_40>
+            <td class='variable_existente'>{$tem->pla_comuna}</td>
+            <td class='variable_existente'>{$tem->pla_up}</td>
+            <td class='variable_existente'>{$tem->pla_lote}</td>
+            <td class='variable_existente'>{$tem->pla_enc}</td>
+            <td class='variable_existente'>{$S1->pla_hog}</td>
+            <td colspan=4 class='variable_existente'>{$tem->pla_cnombre}</td>
+            <td class='variable_existente'>{$tem->pla_hn}</td>
+            <td class='variable_existente'>{$tem->pla_hp}</td>
+            <td class='variable_existente'>{$tem->pla_hd}</td>
+            <td class='variable_existente'>{$tem->pla_hab}</td>
+            <td class='variable_existente'>{$tem->pla_ident_edif}</td>
+            <td class='variable_existente'>{$dirigida_aleatoria}</td>
+            <td class='variable_existente'>{$presencial_telefonica}</td>
+            <td class='variable_existente'>{$cod_enc_o_recu}</td>
+            <td class='variable_existente'>{$rea_enc_o_recu}</td>
+        </tr>
+        <tr>
+            <td colspan=18 class=renglon_en_blanco><h1></td>
+        </tr>
+        <tr>
+            <td colspan=8>¿El domicilio visitado por el encuestador/recuperador es<br>el seleccionado en la muestra? 1 Sí  2 No</td>
+            <td colspan=2 class=ingresable></td>
+            <td colspan=7>¿La encuesta fue realizada en forma presencial? <br>1 Sí  2 No (ver nota al pie)</td>
+            <td class=ingresable></td>
+        </tr>
+        <tr class=fila_40>
+            <td colspan=2>No encuestables</td>
+            <td colspan=2>Código registrado</td>
+            <td colspan=1 class='variable_existente'>{$norea}</td>
+            <td colspan=3>Código de supervisión</td>
+            <td colspan=2 class=ingresable></td>
+            <td colspan=3>Identificación del informante</td>
+            <td colspan=5 class=ingresable></td>
+        </tr>
+        <tr>
+            <td colspan=18 class=titulo2>ENCUESTAS EFECTIVAS</td>
+        </tr>
+        <tr class=fila_40>
+            <td colspan=2>Respondientes</td>
+            <td colspan=2>Código<br>registrado (P0)</td>
+            <td colspan=1 class='variable_existente'>{$S1->pla_respond}</td>
+            <td colspan=2>Nombre registrado por el<br>encuestador/recuperador</td>
+            <td colspan=5 class='variable_existente'>{$nombre_respond}</td>
+            <td colspan=1>Edad<br>P3.b</td>
+            <td colspan=1  class='variable_existente'>{$S1_p->pla_edad}</td>
+            <td colspan=3>¿Es Ud. el que respondió la encuesta?<br>1-Sí&nbsp;&nbsp;&nbsp;2-No</td>
+            <td colspan=1 class=ingresable></td>
+        </tr>        
+        <tr>
+            <td colspan=7>Cantidad de hogares registrados en la vivienda</td>
+            <td colspan=11>Resultado de la entrevista de supervisión</td>
+        </tr>
+        <tr>
+            <td colspan=3 rowspan=2>Por el encuestador/<br>recuperador</td>
+            <td colspan=1 rowspan=2 class='variable_existente'>{$tem->pla_hog_tot}</td>
+            <td colspan=2 rowspan=2>Por el supervisor</td>
+            <td colspan=2 rowspan=2 class=ingresable></td>            
+            <td colspan=2 >Visita Nº</td>
+            <td colspan=3>Fecha (dd/mm/aa)</td>
+            <td colspan=1>Hora</td>
+            <td colspan=1>Completa</td>
+            <td colspan=1>Incompleta</td>
+            <td colspan=1>Ausencia</td>
+            <td colspan=1>Rechazo</td>
+        </tr>
+        <tr>
+            <td colspan=2 class='ingresable'><h1></td>
+            <td colspan=3 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+        </tr>
+        <tr>
+            <td colspan=8>Cantidad de miembros registrados en el hogar</td>
+            <td colspan=2 class='ingresable'></td>
+            <td colspan=3 class='ingresable'></td>
+            <td colspan=1 class='ingresable'></td>
+            <td colspan=1 class='ingresable'></td>
+            <td colspan=1 class='ingresable'></td>
+            <td colspan=1 class='ingresable'></td>
+            <td colspan=1 class='ingresable'></td>            
+        </tr>
+        <tr>
+            <td colspan=3 rowspan=2>Por el encuestador/<br>recuperador</td>
+            <td colspan=1 rowspan=2 class='variable_existente'>{$S1->pla_total_m}</td>
+            <td colspan=2 rowspan=2>Por el supervisor</td>
+            <td colspan=2 rowspan=2 class=ingresable></td>            
+            <td colspan=2 class='ingresable'><h1></td>
+            <td colspan=3 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+        </tr>
+        <tr>
+            <td colspan=2 class='ingresable'><h1></td>
+            <td colspan=3 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+            <td colspan=1 class='ingresable'><h1></td>
+        </tr>
+        <tr class=fila_60>
+            <td colspan=3>Observaciones</td>                        
+            <td colspan=15 class=obs><h1></td>                        
+        </tr>
+        <tr class=fila_60>
+            <td colspan=3>Visitas</td>                        
+            <td colspan=15 class=visitas>$datos_visitas</td>                        
+        </tr>
+        <tr>        
+            <td colspan=18 class=nota_pie>
+                Nota: si detecta que la encuesta no fue realizada en forma presencial avise a su subcoordinador.
+            </td>            
+        </tr>        
+    </table>
+    <H1 class=SaltoDePagina> </H1>    
+</body>
+</html>
+";
+?>

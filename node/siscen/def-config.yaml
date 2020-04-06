@@ -1,0 +1,29 @@
+server:
+  port: 3049
+  base-url: /siscen
+db:
+  motor: postgresql
+  host: localhost
+  database: siscen_db
+  schema: siscen
+  user: siscen_php
+  password: la_clave
+login:
+  table: usuarios
+  userFieldName: usu_usu
+  passFieldName: usu_clave
+  infoFieldList: [usu_usu, usu_rol, usu_nombre]
+  activeClausule: usu_activo
+  messages:
+    userOrPassFail: el nombre de usuario no existe o la clave no corresponde
+    lockedFail: el usuario se encuentra bloqueado
+    inactiveFail: es usuario está marcado como inactivo
+  plus:
+    loginForm:
+      formTitle: entrada
+      usernameLabel: Usuario
+      passwordLabel: Clave
+      buttonLabel: Entrar
+    successRedirect: /menu
+    fileStore: true
+    secret: asdfk3k3ah3393x

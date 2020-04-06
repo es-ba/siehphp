@@ -1,0 +1,12 @@
+.caja-fija{
+    position:absolute;
+    border-bottom:1px solid gray;
+    border-right:1px solid gray;
+    overflow:hidden;
+    font-weight:bold;
+    font-family:arial;
+    padding:2px;
+    margin:0px;
+    box-sizing:border-box;
+    text-align:center;
+}

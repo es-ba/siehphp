@@ -1,0 +1,36 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear
+
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/encu_especiales.js
+../ebcp2014/ebcp2014.css
+../ebcp2014/dbo_ebcp.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../ebcp2014/estructura_ebcp2014.js
+../tercera/md5_paj.js
+../ebcp2014/logo_app.png
+../ebcp2014/logo_esperar.png
+../ebcp2014/ebcp_icon.gif
+../ebcp2014/ebcp_icon_test.gif
+../ebcp2014/ebcp_icon_desa.gif
+../ebcp2014/ebcp2014.php?hacer=hoja_de_ruta
+../ebcp2014/ebcp2014.php?hacer=formularios_de_la_vivienda
+../ebcp2014/ebcp2014.php?hacer=desplegar_formulario&todo={"tra_ope":"ebcp2014","tra_for":"S1","tra_mat":""}
+../ebcp2014/ebcp2014.php?hacer=desplegar_formulario&todo={"tra_ope":"ebcp2014","tra_for":"S1","tra_mat":"P"}
+../ebcp2014/ebcp2014.php?hacer=desplegar_formulario&todo={"tra_ope":"ebcp2014","tra_for":"A1","tra_mat":""}
+../ebcp2014/ebcp2014.php?hacer=desplegar_formulario&todo={"tra_ope":"ebcp2014","tra_for":"A1","tra_mat":"X"}
+../ebcp2014/ebcp2014.php?hacer=desplegar_formulario&todo={"tra_ope":"ebcp2014","tra_for":"I1","tra_mat":""}
+
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../ebcp2014/ebcp2014.php?hacer=cargar_dispositivo  ../ebcp2014/ebcp2014.php?hacer=aviso_offline

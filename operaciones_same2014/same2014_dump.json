@@ -1,0 +1,1972 @@
+{ json_dumper:1
+, jerarquia:{"ua":"operativos","con_opc":"operativos","formularios":"operativos","matrices":"formularios","bloques":"matrices","filtros":"bloques","preguntas":"bloques","variables":"preguntas","opciones":"con_opc","saltos":"variables"}
+, tablas:
+  { operativos:
+    [ { ope:"same2014", nombre:"Encuesta epidemiológica de salud mental de la Ciudad de Buenos Aires 2014", ope_anterior:"", tlg:1, en_campo:true
+      , ua:
+        [ { ua:"enc", pk:"[\"enc\"]", tlg:1}
+        , { ua:"exm", pk:"[\"enc\",\"hog\",\"exm\"]", tlg:1}
+        , { ua:"hog", pk:"[\"enc\",\"hog\"]", tlg:1}
+        , { ua:"mie", pk:"[\"enc\",\"hog\",\"mie\"]", tlg:1}
+        ]
+      
+      , con_opc:
+        [ { conopc:"e12a", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Jardín de infantes/ Maternal", orden:1, tlg:1}
+            , { opc:"2", texto:"Primario/EGB (1 a 7 años)", orden:2, tlg:1}
+            , { opc:"3", texto:"EGB (8 a 9 años)", orden:3, tlg:1}
+            , { opc:"4", texto:"Secundario/medio/común/polimodal", orden:4, tlg:1}
+            , { opc:"5", texto:"Terciario o superior no universitario", orden:5, tlg:1}
+            , { opc:"6", texto:"Universitario", orden:6, tlg:1}
+            , { opc:"7", texto:"Postgrado", orden:7, tlg:1}
+            , { opc:"8", texto:"Educación especial", orden:8, tlg:1}
+            ]
+          }
+        , { conopc:"e2", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Asiste", orden:1, tlg:1}
+            , { opc:"2", texto:"No asiste pero asistió", orden:2, tlg:1}
+            , { opc:"3", texto:"Nunca asistió", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"e6a", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Jardín de infantes/ Maternal", orden:1, tlg:1}
+            , { opc:"2", texto:"Primario", orden:2, tlg:1}
+            , { opc:"3", texto:"Secundario/ Medio común", orden:3, tlg:1}
+            , { opc:"4", texto:"Terciario/superior no universitario", orden:4, tlg:1}
+            , { opc:"5", texto:"Universitario", orden:5, tlg:1}
+            , { opc:"6", texto:"Postgrado", orden:6, tlg:1}
+            , { opc:"7", texto:"Educación especial", orden:7, tlg:1}
+            ]
+          }
+        , { conopc:"entrea", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Sí", orden:1, tlg:1}
+            , { opc:"2", texto:"No", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"ghq_12_a", tlg:1
+
+          , opciones:
+            [ { opc:"0", texto:"Mejor que lo habitual", orden:0, tlg:1}
+            , { opc:"1", texto:"Igual que lo habitual", orden:1, tlg:1}
+            , { opc:"2", texto:"Menos que lo habitual", orden:2, tlg:1}
+            , { opc:"3", texto:"Mucho menos que lo habitual", orden:3, tlg:1}
+            , { opc:"8", texto:"No sabe", orden:8, tlg:1}
+            , { opc:"9", texto:"No contesta", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"ghq_12_b", tlg:1
+
+          , opciones:
+            [ { opc:"0", texto:"No, en absoluto", orden:0, tlg:1}
+            , { opc:"1", texto:"No más que lo habitual", orden:1, tlg:1}
+            , { opc:"2", texto:"Algo más que lo habitual", orden:2, tlg:1}
+            , { opc:"3", texto:"Mucho más que lo habitual", orden:3, tlg:1}
+            , { opc:"8", texto:"No sabe", orden:8, tlg:1}
+            , { opc:"9", texto:"No contesta", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"ghq_12_c", tlg:1
+
+          , opciones:
+            [ { opc:"0", texto:"Más útil que lo habitual", orden:0, tlg:1}
+            , { opc:"1", texto:"Igual que lo habitual", orden:1, tlg:1}
+            , { opc:"2", texto:"Menos útil que lo habitual", orden:2, tlg:1}
+            , { opc:"3", texto:"Mucho menos útil que lo habitual", orden:3, tlg:1}
+            , { opc:"8", texto:"No sabe", orden:8, tlg:1}
+            , { opc:"9", texto:"No contesta", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"ghq_12_d", tlg:1
+
+          , opciones:
+            [ { opc:"0", texto:"Más que lo habitual", orden:0, tlg:1}
+            , { opc:"1", texto:"Igual que lo habitual", orden:1, tlg:1}
+            , { opc:"2", texto:"Menos que lo habitual", orden:2, tlg:1}
+            , { opc:"3", texto:"Mucho menos que lo habitual", orden:3, tlg:1}
+            , { opc:"8", texto:"No sabe", orden:8, tlg:1}
+            , { opc:"9", texto:"No contesta", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"ghq_12_e", tlg:1
+
+          , opciones:
+            [ { opc:"0", texto:"Más capaz que lo habitual", orden:0, tlg:1}
+            , { opc:"1", texto:"Igual que lo habitual", orden:1, tlg:1}
+            , { opc:"2", texto:"Menos capaz que lo habitual", orden:2, tlg:1}
+            , { opc:"3", texto:"Mucho menos capaz que lo habitual", orden:3, tlg:1}
+            , { opc:"8", texto:"No sabe", orden:8, tlg:1}
+            , { opc:"9", texto:"No contesta", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"h1", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"de uso exclusivo del hogar?", orden:1, tlg:1}
+            , { opc:"2", texto:"compartido con otro hogar?", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"h2", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"propietario de la vivienda y el terreno?", orden:1, tlg:1}
+            , { opc:"2", texto:"propietario de la vivienda solamente?", orden:2, tlg:1}
+            , { opc:"3", texto:"inquilino o arrendatario?", orden:3, tlg:1}
+            , { opc:"4", texto:"ocupante en relación de dependencia/ por trabajo?", orden:4, tlg:1}
+            , { opc:"5", texto:"ocupante por préstamo, cesión o permiso gratuito?", aclaracion:"(sin pago)", orden:5, tlg:1}
+            , { opc:"6", texto:"ocupante de hecho de la vivienda?", orden:6, tlg:1}
+            , { opc:"7", texto:"Otro", aclaracion:"(especificar)", orden:7, tlg:1}
+            ]
+          }
+        , { conopc:"it2", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"$1 a $2000", orden:1, tlg:1}
+            , { opc:"10", texto:"$16001 y más", orden:10, tlg:1}
+            , { opc:"2", texto:"$2001 a $3250", orden:2, tlg:1}
+            , { opc:"3", texto:"$3251 a $4000", orden:3, tlg:1}
+            , { opc:"4", texto:"$4001 a $5000", orden:4, tlg:1}
+            , { opc:"5", texto:"$5001 a $6000", orden:5, tlg:1}
+            , { opc:"6", texto:"$6001 a $7500", orden:6, tlg:1}
+            , { opc:"7", texto:"$7501 a $9000", orden:7, tlg:1}
+            , { opc:"8", texto:"$9001 a $11600", orden:8, tlg:1}
+            , { opc:"9", texto:"$11601 a $16000", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"m1", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"En esta ciudad", orden:1, tlg:1}
+            , { opc:"2", texto:"En la provincia de Buenos Aires ", orden:2, tlg:1}
+            , { opc:"3", texto:"En otra provincia ", orden:3, tlg:1}
+            , { opc:"4", texto:"En otro país ", orden:4, tlg:1}
+            ]
+          }
+        , { conopc:"noreaind", tlg:1
+
+          , opciones:
+            [ { opc:"7", texto:"Ausencia", orden:7, tlg:1}
+            , { opc:"8", texto:"Rechazo", orden:8, tlg:1}
+            , { opc:"9", texto:"Otras causas (especificar)", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"p2", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Varón", orden:1, tlg:1}
+            , { opc:"2", texto:"Mujer", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"p4", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Jefe/a", orden:1, tlg:1}
+            , { opc:"10", texto:"Sobrino/a", orden:10, tlg:1}
+            , { opc:"11", texto:"Abuelo/a", orden:11, tlg:1}
+            , { opc:"12", texto:"Otro familiar", orden:12, tlg:1}
+            , { opc:"13", texto:"Servicio doméstico y sus familiares", orden:13, tlg:1}
+            , { opc:"14", texto:"Otro no familiar", orden:14, tlg:1}
+            , { opc:"2", texto:"Cónyuge/Pareja", orden:2, tlg:1}
+            , { opc:"3", texto:"Hijo/a", orden:3, tlg:1}
+            , { opc:"4", texto:"Hijastro/a", orden:4, tlg:1}
+            , { opc:"5", texto:"Yerno o Nuera", orden:5, tlg:1}
+            , { opc:"6", texto:"Nieto", orden:6, tlg:1}
+            , { opc:"7", texto:"Padre/Madre/Suegro/a", orden:7, tlg:1}
+            , { opc:"8", texto:"Hermano/a", orden:8, tlg:1}
+            , { opc:"9", texto:"Cuñado/a", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"p5", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Unido/a", orden:1, tlg:1}
+            , { opc:"2", texto:"Casado/a", orden:2, tlg:1}
+            , { opc:"3", texto:"Separado/a de unión", orden:3, tlg:1}
+            , { opc:"4", texto:"Viudo/a de unión", orden:4, tlg:1}
+            , { opc:"5", texto:"Divorciado/a", orden:5, tlg:1}
+            , { opc:"6", texto:"Separado/a de matrimonio", orden:6, tlg:1}
+            , { opc:"7", texto:"Viudo/a de matrimonio", orden:7, tlg:1}
+            , { opc:"8", texto:"Soltero/a, nunca casado/a ni unido/a", orden:8, tlg:1}
+            ]
+          }
+        , { conopc:"razon1", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Deshabitada", orden:1, tlg:1}
+            , { opc:"2", texto:"Demolida", orden:2, tlg:1}
+            , { opc:"3", texto:"Fin de Semana", orden:3, tlg:1}
+            , { opc:"4", texto:"Construcción", orden:4, tlg:1}
+            , { opc:"5", texto:"Vivienda usada como establecimiento", orden:5, tlg:1}
+            , { opc:"6", texto:"Variaciones en el listado", orden:6, tlg:1}
+            , { opc:"7", texto:"Ausencia", orden:7, tlg:1}
+            , { opc:"8", texto:"Rechazo", orden:8, tlg:1}
+            , { opc:"9", texto:"Otras causas", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_1", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Venta o alquiler", orden:1, tlg:1}
+            , { opc:"2", texto:"Sucesión o remate", orden:2, tlg:1}
+            , { opc:"3", texto:"Construcción reciente", orden:13, tlg:1}
+            , { opc:"4", texto:"Sin causa conocida", orden:14, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_2", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Fue demolida", orden:21, tlg:1}
+            , { opc:"2", texto:"En demolición", orden:22, tlg:1}
+            , { opc:"3", texto:"Levantada", orden:23, tlg:1}
+            , { opc:"4", texto:"Tapiada", orden:24, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_3", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"de la semana", orden:31, tlg:1}
+            , { opc:"2", texto:"del mes", orden:32, tlg:1}
+            , { opc:"3", texto:"del año", orden:33, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_4", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Se está construyendo", orden:41, tlg:1}
+            , { opc:"2", texto:"Construcción paralizada", orden:42, tlg:1}
+            , { opc:"3", texto:"Refacción", orden:43, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_5", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Conserva comodidad de vivienda", orden:51, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_6", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"No existe lugar físico", orden:61, tlg:1}
+            , { opc:"2", texto:"No es vivienda", orden:62, tlg:1}
+            , { opc:"3", texto:"Existen otras viviendas", orden:63, tlg:1}
+            , { opc:"4", texto:"Otro", aclaracion:"especificar", orden:64, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_7", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"No se pudo contactar en 3 visitas", orden:71, tlg:1}
+            , { opc:"2", texto:"Por causas circunstanciales", orden:72, tlg:1}
+            , { opc:"3", texto:"Viaje", orden:73, tlg:1}
+            , { opc:"4", texto:"Vacaciones", orden:74, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_8", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Negativa rotunda", orden:81, tlg:1}
+            , { opc:"2", texto:"Rechazo por portero eléctrico", orden:82, tlg:1}
+            , { opc:"3", texto:"Se acordaron entrevistas que no se concretaron", orden:83, tlg:1}
+            ]
+          }
+        , { conopc:"razon2_9", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Inquilinato, pensión, hotel, usurpado, conventillo", orden:1, tlg:1}
+            , { opc:"2", texto:"Duelo, alcoholismo, discapacidad, idioma extranjero", orden:2, tlg:1}
+            , { opc:"3", texto:"Problemas de seguridad", orden:3, tlg:1}
+            , { opc:"4", texto:"Inaccesible(Problemas climáticos u otros)", orden:4, tlg:1}
+            , { opc:"5", texto:"Marco general de domicilios", orden:5, tlg:1}
+            , { opc:"6", texto:"(Para marco IHPCT) No Rea de UP", orden:6, tlg:1}
+            ]
+          }
+        , { conopc:"sexo", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"varón", orden:1, tlg:1}
+            , { opc:"2", texto:"mujer", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"si_no", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Sí", orden:1, tlg:1}
+            , { opc:"2", texto:"No", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"si_no_h", despliegue:"horizontal", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Sí", orden:1, tlg:1}
+            , { opc:"2", texto:"No", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"si_no_nosabe3", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Si", orden:1, tlg:1}
+            , { opc:"2", texto:"No", orden:2, tlg:1}
+            , { opc:"3", texto:"No sabe", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"si_no_nosabe9", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Si", orden:1, tlg:1}
+            , { opc:"2", texto:"No", orden:2, tlg:1}
+            , { opc:"9", texto:"No sabe", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"sn_medico", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Médico clínico", orden:1, tlg:1}
+            , { opc:"2", texto:"Psiquiatra", orden:2, tlg:1}
+            , { opc:"3", texto:"Otros especialistas", orden:3, tlg:1}
+            , { opc:"9", texto:"Ns/ Nc", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"sn_receta", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"…con indicación médica?", orden:1, tlg:1}
+            , { opc:"2", texto:"…por su cuenta?", orden:2, tlg:1}
+            , { opc:"3", texto:"…primero con indicación médica y luego en mayor cantidad o por más tiempo de lo que le habían indicado?", orden:3, tlg:1}
+            , { opc:"9", texto:"Ns/ Nc", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"sn_ultvez", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"En los últimos 30 días", orden:1, tlg:1}
+            , { opc:"2", texto:"Hace más de un mes pero menos de un año", orden:2, tlg:1}
+            , { opc:"3", texto:"Hace un año o más", orden:3, tlg:1}
+            , { opc:"9", texto:"Ns/ Nc", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"sn23", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"No sabía dónde ir", orden:1, tlg:1}
+            , { opc:"10", texto:"Pidió turno pero no había", orden:10, tlg:1}
+            , { opc:"11", texto:"Otra razón (especificar)", orden:11, tlg:1}
+            , { opc:"2", texto:"No tenía tiempo", orden:2, tlg:1}
+            , { opc:"3", texto:"No tenía dinero", orden:3, tlg:1}
+            , { opc:"4", texto:"El lugar de atención queda muy lejos", orden:4, tlg:1}
+            , { opc:"5", texto:"El problema no le parecía tan importante", orden:5, tlg:1}
+            , { opc:"6", texto:"No cree que un profesional pueda ayudarlo", orden:6, tlg:1}
+            , { opc:"7", texto:"Va a consultar más adelante", orden:7, tlg:1}
+            , { opc:"8", texto:"Pidió turno y todavía no lo atendieron", orden:8, tlg:1}
+            , { opc:"9", texto:"Pidió turno pero no fue porque demoraba mucho tiempo", orden:9, tlg:1}
+            ]
+          }
+        , { conopc:"t11", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"tenia un trabajo asegurado?", orden:1, tlg:1}
+            , { opc:"2", texto:"esta suspendido y espera ser llamado?", orden:2, tlg:1}
+            , { opc:"3", texto:"se cansó de buscar trabajo?", orden:3, tlg:1}
+            , { opc:"4", texto:"por otras razones? (especificar)", orden:4, tlg:1}
+            ]
+          }
+        , { conopc:"t29b", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"menos de 35 horas semanales", orden:1, tlg:1}
+            , { opc:"2", texto:"entre 35 y 45 horas semanales", orden:2, tlg:1}
+            , { opc:"3", texto:"más de 45 horas semanales", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"t29c", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Si", orden:1, tlg:1}
+            ]
+          }
+        , { conopc:"t3", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"no deseaba, no quería trabajar?", orden:1, tlg:1}
+            , { opc:"2", texto:"no podía trabajar por razones personales?\n(estudio, ciudado del hogar, etc.)", orden:2, tlg:1}
+            , { opc:"3", texto:"no tuvo pedidos/clientes?", orden:3, tlg:1}
+            , { opc:"4", texto:"no tenia trabajo y quería trabajar?", orden:4, tlg:1}
+            , { opc:"5", texto:"tenia un trabajo o negocio al que no concurrió?", orden:5, tlg:1}
+            ]
+          }
+        , { conopc:"t4", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"licencia, vacaciones o enfermedad, matrimonio?", orden:1, tlg:1}
+            , { opc:"2", texto:"otras causas personales (viajes, tramites, etc.)?", orden:2, tlg:1}
+            , { opc:"3", texto:"huelga o conflicto laboral?", orden:3, tlg:1}
+            , { opc:"4", texto:"suspensión de un trabajo en relación de dependencia?", orden:4, tlg:1}
+            , { opc:"5", texto:"otras causas laborales (rotura de equipo, falta de materias primas, mal tiempo,etc.)?", orden:5, tlg:1}
+            ]
+          }
+        , { conopc:"t44", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"para su propio negocio/empresa/actividad?", orden:1, tlg:1}
+            , { opc:"2", texto:"para el negocio/empresa/actividad de un familiar?", orden:2, tlg:1}
+            , { opc:"3", texto:"para un patrón/empresa/institución?", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"t45", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"le pagan sueldo (en dinero/especie)?", orden:1, tlg:1}
+            , { opc:"2", texto:"retira dinero?", orden:2, tlg:1}
+            , { opc:"3", texto:"no le pagan ni retira dinero?", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"t46", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Si, siempre", orden:1, tlg:1}
+            , { opc:"2", texto:"Sólo a veces o por temporadas", orden:2, tlg:1}
+            , { opc:"3", texto:"No emplea ni contrata personal", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"t49", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Sí ", aclaracion:"(temporario, contrato por obra, etc.)", orden:1, tlg:1}
+            , { opc:"2", texto:"No ", aclaracion:"( permanente, fijo, estable, etc.)", orden:2, tlg:1}
+            , { opc:"3", texto:"Ns/ Nc", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"t51", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"le descuentan para la jubilación?", orden:1, tlg:1}
+            , { opc:"2", texto:"aporta por si mismo para la jubilación?", orden:2, tlg:1}
+            , { opc:"3", texto:"no le descuentan ni aporta?", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"v1", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Sí", orden:1, tlg:1}
+            , { opc:"2", texto:"No", orden:2, tlg:1}
+            ]
+          }
+        , { conopc:"v12", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"inodoro o retrete con descarga de agua (botón, cadena, etc.) a red cloacal pública?", orden:1, tlg:1}
+            , { opc:"2", texto:"inodoro o retrete con descarga de agua (botón, cadena, etc.) a pozo o cámara séptica?", orden:2, tlg:1}
+            , { opc:"3", texto:"inodoro o retrete sin descarga de agua (letrina)?", orden:3, tlg:1}
+            , { opc:"4", texto:"No dispone de inodoro o retrete", orden:4, tlg:1}
+            ]
+          }
+        , { conopc:"v2", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Casa", orden:1, tlg:1}
+            , { opc:"10", texto:"Pieza de hotel/pensión", orden:4, tlg:1}
+            , { opc:"2", texto:"Departamento", orden:2, tlg:1}
+            , { opc:"5", texto:"Construcción no destinada a vivienda", orden:5, tlg:1}
+            , { opc:"6", texto:"Rancho o casilla", orden:6, tlg:1}
+            , { opc:"8", texto:"Otro", aclaracion:"(especificar)", orden:7, tlg:1}
+            , { opc:"9", texto:"Pieza de inquilinato/conventillo", orden:3, tlg:1}
+            ]
+          }
+        , { conopc:"v5", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Mosaico/ baldosa/ madera/ cerámica?", orden:1, tlg:1}
+            , { opc:"2", texto:"Cemento/ ladrillo fijo?", orden:1, tlg:1}
+            , { opc:"3", texto:"Ladrillo suelto/ tierra?", orden:3, tlg:1}
+            , { opc:"4", texto:"Otro material?", aclaracion:"(especificar)", orden:4, tlg:1}
+            ]
+          }
+        , { conopc:"v6", tlg:1
+
+          , opciones:
+            [ { opc:"1", texto:"Membrana/ cubierta asfáltica?", orden:1, tlg:1}
+            , { opc:"2", texto:"Baldosa/ losa sin cubierta?", orden:2, tlg:1}
+            , { opc:"3", texto:"Pizarra/ teja?", orden:3, tlg:1}
+            , { opc:"4", texto:"Chapa de metal sin cubierta?", orden:4, tlg:1}
+            , { opc:"5", texto:"Chapa de fibrocemento/ plástico?", orden:5, tlg:1}
+            , { opc:"6", texto:"Chapa de cartón?", orden:6, tlg:1}
+            , { opc:"7", texto:"Caña/ tabla/ paja con barro/ paja sola?", orden:7, tlg:1}
+            , { opc:"8", texto:"Es un edificio de departamento", orden:8, tlg:1}
+            , { opc:"9", texto:"N/S", orden:9, tlg:1}
+            ]
+          }
+        ]
+      
+      , formularios:
+        [ { "for":"SM1", nombre:"Carátula - componentes del hogar y vivienda", es_principal:true, orden:10, tlg:1
+
+          , matrices:
+            [ { texto:"Personas", ua:"hog", ultimo_campo_pk:"hog", orden:0, blanquear_clave_al_retroceder:",tra_mie:0,tra_exm:0", tlg:1
+
+              , bloques:
+                [ { blo:"CR", texto:"TOTAL DE PERSONAS EN EL RANGO", orden:25, tlg:1
+
+                  , preguntas:
+                    [ { pre:"CR", texto:"Cuadro resumen ", orden:305, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"cr_ningun_miembro", texto:"Ningún miembro de 16 a 65 años", tipovar:"marcar", destino:"fin", expresion_habilitar:"!tp and !cr_num_miembro", optativa:true, orden:20, tlg:1}
+                        , { "for":"SM1", "var":"cr_num_miembro", texto:"Nº de miembro seleccionado de 16 a 65 años", tipovar:"numeros", expresion_habilitar:"!!tp", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"TP", aclaracion:"total de personas en el rango", orden:300, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"tp", tipovar:"numeros", expresion_habilitar:"!!tp", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Hog", texto:"HOGAR", orden:40, tlg:1
+
+                  , filtros:
+                    [ { fil:"FILTRO_1", texto:"Si el número de miembro seleccionado de 16 a 65 años es igual a 1 pase a bloque individual", expresion:"cr_num_miembro=1", destino:"fin", orden:405, tlg:1}
+                    ]
+                  
+                  , preguntas:
+                    [ { pre:"H1", texto:"¿El baño es... (G-S)", orden:360, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"h1", conopc:"h1", tipovar:"opciones", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"H2", texto:"Este hogar ¿es... (G-S)", aclaracion:"(Lea todas las opciones de respuesta hasta obtener una respuesta positiva)", orden:370, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"h2", conopc:"h2", tipovar:"opciones", optativa:false, orden:0, tlg:1}
+                        , { "for":"SM1", "var":"h2_esp", tipovar:"texto_especificar", subordinada_var:"h2", subordinada_opcion:"7", expresion_habilitar:"h2=7", optativa:false, orden:8, tlg:1}
+                        ]
+                      }
+                    , { pre:"H3", texto:"¿Cuántas habitaciones/ ambientes son de uso exclusivo de este hogar?", orden:380, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"h3", tipovar:"numeros", optativa:false, orden:0, nsnc_atipico:99, tlg:1}
+                        ]
+                      }
+                    , { pre:"IT1", texto:"¿Cuál es el ingreso total mensual del hogar?  ", aclaracion:"(Incluya ingresos provenientes del trabajo, jubilaciones, rentas, seguros de desempleo, becas, cuotas de alimentos, etc.)", orden:390, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"it1", texto:"Monto", tipovar:"monetaria", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"IT2", texto:"¿Me podría indicar en cuál de estos tramos se ubica el ingreso mensual de su hogar?", aclaracion:"(Incluya ingresos provenientes del trabajo, jubilaciones, rentas, seguros de desempleo, becas, cuotas de alimentos, etc.) Encuestador entregue al entrevistado la TARJETA 1.", orden:400, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"it2", conopc:"it2", tipovar:"opciones", expresion_habilitar:"it1='//' or it1='--'", optativa:false, orden:10, maximo:10, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"M.P", texto:"COMPONENTES DEL HOGAR", incluir_mat:"P", orden:20, aclaracion:"Empezando por el jefe", tlg:1}
+                , { blo:"RAZON", texto:"RAZONES DE NO ENTREVISTA", orden:70, tlg:1
+
+                  , preguntas:
+                    [ { pre:"razon", texto:"RAZÓN POR LA CUAL NO SE REALIZÓ LA ENTREVISTA", destino:"", desp_nombre:"", orden:600, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon1", conopc:"razon1", tipovar:"opciones", expresion_habilitar:"entrea=2", optativa:false, orden:0, nsnc_atipico:99, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_1", destino:"", desp_nombre:"razón 1", orden:620, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_1", conopc:"razon2_1", tipovar:"opciones", expresion_habilitar:"razon1=1", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_2", destino:"", desp_nombre:"razón 2", orden:630, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_2", conopc:"razon2_2", tipovar:"opciones", expresion_habilitar:"razon1=2", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_3", aclaracion:"Viven en otra vivienda la mayor parte...", destino:"", desp_nombre:"razón 3", orden:640, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_3", conopc:"razon2_3", tipovar:"opciones", expresion_habilitar:"razon1=3", optativa:true, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_4", destino:"", desp_nombre:"razón 4", orden:650, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_4", conopc:"razon2_4", tipovar:"opciones", expresion_habilitar:"razon1=4", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_5", destino:"", desp_nombre:"razón 5", orden:660, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_5", conopc:"razon2_5", tipovar:"opciones", expresion_habilitar:"razon1=5", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_6", destino:"", desp_nombre:"razón 6", orden:670, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_6", conopc:"razon2_6", tipovar:"opciones", expresion_habilitar:"razon1=6", optativa:false, orden:0, tlg:1}
+                        , { "for":"SM1", "var":"razon3", tipovar:"texto_especificar", subordinada_var:"razon2_6", subordinada_opcion:"4", expresion_habilitar:"razon2_6=4", optativa:false, orden:65, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_7", destino:"", desp_nombre:"razón 7", orden:680, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_7", conopc:"razon2_7", tipovar:"opciones", expresion_habilitar:"razon1=7", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_8", destino:"", desp_nombre:"razón 8", orden:690, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_8", conopc:"razon2_8", tipovar:"opciones", expresion_habilitar:"razon1=8", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"razon_9", destino:"", desp_nombre:"razón 9", orden:700, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"razon2_9", conopc:"razon2_9", tipovar:"opciones", expresion_habilitar:"razon1=9", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"sitlabjefe", texto:"SITUACIÓN LABORAL DEL JEFE/JEFA DEL HOGAR", orden:60, tlg:1
+
+                  , preguntas:
+                    [ { pre:"JHT1", texto:"¿ La semana pasada trabajó_____________ por lo menos una hora? (E-S)", orden:410, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht1", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"JHT44", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT10", texto:"Durante esos 30 días ¿ hizo algo para instalarse por su cuenta/puso carteles/ consulto con parientes, amigos? (E-S)", orden:480, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht10", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"fin", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT11", texto:"¿No buscó trabajo (ni hizo algo para trabajar) porque… (G-S)", aclaracion:"(Primero lea todas las opciones y luego marque la respuesta)", orden:490, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht11", conopc:"t11", tipovar:"opciones", optativa:false, orden:10, maximo:4, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t11", opc:"1", destino:"fin", tlg:1}
+                            , { conopc:"t11", opc:"2", destino:"fin", tlg:1}
+                            , { conopc:"t11", opc:"3", destino:"fin", tlg:1}
+                            ]
+                          }
+                        , { "for":"SM1", "var":"jht11_esp", tipovar:"texto_especificar", destino:"fin", subordinada_var:"jht11", subordinada_opcion:"4", expresion_habilitar:"jht11=4", optativa:false, orden:20, tlg:1}
+                        ]
+                      }
+                    , { pre:"JHT2", texto:"En esta semana ¿hizo alguna changa, fabricó en su casa algo para vender, ayudó a un familiar o amigo en su negocio? (E-S)", orden:420, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht2", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"JHT44", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT29B", texto:"¿Cuántas horas semanales trabaja habitualmente en todos sus empleos/ocupaciones?", orden:550, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"jht29b", conopc:"t29b", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"JHT29C", texto:"¿Quiere trabajar mas horas?", orden:560, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"jht29c", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"JHT3", texto:"La semana pasada … (G-S) ", aclaracion:"(Primero lea todas las opciones y luego marque la respuesta)", orden:430, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"jht3", conopc:"t3", tipovar:"opciones", optativa:false, orden:10, maximo:5, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t3", opc:"1", destino:"fin", tlg:1}
+                            , { conopc:"t3", opc:"2", destino:"JHT9", tlg:1}
+                            , { conopc:"t3", opc:"3", destino:"JHT9", tlg:1}
+                            , { conopc:"t3", opc:"4", destino:"JHT9", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT4", texto:"¿No concurrió a su trabajo por… (G-S)", orden:440, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht4", conopc:"t4", tipovar:"opciones", optativa:false, orden:10, maximo:5, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t4", opc:"1", destino:"JHT44", tlg:1}
+                            , { conopc:"t4", opc:"2", destino:"JHT44", tlg:1}
+                            , { conopc:"t4", opc:"3", destino:"JHT44", tlg:1}
+                            , { conopc:"t4", opc:"5", destino:"JHT6", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT44", texto:"¿Ese trabajo___________ lo hace... (G-S)", orden:500, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht44", conopc:"t44", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t44", opc:"1", destino:"JHT46", tlg:1}
+                            , { conopc:"t44", opc:"3", destino:"JHT49", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT45", texto:"¿Por ese trabajo… (G-S)", orden:510, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht45", conopc:"t45", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t45", opc:"1", destino:"JHT49", tlg:1}
+                            , { conopc:"t45", opc:"3", destino:"fin", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT46", texto:"¿En ese negocio/empresa/actividad, se emplean personas asalariadas?", orden:520, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"jht46", conopc:"t46", tipovar:"opciones", destino:"fin", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t46", opc:"1", destino:"fin", tlg:1}
+                            , { conopc:"t46", opc:"2", destino:"fin", tlg:1}
+                            , { conopc:"t46", opc:"3", destino:"fin", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT49", texto:"¿Ese trabajo tiene tiempo de finalización? (E-S)", orden:530, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht49", conopc:"t49", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"JHT5", texto:"¿Le siguen pagando durante la suspensión? (E-S)", orden:450, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht5", conopc:"si_no_nosabe3", tipovar:"si_no", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe3", opc:"1", destino:"JHT44", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"2", destino:"JHT9", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"3", destino:"JHT9", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT51", texto:"¿En ese trabajo… (G-S)", orden:540, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht51", conopc:"t51", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"JHT6", texto:"¿Volverá a ese trabajo a lo sumo en un mes? (E-S)", orden:460, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht6", conopc:"si_no_nosabe3", tipovar:"si_no", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe3", opc:"1", destino:"JHT44", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"2", destino:"JHT9", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"3", destino:"JHT9", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"JHT9", texto:"Durante los últimos 30 días ¿estuvo buscando trabajo de alguna manera? (E-S)", orden:470, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"jht9", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"fin", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"SM1.1", texto:"Apertura de la entrevista", orden:10, tlg:1
+
+                  , preguntas:
+                    [ { pre:"ENTREA", texto:"Apertura de entrevista", desp_nombre:"", orden:100, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"entrea", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"2", destino:"RAZON", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"F_REALIZ_O", texto:"Fecha de realización", desp_nombre:"", orden:130, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"f_realiz_o", tipovar:"fecha_corta", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"NOMBRER", texto:"Respondente nombre", desp_nombre:"", orden:120, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"nombrer", tipovar:"texto", optativa:true, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"Observaciones", texto:"Observaciones", desp_nombre:"", orden:90, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"observaciones", tipovar:"texto_libre", optativa:true, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"RESPOND", texto:"Respondente número", desp_nombre:"", orden:110, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"respond", tipovar:"si_no", optativa:true, orden:10, maximo:20, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"TOTAL_H", texto:"Total de hogares ", desp_nombre:"", orden:150, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"total_h", tipovar:"si_no", optativa:false, orden:10, maximo:99, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"TOTAL_M", texto:"Cantidad de miembros", desp_nombre:"", orden:160, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"total_m", tipovar:"numeros", optativa:false, orden:10, maximo:20, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"V1", texto:"¿Todas las personas que residen en esta vivienda comparten los gastos de comida?", orden:140, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"v1", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"v1", opc:"2", destino:"fin", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Viv", texto:"Vivienda", orden:30, aclaracion:"Si existe más de un hogar, aplique el bloque vivienda sólo al primero. El segundo hogar pasa a H1.", tlg:1
+                  , preguntas:
+                    [ { pre:"V12", texto:"Esta vivienda, ¿dispone de…  (G-S)", aclaracion:"(Lea todas las opciones de respuesta hasta obtener una respuesta positiva)", orden:350, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"v12", conopc:"v12", tipovar:"opciones", optativa:false, orden:0, destino_nsnc:"H2", tlg:1
+
+                          , saltos:
+                            [ { conopc:"v12", opc:"4", destino:"H2", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"V2", texto:"Tipo de vivienda  ", aclaracion:"(Observacional)", orden:300, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"v2", conopc:"v2", tipovar:"opciones", optativa:false, orden:0, tlg:1}
+                        , { "for":"SM1", "var":"v2_esp", tipovar:"texto_especificar", subordinada_var:"v2", subordinada_opcion:"8", expresion_habilitar:"v2=8", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"V4", texto:"¿Cuántas habitaciones/ ambientes tiene en total, esta vivienda? Sin contar baños, cocina/s, garages o pasillos ", orden:310, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"v4", tipovar:"numeros", optativa:false, orden:0, nsnc_atipico:99, tlg:1}
+                        ]
+                      }
+                    , { pre:"V5", texto:"Los pisos interiores son principalmente de… (G-S)", orden:320, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"v5", conopc:"v5", tipovar:"opciones", optativa:false, orden:0, tlg:1}
+                        , { "for":"SM1", "var":"v5_esp", tipovar:"texto", subordinada_var:"v5", subordinada_opcion:"4", expresion_habilitar:"v5=4", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"V6", texto:"La cubierta exterior del techo es de (G-S)", orden:330, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", "var":"v6", conopc:"v6", tipovar:"opciones", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"V7", texto:"¿El techo tiene cielorraso/ revestimiento interior?", orden:340, tlg:1
+                      , variables:
+                        [ { "for":"SM1", "var":"v7", conopc:"si_no", tipovar:"si_no", optativa:false, orden:0, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            , { mat:"P", texto:"Personas", ua:"mie", ultimo_campo_pk:"mie", orden:0, blanquear_clave_al_retroceder:"", tlg:1
+
+              , bloques:
+                [ { blo:"M.P_m", texto:"COMPONENTES DEL HOGAR", orden:20, aclaracion:"Empezando por el jefe", tlg:1
+
+                  , preguntas:
+                    [ { pre:"E12A", texto:"¿Cual es el nivel mas alto que cursó? (E-S) con indagación", abreviado:"Niv max", mat:"P", orden:270, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"e12a", conopc:"e12a", tipovar:"opciones", optativa:false, orden:10, maximo:7, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"E13", texto:"¿Completó ese nivel? (E-S) ", abreviado:"Niv compl", mat:"P", orden:280, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"e13", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"E2", texto:"¿Asiste o asistió a algún establecimiento educativo? (G-S)", abreviado:"Escol", mat:"P", orden:250, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"e2", conopc:"e2", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"e2", opc:"2", destino:"E12A", tlg:1}
+                            , { conopc:"e2", opc:"3", destino:"SN1B", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"E6A", texto:"¿Qué nivel esta cursando actualmente? (E-S) con indagación", abreviado:"Niv actual", mat:"P", orden:260, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"e6a", conopc:"e6a", tipovar:"opciones", destino:"SN1B", optativa:false, orden:10, maximo:7, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"L0", texto:"Letra de orden según edad (para personas de 16 a 65 años)  ", abreviado:"Letra", mat:"P", aclaracion:"Comience con la letra A a partir de la persona de mayor edad y continúe", orden:230, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"l0", tipovar:"texto", expresion_habilitar:"!!l0", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"M1", texto:"¿Dónde nació? (E-S)", abreviado:"Nación", mat:"P", orden:240, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"m1", conopc:"m1", tipovar:"opciones", optativa:false, orden:10, maximo:4, minimo:1, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"m1_2_esp", texto:"(especificar partido)", tipovar:"texto_especificar", subordinada_var:"m1", subordinada_opcion:"2", expresion_habilitar:"m1=2", optativa:false, orden:20, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"m1_3_esp", texto:"(especificar provincia)", tipovar:"texto_especificar", subordinada_var:"m1", subordinada_opcion:"3", expresion_habilitar:"m1=3", optativa:false, orden:30, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"m1_4_esp", texto:"(especificar país)", tipovar:"texto_especificar", subordinada_var:"m1", subordinada_opcion:"4", expresion_habilitar:"m1=4", optativa:false, orden:40, tlg:1}
+                        ]
+                      }
+                    , { pre:"P1", texto:"Por favor, nombreme todas las personas que componen este hogar empezando por el jefe", abreviado:"Nombre", mat:"P", aclaracion:"(No se olvide de Usted ni de los bebés y niños)", orden:170, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"p1", tipovar:"texto", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"P2", texto:"Sexo ", mat:"P", aclaracion:"Anote código", orden:180, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"sexo", conopc:"sexo", tipovar:"opciones", optativa:false, orden:10, maximo:2, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"P3A", texto:"Fecha de nacimiento ", abreviado:"Fecha nac", mat:"P", orden:190, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"f_nac_o", tipovar:"fecha", optativa:false, orden:10, tlg:1}
+                        ]
+                      }
+                    , { pre:"P3B", texto:"¿Cuántos años cumplidos tiene en este momento? ", abreviado:"Edad", mat:"P", aclaracion:"Si tiene menos de un año anote 0", orden:200, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"edad", tipovar:"anios", optativa:false, orden:10, maximo:99, minimo:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"P4", texto:"¿Qué parentesco tiene con el jefe? (E-S)", abreviado:"Parent", mat:"P", aclaracion:"Anote código (tabla) ", orden:210, tlg:1
+
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"p4", conopc:"p4", tipovar:"opciones", optativa:false, orden:10, maximo:14, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"P5", texto:"Estado conyugal (para mayores de 14 años)¿Actualmente es...? (G-S)", abreviado:"Estado cony", mat:"P", aclaracion:"Anote código (tabla) ", orden:220, tlg:1
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"p5", conopc:"p5", tipovar:"opciones", expresion_habilitar:"edad>=14", optativa:false, orden:10, maximo:8, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN1B", texto:"¿Está afiliado a…  (G-M)", abreviado:"Afiliado", mat:"P", aclaracion:"(Encuestador: siga leyendo aún cuando obtenga una respuesta positiva)", orden:290, tlg:1
+                      , variables:
+                        [ { "for":"SM1", mat:"P", "var":"sn1b_1", texto:"…una obra social?", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:10, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"sn1b_2", texto:"…una mutual?", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:30, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"sn1b_3", texto:"…un plan de medicina prepaga por contratación voluntaria?", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:40, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"sn1b_4", texto:"…un sistema de emergencias médicas?", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:50, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"sn1b_7", texto:"…una prepaga o mutual via obra social?", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:20, tlg:1}
+                        , { "for":"SM1", mat:"P", "var":"sn1b_9", texto:"(No leer) No tiene afiliación", conopc:"si_no_h", tipovar:"si_no", expresion_habilitar:"sn1b_1=2 and sn1b_2=2 and sn1b_3=2 and sn1b_4=2 and sn1b_7=2", optativa:false, orden:60, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        , { "for":"SMI1", nombre:"Individual", orden:20, tlg:1
+
+          , matrices:
+            [ { texto:"Personas", ua:"mie", ultimo_campo_pk:"mie", orden:0, blanquear_clave_al_retroceder:"", tlg:1
+
+              , bloques:
+                [ { blo:"Alucinogenos", texto:"ALUCINÓGENOS", orden:190, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN33A", texto:"¿Consumió alguna vez alucinógenos (como LSD, ácido, ketamina u otros? ", orden:1020, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn33a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN34A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN34A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN33B", texto:"¿Cuándo fue la ultima vez que consumió? ", orden:1030, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn33b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Antid", texto:"ANTIDEPRESIVOS", orden:130, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN27A", texto:"¿Alguna vez tomó algún antidepresivo, como Foxetin, Fluoxetina, Prozac, Zoloft, o similares? ", orden:880, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn27a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN28A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN28A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN27B", texto:"¿Los antidepresivos los tomó... (G-S)", orden:890, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn27b", conopc:"sn_receta", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"sn_receta", opc:"2", destino:"SN27D", tlg:1}
+                            , { conopc:"sn_receta", opc:"3", destino:"SN27D", tlg:1}
+                            , { conopc:"sn_receta", opc:"9", destino:"SN28A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN27C", texto:"¿Quién se los recetó? (G-S)", orden:900, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn27c", conopc:"sn_medico", tipovar:"opciones", destino:"sn28a", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN27D", texto:"¿Cuándo fue la última vez que tomó antidepresivos sin indicación médica?", orden:910, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn27d", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Bebalc", texto:"BEBIDAS ALCOHOLICAS", orden:110, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN25A", texto:"¿Ha consumido alguna bebida alcoholica, como por ejemplo vino, cerveza, whisky o similares alguna vez en la vida? ", orden:820, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn25a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN26A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN26A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN25B", texto:"¿Cuándo fue la ultima vez que tomó alguna de estas bebidas alcoholicas? ", orden:830, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn25b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Bloind", texto:"BLOQUE INDIVIDUAL", orden:70, tlg:1
+
+                  , preguntas:
+                    [ { pre:"ENTREAIND", texto:"Apertura de entrevista individual", desp_nombre:"", orden:140, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"entreaind", conopc:"si_no", tipovar:"si_no", optativa:false, orden:140, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"2", destino:"NOREAIND", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Coca", texto:"COCAÍNA", orden:150, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN29A", texto:"¿Alguna vez probó cocaina? ", orden:940, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn29a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN30A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN30A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN29B", texto:"¿Cuándo fue la última vez que consumió esta sustancia?", orden:950, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn29b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Extasis", texto:"ÉXTASIS O DROGAS DE DISEÑO", orden:180, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN32A", texto:"¿Alguna vez probó extasis u otras drogas de diseño? ", orden:1000, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn32a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN33A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN33A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN32B", texto:"¿Cuándo fue la última vez que consumió alguna de estas sustancias?", orden:1010, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn32b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Inhalables", texto:"INHALABLES", orden:170, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN31A", texto:"¿Alguna vez probó sustancias como pegamento o similares para inhalar o aspirar? ", orden:980, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn31a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN32A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN32A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN31B", texto:"¿Cuándo fue la última vez que tomó inhalables?", orden:990, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn31b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Marih", texto:"MARIHUANA", orden:140, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN28A", texto:"¿Alguna vez probó marihuana? ", orden:920, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn28a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN29A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN29A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN28B", texto:"¿Cuándo fue la última vez que consumió esta sustancia?", orden:930, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn28b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Opiaceos", texto:"OPIÁCEOS", orden:200, tlg:1
+
+                  , filtros:
+                    [ { fil:"FILTRO_2", texto:"Si en algunas de las preguntas 24a, 25a, 26a, 27a, 28a, 29a, 30a, 31a, 32a, 33a, 34a respondió NO pase a teléfono", expresion:"SN24a=2 and SN25a=2 and SN26a=2 and SN27a=2 and SN28a=2 and SN29a=2 and SN30a=2 and SN31a=2 and SN32a=2 and SN33a=2 and SN34a=2", destino:"TEL", orden:1055, tlg:1}
+                    ]
+                  
+                  , preguntas:
+                    [ { pre:"SN34A", texto:"¿Consumió alguna vez opiáceos (como heroína, codeína, klosidol u otros? ", orden:1040, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn34a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"FILTRO_2", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"FILTRO_2", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN34B", texto:"¿Cuándo fue la última vez que consumió?", orden:1050, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn34b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN35", texto:"¿Alguna vez ha percibido que el consumo de alguna de estas sustancias interfiere perjudicialmente en su salud, en su vida laboral, en su vida social o en su vida familiar? (E-S)", orden:1060, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn35", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"TEL", texto:"¿Podría usted proveer un número telefónico de contacto por si es necesario confirmar o clarificar alguna de estas preguntas? ", orden:1070, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"tel1", texto:"Teléfono fijo", tipovar:"texto", optativa:true, orden:10, tlg:1}
+                        , { "for":"SMI1", "var":"tel2", texto:"Teléfono móvil", tipovar:"texto", destino:"fin", optativa:true, orden:20, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Paco", texto:"PACO O PASTA BASE", orden:160, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN30A", texto:"¿Alguna vez probó paco o pasta base? ", orden:960, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn30a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN31A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN31A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN30B", texto:"¿Cuándo fue la última vez que consumió esta sustancia?", orden:970, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn30b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Razonnoind", texto:"RAZÓN DE NO RESPUESTA INDIVIDUAL", orden:220, tlg:1
+
+                  , preguntas:
+                    [ { pre:"NOREAIND", texto:"RAZON DE NO RESPUESTA INDIVIDUAL ", desp_nombre:"", orden:2000, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"noreaind", conopc:"noreaind", tipovar:"opciones", expresion_habilitar:"entreaind=2", optativa:false, orden:10, maximo:9, minimo:7, tlg:1}
+                        , { "for":"SMI1", "var":"noreaind_esp", tipovar:"texto_especificar", subordinada_var:"noreaind", subordinada_opcion:"9", expresion_habilitar:"noreaind=9", optativa:false, orden:20, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Salud", texto:"SITUACIÓN DE SALUD", orden:90, tlg:1
+
+                  , preguntas:
+                    [ { pre:"GHQ_12", texto:"Nos gustaría saber si usted ha tenido algunas molestias o trastornos y cómo ha estado de salud en las últimas semanas. Por favor, escuche atentamente las preguntas y elija en esta tarjeta las respuestas que mejor pueden aplicarse a su situación. Tenga en cuenta que queremos saber sobre los problemas recientes y actuales, no los del pasado. Es muy importante que usted conteste todas las preguntas.", aclaracion:"Encuestador, entregue al entrevistado la Tarjeta 2.", orden:740, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"ghq_12_1", texto:"¿Ha podido concentrarse bien en lo que hacìa?", conopc:"ghq_12_a", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_10", texto:"¿Ha perdido confianza en sì mismo?", conopc:"ghq_12_b", tipovar:"opciones", optativa:false, orden:100, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_11", texto:"¿Ha pensado que usted es una persona que no vale para nada?", conopc:"ghq_12_b", tipovar:"opciones", optativa:false, orden:110, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_12", texto:"¿Se siente razonablemente feliz considerando todas las circunstancias?", conopc:"ghq_12_d", tipovar:"opciones", optativa:false, orden:120, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_2", texto:"¿Sus preocupaciones le han hecho perder mucho sueño?", conopc:"ghq_12_b", tipovar:"opciones", optativa:false, orden:20, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_3", texto:"¿Ha sentido que està desempeñando un papel ùtil en la vida?", conopc:"ghq_12_c", tipovar:"opciones", optativa:false, orden:30, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_4", texto:"¿Se ha sentido capaz de tomar decisiones?", conopc:"ghq_12_d", tipovar:"opciones", optativa:false, orden:40, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_5", texto:"¿Se ha notado constantemente agobiado y en tensiòn?", conopc:"ghq_12_b", tipovar:"opciones", optativa:false, orden:50, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_6", texto:"¿Ha tenido la sensaciòn de que no puede superar sus dificultades?", conopc:"ghq_12_b", tipovar:"opciones", optativa:false, orden:60, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_7", texto:"¿Ha sido capaz de disfrutar de sus actividades normales de cada dìa?", conopc:"ghq_12_d", tipovar:"opciones", optativa:false, orden:70, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_8", texto:"¿Ha sido capaz de hacer frente adecuadamente a sus problemas?", conopc:"ghq_12_e", tipovar:"opciones", optativa:false, orden:80, maximo:9, minimo:0, tlg:1}
+                        , { "for":"SMI1", "var":"ghq_12_9", texto:"¿Se ha sentido poco feliz o deprimido?", conopc:"ghq_12_b", tipovar:"opciones", optativa:false, orden:90, maximo:9, minimo:0, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN15A", texto:"A continuación le voy a leer una lista con una serie de enfermedades o problemas de salud, ¿padece o ha padecido alguna vez alguna de ellas? (G-M)", orden:730, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn15a1", texto:"Tensión alta", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:10, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a10", texto:"Bronquitis crónica", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:100, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a11", texto:"Diabetes", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:110, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a12", texto:"Úlcera de estómago o duodeno", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:120, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a13", texto:"Incontinencia urinaria", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:130, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a14", texto:"Colesterol alto", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:140, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a15", texto:"Cataratas", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:150, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a16", texto:"Problemas crónicos de piel", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:160, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a17", texto:"Estreñimiento crónico", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:170, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a18", texto:"Depresión, ansiedad u otros trastornos mentales", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:180, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a19", texto:"Embolia", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:190, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a2", texto:"Infarto de miocardio", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:20, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a20", texto:"Migraña o dolor de cabeza frecuente", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:200, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a21", texto:"Hemorroides", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:210, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a22", texto:"Tumores malignos", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:220, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a23", texto:"Osteoporosis", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:230, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a24", texto:"Anemia", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:240, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a25", texto:"Problemas de tiroides", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:250, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a26", texto:"Problemas de próstata (solo hombres)", conopc:"si_no_h", tipovar:"si_no", expresion_habilitar:"sexo=1", optativa:false, orden:260, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a27", texto:"Problemas del periodo menopáusico (solo mujeres)", conopc:"si_no_h", tipovar:"si_no", expresion_habilitar:"sexo=2", optativa:false, orden:270, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a28", texto:"Otra enfermedad (especificar)", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:280, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a28_esp", tipovar:"texto_especificar", subordinada_var:"sn15a28", subordinada_opcion:"1", expresion_habilitar:"SN15a28=1", optativa:false, orden:290, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a3", texto:"Otras enfermedades del corazón", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:30, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a4", texto:"Várices en las piernas", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:40, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a5", texto:"Artrosis, artritis o reumatismo", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:50, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a6", texto:"Dolor de espalda crónico (cervical)", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:60, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a7", texto:"Dolor de espalda crónico (lumbar)", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:70, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a8", texto:"Alergia crónica", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:80, tlg:1}
+                        , { "for":"SMI1", "var":"sn15a9", texto:"Asma", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:90, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN19", texto:"En las últimas semanas, ¿Ha tenido algún problema de tipo emocional o nervioso? (E-S) ", orden:750, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn19", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"Tabaco", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"Tabaco", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN20", texto:"En las últimas semanas,¿ha realizado alguna consulta por problemas de tipo emocional o nervioso? (E-S) ", orden:760, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn20", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN23", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"Tabaco", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN21", texto:"En las últimas semanas,¿ha realizado, por problemas emocionales o nerviosos, algún tratamiento con un médico no psiquiatra, que incluya el uso de medicamentos? (E-S) ", orden:770, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn21", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN22", texto:"En las últimas semanas,¿ha realizado, por problemas emocionales o nerviosos, algún tratamiento con un psicólogo o psiquiatra, que incluya el uso de medicamentos? (E-S)", orden:780, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn22", conopc:"si_no_nosabe9", tipovar:"si_no", destino:"Tabaco", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN23", texto:"¿Por qué motivo no consultó? (G-M)", orden:790, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn23_1", texto:"No sabía dónde ir", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:10, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_10", texto:"Pidió turno pero no había", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:100, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_11", texto:"Otra razón (especificar)", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:110, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_11_esp", tipovar:"texto_especificar", subordinada_var:"sn23_11", subordinada_opcion:"1", expresion_habilitar:"sn23_11=1", optativa:false, orden:120, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_2", texto:"No tenía tiempo", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:20, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_3", texto:"No tenía dinero", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:30, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_4", texto:"El lugar de atención queda muy lejos", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:40, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_5", texto:"El problema no le parecía tan importante", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:50, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_6", texto:"No cree que un profesional pueda ayudarlo", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:60, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_7", texto:"Va a consultar más adelante", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:70, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_8", texto:"Pidió turno y todavía no lo atendieron", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:80, tlg:1}
+                        , { "for":"SMI1", "var":"sn23_9", texto:"Pidió turno pero no fue porque demoraba mucho tiempo", conopc:"si_no_h", tipovar:"si_no", optativa:false, orden:90, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"SitLab", texto:"SITUACIÓN LABORAL", orden:80, tlg:1
+
+                  , preguntas:
+                    [ { pre:"T1", texto:"¿ La semana pasada trabajó por lo menos una hora? (E-S)", orden:570, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t1", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"T44", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T10", texto:"Durante esos 30 días ¿ hizo algo para instalarse por su cuenta/puso carteles/ consulto con parientes, amigos? (E-S)", orden:640, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t10", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"SN15A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T11", texto:"¿No buscó trabajo (ni hizo algo para trabajar) porque… (G-S)", aclaracion:"(Primero lea todas las opciones y luego marque la respuesta)", orden:650, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t11", conopc:"t11", tipovar:"opciones", optativa:false, orden:10, maximo:4, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t11", opc:"1", destino:"SN15A", tlg:1}
+                            , { conopc:"t11", opc:"2", destino:"SN15A", tlg:1}
+                            , { conopc:"t11", opc:"3", destino:"SN15A", tlg:1}
+                            ]
+                          }
+                        , { "for":"SMI1", "var":"t11_esp", tipovar:"texto_especificar", destino:"SN15A", subordinada_var:"t11", subordinada_opcion:"4", expresion_habilitar:"t11=4", optativa:false, orden:20, tlg:1}
+                        ]
+                      }
+                    , { pre:"T2", texto:"En esta semana ¿hizo alguna changa, fabricó en su casa algo para vender, ayudó a un familiar o amigo en su negocio? (E-S)", orden:580, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t2", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"T44", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T29B", texto:"¿Cuántas horas semanales trabaja habitualmente en todos sus empleos/ocupaciones? (E-S)", orden:710, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t29b", conopc:"t29b", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"T29C", texto:"¿Quiere trabajar mas horas? (E-S)", orden:720, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t29c", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"T3", texto:"La semana pasada … Primero lea todas las opciones y luego marque la respuesta (G-S)", orden:590, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t3", conopc:"t3", tipovar:"opciones", optativa:false, orden:10, maximo:5, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t3", opc:"1", destino:"SN15A", tlg:1}
+                            , { conopc:"t3", opc:"2", destino:"T9", tlg:1}
+                            , { conopc:"t3", opc:"3", destino:"T9", tlg:1}
+                            , { conopc:"t3", opc:"4", destino:"T9", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T4", texto:"¿No concurrió a su trabajo por… (G-S)", orden:600, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t4", conopc:"t4", tipovar:"opciones", optativa:false, orden:10, maximo:5, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t4", opc:"1", destino:"T44", tlg:1}
+                            , { conopc:"t4", opc:"2", destino:"T44", tlg:1}
+                            , { conopc:"t4", opc:"3", destino:"T44", tlg:1}
+                            , { conopc:"t4", opc:"5", destino:"T6", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T44", texto:"¿Ese trabajo  lo hace... (G-S)", orden:660, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t44", conopc:"t44", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t44", opc:"1", destino:"T46", tlg:1}
+                            , { conopc:"t44", opc:"3", destino:"T49", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T45", texto:"¿Por ese trabajo… (G-S)", orden:670, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t45", conopc:"t45", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"t45", opc:"1", destino:"T49", tlg:1}
+                            , { conopc:"t45", opc:"3", destino:"SN15A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T46", texto:"¿En ese negocio/empresa/actividad, se emplean personas asalariadas? (G-S)", orden:680, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t46", conopc:"t46", tipovar:"opciones", destino:"SN15A", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"T49", texto:"¿Ese trabajo tiene tiempo de finalización? (E-S)", orden:690, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t49", conopc:"t49", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"T5", texto:"¿Le siguen pagando durante la suspensión? (E-S)", orden:610, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t5", conopc:"si_no_nosabe3", tipovar:"si_no", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe3", opc:"1", destino:"T44", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"2", destino:"T9", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"3", destino:"T9", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T51", texto:"¿En ese trabajo… (G-S)", orden:700, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t51", conopc:"t51", tipovar:"opciones", optativa:false, orden:10, maximo:3, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"T6", texto:"¿Volverá a ese trabajo a lo sumo en un mes? (E-S)", orden:620, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t6", conopc:"si_no_nosabe3", tipovar:"si_no", optativa:false, orden:10, maximo:3, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe3", opc:"1", destino:"T44", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"2", destino:"T9", tlg:1}
+                            , { conopc:"si_no_nosabe3", opc:"3", destino:"T9", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"T9", texto:"Durante los últimos 30 días ¿estuvo buscando trabajo de alguna manera? (E-S)", orden:630, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"t9", conopc:"si_no", tipovar:"si_no", optativa:false, orden:10, maximo:2, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no", opc:"1", destino:"SN15A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Tabaco", texto:"TABACO", orden:100, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN24A", texto:"¿Ha fumado usted cigarrillos alguna vez en la vida? ", orden:800, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn24a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN25A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN25A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN24B", texto:"¿Cuándo fue la ultima vez que fumó un cigarrillo? ", orden:810, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn24b", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"Tranqui", texto:"TRANQUILIZANTES", orden:120, tlg:1
+
+                  , preguntas:
+                    [ { pre:"SN26A", texto:"¿Alguna vez tomó algún tranquilizante o sedante para calmar los nervios o para poder dormir, como Valium, Lexotanil, Alplax, Trapax, Rivotril o similares? ", orden:840, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn26a", conopc:"si_no_nosabe9", tipovar:"si_no", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"si_no_nosabe9", opc:"2", destino:"SN27A", tlg:1}
+                            , { conopc:"si_no_nosabe9", opc:"9", destino:"SN27A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN26B", texto:"¿Los tranquilizantes los tomó... (G-S)", orden:850, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn26b", conopc:"sn_receta", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1
+
+                          , saltos:
+                            [ { conopc:"sn_receta", opc:"2", destino:"SN26D", tlg:1}
+                            , { conopc:"sn_receta", opc:"3", destino:"SN26D", tlg:1}
+                            , { conopc:"sn_receta", opc:"9", destino:"SN27A", tlg:1}
+                            ]
+                          }
+                        ]
+                      }
+                    , { pre:"SN26C", texto:"¿Quién se los recetó? (G-S)", orden:860, tlg:1
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn26c", conopc:"sn_medico", tipovar:"opciones", destino:"sn27a", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    , { pre:"SN26D", texto:"¿Cuándo fue la ultima vez que tomó tranquilizantes sin indicación médica? ", orden:870, tlg:1
+
+                      , variables:
+                        [ { "for":"SMI1", "var":"sn26d", conopc:"sn_ultvez", tipovar:"opciones", optativa:false, orden:10, maximo:9, minimo:1, tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        , { "for":"TEM", nombre:"TEM", orden:1, tlg:1
+
+          , matrices:
+            [ { texto:"Principal", ua:"enc", ultimo_campo_pk:"enc", blanquear_clave_al_retroceder:",tra_hog:0,tra_mie:0,tra_exm:0", tlg:1
+
+              , bloques:
+                [ { blo:"", texto:"", orden:999, tlg:1
+
+                  , preguntas:
+                    [ { pre:"a_ingreso_enc", texto:"Si fue pasado a ingreso", orden:170, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"a_ingreso_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"a_ingreso_recu", texto:"Si fue pasado a ingreso", orden:430, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"a_ingreso_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"asignable", texto:"La encuesta está lista para ser asignada a un encuestador ", orden:100, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"asignable", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"cantidad_inconsistencias", texto:"Cantidad de inconsistencias", orden:350, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"cantidad_inconsistencias", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"carga", texto:"Número de carga", orden:320, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"carga", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"cod_enc", texto:"Encuestador asignado", orden:110, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"cod_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"cod_recu", texto:"recuperador asignado", orden:380, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"cod_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"cod_supe", texto:"Código de supervisor del encuestador", orden:540, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"cod_supe", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"cod_supr", texto:"Código de supervisor del encuestador", orden:610, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"cod_supr", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"comenzo_consistencias", texto:"Fecha de comienzo de consistencias", orden:370, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"comenzo_consistencias", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"comenzo_ingreso", texto:"Fecha de comienzo del ingreso de la encuesta", orden:230, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"comenzo_ingreso", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"con_dato_enc", texto:"Encuesta ingresada con dato", orden:310, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"con_dato_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"con_dato_recu", texto:"Encuesta recuperada con datos", orden:500, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"con_dato_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"dispositivo_enc", texto:"En qué tipo de dispositivo va a cargar", orden:120, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"dispositivo_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"dispositivo_recu", texto:"En qué tipo de dispositivo va a cargar", orden:390, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"dispositivo_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"en_campo", texto:"Encuesta en campo", orden:700, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"en_campo", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"estado", texto:"Estado en que se encuentra la encuesta", orden:90, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"estado", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_carga_enc", texto:"Fecha en que se cargó el dispositivo", orden:140, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_carga_enc", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_carga_recu", texto:"Fecha en que se cargó el dispositivo", orden:400, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_carga_recu", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_carga_supe", texto:"Fecha de carga del supervisor de encuestador", orden:560, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_carga_supe", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_carga_supr", texto:"Fecha de carga del supervisor de recuperador", orden:630, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_carga_supr", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_descarga_enc", texto:"Fecha en que se descargó", orden:160, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_comenzo_descarga", texto:"momento en que comenzo la descarga", tipovar:"timestamp", tlg:1}
+                        , { "for":"TEM", "var":"fecha_descarga_enc", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_descarga_recu", texto:"Fecha en que se descargó", orden:420, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_descarga_recu", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_primcarga_enc", texto:"Fecha de la primera vez que se cargó el dispositivo", orden:150, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_primcarga_enc", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fecha_primcarga_recu", texto:"Fecha de la primera vez que se cargó el dispositivo", orden:410, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fecha_primcarga_recu", tipovar:"timestamp", tlg:1}
+                        ]
+                      }
+                    , { pre:"fin_ingreso_enc", texto:"finalizó el ingreso de la encuesta", orden:210, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fin_ingreso_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"fin_ingreso_recu", texto:"finalizó el ingreso de la encuesta", orden:470, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"fin_ingreso_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"hog_pre", texto:"hogares presentes", orden:270, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"hog_pre", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"hog_tot", texto:"hogares totales", orden:280, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"hog_tot", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"norea", texto:"NO REA total", orden:260, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"norea", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"norea_enc", texto:"NO REA del encuestador", orden:240, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"norea_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"norea_recu", texto:"NO REA del recuperador", orden:490, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"norea_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"per", texto:"Código de persona", orden:680, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"per", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"pob_pre", texto:"población presente", orden:290, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"pob_pre", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"pob_tot", texto:"población total", orden:300, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"pob_tot", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"rea", texto:"REA total", orden:250, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"rea", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"rea_enc", texto:"REA del encuestador", orden:220, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"rea_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"rea_recu", texto:"REA del recuperador", orden:480, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"rea_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"recepcionista", texto:"Código de recepcionista que asignó la encuesta ", orden:130, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"recepcionista", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"result_supe", texto:"Resultado de la supervisión de encuestador", orden:570, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"result_supe", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"result_supr", texto:"Resultado de la supervisión de recuperador", orden:640, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"result_supr", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"rol", texto:"Rol", orden:690, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"rol", tipovar:"texto", tlg:1}
+                        ]
+                      }
+                    , { pre:"sup_aleat_enc", texto:"supervisión aleatoria", orden:330, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"sup_aleat_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"sup_aleat_recu", texto:"supervisión aleatoria", orden:510, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"sup_aleat_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"sup_dirigida_enc", texto:"supervisión dirigida", orden:340, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"sup_dirigida_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"sup_dirigida_recu", texto:"supervisión dirigida", orden:520, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"sup_dirigida_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"verificado_enc", texto:"finalizó la recepción", orden:360, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"verificado_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"verificado_recu", texto:"finalizó la recuperación", orden:530, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"verificado_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"verificado_supe", texto:"finalizó la supervisión de encuestador", orden:590, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"verificado_supe", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"verificado_supr", texto:"finalizó la supervisión de recuperador", orden:660, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"verificado_supr", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"volver_a_cargar_enc", texto:"Si la encuesta se volverá a cargar", orden:190, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"volver_a_cargar_enc", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    , { pre:"volver_a_cargar_recu", texto:"Vuelve a cargar para el recuperador", orden:450, tlg:1
+
+                      , variables:
+                        [ { "for":"TEM", "var":"volver_a_cargar_recu", tipovar:"numeros", tlg:1}
+                        ]
+                      }
+                    ]
+                  }
+                , { blo:"1", texto:"Encuestador", orden:999, tlg:1}
+                , { blo:"2", texto:"No realizada x el encuestador", orden:999, tlg:1}
+                , { blo:"3", texto:"Recuperación", orden:999, tlg:1}
+                , { blo:"4", texto:"Supervisión de Recuperador", orden:999, tlg:1}
+                , { blo:"5", texto:"Supervisión encuestador", orden:999, tlg:1}
+                , { blo:"CARGA", texto:"Datos de la carga", orden:100, tlg:1}
+                , { blo:"ftc", texto:"Fin de las tareas de campo", orden:999, tlg:1}
+                , { blo:"RECEPCION", texto:"Recepción", orden:300, tlg:1}
+                , { blo:"RESULTADO", texto:"Resultado del último trabajo de campo", orden:200, tlg:1}
+                , { blo:"t_ing", texto:"TAREAS DE INGRESO", orden:999, tlg:1}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

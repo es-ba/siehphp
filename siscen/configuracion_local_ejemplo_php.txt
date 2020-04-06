@@ -1,0 +1,18 @@
+<?php
+$pdo_log_sql_hasta_fecha='2012-05-09';
+//$esta_es_la_base_en_produccion=true;
+global $parametros_db,$color_de_fondo_de_la_aplicacion,$ICON_APP,$detenido;
+
+$detenido=false;
+// $detenido=$_SERVER['REMOTE_ADDR']!='10.30.1.153' && $_SERVER['REMOTE_ADDR']!='10.30.1.207' && $_SERVER['REMOTE_ADDR']!='10.30.1.7' && $_SERVER['REMOTE_ADDR']!='localhost' && $_SERVER['REMOTE_ADDR'];
+
+$debug_via_notepadPP=true;
+
+// $color_de_fondo_de_la_aplicacion='#AEE';
+
+$parametros_db->user='siscen_php';
+$parametros_db->pass='laclave';
+$parametros_db->base_de_datos='siscen_db';
+$parametros_db->host='localhost';
+
+?>

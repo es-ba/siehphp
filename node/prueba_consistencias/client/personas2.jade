@@ -1,0 +1,34 @@
+doctype html
+html(lang="es", ng-app="personasApp")
+  head
+    meta(charset='utf-8')
+    title Taller ABMS
+    link(rel="stylesheet", type="text/css", href="taller-abm.css")
+  body
+    div.menu_superior(ng-controller="ErroresCtrl as error")
+      img.menu_icon(src="triple-igual.png")
+      span Taller ABM
+      span.error_msg {{error.message}} {{error.object}}
+    div.contenedor(ng-controller="PersonasCtrl as personas")
+      div(ng-show="personas.parametros.estado!='ok' && personas.parametros.estado!='loading'")
+        label con_con
+        input(ng-model="personas.parametros.con_con")
+        button(ng-click="personas.operaciones.traer('load')") traer
+        button(ng-click="personas.operaciones.traer('bulkload')") traer muchos
+        button(ng-click="personas.operaciones.traer('primero')") primero
+        // button(ng-click="personas.operaciones.siguiente('siguiente')") siguiente
+      div(ng-show="personas.parametros.estado=='error'")
+        div.error_msg {{personas.parametros.mensaje_error}}
+      div(ng-show="personas.parametros.estado=='loading'")
+        div Loading...
+      div(ng-show="personas.parametros.estado=='ok'")
+        div(ng-repeat="fila in personas.filas")
+          div.titulo_ficha Persona {{personas.datos.con_con}}
+          span.campo(ng-repeat="(campo, dato) in fila")
+            label(for="campo_{{campo}}") {{campo}}
+            input(class="campo_{{personas.infoCampos[campo].tipoVisual}}" id="campo_{{campo}}", ng-model="dato", ng-hide="personas.infoCampos[campo].tipoVisual=='check'")
+            input(class="campo_{{personas.infoCampos[campo].tipoVisual}}" type="checkbox" id="campo_{{campo}}", ng-model="dato", ng-show="personas.infoCampos[campo].tipoVisual=='check'")
+    script(src="angular.js")
+    script(src="angular-route.js")
+    script(src="ajax-best-promise.js")
+    script(src="app.js")

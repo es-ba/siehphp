@@ -1,0 +1,23 @@
+[ { principal:"ana_ing", delegado:"ingresador"}
+    , { principal:"aux_info_campo", delegado:"coor_campo"}
+    , { principal:"aux_info_campo", delegado:"recepcionista"}
+    , { principal:"aux_info_campo", delegado:"subcoor_campo"}
+    , { principal:"coor_campo", delegado:"aux_info_campo"}
+    , { principal:"coor_campo", delegado:"ingresador"}
+    , { principal:"coor_campo", delegado:"recepcionista"}
+    , { principal:"coor_campo", delegado:"subcoor_campo"}
+    , { principal:"mues_campo", delegado:"ana_campo"}
+    , { principal:"mues_campo", delegado:"aux_info_campo"}
+    , { principal:"mues_campo", delegado:"coor_campo"}
+    , { principal:"mues_campo", delegado:"ingresador"}
+    , { principal:"mues_campo", delegado:"recepcionista"}
+    , { principal:"mues_campo", delegado:"subcoor_campo"}
+    , { principal:"procesamiento", delegado:"ana_ing"}
+    , { principal:"procesamiento", delegado:"ingresador"}
+    , { principal:"procesamiento", delegado:"sup_ing"}
+    , { principal:"subcoor_campo", delegado:"aux_info_campo"}
+    , { principal:"subcoor_campo", delegado:"ingresador"}
+    , { principal:"subcoor_campo", delegado:"recepcionista"}
+    , { principal:"sup_ing", delegado:"ana_ing"}
+    , { principal:"sup_ing", delegado:"ingresador"}
+    ]

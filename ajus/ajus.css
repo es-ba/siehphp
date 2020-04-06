@@ -1,0 +1,259 @@
+body{
+    font-size:24px;
+    width:768px;
+}
+
+td{
+    border:1px dashed green;
+    vertical-align:top;
+}
+
+.div_prinicipal{
+    width:768px;
+}
+
+.div_mayus{
+    visibility:hidden;
+    color:red;
+    width:80px;
+    height:30px;
+}
+
+
+.tabla_preguntas_horizontales td{
+    border:1px dashed red;
+}
+
+.app_menu{
+    color:red;
+}
+.app_titulo{
+    margin:10px;
+    padding:6px;
+    border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    font:200% blue;
+    font-family:arial;
+    top-margin:2px;
+/* según:
+http://www.colorzilla.com/gradient-editor/ 
+otro que se puede usar:
+http://gradients.glrzad.com/
+*/     
+background: #fceabb; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #fceabb 0%, #fccd4d 50%, #f8b500 59%, #fbdf93 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#fceabb), color-stop(50%,#fccd4d), color-stop(59%,#f8b500), color-stop(100%,#fbdf93)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* IE10+ */
+background: linear-gradient(-45deg,  #fceabb 0%,#fccd4d 50%,#f8b500 59%,#fbdf93 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.desp_ope{
+    border-color:green;
+/*    background:#E94CBC; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.desp_for{
+    border-color:red;
+/*    background:#CEEFBC; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.desp_todo{
+    border-width:2px;
+    border-style:solid;
+    padding:4px;
+    margin-top:3px;
+}
+
+.desp_encabezado{
+    border-width:1px;
+    border-style:solid;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    padding-left:4px;
+}
+
+.desp_celda{
+    margin:10px;
+}
+
+.encabezado_bloque{
+    border:2px solid black;
+}
+
+.blo_blo{
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    font-weight:bold;
+    display:inline;
+}
+
+.blo_texto{
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    display:inline;
+}
+
+.tabla_contenido_formulario{
+    border:2px solid black;
+    width:760px;
+}
+
+.pre_pre{
+    display:inline;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.pre_texto{
+    display:inline;
+}
+
+.var_var{
+    display:inline;
+    margin-right:10px;
+    /* margin-left:10px; */
+}
+
+.var_texto{
+    display:inline;
+}
+
+.encabezado_pregunta{
+    col-span:3;
+}
+
+
+td {
+vertical-align: top;
+text-align: left;
+}
+.hori_pre_pre {
+font-family: Arial;
+font-size: 60%; 
+}
+
+.hori_pre_texto {
+font-family: Arial;
+font-size: 70%;
+}
+
+.celda_filtrar {
+    border:2px solid silver;
+    border-collapse: collapse;
+    padding:2;
+    background:PaleTurquoise;
+    font-size:70%;
+    text-align:left;
+    contenteditable:true;
+}
+.celda_comun             {border:2px solid silver;border-collapse: collapse;background-color:Khaki; font-family:arial;font-size:70%; max-width:300px}
+.editor_tabla           {border:2px solid silver;border-collapse: collapse;}
+.tabla_titulos td     {border:2px solid silver;border-collapse: collapse;background-color:#F0E0C0; text-align:center; font-size:80%; }
+.tabla_titulos         {border:2px solid silver;border-collapse: collapse;background-color:#F0E0C0; text-align:left; font-size:60%; font-family:arial }
+.tabla_titulos input {border:2px solid silver;border-collapse: collapse;font-size:70% }
+.editor_botonera_registro input {font-size:60%; margin:0px; }
+.editor_botonera_registro {border:1px solid silver;border-collapse: collapse;background-color:#F0E0C0; text-align:center; font-size:80%; }
+
+.cabezal_matriz{font-size:90%; font-weight:bold; font-familly:arial; background-color:Khaki; text-align:center; border:0px;}
+
+.div_proceso_formulario_aclaracion{
+    font-size:80%;
+}
+
+.demora_proceso{
+    font-size:60%; font-weight:bold; font-family:courier; border:1px solid silver; background-color:#FFE0F0; float:right;
+}
+
+.sin_dato{
+    background-color:silver; height:6px; font-size:60%; font-weight:bold;
+}
+
+.celda_input{
+    vertical-align:top;
+}
+
+.input_opciones {width:30px}
+.input_marcar{width:30px}
+
+.opc_ok{background-color:lightGreen;}
+.opc_sosa{background-color:red;}
+.opc_inex{background-color:orange;}
+.opc_salt{background-color:gray;}
+.opc_blanco{background-color:White;}
+.opc_tono{background-color:LightGrey;}
+.opc_adel{background-color:Gold;}
+.opc_omit{background-color:Pink;}
+.opc_homi{background-color:SandyBrown;}
+.opc_rana{background-color:Yellow;}
+.opc_rano{background-color:Peru;}
+.opc_tipo{background-color:Chocolate;}
+.opc_nsnc{background-color:Aquamarine;}
+.opc_sinesp{background-color:Violet;}
+.opc_inconsistente{background-color:Yellow;}
+.pro_detec{background-color:red;}
+.achiar_letra{
+    font-size:75%;
+}
+
+.elemento_angosto{
+    width:75px;
+}
+
+.encabezado_variable{
+    width:350px;
+}
+
+.td_input_multiple{
+    text-align:right;
+}
+
+.opcion_codigo_deshabilitar{
+    background-color:black;
+}
+
+.div_mensaje_alerta{
+    border:2px FireBrick solid;
+    background-color:Gold;
+    font-weight:bold;
+    font-size:80%;
+}
+
+.matriz_horizontal {
+    border: 1px green solid;
+    border-collapse: collapse;
+    font-size: 75%;
+}
+
+.matriz_horizontal td {
+border: 1px green solid;
+border-collapse: collapse;
+}
+
+.tabla_remito_enc{border:1px solid black; border-collapse: collapse; width:890px; font-size:80%}
+.tabla_remito_enc td{border:1px solid black; border-collapse: collapse; min-width:120px; text-align:center;}
+.tabla_remito{border:1px solid black; border-collapse: collapse;width:890px;font-size:90%}
+/*.tabla_remito td{border:1px solid black;}*/
+
+.tabla_remito th{border:1px solid black; font-size:80%}
+.tabla_remito_celda_vacia{border-top:1px solid white;}
+.tabla_remito td{border-left:1px solid black; border-right:1px solid black; }
+.tabla_remito_td{border:1px solid black;border-top:1px solid black;border-bottom:0px solid white; text-align:right; min-width:50px}
+@media print{
+    .app_titulo{display:none;}
+    .no_imprimir{display:none;}
+    .editor_tabla{border:1px solid black;border-collapse: collapse;}
+    .editor_tabla td{border:1px solid black; background-color:Khaki; font-family:arial;font-size:80%; max-width:300px}
+}
+.tabla_remito_totales{border-bottom:1px solid black; border-top:2px solid black}
+/* .tabla_remito_totales{border-bottom:1px solid black; border-top:2px solid black} */

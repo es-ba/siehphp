@@ -1,0 +1,9 @@
+﻿UPDATE encu.usuarios
+   SET usu_rol='sup_ing'
+ WHERE usu_usu='saice';
+UPDATE encu.usuarios
+   SET usu_rol='ana_ing'
+ WHERE usu_usu='msara';
+ UPDATE encu.usuarios
+   SET usu_rol='ingresador'
+ WHERE usu_usu='mfenili';

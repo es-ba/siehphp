@@ -1,0 +1,1 @@
+﻿update encu.variables set var_destino_nsnc = 'sn4' where var_ope = 'eah2012' and var_var in ('sn2','sn2_cant');

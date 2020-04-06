@@ -1,0 +1,46 @@
+CACHE MANIFEST
+# V 2.33
+# Cosas a cachear !!!
+
+../empav31/empav31_icon.png
+../empav31/empav31_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../empav31/empav31.css
+../empav31/dbo_empav31.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../empav31/estructura_empav31.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../empav31/logo_app.png
+../empav31/logo_esperar.png
+../empav31/empav31_fondo_t.png
+../empav31/empav31_icon.gif
+../empav31/empav31_icon_test.gif
+../empav31/empav31_icon_desa.gif
+../empav31/empav31_icon_capa.gif
+../empav31/empav31.php?hacer=hoja_de_ruta
+../empav31/empav31.php?hacer=hoja_de_ruta_super
+../empav31/empav31.php?hacer=formularios_de_la_vivienda
+../empav31/empav31.php?hacer=desplegar_formulario&todo={"tra_ope":"empav31","tra_for":"S1","tra_mat":""}
+../empav31/empav31.php?hacer=desplegar_formulario&todo={"tra_ope":"empav31","tra_for":"S1","tra_mat":"P"}
+../empav31/empav31.php?hacer=desplegar_formulario&todo={"tra_ope":"empav31","tra_for":"A1","tra_mat":""}
+../empav31/empav31.php?hacer=desplegar_formulario&todo={"tra_ope":"empav31","tra_for":"I1","tra_mat":""}
+../empav31/empav31.php?hacer=desplegar_formulario&todo={"tra_ope":"empav31","tra_for":"GH","tra_mat":""}
+../empav31/empav31.php?hacer=desplegar_formulario&todo={"tra_ope":"empav31","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../empav31/empav31.php?hacer=cargar_dispositivo  ../empav31/empav31.php?hacer=aviso_offline

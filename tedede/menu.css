@@ -1,0 +1,51 @@
+﻿.app_menu  {
+    display:inline-block;
+    border:1px solid gray;
+    border-radius: 5px;
+    padding-left:4px;
+    padding-right:4px;
+    padding-top:1px;
+    vertical-align:top;
+    background-color:#FEA;
+    font-family:arial;
+    color:black;
+    text-decoration:none;
+    margin:3px;
+}
+
+.app_menu_2{
+    white-space:nowrap;
+    /* background-color:#ED8; */
+    /* color:#333; */
+}
+.app_menu_3{
+    /* color:#666; */
+    /* background-color:#CB4; */
+}
+
+input[type="checkbox"].chk_menu {
+    vertical-align:top;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+input[type="checkbox"].chk_menu ~ label ~ div {
+    display:none; margin-left:1em;
+}
+input[type="checkbox"].chk_menu:checked  ~ label ~ div {
+    display:inline-block;
+} 
+
+input[type="checkbox"].chk_menu ~ label::after{
+    content:'...'
+}
+input[type="checkbox"].chk_menu:checked  ~ label::after{
+    content:'\21D2'
+}
+

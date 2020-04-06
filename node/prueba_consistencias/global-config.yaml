@@ -1,0 +1,7 @@
+server:
+  port: 12349
+db:
+  host: localhost
+  database: eah2014_copia_db
+  port: 5432
+  user: tedede_php

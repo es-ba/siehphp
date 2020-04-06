@@ -1,0 +1,114 @@
+﻿<html>
+<head>
+<link rel="stylesheet" type="text/css" href="probar_tablas.css">
+</head>
+<body>
+<h1>Prueba de tablas version directo DOM</h1>
+<script src='datos.js'></script>
+<script>
+function reloj(){
+    return (new Date()).getTime()/1000.0;
+}
+
+function ejecutar_en_pasos(lista_operaciones_descriptas,voy_por){
+    if(!lista_operaciones_descriptas.length){
+        if(voy_por){
+            var elemento_informar_este=document.createElement('div');
+            elemento_informar_este.style.fontSize='110%';
+            voy_por.elemento_dom_donde_informar.appendChild(elemento_informar_este);
+            elemento_informar_este.textContent='Tardo todo '+(reloj()-voy_por.empece_todo);
+        }
+        return;
+    }
+    var ahora=reloj();
+    if(!voy_por){ // es el primer paso
+        var elemento_dom_donde_informar=document.createElement('div');
+        elemento_dom_donde_informar.style.border='1px solid green';
+        elemento_dom_donde_informar.style.color='brown';
+        elemento_dom_donde_informar.style.fontSize='80%';
+        elemento_dom_donde_informar.textContent='Empecé todo';
+        voy_por={
+            empece_todo:ahora,
+            elemento_dom_donde_informar:elemento_dom_donde_informar
+        };
+        document.body.appendChild(elemento_dom_donde_informar);
+    }
+    voy_por.empece_este=ahora-voy_por.empece_todo;
+    var proximo_paso=lista_operaciones_descriptas.shift();
+    var elemento_informar_este=document.createElement('div');
+    elemento_informar_este.textContent=proximo_paso.que+'. Empecé '+voy_por.empece_este;
+    voy_por.elemento_dom_donde_informar.appendChild(elemento_informar_este);
+    setTimeout(function(){
+        proximo_paso.como();
+        var fin_tiempo=reloj()-voy_por.empece_todo;
+        elemento_informar_este.textContent+=' terminé '+fin_tiempo+' tarde '+(fin_tiempo-voy_por.empece_este);
+        setTimeout(function(){
+            ejecutar_en_pasos(lista_operaciones_descriptas,voy_por);
+        },0);
+    },0);
+}
+
+function render_tabla_DOM(tabla){
+    var table;
+    ejecutar_en_pasos([
+        {
+            que:"crea los objetos",
+            como:function(){
+                table=document.createElement('table');
+                for(var iFila=0; iFila<tabla.length; iFila++){
+                    var fila=tabla[iFila];
+                    var tr=table.insertRow(-1);
+                    for(var iCol=0; iCol<fila.length; iCol++){
+                        var celda=fila[iCol];
+                        var td=tr.insertCell(-1);
+                        td.textContent=celda;
+                        td.contentEditable=true;
+                    }
+                }
+                table.className='nuestra_tabla';
+            },
+        },{
+            que:"lo mete en la pagina",
+            como:function(){
+                document.body.appendChild(table);
+            }
+        }
+    ]);
+}
+
+function render_tabla_HTML(tabla){
+    var html;
+    var div;
+    ejecutar_en_pasos([
+        {
+            que:"crea el string html",
+            como:function(){
+                html="<table><tr>"+
+                    tabla.map(function(dato){
+                        return "<td>"+dato.map(function(elemento){
+                            return elemento.toString().replace('&','&amp;').replace('<','&lt;').replace('>','&gt;');
+                        }).join("</td><td>")+"</td>";
+                    }).join('</tr><tr>')+
+                    '</tr></table>';
+            }
+        },{
+            que:"meto el HTML en un elemento del DOM",
+            como:function(){
+                div=document.createElement('div');
+                div.innerHTML=html;
+            },
+        },{
+            que:"lo mete en la pagina",
+            como:function(){
+                document.body.appendChild(div);
+            }
+        }
+    ]);
+}
+
+var render_tabla=render_tabla_DOM;
+
+window.addEventListener('load',function(){
+    render_tabla(datos_tabla);
+});
+</script>

@@ -1,0 +1,27 @@
+CACHE MANIFEST
+# V 1.06c
+# Cosas a cachear
+
+../tedede/comunes.js 
+../tedede/probador.css
+../encuestas/encuestas.js
+../pp2012/pp2012.css
+../tedede/tedede.js
+../tedede/editor.js
+../tedede/para_grilla.js
+../pp2012/estructura_pp2012.js
+../tercera/md5_paj.js
+../imagenes/logo_prototipo.png
+../pp2012/pp2012.php?hacer=hoja_de_ruta
+../pp2012/pp2012.php?hacer=formularios_de_la_vivienda
+../pp2012/pp2012.php?hacer=desplegar_formulario&todo={"tra_ope":"pp2012","tra_for":"S1","tra_mat":""}
+../pp2012/pp2012.php?hacer=desplegar_formulario&todo={"tra_ope":"pp2012","tra_for":"S1","tra_mat":"P"}
+../pp2012/pp2012.php?hacer=desplegar_formulario&todo={"tra_ope":"pp2012","tra_for":"A1","tra_mat":""}
+../pp2012/pp2012.php?hacer=desplegar_formulario&todo={"tra_ope":"pp2012","tra_for":"A1","tra_mat":"X"}
+../pp2012/pp2012.php?hacer=desplegar_formulario&todo={"tra_ope":"pp2012","tra_for":"I1","tra_mat":""}
+
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../pp2012/pp2012.php?hacer=cargar_dispositivo  ../pp2012/pp2012.php?hacer=aviso_offline

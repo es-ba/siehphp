@@ -1,0 +1,93 @@
+<?php
+//UTF-8:SÍ
+require_once "lo_imprescindible.php";
+require_once "tablas.php";
+
+class Tabla_valcan extends Tabla{
+    function definicion_estructura(){
+        $this->definir_prefijo('pla');
+        $this->definir_esquema($GLOBALS['esquema_principal']);
+        $this->definir_campo('pla_ope', array('es_pk'=>true,'tipo'=>'texto','largo'=>50,'validart'=>'codigo'));
+        $this->definir_campo('pla_ca_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_alquiler_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_gastoexpensas_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_gas_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_electricidad_p',array('tipo'=>'real'));         
+        $this->definir_campo('pla_agua_p' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_jardin_p' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_preescyprim_p' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_secundaria_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_artytextos_p',array('tipo'=>'real'));    
+        $this->definir_campo('pla_transpu_p',array('tipo'=>'real'));       
+        $this->definir_campo('pla_comunicaciones_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_limpieza_p',array('tipo'=>'real'));      
+        $this->definir_campo('pla_esparcimiento_p',array('tipo'=>'real')); 
+        $this->definir_campo('pla_bieneserv_p',array('tipo'=>'real'));    
+        $this->definir_campo('pla_indadultos_p',array('tipo'=>'real'));    
+        $this->definir_campo('pla_indninios_p',array('tipo'=>'real'));     
+        $this->definir_campo('pla_salud_p',array('tipo'=>'real'));         
+        $this->definir_campo('pla_equipamiento_p',array('tipo'=>'real'));
+        $this->definir_campo('pla_ca_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_alquiler_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_gastoexpensas_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_gas_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_electricidad_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_agua_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_jardin_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_preescyprim_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_secundaria_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_artytextos_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_transpu_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_comunicaciones_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_limpieza_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_esparcimiento_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_bieneserv_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_indadultos_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_indninios_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_salud_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_equipamiento_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_axesorios_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_servind_c',array('tipo'=>'real'));
+        $this->definir_campo('pla_ca_p_t'            ,array('tipo'=>'real'));
+        $this->definir_campo('pla_alquiler_p_t'      ,array('tipo'=>'real'));
+        $this->definir_campo('pla_gastoexpensas_p_t' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_gas_p_t'           ,array('tipo'=>'real'));
+        $this->definir_campo('pla_electricidad_p_t'  ,array('tipo'=>'real'));
+        $this->definir_campo('pla_agua_p_t'          ,array('tipo'=>'real'));
+        $this->definir_campo('pla_jardin_p_t'        ,array('tipo'=>'real'));
+        $this->definir_campo('pla_preescyprim_p_t'   ,array('tipo'=>'real'));
+        $this->definir_campo('pla_secundaria_p_t'    ,array('tipo'=>'real'));
+        $this->definir_campo('pla_artytextos_p_t'    ,array('tipo'=>'real'));
+        $this->definir_campo('pla_transpu_p_t'       ,array('tipo'=>'real'));
+        $this->definir_campo('pla_comunicaciones_p_t',array('tipo'=>'real'));
+        $this->definir_campo('pla_limpieza_p_t'      ,array('tipo'=>'real'));
+        $this->definir_campo('pla_esparcimiento_p_t' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_bieneserv_p_t'     ,array('tipo'=>'real'));
+        $this->definir_campo('pla_indadultos_p_t'    ,array('tipo'=>'real'));
+        $this->definir_campo('pla_indninios_p_t'     ,array('tipo'=>'real'));
+        $this->definir_campo('pla_salud_p_t'         ,array('tipo'=>'real'));
+        $this->definir_campo('pla_equipamiento_p_t'  ,array('tipo'=>'real'));
+        $this->definir_campo('pla_ca_c_t'            ,array('tipo'=>'real'));
+        $this->definir_campo('pla_alquiler_c_t'      ,array('tipo'=>'real'));
+        $this->definir_campo('pla_gastoexpensas_c_t' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_gas_c_t'           ,array('tipo'=>'real'));
+        $this->definir_campo('pla_electricidad_c_t'  ,array('tipo'=>'real'));
+        $this->definir_campo('pla_agua_c_t'          ,array('tipo'=>'real'));
+        $this->definir_campo('pla_jardin_c_t'        ,array('tipo'=>'real'));
+        $this->definir_campo('pla_preescyprim_c_t'   ,array('tipo'=>'real'));
+        $this->definir_campo('pla_secundaria_c_t'    ,array('tipo'=>'real'));
+        $this->definir_campo('pla_artytextos_c_t'    ,array('tipo'=>'real'));
+        $this->definir_campo('pla_transpu_c_t'       ,array('tipo'=>'real'));
+        $this->definir_campo('pla_comunicaciones_c_t',array('tipo'=>'real'));
+        $this->definir_campo('pla_limpieza_c_t'      ,array('tipo'=>'real'));
+        $this->definir_campo('pla_esparcimiento_c_t' ,array('tipo'=>'real'));
+        $this->definir_campo('pla_bieneserv_c_t'     ,array('tipo'=>'real'));
+        $this->definir_campo('pla_indadultos_c_t'    ,array('tipo'=>'real'));
+        $this->definir_campo('pla_indninios_c_t'     ,array('tipo'=>'real'));
+        $this->definir_campo('pla_axesorios_c_t'     ,array('tipo'=>'real'));
+        $this->definir_campo('pla_servind_c_t'       ,array('tipo'=>'real'));                   
+        $this->definir_campo('pla_salud_c_t'         ,array('tipo'=>'real'));
+        $this->definir_campo('pla_equipamiento_c_t'  ,array('tipo'=>'real')); 
+    }                                            
+}
+?>                               

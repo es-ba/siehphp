@@ -1,0 +1,37 @@
+﻿<script>
+
+function mostrar(persona){
+    document.write(persona.nombreyapellido+"<br>");
+}
+
+function anonimizarNombre(persona){
+    persona.nombreyapellido="Anónimo";
+}
+
+var persona={
+    nombreyapellido:"Juan Perez"
+}
+
+mostrar(persona);
+anonimizarNombre(persona);
+mostrar(persona);
+
+// -----------------
+
+var persona2={
+    nombre:"María",
+    apellido:"Gomez"
+}
+
+Object.defineProperty(persona2,"nombreyapellido", {
+    get: function(){ return this.nombre+" "+this.apellido; },
+    set: function(value){ var lista_palabras=value.split(' '); this.apellido=lista_palabras.pop(); this.nombre=lista_palabras.join(' '); }
+});
+
+mostrar(persona2);
+anonimizarNombre(persona2);
+mostrar(persona2);
+persona2.nombreyapellido='Gomez Castañón José Carlos';
+mostrar(persona2);
+
+</script>

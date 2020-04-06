@@ -1,0 +1,18 @@
+INSERT INTO encu.roles (rol_rol, rol_descripcion,rol_tlg) VALUES ('prueba', 'usuarios de prueba del sistema'/*CAMPOS_AUDITORIA*/),
+('programador', 'programadores y otras tareas informáticas'/*CAMPOS_AUDITORIA*/),
+('procesamiento', 'área procesamiento del APDI'/*CAMPOS_AUDITORIA*/),
+('tematica', 'ARIP, temática, definiciones'/*CAMPOS_AUDITORIA*/),
+('subcoor_campo', 'subcoordinador de campo'/*CAMPOS_AUDITORIA*/),
+('aux_info_campo', 'auxiliar informático de campo'/*CAMPOS_AUDITORIA*/),
+('recepcionista', 'recepcionista'/*CAMPOS_AUDITORIA*/),
+('ingresador', 'ingresador'/*CAMPOS_AUDITORIA*/),
+('encuestador', 'encuestador'/*CAMPOS_AUDITORIA*/),
+('supervisor', 'supervisor'/*CAMPOS_AUDITORIA*/),
+('recepcionista_supervisor', 'recepcionista y supervisor'/*CAMPOS_AUDITORIA*/),
+('recuperador', 'recuperador'/*CAMPOS_AUDITORIA*/),
+('coor_campo', 'coordinador de campo'/*CAMPOS_AUDITORIA*/),
+('mues_campo', 'administradores de muestra y coordinadores de tareas de campo'/*CAMPOS_AUDITORIA*/),
+('sup_ing', 'supervisor de ingreso'/*CAMPOS_AUDITORIA*/),
+('ana_ing', 'analista de ingreso'/*CAMPOS_AUDITORIA*/),
+('ana_campo', 'analista de campo'/*CAMPOS_AUDITORIA*/)
+

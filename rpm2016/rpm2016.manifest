@@ -1,0 +1,45 @@
+CACHE MANIFEST
+# V 2.22
+# Cosas a cachear !!!
+
+../rpm2016/rpm2016_icon.png
+../rpm2016/rpm2016_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../rpm2016/rpm2016.css
+../rpm2016/dbo_rpm2016.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../rpm2016/estructura_rpm2016.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../rpm2016/logo_app.png
+../rpm2016/logo_esperar.png
+../rpm2016/rpm2016_fondo_t.png
+../rpm2016/rpm2016_icon.gif
+../rpm2016/rpm2016_icon_test.gif
+../rpm2016/rpm2016_icon_desa.gif
+../rpm2016/rpm2016_icon_capa.gif
+../rpm2016/rpm2016.php?hacer=hoja_de_ruta
+../rpm2016/rpm2016.php?hacer=hoja_de_ruta_super
+../rpm2016/rpm2016.php?hacer=formularios_de_la_vivienda
+../rpm2016/rpm2016.php?hacer=desplegar_formulario&todo={"tra_ope":"rpm2016","tra_for":"S1","tra_mat":""}
+../rpm2016/rpm2016.php?hacer=desplegar_formulario&todo={"tra_ope":"rpm2016","tra_for":"S1","tra_mat":"P"}
+../rpm2016/rpm2016.php?hacer=desplegar_formulario&todo={"tra_ope":"rpm2016","tra_for":"A1","tra_mat":""}
+../rpm2016/rpm2016.php?hacer=desplegar_formulario&todo={"tra_ope":"rpm2016","tra_for":"I1","tra_mat":""}
+../rpm2016/rpm2016.php?hacer=desplegar_formulario&todo={"tra_ope":"rpm2016","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../rpm2016/rpm2016.php?hacer=cargar_dispositivo  ../rpm2016/rpm2016.php?hacer=aviso_offline

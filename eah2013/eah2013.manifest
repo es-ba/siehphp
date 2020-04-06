@@ -1,0 +1,36 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear
+
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/encu_especiales.js
+../eah2013/eah2013.css
+../eah2013/dbo_eah.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../eah2013/estructura_eah2013.js
+../tercera/md5_paj.js
+../eah2013/logo_app.png
+../eah2013/logo_esperar.png
+../eah2013/eah_icon.gif
+../eah2013/eah_icon_test.gif
+../eah2013/eah_icon_desa.gif
+../eah2013/eah2013.php?hacer=hoja_de_ruta
+../eah2013/eah2013.php?hacer=formularios_de_la_vivienda
+../eah2013/eah2013.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2013","tra_for":"S1","tra_mat":""}
+../eah2013/eah2013.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2013","tra_for":"S1","tra_mat":"P"}
+../eah2013/eah2013.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2013","tra_for":"A1","tra_mat":""}
+../eah2013/eah2013.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2013","tra_for":"A1","tra_mat":"X"}
+../eah2013/eah2013.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2013","tra_for":"I1","tra_mat":""}
+
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../eah2013/eah2013.php?hacer=cargar_dispositivo  ../eah2013/eah2013.php?hacer=aviso_offline

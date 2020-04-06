@@ -1,0 +1,59 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!!!!!!!!
+
+../eah2018/eah2018_icon.png
+../eah2018/eah2018_icon_super.png
+../eah2018/eah2018_icon_capa.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../eah2018/eah2018.css
+../eah2018/dbo_eah2018.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../eah2018/estructura_eah2018.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../eah2018/logo_app.png
+../eah2018/logo_esperar.png
+../eah2018/eah2018_fondo_t.png
+../eah2018/eah2018_icon.gif
+../eah2018/eah2018_icon_test.gif
+../eah2018/eah2018_icon_desa.gif
+../eah2018/eah2018_icon_capa.gif
+../eah2018/eah2018.php?hacer=hoja_de_ruta
+../eah2018/eah2018.php?hacer=hoja_de_ruta_super
+../eah2018/eah2018.php?hacer=formularios_de_la_vivienda
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"S1","tra_mat":""}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"S1","tra_mat":"P"}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"A1","tra_mat":""}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"I1","tra_mat":""}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"PG1","tra_mat":""}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"PG1","tra_mat":"M"}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"MD","tra_mat":""}
+# ../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"GH","tra_mat":""}
+../eah2018/eah2018.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2018","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+../encuestas/control_mini_cal.js
+../encuestas/calendario01.png
+../encuestas/lapiz_calendario_active.png
+../encuestas/lapiz_calendario.png
+../encuestas/goma01_calendario_active.png
+../encuestas/goma01_calendario.png
+../encuestas/cuadrado_calendario.png
+../encuestas/cuadradotic_calendario.png
+../encuestas/fondo_calendario.png
+
+FALLBACK:
+../eah2018/eah2018.php?hacer=cargar_dispositivo  ../eah2018/eah2018.php?hacer=aviso_offline

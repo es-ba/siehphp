@@ -1,0 +1,19 @@
+server:
+  port: 62772
+  base-url: /ipc-ba
+db:
+  motor: postgresql
+  host: localhost
+  database: cvp_db
+  schema: cvp
+  user: cvpowner
+  password: xxxxxx
+login:
+  table: usuarios
+  userFieldName: usu_usu
+  passFieldName: usu_clave
+  infoFieldList: [usu_usu]
+  plus:
+    unloggedPath: client/unlogged
+    loginPagePath: client/unlogged/login
+    successRedirect: /

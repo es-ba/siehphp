@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    title index
+    link(rel='stylesheet', href='dialog-promise.css')
+    link(rel='stylesheet', href='my-things.css')
+    link(rel='stylesheet', href='my-tables.css')
+    link(rel='stylesheet', href='index.css')
+  body
+    div#main_layout
+      div#barra_superior
+        span tables
+        button#tables(id-table="operativos-resumen") operativos
+        button#tables(id-table="personas"  ) personas
+        button#tables(id-table="usuarios"  ) usuarios
+        button#tables(id-table="modificaciones"  ) modificaciones
+        button#button-salir salir
+      div#table_layout
+    pre#status
+    script(src='js-yaml.js')
+    script(src='require-bro.js')
+    script(src='best-globals.js')
+    script(src='json4all.js')
+    script(src='dialog-promise.js')
+    script(src='js-to-html.js')
+    script(src='typed-controls.js')
+    script(src='ajax-best-promise.js')
+    script(src='my-things.js')
+    script(src='my-tables.js')
+    script(src='my-inform-net-status.js')
+    script(src='cliente-en-castellano.js') 
+    script(src='index.js')

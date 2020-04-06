@@ -1,0 +1,19 @@
+body {
+font-family:Arial, Tahoma, sans-serif;
+font-size:10px;
+}
+.plasup_tabla{
+    border:2px solid black;
+    border-collapse:collapse;
+}
+
+.plasup_tabla td{
+    border:1px solid black;
+    min-width:20px;
+    min-height:40px;
+    background-color:#AAA;
+}
+
+.plasup_tabla .ingresable{
+    background-color:White;
+}

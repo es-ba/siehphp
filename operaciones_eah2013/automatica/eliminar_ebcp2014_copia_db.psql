@@ -1,0 +1,2 @@
+drop database if exists ebcp2014_copia_db;
+create database ebcp2014_copia_db WITH OWNER = tedede_owner ENCODING = 'UTF8';

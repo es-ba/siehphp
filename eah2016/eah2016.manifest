@@ -1,0 +1,46 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!
+
+../eah2016/eah2016_icon.png
+../eah2016/eah2016_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../eah2016/eah2016.css
+../eah2016/dbo_eah2016.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../eah2016/estructura_eah2016.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../eah2016/logo_app.png
+../eah2016/logo_esperar.png
+../eah2016/eah2016_fondo_t.png
+../eah2016/eah2016_icon.gif
+../eah2016/eah2016_icon_test.gif
+../eah2016/eah2016_icon_desa.gif
+../eah2016/eah2016_icon_capa.gif
+../eah2016/eah2016.php?hacer=hoja_de_ruta
+../eah2016/eah2016.php?hacer=hoja_de_ruta_super
+../eah2016/eah2016.php?hacer=formularios_de_la_vivienda
+../eah2016/eah2016.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2016","tra_for":"S1","tra_mat":""}
+../eah2016/eah2016.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2016","tra_for":"S1","tra_mat":"P"}
+../eah2016/eah2016.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2016","tra_for":"A1","tra_mat":""}
+../eah2016/eah2016.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2016","tra_for":"I1","tra_mat":""}
+../eah2016/eah2016.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2016","tra_for":"GH","tra_mat":""}
+../eah2016/eah2016.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2016","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../eah2016/eah2016.php?hacer=cargar_dispositivo  ../eah2016/eah2016.php?hacer=aviso_offline

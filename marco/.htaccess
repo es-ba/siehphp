@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteRule ^$ http://127.0.0.1:62772/marco/ [P,L]
+RewriteRule ^/marco/$ http://127.0.0.1:62772/marco/ [P,L]
+RewriteRule ^/marco$ http://127.0.0.1:62772/marco/ [P,L]
+RewriteRule ^marco/$ http://127.0.0.1:62772/marco/ [P,L]
+RewriteRule ^marco$ http://127.0.0.1:62772/marco/ [P,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/marco/(.*)$ http://127.0.0.1:62772/marco/$1 [P,L]
+
+RewriteRule ^marco$ http://127.0.0.1:62772/marco/ [P,L]
+

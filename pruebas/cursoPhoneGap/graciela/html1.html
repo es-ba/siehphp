@@ -1,0 +1,59 @@
+<html>
+   <head>
+   <script src="jquery-2.1.3.js"> </script> 
+   <style>
+   
+   .botonRojo{
+      color:#FF0000;
+   };
+   
+   </style>
+   </head>
+   <body>
+      <h1>Gobierno de la Ciudad de Buenos Aires</h1>
+      <h2>Dirección General de Estadística y Censos</h2>
+      <div id="primerElemento" name="nombreDiv" class="nose">
+         <p id="centro1">Primer p dentro del div primerElemento </p>
+         <p id="centro2">Segundo p dentro del div primerElemento </p>
+      </div>   
+     <div id="segundoElemento" class="tampoco">
+         <p id="centro1">Primer p dentro del div segundoElemento </p>
+         <p id="centro2">Segundo p dentro del div segundoElemento </p>
+     </div>   
+         <p> Esta pagina muestra un mensaje complejo . Es un p suelto dentro del body </p>
+         <p> Segundo Parrafo </p>
+         <br/>
+         <p> Esta pagina muestra un mensaje complejo </p>
+         <br/>
+         <div id="tercerElemento" class="nose">
+            <p id="centro5">Primer p dentro del div tercerElemento </p>
+            <p id="centro6">Segundo p dentro del div tercerElemento </p>
+         </div>   
+         <input type="text" id="elemento" />
+         <a id="nuevoElemento" href="#" >Agregar elemento </a>
+         <ul>
+            <li class="active"><strong>Estadisticas</strong></li>
+            <li>Censos</li>
+            <li>Encuestas</li>
+            <li>Informes</li>
+         <ul/>
+         <div id="resultado" >
+         </div>
+         
+         <script>
+           $(document).ready(function(){  //funcion en jquery
+             //alert('prueba');
+             $('#nuevoElemento').click(function(){
+               debugger;
+               var elemento=$('#elemento').val();
+               //alert('Click');
+               if (elemento!=''){
+                  $("#resultado").html('Se ingreso el nuevo usuario ' + elemento);
+               };
+               //borrar el elemento nuevo
+               $("#elemento").val(''); //usando el mismo selector lo vacio
+             });
+           });
+         </script>
+   </body>
+ </html>  

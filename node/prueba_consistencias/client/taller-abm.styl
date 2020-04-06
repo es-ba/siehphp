@@ -1,0 +1,102 @@
+body
+  margin 0px
+  font-family arial
+
+.error_msg
+  color red
+  font-weight bold
+
+.menu_icon
+  padding 0px
+  margin 0px
+  vertical-align middle
+
+.menu_superior
+  background-color #DDD
+  margin 0px
+  border-bottom 1px solid #555
+
+.menu_superior span
+  margin 4px
+  vertical-align middle
+
+.contenedor
+  padding 8px
+
+.contenedor *
+  margin 4px
+
+.titulo_ficha
+  font-weight bold
+  text-align center
+
+span.campo
+  display inline-block
+
+titulo-campo()
+  margin 0px
+  padding 1px
+  background-color #FEA
+  font-size 75%
+  
+span.campo label
+  display block
+  titulo-campo
+
+#campo_dni
+  width 60px
+  
+table
+  border 1px solid gray
+  margin 0px
+  border-spacing 0px
+
+td
+  max-height 50px
+  
+td.header_campo
+  border-bottom 1px solid #DDD
+  border-right  1px solid #DDD
+  border-top    1px solid #999
+  border-left   1px solid #999
+  margin 0px
+  titulo-campo()
+  text-align center
+  
+td.campo
+  border-bottom 1px solid #DDD
+  border-right  1px solid #DDD
+  border-top    1px solid #999
+  border-left   1px solid #999
+  max-width 300px
+  margin 0px
+  overflow-x hidden
+  vertical-align top
+  text-align left
+  -webkit-user-modify read-write
+  word-wrap break-word
+  -webkit-line-break after-white-space
+  padding 1px
+  
+.parametros
+  border-bottom 2px dashed #AAC
+  
+.mod_true
+  background-color #9FF
+  
+.campo_tipo_16xx
+  font-weight bold
+  font-style italic
+  
+.campo_jvalor_true
+  font-weight bold
+  
+.campo_jvalor_false
+  font-style italic
+
+.campo_jvalor_null
+  font-style italic
+  font-background #9FA
+
+.campo_jvalor_null:after
+  content "[null]"

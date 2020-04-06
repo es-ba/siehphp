@@ -1,0 +1,163 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="base.css">
+</head>
+<body>
+<div id=dibujo>
+</div>
+<script src="../js-to-html.js"></script>
+<script>
+var html=jsToHtml.html;
+var medidas={}
+medidas.horas=12
+medidas.renglonesHora=6
+medidas.pixelPorRenglon=20
+medidas.pixelAncho=120
+medidas.minutosRenglon=10
+medidas.cantAct=3
+var offsetSup=25;
+
+var offsets={
+    x_hora:0,
+    x_min:50,
+    x_act:80,
+    x_act2:180,
+    x_act3:280,
+    x_fin:380,
+    x_anchoActividad:100
+}
+
+function agregarCaja(datos){
+    dibujo.appendChild(html.div(
+        {
+            "class": "caja-fija",
+            style: 'left:'+datos.x+'px; top:'+datos.y+'px; width:'+datos.ancho+'px; height:'+datos.alto+'px;'+datos.extraStyle,
+        }, 
+        datos.texto
+    ).create());
+}
+
+function agregarCaja(datos){
+    dibujo.appendChild(html.div(
+        {
+            "class": "caja-fija",
+            style: 'left:'+datos.x+'px; top:'+datos.y+'px; width:'+datos.ancho+'px; height:'+datos.alto+'px;'+datos.extraStyle,
+        }, 
+        datos.texto
+    ).create());
+}
+
+agregarCaja({
+    x:offsets.x_hora, 
+    y:0, 
+    ancho:offsets.x_min-offsets.x_hora, 
+    alto:offsetSup, 
+    texto:'H',
+    extraStyle:'border:1px solid gray'
+})
+
+agregarCaja({
+    x:offsets.x_min, 
+    y:0, 
+    ancho:offsets.x_act-offsets.x_min, 
+    alto:offsetSup, 
+    texto:'M',
+    extraStyle:'border:1px solid gray'
+})
+
+agregarCaja({
+    x:offsets.x_act,
+    y:0, 
+    ancho:offsets.x_act2-offsets.x_act, 
+    alto:offsetSup, 
+    texto:'Act1',
+    extraStyle:'border:1px solid gray'
+})
+
+agregarCaja({
+    x:offsets.x_act2, 
+    y:0, 
+    ancho:offsets.x_act3-offsets.x_act2, 
+    alto:offsetSup, 
+    texto:'Act2',
+    extraStyle:'border:1px solid gray'
+})
+
+agregarCaja({
+    x:offsets.x_act3, 
+    y:0, 
+    ancho:offsets.x_fin-offsets.x_act3, 
+    alto:offsetSup, 
+    texto:'Act3',
+    extraStyle:'border:1px solid gray'
+})
+
+for(var hora=0; hora<12; hora++){
+    agregarCaja({
+        x:offsets.x_hora,  
+        y:offsetSup+medidas.pixelPorRenglon*hora*medidas.renglonesHora, 
+        ancho:offsets.x_min-offsets.x_hora, 
+        alto:medidas.renglonesHora*medidas.pixelPorRenglon, 
+        texto:hora,
+        extraStyle:'font-size:200%; vertical-align:middle; border:1px solid gray'
+    })
+    for(var min=0; min<60; min+=medidas.minutosRenglon){
+        agregarCaja({
+            x:offsets.x_min, 
+            y:offsetSup+medidas.pixelPorRenglon*(hora*medidas.renglonesHora+min/medidas.minutosRenglon), 
+            ancho:offsets.x_act-offsets.x_min, 
+            alto:medidas.pixelPorRenglon, 
+            texto:min==0?'00':min
+        })
+        var inicio=offsets.x_act;
+        var fin=offsets.x_act+offsets.x_anchoActividad;
+        for(var act=0;act<3;act++){
+            agregarActividad(inicio,fin);
+            inicio=inicio+offsets.x_anchoActividad;
+            fin=fin+offsets.x_anchoActividad;
+        }
+        /*agregarActividad(offsets.x_act,offsets.x_act2)
+        agregarActividad(offsets.x_act2,offsets.x_act3)
+        agregarActividad(offsets.x_act3,offsets.x_fin)*/
+        /*for(var act=0; act<60; act+=medidas.minutosRenglon){
+            agregarCaja({
+                x:offsets.x_act, 
+                y:offsetSup+medidas.pixelPorRenglon*(hora*medidas.renglonesHora+min/medidas.minutosRenglon), 
+                ancho:offsets.x_act2-offsets.x_act, 
+                alto:medidas.pixelPorRenglon, 
+                texto:''
+            })
+        }
+        for(var act2=0; act2<60; act2+=medidas.minutosRenglon){
+            agregarCaja({
+                x:offsets.x_act2, 
+                y:offsetSup+medidas.pixelPorRenglon*(hora*medidas.renglonesHora+min/medidas.minutosRenglon), 
+                ancho:offsets.x_act3-offsets.x_act2, 
+                alto:medidas.pixelPorRenglon, 
+                texto:''
+            })
+        }
+        for(var act3=0; act3<60; act3+=medidas.minutosRenglon){
+            agregarCaja({
+                x:offsets.x_act3, 
+                y:offsetSup+medidas.pixelPorRenglon*(hora*medidas.renglonesHora+min/medidas.minutosRenglon), 
+                ancho:offsets.x_fin-offsets.x_act3, 
+                alto:medidas.pixelPorRenglon, 
+                texto:''
+            })
+        }*/
+        
+    }
+}
+
+function agregarActividad(x_ini,x_fin){
+    for(var act=0; act<60; act+=medidas.minutosRenglon){
+        agregarCaja({
+            x:x_ini, 
+            y:offsetSup+medidas.pixelPorRenglon*(hora*medidas.renglonesHora+min/medidas.minutosRenglon), 
+            ancho:x_fin-x_ini, 
+            alto:medidas.pixelPorRenglon, 
+            texto:''
+        })
+    }
+}
+</script>

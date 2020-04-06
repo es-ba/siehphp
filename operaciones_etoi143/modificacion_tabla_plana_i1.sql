@@ -1,0 +1,20 @@
+﻿alter table encu.plana_i1_
+ADD CONSTRAINT "CODIGO DE RAMA NO VALIDO EN t23_cod" FOREIGN KEY (pla_t23_cod)
+      REFERENCES encu.rama (ram_ram) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+alter table encu.plana_i1_
+ADD CONSTRAINT "CODIGO DE RAMA NO VALIDO EN t37_cod" FOREIGN KEY (pla_t37_cod)
+      REFERENCES encu.rama (ram_ram) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+alter table encu.plana_i1_
+ADD CONSTRAINT "CODIGO DE OCUPACION NO VALIDO EN t24_cod" FOREIGN KEY (pla_t24_cod)
+      REFERENCES encu.ocupacion (ocu_ocu) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+alter table encu.plana_i1_
+ADD CONSTRAINT "CODIGO DE OCUPACION NO VALIDO EN t41_cod" FOREIGN KEY (pla_t41_cod)
+      REFERENCES encu.ocupacion (ocu_ocu) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+
+  
+

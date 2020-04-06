@@ -1,0 +1,43 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!
+
+../etoi153/etoi153_icon.png
+../etoi153/etoi153_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../etoi153/etoi153.css
+../etoi153/dbo_etoi153.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../etoi153/estructura_etoi153.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../etoi153/logo_app.png
+../etoi153/logo_esperar.png
+../etoi153/etoi153_fondo_t.png
+../etoi153/etoi153_icon.gif
+../etoi153/etoi153_icon_test.gif
+../etoi153/etoi153_icon_desa.gif
+../etoi153/etoi153_icon_capa.gif
+../etoi153/etoi153.php?hacer=hoja_de_ruta
+../etoi153/etoi153.php?hacer=hoja_de_ruta_super
+../etoi153/etoi153.php?hacer=formularios_de_la_vivienda
+../etoi153/etoi153.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi153","tra_for":"S1","tra_mat":""}
+../etoi153/etoi153.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi153","tra_for":"S1","tra_mat":"P"}
+../etoi153/etoi153.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi153","tra_for":"A1","tra_mat":""}
+../etoi153/etoi153.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi153","tra_for":"I1","tra_mat":""}
+../etoi153/etoi153.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi153","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+
+FALLBACK:
+../etoi153/etoi153.php?hacer=cargar_dispositivo  ../etoi153/etoi153.php?hacer=aviso_offline

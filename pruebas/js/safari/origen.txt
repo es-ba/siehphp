@@ -1,0 +1,25 @@
+c:\HechoOK\Yeah\fuentes\alserver\pruebas\js\safari>git config -l
+core.symlinks=false
+core.autocrlf=false
+color.diff=auto
+color.status=auto
+color.branch=auto
+color.interactive=true
+pack.packsizelimit=2g
+help.format=html
+http.sslcainfo=/bin/curl-ca-bundle.crt
+sendemail.smtpserver=/bin/msmtp.exe
+diff.astextplain.textconv=astextplain
+rebase.autosquash=true
+gui.recentrepo=C:/HechoOK/Yeah/fuentes/alserver/pruebas/js/safari
+http.proxy=?http://proxy.dgeyc:3128
+https.proxy=?http://proxy.dgeyc:3128
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+core.hidedotfiles=dotGitOnly
+remote.origin.url=https://github.com/rioleo/safari-audiorecord-io6.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*

@@ -1,0 +1,1 @@
+<?php//UTF-8:SÍheader('Location: eder2017.php');?>

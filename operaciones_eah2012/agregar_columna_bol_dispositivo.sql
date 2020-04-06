@@ -1,0 +1,1 @@
+﻿ALTER TABLE encu.bolsas ADD COLUMN bol_dispositivo integer

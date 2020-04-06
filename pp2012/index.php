@@ -1,0 +1,1 @@
+<?phpheader('Location: pp2012.php');?>

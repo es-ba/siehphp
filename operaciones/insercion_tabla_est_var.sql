@@ -1,0 +1,2 @@
+INSERT INTO est_var (estvar_ope, estvar_var, estvar_est, estvar_editable, estvar_tlg) 
+select dbo.ope_actual(), estvar_var, estvar_est, estvar_editable, /*CAMPOS_AUDITORIA*/ from encu_anterior.est_var;

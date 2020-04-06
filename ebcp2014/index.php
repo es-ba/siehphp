@@ -1,0 +1,1 @@
+<?php//UTF-8:SÍheader('Location: ebcp2014.php');?>

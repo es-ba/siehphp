@@ -1,0 +1,40 @@
+#manual *{
+  font-family: arial;
+  font-size: 20px;
+}
+#manual {
+  width: 700px;
+  border: 2px solid #00f;
+  padding: 10px;
+  height: 90%;
+  overflow: auto;
+}
+#prettyTable {
+  border: 2px solid #000;
+  border-collapse: collapse;
+}
+#prettyTable tr td {
+  border: 1px solid #000;
+}
+.detalle {
+  font-size: 90%;
+}
+#prettyTable tr td.codigo_act {
+  font-weight: bold; 
+  font-size: 120%; 
+}
+.imagenes {
+  height: 132px;
+  width: 132px;
+}
+.destacado {
+  font-weight: bold;
+}
+#prettyTable tr td:first-child {
+  text-align: center;
+  font-weight: bold;
+  font-size: 120%;
+}
+#prettyTable tr th {
+  font-size: 80%;
+}

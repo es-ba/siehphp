@@ -1,0 +1,14 @@
+-- Checklist instalación del jueves
+
+drop schema old_encu cascade;
+
+alter schema encu rename to old_encu;
+
+-- Instalar la nueva versión
+http://localhost/ajus/ajus/ajus.php?hacer=instalar&sin_login=1
+
+-- Comentar el último insert del trigger respuestas_a_planas_trg
+
+-- Ejecutar los inserts y updates
+
+-- Descomentar el trigger

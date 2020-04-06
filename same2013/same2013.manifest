@@ -1,0 +1,41 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear
+
+../encuestas/encu_especiales.js
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../imagenes/bloq_mayus.jpg
+../imagenes/expo_xls18.png
+../imagenes/mini_confirmado.png
+../imagenes/mini_loading.gif
+../imagenes/same_icon.gif
+../imagenes/same_icon_desa.gif
+../imagenes/same_icon_test.gif
+../tedede/compatibilidad.js 
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/probador.css
+../tedede/tedede.css
+../tedede/tedede.js 
+../tercera/md5_paj.js
+dbo_same.js
+estructura_same2013.js
+logo_app.png
+same2013.css
+same2013.manifest
+same2013.php?hacer=desplegar_formulario&todo={"tra_ope":"same2013","tra_for":"SM1","tra_mat":""}
+same2013.php?hacer=desplegar_formulario&todo={"tra_ope":"same2013","tra_for":"SM1","tra_mat":"P"}
+same2013.php?hacer=desplegar_formulario&todo={"tra_ope":"same2013","tra_for":"SMI1","tra_mat":""}
+same2013.php?hacer=formularios_de_la_vivienda
+same2013.php?hacer=hoja_de_ruta
+same_icon.gif
+same_icon_desa.gif
+same_icon_test.gif
+seleccion_miembro.js
+
+FALLBACK:
+same2013.php?hacer=cargar_dispositivo  
+same2013.php?hacer=aviso_offline

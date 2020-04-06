@@ -1,0 +1,16 @@
+INSERT INTO siscen.requerimientos (req_proy, req_req, req_titulo, req_tiporeq, req_detalles, req_grupo, req_componente, req_tlg)
+    VALUES ('EAH', '1', 'EAH UNO',        'error', 'detalle EAH UNO', 'grupo eah UNO', 'compo eah UNO', 1),
+           ('EAH', '2', 'EAH DOS',        'funcional', 'detalle EAH DOS', 'grupo eah DOS', 'compo eah DOS', 1),
+           ('EAH', '3', 'EAH TRES',       'proceso', 'detalle EAH TRES', 'grupo eah TRES', 'compo eah TRES', 1),
+           ('EAH', '4', 'EAH CUATRO',     'error', 'detalle EAH CUATRO', 'grupo eah CUATRO', 'compo eah CUATRO', 1),
+           ('EAH', '5', 'EAH CINCO',      'funcional', 'detalle EAH CINCO', 'grupo eah CINCO', 'compo eah CINCO', 1),
+           ('IPCBA', '1', 'IPCBA UNO',    'error', 'detalle IPCBA UNO', 'grupo IPCBA UNO', 'compo IPCBA UNO', 1),
+           ('IPCBA', '2', 'IPCBA DOS',    'funcional', 'detalle IPCBA DOS', 'grupo IPCBA DOS', 'compo IPCBA DOS', 1),
+           ('IPCBA', '3', 'IPCBA TRES',   'proceso', 'detalle IPCBA TRES', 'grupo IPCBA TRES', 'compo IPCBA TRES', 1),
+           ('IPCBA', '4', 'IPCBA CUATRO', 'error', 'detalle IPCBA CUATRO', 'grupo IPCBA CUATRO', 'compo IPCBA CUATRO', 1),
+           ('IPCBA', '5', 'IPCBA CINCO',  'funcional', 'detalle IPCBA CINCO', 'grupo IPCBA CINCO', 'compo IPCBA CINCO', 1),
+           ('OPSIS', '1', 'Intercambiar la posición de las líneas de botones',    'funcional', 'Intercambiar la posición de las líneas de botones: Glosario, Comentarios metodológicos y ? Van arriba a la derecha y Desde año, Hasta año, Consultar indicadores, Reiniciar consulta', 'grupo OPSIS UNO', 'compo OPSIS UNO', 1),
+           ('OPSIS', '2', 'Agregar botones a pantalla de resultados',    'funcional', 'En pantalla de resultados al lado de Exportar el Excel agregar dos botones: Reiniciar consulta y agregar indicadores. Agregar indicadores va a la pantalla de Tema y Reiniciar al menú principal', 'grupo OPSIS DOS', 'compo OPSIS DOS', 1),
+           ('OPSIS', '3', 'Cambiar OPSiS por DBSiS',   'funcional', 'Cambiar "del OPSiS" por "de la BDSiS" en Ud. puede consultar los Indicadores del OPSiS recorriendo las Áreas temáticas y los Temas', 'grupo OPSIS TRES', 'compo OPSIS TRES', 1),
+           ('OPSIS', '4', 'Ocultar columna área temática', 'funcional', 'Ocultar el área temática de la tabla de selección de indicadores', 'grupo OPSIS CUATRO', 'compo OPSIS CUATRO', 1),
+           ('OPSIS', '5', 'Agregar tooltips a botones',  'funcional', 'Poner textos sobre los botones que nos pasen (tootips)', 'grupo OPSIS CINCO', 'compo OPSIS CINCO', 1);

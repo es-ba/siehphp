@@ -1,0 +1,3 @@
+update encu.estados set est_criterio = '(((hog_tot>1 OR norea<70) AND norea is distinct from 10 AND norea is distinct from 18) OR (rea_recu=3 AND (sup_aleat_recu=3 OR sup_dirigida_recu=3))) AND verificado_recu<>0' where est_ope = 'eah2013' and est_est = 50;
+update encu.estados set est_criterio = '(rea_recu=3 AND sup_aleat_recu=4) OR sup_dirigida_recu=4' where est_ope = 'eah2013' and est_est = 51;
+update encu.estados set est_criterio = '(((hog_tot>1 OR norea<70) AND norea is distinct from 10 AND norea is distinct from 18 AND rea_recu is null AND norea_recu is null) OR (rea_enc=1 AND (sup_aleat_enc=3 OR sup_dirigida_enc=3))) AND verificado_enc<>0' where est_ope = 'eah2013' and est_est = 40;

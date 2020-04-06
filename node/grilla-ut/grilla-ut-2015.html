@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="grilla-ut.css">
+</head>
+<body>
+<div>
+ <a href="../../ut2015/ut2015.php?hacer=hoja_de_ruta">
+   <img class="logo_principal no_imprimir" id="logo_principal" src="../../ut2015/logo_app.png">
+ </a>
+</div>
+<div id=div_destino_ut>
+</div>
+<script src="best-globals.js"></script>
+<script src="js-to-html.js"></script>
+<!-- <script src="detect-browser.js"></script> -->
+<script src="typed-controls.js"></script>
+<script src="grilla-ut.js"></script>
+<script>
+
+var variable_especial='modulo_1';
+
+var grillaUt = new GrillaUt();
+
+var pk_ud=JSON.parse(sessionStorage.getItem('pk_ud_navegacion'));
+var id_ud=JSON.stringify(pk_ud);
+var rta_ud=JSON.parse(localStorage.getItem("ud_"+id_ud));
+var datos_matriz=JSON.parse(rta_ud['var_'+variable_especial]||'[]');
+
+grillaUt.cargar(datos_matriz);
+
+grillaUt.acomodar();
+
+window.addEventListener('load', function(){
+    var corYtotal=div_destino_ut.offsetTop;
+    grillaUt.desplegar('div_destino_ut',corYtotal);
+});
+
+</script>
+</body>

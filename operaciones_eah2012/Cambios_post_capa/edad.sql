@@ -1,0 +1,1 @@
+﻿update encu.variables set var_expresion_habilitar = 'p7<>3' where var_ope = 'eah2012' and var_var = 'f_nac_o';

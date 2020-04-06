@@ -1,0 +1,1 @@
+create table siscen.his_requerimientos( req_proy character varying, req_req character varying, campo text, valor_actual text, valor_anterior text, usuario text, operacion text, momento timestamp default current_timestamp);

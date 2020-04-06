@@ -1,0 +1,61 @@
+<html>
+    <head>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <style>
+            .botonRojo{
+                color: #FF0000;
+            };
+        </style>
+    
+    </head>
+    <body>
+        <h1>gobierno de la ciudad de Buenos Aires</h1>
+        <h2>Dirección de Estadística y Censos</h2>
+        <div id="primerElemento" name="nombreDiv" class="sise">
+            <p id="centro1">Primer elemento dentro del div </p>
+            <p id="centro2">Segundo p dentro del div primerElemento </p>
+        </div>
+        
+        <div id="segundoElemento" class="tambien">
+            <p id="element1">Primer elemento dentro del div segundoElemento</p>
+            <p id="element2">Segundo elemento dentro del div segundoElemento </p>
+        </div>
+        
+        <div id="tercerElemento" class="sise">
+            <p id="centro5">Primer elemento dentro del div tercerElemento</p>
+            <p id="centro5">Segundo elemento dentro del div tercerElemento </p>
+        </div>
+        
+        <p>Esta pagina muestra un mensaje complejo. Es un p suelto dentro del body</p>
+        <p>Segundo párrafo</p>  
+        
+        <br/>
+        
+        <input type="text" id="elemento" />
+        <br/>
+        <a id="nuevoElemento" href="#"> Agregar elemento</a>
+
+        <ul>
+            <li class="active"><strong>Estadisticas</strong></li>
+            <li>Censos</li>
+            <li>Encuestas</li>
+            <li>Informes</li>
+        </ul>
+        
+        <div id="resultado">
+            
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('#nuevoElemento').click(function(){
+                    var elemento=$('#elemento').val();
+                    if(elemento != ''){
+                        $('#resultado').html('se ingresó el nuevo elemento '+ elemento);
+                        //borrar el elemento nuevo
+                        $('#elemento').val('');
+                    }
+                });
+            })
+        </script>
+    </body>
+</html>

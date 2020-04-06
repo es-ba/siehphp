@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html manifest='../../ut2016/ut2016.manifest' lang="es">
+<head>
+    <meta charset='utf8'>
+    <link rel="stylesheet" type="text/css" href="dialog-promise.css">
+    <link rel="stylesheet" type="text/css" href="manual.css">
+    <link rel="stylesheet" type="text/css" href="grilla-ut.css">
+</head>
+<body>
+<div>
+ <a href="../../ut2016/ut2016.php?hacer=hoja_de_ruta" id="aheader">
+   <img class="logo_principal no_imprimir" id="logo_principal" src="../../ut2016/logo_app.png">
+ </a>
+</div>
+<div id=div_destino_ut>
+</div>
+<script src="polyfills-bro.js"></script>
+<script src="best-globals.js"></script>
+<script src="js-to-html.js"></script>
+<!-- <script src="detect-browser.js"></script> -->
+<script src="typed-controls.js"></script>
+<script src="dialog-promise.js"></script>
+<script src="manual.js"></script>
+<script src="../../tedede/comunes.js"></script>
+<script src="../../tedede/tedede.js"></script>
+<script src="../../encuestas/encuestas.js"></script>
+<script src="../../ut2016/dbo_ut2016.js"></script>
+<script src="../../ut2016/estructura_ut2016.js"></script>
+<script src="grilla-ut.js"></script>
+
+<script>
+
+var variable_especial='modulo_1';
+var grillaUt = new GrillaUt();
+
+
+var pk_ud=JSON.parse(sessionStorage.getItem('pk_ud_navegacion'));
+var id_ud=JSON.stringify(pk_ud);
+var ope_actual=JSON.parse(id_ud).tra_ope;
+var vheader=document.getElementById("aheader");
+var vimagen=document.getElementById("logo_principal");
+vheader.setAttribute("href","../../"+ope_actual+"/"+ope_actual+".php?hacer=hoja_de_ruta");
+vimagen.setAttribute("src","../../"+ope_actual+"/logo_app.png");
+localStorage.setItem('ope_actual',ope_actual);
+
+var rta_ud=JSON.parse(localStorage.getItem("ud_"+id_ud));
+var datos_matriz=JSON.parse(rta_ud['var_'+variable_especial]||'[]');
+grillaUt.cargar(datos_matriz);
+
+grillaUt.acomodar();
+
+window.addEventListener('load', function(){
+    var corYtotal=div_destino_ut.offsetTop;
+    cargar_otras_rta();
+    grillaUt.desplegar('div_destino_ut',corYtotal);
+});
+
+</script>
+</body>
+</html>

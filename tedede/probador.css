@@ -1,0 +1,43 @@
+.probador_resumen{
+    background-color:#90BCF0; /* un azulcito */
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    font-size:120%;
+    font-family:Arial;
+    padding:4px;
+}
+
+.probador_texto_con_error{
+    background:url('../imagenes/probador_un_error.png') no-repeat 34px;
+    padding-left:60px;
+}
+
+.probador_trabajando{
+    background:url('../imagenes/probador_trabajando.gif') no-repeat 20px;
+    padding-left:46px;
+    font-size:110%;
+    font-weight:bold;
+}
+
+.probador_funcion_con_error{
+    background:url('../imagenes/probador_un_error.png') no-repeat 20px;
+    padding-left:46px;
+}
+
+.probador_con_errores{
+    background-color:#F0B000;
+}
+.probador_icono{
+    width:24px;
+}
+
+.probador_texto_pendiente_de_especificar{
+    background:url('../imagenes/probador_pendiente_de_especificar.png') no-repeat 20px;
+    padding-left:46px;
+    font-size:110%;
+    font-weight:bold;
+}
+
+.pruebas_resumen{
+}

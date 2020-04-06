@@ -1,0 +1,55 @@
+CACHE MANIFEST
+# v 2.43
+# Cosas a cachear !!!!!!!!!
+
+../etoi201/etoi201_icon.png
+../etoi201/etoi201_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../etoi201/etoi201.css
+../etoi201/dbo_etoi201.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../etoi201/estructura_etoi201.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../etoi201/logo_app.png
+../etoi201/logo_esperar.png
+../etoi201/etoi201_fondo_t.png
+../etoi201/etoi201_icon.gif
+../etoi201/etoi201_icon_test.gif
+../etoi201/etoi201_icon_desa.gif
+../etoi201/etoi201_icon_capa.gif
+../etoi201/etoi201.php?hacer=hoja_de_ruta
+../etoi201/etoi201.php?hacer=hoja_de_ruta_super
+../etoi201/etoi201.php?hacer=formularios_de_la_vivienda
+../etoi201/etoi201.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi201","tra_for":"S1","tra_mat":""}
+../etoi201/etoi201.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi201","tra_for":"S1","tra_mat":"P"}
+../etoi201/etoi201.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi201","tra_for":"A1","tra_mat":""}
+../etoi201/etoi201.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi201","tra_for":"I1","tra_mat":""}
+# ../etoi201/etoi201.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi201","tra_for":"GH","tra_mat":""}
+../etoi201/etoi201.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi201","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+../encuestas/control_mini_cal.js
+../encuestas/calendario01.png
+../encuestas/lapiz_calendario_active.png
+../encuestas/lapiz_calendario.png
+../encuestas/goma01_calendario_active.png
+../encuestas/goma01_calendario.png
+../encuestas/cuadrado_calendario.png
+../encuestas/cuadradotic_calendario.png
+../encuestas/fondo_calendario.png
+
+FALLBACK:
+../etoi201/etoi201.php?hacer=cargar_dispositivo  ../etoi201/etoi201.php?hacer=aviso_offline

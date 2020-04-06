@@ -1,0 +1,618 @@
+<!DOCTYPE HTML>
+<html  lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>TEST - pp2012</title>
+
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name='viewport' content='user-scalable=no, width=device-width'>
+
+    <link rel="stylesheet" href="pp2012.css">
+
+        <link rel="stylesheet" href="../tedede/probador.css">
+
+        <script language="JavaScript" src="../tedede/comunes.js"> </script>
+
+        <script language="JavaScript" src="../tedede/tedede.js"> </script>
+
+        <script language="JavaScript" src="../encuestas/encuestas.js"> </script>
+
+        <script language="JavaScript" src="../tedede/editor.js"> </script>
+
+        <script language="JavaScript" src="../tedede/para_grilla.js"> </script>
+
+        <script language="JavaScript" src="../tercera/md5_paj.js"> </script>
+
+        <script language="JavaScript" src="estructura_pp2012.js"> </script>
+
+        <link rel="apple-touch-icon" href="../imagenes/eah_icon.gif">
+
+    <link rel="icon" type="image/gif" href="../imagenes/eah_icon.gif">
+
+</head>
+
+<body style='background-color:#FDE;'>
+
+ <DIV class="div_principal" id="div_principal">
+  <DIV class="div_app_menu_1">
+   <DIV class="app_menu_1">
+Menú
+   </DIV>
+   <DIV class="div_app_menu_1_in">
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+principal
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=logout">
+Salir de la aplicación
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+ingreso
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=ingresar_encuesta">
+Ingresar encuesta
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=fin_descargar_dispositivo">
+Descargar dispositivo (fin)
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;sup_ing&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_control_ingreso">
+Control de ingreso
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;sup_ing&quoquot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=inconsistencias">
+Listado de inconsistencias por encuesta
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=inconsistencias_por_bolsa">
+Listado de inconsistencias por bolsa
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;procesamiento&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+campo
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=marcar_para_supervisar_general">
+Marcar encuestas para supervisar por comuna
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;mues_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_up_para_supervision">
+Resumen por UP (y algoritmo de supervisión)
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;mues_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_grupos_marcas_supervision">
+Resumen de las corridas del algoritmos de supervisión
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;mues_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=imprimir_remito">
+Imprimir remito de bolsa
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;subcoor_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=imprimir_hoja_de_ruta">
+Imprimir hoja de ruta
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;subcoor_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+metadatos
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_bloques">
+Tabla bloques
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;subcoor_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_preguntas">
+Tabla preguntas
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;subcoor_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_variables">
+Tabla variables
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;subcoor_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_opciones">
+Tabla opciones
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;subcoor_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+administración
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_tabla_usuarios">
+usuarios
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+mantenimiento
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=visor_encuestas">
+Visor de encuesta
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;procesamiento&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=colorear_respuestas">
+Colorear respuestas
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+recepcionista
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=planilla_carga">
+Planilla de carga
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;recepcionista&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=planilla_recepcion">
+Planilla de recepción
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;recepcionista&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+muestrista
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_control_muestra">
+Control de muestra
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;procesamiento&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_muestrista_no_realizadas">
+Viviendas no realizadas
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_muestrista_miembros">
+Miembros de viviendas realizadas
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+consistencias
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_variables_consistencias">
+Variables
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_consistencias">
+Consistencias
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=compilar_consistencia">
+Compilar consistencia
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=correr_consistencias">
+Correr consistencias
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+!proceso interno!
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=bienvenida">
+bienvenida
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=aviso_offline">
+aviso offline
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=controlar_estado_carga">
+controlar_estado_carga
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;recepcionista&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+usuarios
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=mis_datos_personales">
+Mis datos personales
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=ingresar_usuario">
+Pedir una cuenta para un usuario nuevo
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=cambio_de_clave">
+Cambiar mi clave de acceso
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+   </DIV>
+  </DIV>
+  <DIV class="div_app_menu_1">
+   <DIV class="app_menu_1">
+opciones de prueba
+   </DIV>
+   <DIV class="div_app_menu_1_in">
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+mantenimiento
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=instalar">
+Instalar aplicación
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=probar_todo">
+Correr casos de prueba sin instalar
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_tabla_formulario">
+Tabla formularios
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_tabla_con_var">
+Tabla con_var
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_tabla_saltos">
+Tabla saltos
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=asignar_resto_lote_a_persona">
+asignar resto lote a persona
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;programador&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_tabla_inconsistencias">
+Tabla inconsistencias
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+!proceso interno!
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=desplegar_formulario">
+Desplegar formulario  
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=desplegar_tem">
+Desplegar formulario TEM 
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=desplegar_s1">
+Desplegar formulario S1 
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=desplegar_a1">
+Desplegar formulario A1 
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=desplegar_s1_p">
+Desplegar formulario S1 P
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=desplegar_i1">
+Desplegar formulario I1 
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=leer_formulario_a_localStorage">
+leer formulario a localStorage
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=leer_encuesta_a_localStorage">
+leer encuesta a localStorage
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=cargar_dispositivo">
+Cargar dispositivo
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;recepcionista&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grabar_ud">
+Grabar ud desde formulario
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=formularios_de_la_vivienda">
+Formularios de la vivienda
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=hoja_de_ruta">
+Hoja de ruta
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=control_encuesta">
+Controlar encuesta
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=mandar_nueva_clave">
+Mandar mail con nueva clave
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=login">
+Entrada al sistema
+       </a>
+       <span class="info_expandible" title="permisos: null" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+    <DIV class="div_app_menu_2">
+     <DIV class="app_menu_2">
+campo
+     </DIV>
+     <DIV class="div_app_menu_2_in">
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=ingresar_tem">
+Ingresar a la TEM de la encuesta
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;recepcionista&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=marcar_para_supervisar">
+Marcar encuestas para supervisar según UP
+       </a>
+       <span class="info_expandible" title="permisos: {&quot;grupo&quot;:&quot;mues_campo&quot;}" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+      <DIV class="div_app_menu">
+       <a class="app_menu" href="pp2012.php?hacer=grilla_TEM">
+Planilla de Recepción (sistema anterior)
+       </a>
+       <span class="info_expandible" title="permisos: []" onclick="alert(this.title);">
+P
+       </span>
+      </DIV>
+     </DIV>
+    </DIV>
+   </DIV>
+  </DIV>
+ </DIV>
+</body>
+</html>
