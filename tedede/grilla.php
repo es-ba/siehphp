@@ -172,9 +172,9 @@ class Grilla_tablas_o_vistas extends Grilla{
         $rta=array();
         $att=array();
         $filtro_para_lectura_original=$filtro_para_lectura;
-        if(count($filtro_para_lectura)==0 and !$this->permite_grilla_sin_filtro() 
-            or count($filtro_para_lectura)!=0 and !$this->permite_grilla_con_este_filtro($filtro_para_lectura)
-            or count($filtro_manual)==0 and !$this->permite_grilla_sin_filtro_manual() 
+        if( is_array($filtro_para_lectura) and count($filtro_para_lectura)==0 and !$this->permite_grilla_sin_filtro() 
+            or is_array($filtro_para_lectura) and count($filtro_para_lectura)!=0 and !$this->permite_grilla_con_este_filtro($filtro_para_lectura)
+            or is_array($filtro_manual) and count($filtro_manual)==0 and !$this->permite_grilla_sin_filtro_manual() 
         ){
             $filtro_para_lectura=array();
             $renglon_vacio=true;

@@ -48,7 +48,7 @@ class Proceso_cambio_de_clave extends Proceso_Formulario {
         $tabla_usuarios->contexto=$this;
         $razon_de_NO_registro='no se pudo conectar por error interno del sistema';
         $clave_nueva_encriptada=md5(trim($this->argumentos->tra_clave_nueva).strtolower(trim($this->argumentos->tra_usu)));
-        if($tabla_usuarios->leer_validando_clave($this->argumentos->tra_usu,$this->argumentos->tra_clave_vieja,$this)){
+        if($tabla_usuarios->leer_validando_clave($this->argumentos->tra_usu,$this->argumentos->tra_clave_vieja,$this,false)){
             if(strlen($this->argumentos->tra_clave_nueva)<4 and strlen($this->argumentos->tra_clave_repet)<=4){
                 $razon_de_NO_registro='error la clave nueva debe ser mayor de 4 caracteres';
                 Return new Respuesta_Negativa($razon_de_NO_registro);

@@ -97,8 +97,8 @@ class Tabla_tem extends Tabla{
          if ( $GLOBALS['anio_operativo']>=2020 && 
               ( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'||substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' )){ 
               $this->definir_campo('tem_codviviendaparticular',array('tipo'=>'texto','largo'=>1));               
-              $this->definir_campo('tem_sector',array('tipo'=>'entero'));
-              $this->definir_campo('tem_edificio',array('tipo'=>'texto','largo'=>10));
+              $this->definir_campo('tem_sector',array('tipo'=>'texto', 'largo'=>10));
+              $this->definir_campo('tem_edificio',array('tipo'=>'texto','largo'=>30));
               $this->definir_campo('tem_entrada',array('tipo'=>'texto','largo'=>24));                      
         };
         
@@ -115,9 +115,9 @@ ALTER TABLE tem
 ALTER TABLE tem
   ADD CONSTRAINT "VALORES DE SEMANA DEBEN ESTAR ENTRE 1 Y 12" CHECK (((tem_dominio in (3,4) AND tem_semana >= 1 AND tem_semana <= 12 )) 
                                                                       or (tem_semana >= 0 AND tem_semana <= 12 AND tem_dominio=5));
-/*OTRA*/
+/*OTRA */
 ALTER TABLE tem
-  ADD CONSTRAINT "COD. POSTAL DEBE TENER VALOR PARA DOMINIO 3" CHECK (tem_dominio in (4,5) or tem_codpos is not null);
+  ADD CONSTRAINT "COD. POSTAL DEBE TENER VALOR PARA DOMINIO 3" CHECK (tem_dominio in (4,5) or tem_codpos is not null);  
 /*OTRA*/
 ALTER TABLE tem
   ADD CONSTRAINT "CLADO DEBE TENER VALOR PARA DOMINIOS 3,4" CHECK (tem_dominio =5 or tem_clado is not null);

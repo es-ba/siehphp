@@ -83,7 +83,8 @@ SQL
                         if($vista_varmae->obtener_leido()){
                             if ($vista_varmae->datos->varmae_sufijodest==='S1_' or
                                 $vista_varmae->datos->varmae_sufijodest==='A1_' or
-                                $vista_varmae->datos->varmae_sufijodest==='TEM_'){
+                                $vista_varmae->datos->varmae_sufijodest==='TEM_' or
+                                $vista_varmae->datos->varmae_sufijodest==='PMD_' ){
                                     $this->vista->definir_campo("vis_$varaux",array('operacion'=>'concato_texto','origen'=>"distinct pla_$varaux::text"));    
                             }        
                         } 
@@ -136,6 +137,12 @@ SQL
         ));
         $leer_join_a1=$cur->fetchObject();
         $v_join_a1= ($leer_join_a1)? $leer_join_a1->join_a1: '';
+        $v_otras_tablas="";
+        if($GLOBALS['NOMBRE_APP']=='eah2019'){
+            $v_otras_tablas=<<<SQL
+                   left join plana_pmd_ pm on pm.pla_enc=s1.pla_enc and pm.pla_hog=s1.pla_hog 
+SQL;
+        }
         $sql_str=<<<SQL
             (select *, t.pla_enc as pla_enc_, s1.pla_hog as pla_hog_, s1.pla_mie as pla_mie_
                 from plana_tem_ t 
@@ -143,6 +150,7 @@ SQL
                 {$v_join_a1}
                 {$tablas_especificias}
                 {$v_join_pla_ext_hog}
+                {$v_otras_tablas}
                 {$v_valcan}
                 where pla_estado>={$this->tra_estado}
                   and pla_estado<{$this->tra_estado_hasta}

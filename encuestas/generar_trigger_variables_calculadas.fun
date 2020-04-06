@@ -151,7 +151,7 @@ BEGIN
                                 ' s.pla_enc = new.pla_enc and s.pla_hog = new.pla_hog and s.pla_mie = new.pla_mie and s.pla_exm = 0 '::text as v_condic
                    union select 'TEM'::text as v_otro_for, ''::text as v_otra_mat,'' as v_otro_blo,'t'::text as v_alias,
                                 ' t.pla_enc = new.pla_enc and t.pla_hog = 0 and t.pla_mie = 0 and t.pla_exm = 0 '::text as v_condic
-                   union select blo_for as v_otro_for, blo_mat as v_otra_mat, 'Viv' as v_ptro_blo,'a'::text as v_alias,
+                   union select blo_for as v_otro_for, blo_mat as v_otra_mat, 'Viv' as v_otro_blo,'a'::text as v_alias,
                                 ' a.pla_enc = new.pla_enc and a.pla_hog=1 and a.pla_mie = 0 and a.pla_exm = 0 '::text as v_condic
                             from encu.bloques where blo_blo ='Viv'
                    union select blo_for as v_otro_for, blo_mat as v_otra_mat, '' as v_otro_blo,'a'::text as v_alias,
@@ -162,6 +162,8 @@ BEGIN
                             from encu.bloques where blo_blo in ('CR') and blo_for='S1' and blo_ope='ut2016'        
                    union select 'VALCAN'::text as v_otro_for, ''::text as v_otra_mat, '' as v_otro_blo,'v'::text as v_alias,
                                ' v.pla_ope ='||v_cond_valcan::text as v_condic        
+                   union select 'PMD'::text  as v_otro_for, ''::text as v_otra_mat, '' as v_otro_blo,'pm'::text as v_alias,
+                                ' pm.pla_enc = new.pla_enc and pm.pla_hog = new.pla_hog and pm.pla_exm = 0 '::text as v_condic
         ) x
     LOOP
         -- acá van las variables de formularios distintos al del trigger que se está creando
@@ -176,7 +178,7 @@ BEGIN
                     select var_var, var_for, var_mat, CASE WHEN coalesce(pre_blo,'') ='Viv' THEN pre_blo ELSE '' END as v_blo,var_tipovar, pre_orden, var_orden
                         from encu.variables join encu.preguntas on var_pre = pre_pre and pre_ope=var_ope
                         where var_ope = dbo.ope_actual() and
-                            (var_mat='P' or pre_blo in ('Viv','Hog','HEH', 'CR'))
+                            (var_for='PMD' or var_mat='P' or pre_blo in ('Viv','Hog','HEH', 'CR'))
                     union select 'comuna'::text  as var_var, 'TEM'::text as var_for, '' as var_mat,'' as v_blo, 'integer' as var_tipovar, 1 pre_orden, 1 var_orden
                     union select 'estado'::text  as var_var, 'TEM'::text as var_for, '' as var_mat,'' as v_blo, 'integer' as var_tipovar, 2 pre_orden, 2 var_orden
                     union select 'dominio'::text as var_var, 'TEM'::text as var_for, '' as var_mat,'' as v_blo, 'integer' as var_tipovar ,3 pre_orden, 3 var_orden

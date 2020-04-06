@@ -504,6 +504,13 @@ SQL
                             }else{
                                 $es_pla_ident_edif=false;
                             }
+                            if($definicion[$i]=='pla_edificio'){
+                                $es_pla_edificio=true;
+                                $existe_ident_edif=!(is_null($tabla_tem->datos->pla_ident_edif))&&is_null($tabla_tem->datos->pla_edificio)?$tabla_tem->datos->pla_ident_edif:'';
+                                $mostrar_edificio =$tabla_tem->datos->pla_sector.' '.$tabla_tem->datos->pla_edificio.' '.$tabla_tem->datos->pla_entrada.' '.$existe_ident_edif;
+                            }else{
+                                $es_pla_edificio=false;
+                            }
                             if($definicion[$i]=='pla_obs'){
                                 $es_pla_obs=true; 
                                 $mostrar_obs=$tabla_tem->datos->pla_obs;
@@ -526,7 +533,10 @@ SQL
                             $dato_a_mostrar=$mostrar_barrio;                            
                         }elseif($es_pla_ident_edif){
                             $clase='tabla_remito_ident_edif15';
-                            $dato_a_mostrar=$mostrar_ident_edif;                                                        
+                            $dato_a_mostrar=$mostrar_ident_edif;
+                        }elseif($es_pla_edificio){
+                            $clase='tabla_remito_edificio15';
+                            $dato_a_mostrar=$mostrar_edificio;
                         }elseif($es_pla_obs){
                             $clase='tabla_remito_obs15';
                             $dato_a_mostrar=$mostrar_obs;
@@ -631,6 +641,7 @@ JS;
             'Hab'                        =>array('campos'=>array('pla_hab')),
             'Barrio'                     =>array('campos'=>array('pla_barrio')),
             'Ident Edificio'             =>array('campos'=>array('pla_ident_edif')),
+            'Edificio'                   =>array('campos'=>array('pla_edificio')),
             'REA'                        =>array('campos'=>array('pla_rea')),             
             'NoREA'                      =>array('campos'=>array('pla_norea')), 
             'Cod.Enc Cod.Rec'            =>array('campos'=>array('enc_rec')), 

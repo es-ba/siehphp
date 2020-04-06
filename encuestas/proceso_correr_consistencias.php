@@ -235,7 +235,7 @@ SQL;
         }
         $vinconsistencias['solo_en_inconsistencias']=$diferencias['en_inconsistencias'];
         $vinconsistencias['solo_en_observaciones']=$diferencias['en_observaciones'];
-        Loguear('2014-07-11','*********inconsistencias: '.$vinconsistencias);
+       // Loguear('2014-07-11','*********inconsistencias: '.$vinconsistencias);
         //var_dump($vinconsistencias);
         
         return $vinconsistencias;

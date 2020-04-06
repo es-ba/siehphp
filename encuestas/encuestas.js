@@ -2903,7 +2903,9 @@ function desplegar_hoja_de_ruta(){
                 elemento_boton.title=estado_encuesta;
                 elemento_celda.appendChild(elemento_boton);
                 log_pantalla_principal('agregando celdas a la fila');
-                agregar_celda(fila_encuesta.domicilio+' Edif. '+si_no_es_nulo(rta_tem.copia_ident_edif),'hdr_celda');
+                var completo_edificio=(rta_tem.copia_ident_edif!=null && rta_tem.copia_edificio==null)?' '+rta_tem.copia_ident_edif:'';
+               // agregar_celda(fila_encuesta.domicilio+' Edif. '+si_no_es_nulo(rta_tem.copia_ident_edif),'hdr_celda'); //ident_edif lo reemplazaron por sector-edificio-entradar
+                agregar_celda(fila_encuesta.domicilio+' Edif. ' +si_no_es_nulo(rta_tem.copia_sector)+si_no_es_nulo(rta_tem.copia_edificio)+si_no_es_nulo(rta_tem.copia_entrada)+ completo_edificio,'hdr_celda');
                 agregar_celda(rta_tem.copia_lote,'hdr_celda');
                 agregar_celda(rta_tem.copia_semana,'hdr_celda');
                 agregar_celda(rta_tem.copia_participacion,'hdr_celda');
@@ -3173,8 +3175,9 @@ function desplegar_formularios_de_la_vivienda(){
     elemento3.textContent='Lote ' + si_no_es_nulo(rta_ud_tem.copia_lote);
     var elemento4=elemento_existente('participacion');    
     elemento4.textContent=' - Participación ' + si_no_es_nulo(rta_ud_tem.copia_participacion);
-    var elemento5=elemento_existente('ident_edif');
-    elemento5.textContent=' - Edif. ' + si_no_es_nulo(rta_ud_tem.copia_ident_edif);
+    var elemento5=elemento_existente('ident_edif'); //el elemento edificio no está definido en document por eso se sigue usando ident_edif
+    var det_edificio=(rta_ud_tem.copia_ident_edif!=null && rta_ud_tem.copia_edificio==null)?' '+rta_ud_tem.copia_ident_edif:''
+    elemento5.textContent=' - Edif. ' +si_no_es_nulo(rta_ud_tem.copia_sector)+si_no_es_nulo(rta_ud_tem.copia_edificio)+si_no_es_nulo(rta_ud_tem.copia_entrada)+det_edificio;
     var elemento6=elemento_existente('periodicidad');
     elemento6.textContent=' - Per. ' + si_no_es_nulo(periodicidad(rta_ud_tem.copia_rotaci_n_etoi,rta_ud_tem.copia_dominio));
     log_pantalla_principal('puesto el encabezado');

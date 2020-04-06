@@ -101,11 +101,16 @@ SQL;
         }else{
             $tablas_hogar="inner join plana_a1_ a1 on s1.pla_enc=a1.pla_enc and s1.pla_hog=a1.pla_hog";
         }
+        $otras_tablas_hogar="";
+        if($GLOBALS['NOMBRE_APP']==='eah2019'){
+            $otras_tablas_hogar="left join plana_pmd_ pm on pm.pla_enc=s1.pla_enc and pm.pla_hog=s1.pla_hog";
+        }
         return <<<SQL
             (select *, t.pla_enc as pla_enc_, s1.pla_hog as pla_hog_, s1.pla_mie as pla_mie_
                 from plana_tem_ t 
                 inner join plana_s1_ s1 on t.pla_enc=s1.pla_enc 
                 {$tablas_hogar}
+                {$otras_tablas_hogar}
                 {$tablas_especificias}
                 where pla_estado>={$this->tra_estado_desde} and pla_estado<={$this->tra_estado_hasta}{$vcondicion}
             ) x full outer join 

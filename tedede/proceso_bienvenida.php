@@ -30,6 +30,7 @@ class Proceso_bienvenida extends Proceso_Generico{
                 }else{
                     if($soy_un_ipad){
                         $este->salida->abrir_grupo_interno();
+                        $este->salida->enviar('Configuración:','',array('tipo'=>'br'));
                         if(strpos($GLOBALS['HTTP_USER_AGENT'],'Safari')>0 || @$_REQUEST['Safari']){
                             $este->salida->enviar_link('Presentar a la hoja de ruta del encuestador/recuperador','',$GLOBALS['nombre_app'].'.php?hacer=hoja_de_ruta');
                             $este->salida->enviar('','',array('tipo'=>'br'));
@@ -37,6 +38,9 @@ class Proceso_bienvenida extends Proceso_Generico{
                         }else{
                             $este->salida->enviar_link('Ir a la hoja de ruta','',$GLOBALS['nombre_app'].'.php?hacer=hoja_de_ruta');
                         }
+                        $este->salida->enviar('','',array('tipo'=>'br'));
+                        $este->salida->enviar('Otras tareas: ','',array('tipo'=>'br'));
+                        $este->salida->enviar_link('Menú principal','',$GLOBALS['nombre_app'].'.php?hacer=menu');
                         $este->salida->cerrar_grupo_interno();
                         $este->salida->enviar('','',array('tipo'=>'hr'));
                     }else{

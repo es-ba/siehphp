@@ -1203,6 +1203,20 @@ JS
             }
         ));
     }
+    function proceso_grilla_I1_monitoreo_trabajo(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla para campo de monitoreo de trabajo',
+            'permisos'=>array('grupo'=>'subcoor_campo','grupo1'=>'procesamiento'),
+            'submenu'=>'coordinación de campo',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'I1_monitoreo_trabajo',
+                array(
+                ),
+                null,array());
+            }
+        ));
+    }
 }
 if(!isset($no_ejecutar_aplicacion)){
     Aplicacion::correr(new Aplicacion_etoi201());

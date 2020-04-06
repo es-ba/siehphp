@@ -52,8 +52,9 @@ class Grilla_varcalopc extends Grilla_tabla{
                //"varcal_destino"=>false,
                //"table_name"=>false,
                //"bases"=>false,
-               "varcal_tem"=>false,
-               "fecha_ultima_modificacion"=>false,               
+               "varcal_grupo"=>false,
+               //"varcal_tem"=>false,
+               "fecha_ultima_modificacion"=>false,
            ); 
         $this->tabla->tablas_lookup=array( 
             //"varcal va"=>'va.var_var=basprovar_var AND va.var_ope=basprovar_ope',
@@ -97,9 +98,10 @@ class Grilla_varcalopc extends Grilla_tabla{
                        'varcalopc_opcion',
                        'varcalopc_expresion_condicion',
                        'varcalopc_etiqueta',
-                       'varcalopc_expresion_valor',                       
+                       'varcalopc_expresion_valor',
                        'varcalopc_origen', 
-                       'varcal_tem',
+                       //'varcal_tem',
+                       'varcal_grupo',
                        'varcalopc_orden',
                        'varcalopc_comentarios',
                        'fecha_ultima_modificacion');

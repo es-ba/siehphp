@@ -124,12 +124,15 @@ SQL
 }
 
 class Grilla_inconsistencias_todas extends Grilla_inconsistencias{
-        function campos_editables($filtro_para_lectura){
+    function campos_editables($filtro_para_lectura){
         if (tiene_rol('procesamiento')){
             return array('inc_justificacion', 'inc_obs_consis');
         }else{
             return array();
         }
+    }    
+    function permite_grilla_sin_filtro_manual(){
+        return false;
     }
 
 }
