@@ -4,6 +4,7 @@
 //recorre tem
 require_once "lo_imprescindible.php";
 require_once "procesos.php";
+require_once "Proceso_imprimir_hoja_de_ruta.php";
 
 class Proceso_imprimir_hoja_de_ruta_enc extends Proceso_imprimir_hoja_de_ruta{
     function __construct(){

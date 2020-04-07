@@ -2,6 +2,8 @@
 //UTF-8:SÍ
 //v 2.43
 
+# ini_set('display_errors', 'On');
+
 $NOMBRE_APP='etoi202';
 $nombre_app='etoi202';
 $PLA_F_NAC_O='fechadma(pla_f_nac_d,pla_f_nac_m, pla_f_nac_a)';
