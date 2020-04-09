@@ -283,6 +283,11 @@ abstract class Aplicacion extends Contexto{
                         $app->salida->enviar('ERROR. La instalación de la aplicación está incompleta. Falta el proceso de LOGIN');
                     }
                 }elseif($hacer==='menu'){ 
+                    if(isset($_REQUEST['soy_un_ipad']) && $_REQUEST['soy_un_ipad']){
+                        setcookie('soy_un_ipad',$_REQUEST['soy_un_ipad'], time() + (720 * 24 * 60 * 60));
+                    }else{
+                        setcookie('soy_un_ipad', "", time() - 3600);
+                    }
                     $app->salida->enviar_encabezado_general();
                     $app->preparar_scripts_iniciales();
                     $app->armar_menu();

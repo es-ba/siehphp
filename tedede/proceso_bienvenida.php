@@ -40,7 +40,7 @@ class Proceso_bienvenida extends Proceso_Generico{
                         }
                         $este->salida->enviar('','',array('tipo'=>'br'));
                         $este->salida->enviar('Otras tareas: ','',array('tipo'=>'br'));
-                        $este->salida->enviar_link('Menú principal','',$GLOBALS['nombre_app'].'.php?hacer=menu');
+                        $este->salida->enviar_link('Menú principal','',$GLOBALS['nombre_app'].'.php?hacer=menu&soy_un_ipad=no');
                         $este->salida->cerrar_grupo_interno();
                         $este->salida->enviar('','',array('tipo'=>'hr'));
                     }else{

@@ -1,4 +1,6 @@
 {
   "name": "siehphp",
+  "version": "1.0.0",
+  "description": "Sistema Integrado de Encuestas a Hogares - en proceso de migración",
   "private": true
 }
