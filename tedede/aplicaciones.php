@@ -285,13 +285,18 @@ abstract class Aplicacion extends Contexto{
                 }elseif($hacer==='menu'){ 
                     if(isset($_REQUEST['soy_un_ipad']) && $_REQUEST['soy_un_ipad']){
                         setcookie('soy_un_ipad',$_REQUEST['soy_un_ipad'], time() + (720 * 24 * 60 * 60));
-                    }else{
-                        setcookie('soy_un_ipad', "", time() - 3600);
                     }
                     $app->salida->enviar_encabezado_general();
                     $app->preparar_scripts_iniciales();
                     $app->armar_menu();
                 }else{
+                    if($hacer=='login'){
+                        if(isset($_REQUEST['soy_un_ipad']) && $_REQUEST['soy_un_ipad']){
+                            setcookie('soy_un_ipad',$_REQUEST['soy_un_ipad'], time() + (720 * 24 * 60 * 60));
+                        }else{
+                            setcookie('soy_un_ipad', "", time() - 3600);
+                        }
+                    }
                     $proceso=$app->obtener_proceso_si_existe($hacer);
                     if($proceso){
                         if(isset($_REQUEST['todo'])){
