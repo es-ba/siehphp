@@ -14,7 +14,7 @@ class Grilla_dictra extends Grilla_tabla{
         if(tiene_rol('programador') || tiene_rol('procesamiento')){
             $editables[]='dictra_des';
             $editables[]='dictra_ori';
-            $editables[]='dictra_texto';
+            // deprecated: $editables[]='dictra_texto';
         }
         return $editables;
     }
@@ -31,7 +31,7 @@ class Grilla_dictra extends Grilla_tabla{
         return 2;
     }
     function campos_a_listar($filtro_para_lectura){
-        return array('dictra_dic', 'dictra_ori', 'dictra_des', 'dictra_texto');
+        return array('dictra_dic', 'dictra_ori', 'dictra_des'/*, 'dictra_texto'*/);
     }
 }
 ?>
