@@ -294,7 +294,7 @@ input:not([type]){
 .hdr_celda_sin_borde{
     border:2px solid silver;
     border-collapse:collapse;
-    margin:0px; */
+    margin:0px; 
 }
 .hdr_observaciones{
     min-width:500px;
