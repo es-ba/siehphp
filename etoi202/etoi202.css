@@ -296,6 +296,11 @@ input:not([type]){
     border-collapse:collapse;
     margin:0px; */
 }
+.hdr_observaciones{
+    min-width:500px;
+    font-size:45%;
+    font-family:arial;
+}
 .hdr_titulo{
     border:2px solid silver;
     background-color:#EEF;

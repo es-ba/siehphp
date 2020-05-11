@@ -136,6 +136,9 @@ class Proceso_leer_encuesta_a_localStorage extends Proceso_Formulario{
                     if($tabla_claves->datos->cla_ope==$operativo_anterior){
                         $info_de['info']['operativo_anterior']=$operativo_anterior;
                     }
+                    if($tabla_claves->datos->cla_ope==$operativo_anterior_anterior){
+                        $info_de['info']['operativo_anterior_anterior']=$operativo_anterior_anterior;
+                    }
                 }
                 $todaslasrtas[]=$claves;
                 $todaslasrtas[]=$info_de;
