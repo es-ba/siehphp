@@ -16,7 +16,6 @@ class Tabla_dictra extends Tabla{
 /* deprecated
 ALTER TABLE dictra
   ADD CONSTRAINT "texto de diccionario inválido" CHECK (comun.cadena_valida(dictra_texto::text, 'castellano'::text));
-/*OTRA*/
 */
         $BODY='$BODY';
         $todas=<<<SQL
