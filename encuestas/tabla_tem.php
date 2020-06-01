@@ -112,13 +112,17 @@ ALTER TABLE tem
 ALTER TABLE tem
   ADD CONSTRAINT "SEMANA DEBE SER IGUAL A REPLICA (set replica=semana)" CHECK (tem_replica is not distinct from tem_semana);
 /*OTRA*/  
-ALTER TABLE tem
-  ADD CONSTRAINT "VALORES DE SEMANA DEBEN ESTAR ENTRE 1 Y 12" CHECK (((tem_dominio in (3,4) AND tem_semana >= 1 AND tem_semana <= 12 )) 
-                                                                      or (tem_semana >= 0 AND tem_semana <= 12 AND tem_dominio=5));
-/*OTRA */
-ALTER TABLE tem
-  ADD CONSTRAINT "COD. POSTAL DEBE TENER VALOR PARA DOMINIO 3" CHECK (tem_dominio in (4,5) or tem_codpos is not null);  
-/*OTRA*/
+/*
+--ALTER TABLE tem
+--ADD CONSTRAINT "VALORES DE SEMANA DEBEN ESTAR ENTRE 1 Y 12" CHECK (((tem_dominio in (3,4) AND tem_semana >= 1 AND tem_semana <= 12 )) 
+--                                                                      or (tem_semana >= 0 AND tem_semana <= 12 AND tem_dominio=5));
+--OTRA
+*/
+/*
+--ALTER TABLE tem
+-- ADD CONSTRAINT "COD. POSTAL DEBE TENER VALOR PARA DOMINIO 3" CHECK (tem_dominio in (4,5) or tem_codpos is not null);  
+--OTRA
+*/
 ALTER TABLE tem
   ADD CONSTRAINT "CLADO DEBE TENER VALOR PARA DOMINIOS 3,4" CHECK (tem_dominio =5 or tem_clado is not null);
 /*OTRA*/
@@ -134,17 +138,19 @@ ALTER TABLE tem
 ALTER TABLE tem
   ADD CONSTRAINT "AREAUP DEBE TENER VALOR PARA DOMINIOS 3,4" CHECK (tem_dominio =5 or tem_areaup is not null);
 /*OTRA*/
+
 ALTER TABLE tem
   ADD CONSTRAINT "CCODIGO DEBE TENER VALOR PARA DOMINIOS 3,4" CHECK (tem_dominio =5 or tem_ccodigo is not null);
-/*OTRA
- //h4_mues ahora viene vacio fue reemplazado por otro campo por departamento muestreo
+/*OTRA*/
+/*
+// h4_mues ahora viene vacio fue reemplazado por otro campo por departamento muestreo
 ALTER TABLE tem
   ADD CONSTRAINT "H4_MUES DEBE TENER VALOR PARA DOMINIOS 3,4" CHECK (tem_dominio = 5 OR tem_h4_mues IS NOT NULL);
 OTRA
  ALTER TABLE tem   h4_mues ahora viene vacio fue reemplazado por otro campo por departamento muestreo
   ADD CONSTRAINT "h4_mues no puede tener valor 50 para dominio 3" CHECK (tem_dominio in (4,5) OR tem_h4_mues is distinct from 50);
 */  
-/*OTRA*/
+
 ALTER TABLE tem
   ADD CONSTRAINT "h4 no puede tener valor 50 para dominio 3" CHECK (tem_dominio in (4,5) OR tem_h4 is distinct from 50);
 /*OTRA*/

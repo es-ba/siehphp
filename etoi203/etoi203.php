@@ -8,7 +8,7 @@ $NOMBRE_APP='etoi203';
 $nombre_app='etoi203';
 $PLA_F_NAC_O='fechadma(pla_f_nac_d,pla_f_nac_m, pla_f_nac_a)';
 $GLOBALS['anio_operativo']=2020;
-//$GLOBALS['trimestre_operativo']=2;
+//$GLOBALS['trimestre_operativo']=3;
 $GLOBALS['esquema_principal']='encu';
 $GLOBALS['titulo_corto_app']=" ETOI 203";
 
