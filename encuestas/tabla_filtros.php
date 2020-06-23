@@ -21,7 +21,7 @@ class Tabla_filtros extends Tabla{
         $this->definir_campos_orden('fil_orden');
     }
    function desplegar(){
-        $this->id_dom="id_filtro"+$this->datos->fil_fil;
+        $this->id_dom="id_filtro".'_'.$this->datos->fil_fil;
         $this->contexto->salida->abrir_grupo_interno("encabezado_bloque",array('tipo'=>'TR'));
             $this->contexto->salida->abrir_grupo_interno("encabezado_bloque",array('tipo'=>'TD','colspan'=>3));
                 $this->contexto->salida->enviar($this->datos->fil_fil,"blo_blo",array('id'=>$this->id_dom));

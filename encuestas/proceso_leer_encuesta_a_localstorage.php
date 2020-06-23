@@ -30,6 +30,7 @@ class Proceso_leer_encuesta_a_localStorage extends Proceso_Formulario{
         $tabla_operativos->leer_unico(array(
             'ope_ope'=>$GLOBALS['NOMBRE_APP']
         ));
+        $operativo_anterior_anterior="";
         if($tabla_operativos->datos->ope_ope_anterior!=null && !$para_claves_a_conciliar_saca_operativo_anterior){
            $con_operativos_anteriores=TRUE;
            $operativo_anterior=$tabla_operativos->datos->ope_ope_anterior;   
