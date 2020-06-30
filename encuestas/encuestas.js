@@ -2925,7 +2925,7 @@ function desplegar_hoja_de_ruta(){
                   var info_ope=JSON.parse(localStorage.getItem("info_de_"+fila_encuesta.encuesta));
                   var pk_S1_ant=JSON.stringify({tra_ope:info_ope.operativo_anterior,tra_for:'S1',tra_mat:'',tra_enc:fila_encuesta.encuesta,tra_hog:1,tra_mie:0,tra_exm:0});
                   var rta_S1_ant=JSON.parse(localStorage.getItem("ud_"+pk_S1_ant));
-                  var pk_S1_otrant=rta_tem.copia_participacion==3?JSON.stringify(cambiandole(pk_S1_ant,{tra_ope:info_ope.operativo_anterior_anterior,tra_for:'S1',tra_mat:'',tra_enc:fila_encuesta.encuesta,tra_hog:1,tra_mie:0,tra_exm:0})):'';
+                  var pk_S1_otrant=rta_tem.copia_participacion>=3?JSON.stringify(cambiandole(pk_S1_ant,{tra_ope:info_ope.operativo_anterior_anterior,tra_for:'S1',tra_mat:'',tra_enc:fila_encuesta.encuesta,tra_hog:1,tra_mie:0,tra_exm:0})):'';
                   var rta_S1_otrant=pk_S1_otrant==''?'':JSON.parse(localStorage.getItem("ud_"+pk_S1_otrant));
                   obs_ant=info_ope.operativo_anterior+': '+si_no_es_nulo(rta_S1_ant.var_s1a1_obs)+' '+info_ope.operativo_anterior_anterior+': '+si_no_es_nulo(rta_S1_otrant.var_s1a1_obs);
                 }
