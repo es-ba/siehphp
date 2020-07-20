@@ -1043,7 +1043,7 @@ JS
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_rama_ocupacion',
                 array(
-                    'tem_estado'=>'#>=77',
+                   'tem_estado'=>'#>=77', 
                 ),                
                 null,array());                
             }
@@ -1214,6 +1214,21 @@ JS
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_monitoreo_trabajo',
                 array(
+                ),
+                null,array());
+            }
+        ));
+    }
+    function proceso_grilla_I1_rama_ocupacion_covid19(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla para codificar rama y ocupación Covid19',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'rama_ocupacion_covid19',
+                array(
+                     'tem_estado'=>'#>=77',
                 ),
                 null,array());
             }
