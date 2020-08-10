@@ -1249,6 +1249,21 @@ JS
             }
         ));
     }
+    function proceso_grilla_i1_trabajo_desocupados_covid (){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de preguntas abiertas trabajo desocupados Covid',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'i1_trabajo_desocupados_covid',
+                array(
+                     's1_p_estado'=>'#>=77',
+                ),
+                null,array());
+            }
+        ));
+    }
 }
 if(!isset($no_ejecutar_aplicacion)){
     Aplicacion::correr(new Aplicacion_etoi203());
