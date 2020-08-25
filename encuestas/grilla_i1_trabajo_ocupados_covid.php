@@ -14,6 +14,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
            (select pla_enc as t_enc, pla_participacion  from plana_tem_) t
         "]="pla_enc=t_enc";
         $this->tabla->campos_lookup['pla_participacion']=false;
+        $this->tabla->clausula_where_agregada_manual="  and (pla_t30=1 or pla_t30=2 or pla_t35=1 or pla_t35=2) " ; 
     }
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();

@@ -14,6 +14,7 @@ class Grilla_i1_trabajo_desocupados_covid extends Grilla_respuestas_para_proc_in
            (select pla_enc as t_enc, pla_participacion  from plana_tem_) t
         "]="pla_enc=t_enc";
         $this->tabla->campos_lookup['pla_participacion']=false;
+        $this->tabla->clausula_where_agregada_manual="  and (pla_t12=1  or pla_t12=2) " ; 
     }
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();
@@ -31,13 +32,20 @@ class Grilla_i1_trabajo_desocupados_covid extends Grilla_respuestas_para_proc_in
         $heredados[]='pla_exm';      
         $heredados[]='s1_p_sexo';
         $heredados[]='s1_p_edad';
+        $heredados[]= 'pla_t12';
+        $heredados[]= 'pla_t18';
+        $heredados[]= 'pla_t19_1';
+        $heredados[]= 'pla_t20_1';
+        $heredados[]= 'pla_t48a_d';
+        $heredados[]= 'pla_t48b_d';
+        $heredados[]= 'pla_t51_d';
         $heredados[]='pla_obs' ;
         return $heredados;
     }
     function permite_grilla_sin_filtro(){
         return false;
     }
-//enc	hog	mie	semana	participación	bolsa	estado	cod anacon	sexo	edad	t12	t18	t19_1	t20_1	t48a_d	t48b_d	t48b_d_esp	t51_d	obs	obs grilla ti_co2
+
 
     function campos_a_listar($filtro_para_lectura){
         return array_merge(array('s1_p_semana','pla_enc', 'pla_hog','pla_mie',
