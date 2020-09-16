@@ -52,7 +52,7 @@ class Grilla_I1_rama_ocupacion extends Grilla_respuestas_para_proc{
                 )));
     }
     function permite_grilla_sin_filtro_manual(){
-        return true;
+        return false;
     }
     function cantidadColumnasFijas(){
         return 3;
