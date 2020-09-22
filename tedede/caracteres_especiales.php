@@ -7,5 +7,6 @@ define('AUTF8_SPZW',chr(226).chr(128).chr(139)); // espacio invisible de separac
 define('UTF8_BOM',chr(239).chr(187).chr(191)); // espacio invisible de separación http://www.fileformat.info/info/unicode/char/200b/index.htm
 // define('CARACTER_SALTO','↷'); // Flecha del salto
 //define('CARACTER_SALTO','♞'); // Flecha del salto
-define('CARACTER_SALTO','✈'); // Flecha del salto
+//define('CARACTER_SALTO','✈'); // Flecha del salto
+define('CARACTER_SALTO','⇒'); // Flecha del salto
 ?>
