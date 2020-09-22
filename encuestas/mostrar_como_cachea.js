@@ -2,9 +2,9 @@ function mostrar_como_cachea(){
     if(!elemento_existente('div_principal')){
         var div=document.createElement('div');
         div.id='div_principal';
-        document.body.appendChild(div);
+        document.body.appendChild(div);    
     }
-    window.applicationCache.addEventListener('cached', function(e) {
+    if(window.applicationCache) window.applicationCache.addEventListener('cached', function(e) {
         var texto=document.createElement('div');
         texto.textContent='Sistema cargado!';
         elemento_existente('div_principal').appendChild(texto);
@@ -28,7 +28,7 @@ function mostrar_como_cachea(){
     for(var que_cachear in cachear){
         var message_ant;
         var texto;
-        window.applicationCache.addEventListener(que_cachear, function(e) {
+        if(window.applicationCache) window.applicationCache.addEventListener(que_cachear, function(e) {
             var online, status, type, message;
             online = (navigator.onLine) ? 'sí' : 'no';
             status = cacheStatusValues[window.applicationCache.status];

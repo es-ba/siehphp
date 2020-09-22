@@ -2737,7 +2737,7 @@ function desplegar_hoja_de_ruta(){
     var carga_incompleta=false;
     var elementos_de_encuestas_modificadas=[];
     log_pantalla_principal('por conectar los eventos');
-    window.applicationCache.addEventListener('updateready', function(e) {
+    if(window.applicationCache) window.applicationCache.addEventListener('updateready', function(e) {
         if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
             window.applicationCache.swapCache();
             if (confirm('Se va a actualizar la página porque hubo un cambio offline ¿procedo?')) {
@@ -2745,7 +2745,7 @@ function desplegar_hoja_de_ruta(){
             }
         }
     }, false);
-    window.applicationCache.addEventListener('error', function(e) {
+    if(window.applicationCache) window.applicationCache.addEventListener('error', function(e) {
         if(window.applicationCache.status!=1){
             var texto=document.createElement('div');
             texto.textContent='procediendo';
@@ -3670,7 +3670,7 @@ function mostrar_advertencia_descargado(){
 }
 
 function cambiar_cache_offline(){
-      window.applicationCache.swapCache();
+      if(window.applicationCache) window.applicationCache.swapCache();
       window.location.reload();
 }
 function buscar_rol(){
