@@ -3029,7 +3029,7 @@ function desplegar_installing(){
             <div id=archivos style="max-height:70%; overflow-y:scroll;"></div>
             <button id=arrancar style="display:none">Instalación Lista. Empezar</button>
         </div>
-        <div id=console style="background-color:#AAA; font-size:80%;"></div>
+        <div id=consolex style="background-color:#AAA; font-size:80%;"></div>
     `
 }
 
@@ -3060,6 +3060,7 @@ function desplegar_hoja_de_ruta(){
             div2.innerHTML=`
                 <div id=nueva-version-detectada style="display:none">Nueva versión detectada <button id=actualizar>Instalar</button></div>
                 <div id=buscando-version style="display:none">Buscando una nueva versión</div>
+                <div id=consola style="background-color:#AAA; font-size:80%; max-height:100px"></div>
             `;
             if(installing){
                 desplegar_installing();
