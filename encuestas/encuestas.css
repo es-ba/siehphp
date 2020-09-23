@@ -61,6 +61,7 @@
 }
 
 .tabla_contenido_formulario{
+    font-family: Droid Sans, Roboto, Damascus, Helvetica, Arial, sans-serif;
     border:2px solid black;
     width:760px;
 }
@@ -275,4 +276,32 @@ td.mini_grilla{
 
 #var_modulo_1{
     max-height:20px
+}
+
+.hdr_tabla{
+    font-family: Droid Sans, Roboto, Damascus, Helvetica, Arial, sans-serif;
+}
+
+.hdr_celda{
+    border:2px solid transparent;
+    /* border-collapse:collapse; */
+    /* margin:0px; */
+}
+.hdr_area{
+    font-size: 80%;
+    font-weight: bold;
+}
+.hdr_celda_sin_borde{
+    border:2px solid transparent;
+    border-collapse:collapse;
+    margin:0px; */
+}
+.hdr_titulo{
+    border:2px solid transparent;
+    background-color:#EEF;
+    text-align:center;
+    font-family:arial;
+    font-size:80%;
+    /* border-collapse:collapse; */
+    /* margin:0px; */
 }

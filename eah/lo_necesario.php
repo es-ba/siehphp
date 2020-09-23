@@ -175,6 +175,7 @@ HTML;
 		$manifiesto="";
 		if(@$parametros['para ipad']){
 		   $manifiesto="manifest='manifiesto.manifest'";
+		   $script_casos_de_prueba='<script language="JavaScript" src="../service-worker-admin.js"></script>';
 		}
 	}
 	$otros_metas="";

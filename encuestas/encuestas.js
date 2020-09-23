@@ -2732,7 +2732,7 @@ function hacer_backup_en_cadena(inmediato){
     }
 }
 
-function desplegar_hoja_de_ruta(){
+function desplegar_hoja_de_ruta_uvi(){
 "use strict";
     var carga_incompleta=false;
     var elementos_de_encuestas_modificadas=[];
@@ -2749,7 +2749,7 @@ function desplegar_hoja_de_ruta(){
         if(window.applicationCache.status!=1){
             var texto=document.createElement('div');
             texto.textContent='procediendo';
-            div_principal.appendChild(texto);
+            div_principal2.appendChild(texto);
         }
     }, false);
     if(localStorage["hoja_de_ruta"]){
@@ -2774,7 +2774,7 @@ function desplegar_hoja_de_ruta(){
         boton_backup.onclick=copia_de_seguridad;
         boton_backup.id='boton_backup';
         /* Ya no vamos a hacer copias internas vía notepad
-        div_principal.appendChild(boton_backup);
+        div_principal2.appendChild(boton_backup);
         */
         var elemento_tabla=document.createElement("table");
         elemento_tabla.className='hdr_tabla';
@@ -2906,7 +2906,7 @@ function desplegar_hoja_de_ruta(){
                 var completo_edificio=(rta_tem.copia_ident_edif!=null && rta_tem.copia_edificio==null)?' '+rta_tem.copia_ident_edif:'';
                // agregar_celda(fila_encuesta.domicilio+' Edif. '+si_no_es_nulo(rta_tem.copia_ident_edif),'hdr_celda'); //ident_edif lo reemplazaron por sector-edificio-entradar
                 agregar_celda(fila_encuesta.domicilio+' Edif. ' +si_no_es_nulo(rta_tem.copia_sector)+si_no_es_nulo(rta_tem.copia_edificio)+si_no_es_nulo(rta_tem.copia_entrada)+ completo_edificio,'hdr_celda');
-                agregar_celda(rta_tem.copia_lote,'hdr_celda');
+                agregar_celda(rta_tem.copia_lote,'hdr_celda hdr_area');
                 agregar_celda(rta_tem.copia_semana,'hdr_celda');
                 agregar_celda(rta_tem.copia_participacion,'hdr_celda');
                 agregar_celda(periodicidad(rta_tem.copia_rotaci_n_etoi,rta_tem.copia_dominio),'hdr_celda');
@@ -2931,8 +2931,7 @@ function desplegar_hoja_de_ruta(){
                 }
                 var elemento_fila=elemento_tabla.insertRow(-1);
                 agregar_celda('','');
-                //agregar_celda('Obs: '+ 'probando','hdr_observaciones');
-                agregar_celda('Obs: '+ obs_ant,'hdr_observaciones');
+                agregar_celda(obs_ant?'Obs: '+ obs_ant:'','hdr_observaciones');
                 elemento_celda.colSpan=6;
                 //hasta aqui agregado obs hoja ruta de ipad
             }else{
@@ -2943,9 +2942,9 @@ function desplegar_hoja_de_ruta(){
             var texto=document.createElement('div');
             texto.textContent='carga incompleta';
             texto.className='mensaje_error';
-            elemento_existente('div_principal').appendChild(texto);
+            elemento_existente('div_principal2').appendChild(texto);
         }else{
-            elemento_existente('div_principal').appendChild(elemento_tabla);
+            elemento_existente('div_principal2').appendChild(elemento_tabla);
             //pie de tabla con cantidad de encuestas ipad
             var elemento_tabla_pie=document.createElement("table");
             elemento_tabla_pie.className='pie_tabla';
@@ -2984,7 +2983,7 @@ function desplegar_hoja_de_ruta(){
             agregar_celda(' ','pie_vacio');
             agregar_celda(' ','pie_vacio');
             agregar_celda(' ','pie_vacio');
-            elemento_existente('div_principal').appendChild(elemento_tabla_vacio);
+            elemento_existente('div_principal2').appendChild(elemento_tabla_vacio);
             if("muestra semanas"){ // OJO GENERALIZAR SEMANA_MOSTRAR
                 var elemento_tabla_sem=document.createElement("table");
                 elemento_tabla_sem.className='sem_tabla';
@@ -3009,7 +3008,7 @@ function desplegar_hoja_de_ruta(){
                     agregar_celda(sem_30_desde,'datos_semana');
                     agregar_celda(sem_30_hasta,'datos_semana');
                     agregar_celda(sem_mes_ref,'datos_semana');
-                    elemento_existente('div_principal').appendChild(elemento_tabla_sem);
+                    elemento_existente('div_principal2').appendChild(elemento_tabla_sem);
                 }
             }
         }
@@ -3018,6 +3017,71 @@ function desplegar_hoja_de_ruta(){
         texto.textContent='Sin encuestas';
         mostrar_como_cachea();
     }
+}
+
+function desplegar_installing(){
+    var div=document.createElement('div');
+    elemento_existente('div_principal2').append(div);
+    div.innerHTML=`
+        <div id=instalando>
+            <h2>instalando...</h2>
+            <div id=error-console></div>
+            <div id=archivos style="max-height:70%; overflow-y:scroll;"></div>
+            <button id=arrancar style="display:none">Instalación Lista. Empezar</button>
+        </div>
+        <div id=console style="background-color:#AAA; font-size:80%;"></div>
+    `
+}
+
+function desplegar_hoja_de_ruta(){
+    var div2 = document.getElementById('div_principal2')
+    if(div2){
+        div2 = document.createElement('div');
+        div.id='div_principal2';
+    }
+    var swa = new ServiceWorkerAdmin();
+    swa.installIfIsNotInstalled({
+        onEachFile: (url, error)=>{
+            console_log('file: ',url);
+            console_log(url, error, 'archivos')
+        },
+        onInfoMessage: (m)=>console_log('message: ', m),
+        onError: (err, context)=>{
+            console_log('error: '+(context?` en (${context})`:''), err);
+            console_log(context, err, 'error-console')
+        },
+        onJustInstalled:async (run)=>{
+            document.getElementById('arrancar').style.display='';
+            document.getElementById('arrancar').onclick=()=>{
+                run()
+            }
+        },
+        onReadyToStart:(installing)=>{
+            div2.innerHTML=`
+                <div id=nueva-version-detectada style="display:none">Nueva versión detectada <button id=actualizar>Instalar</button></div>
+                <div id=buscando-version style="display:none">Buscando una nueva versión</div>
+            `;
+            if(installing){
+                desplegar_installing();
+            }else{
+                desplegar_hoja_de_ruta_uvi(); // uvi = una vez instalada
+                var hdr_version = document.getElementById('hdr_version');
+                hdr_version.onclick=()=>{
+                    swa.check4newVersion();
+                }
+                document.getElementById('buscando-version').style.display='';
+                setTimeout(()=>{ document.getElementById('buscando-version').style.display='none' }, 3000);
+                
+            }
+        },
+        onNewVersionAvailable:(install)=>{
+            document.getElementById('nueva-version-detectada').style.display='';
+            document.getElementById('buscando-version').style.display='none';
+            document.getElementById('actualizar').onclick=()=>{
+                install();
+            }
+        }
+    })
 }
 
 function Grillita(nombre_contenedor,encuesta){

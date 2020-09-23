@@ -33,7 +33,7 @@ td{
     font:200% blue;
     font-family:arial;
     top-margin:2px;
-/* según:
+/* segï¿½n:
 http://www.colorzilla.com/gradient-editor/ 
 otro que se puede usar:
 http://gradients.glrzad.com/
@@ -285,25 +285,6 @@ input:not([type]){
     background-color:#FED;
 }
 
-.hdr_celda{
-    border:2px solid silver;
-    /* border-collapse:collapse; */
-    /* margin:0px; */
-}
-.hdr_celda_sin_borde{
-    border:2px solid silver;
-    border-collapse:collapse;
-    margin:0px; */
-}
-.hdr_titulo{
-    border:2px solid silver;
-    background-color:#EEF;
-    text-align:center;
-    font-family:arial;
-    font-size:80%;
-    /* border-collapse:collapse; */
-    /* margin:0px; */
-}
 .pie_titulo{
     border:2px solid silver;
     background-color:Khaki;
