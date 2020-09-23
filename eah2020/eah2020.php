@@ -39,7 +39,8 @@ class Aplicacion_eah2020 extends Aplicacion_encuesta{
         }
         if($soy_un_ipad){
             if(isset($_REQUEST['hacer'])&&isset($this->ver_offline[$_REQUEST['hacer']])){
-                $this->salida->manifiesto="eah2020.manifest";
+                // $this->salida->manifiesto="eah2020.manifest";
+                $this->salida->agregar_js("../service-worker-admin.js");
             }
         }
         $this->salida->agregar_css("../tedede/probador.css");
