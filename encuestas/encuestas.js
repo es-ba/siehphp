@@ -3033,12 +3033,22 @@ function desplegar_installing(){
     `
 }
 
-function desplegar_hoja_de_ruta(){
+function vaciar_principal2(){
     var div2 = document.getElementById('div_principal2')
     if(div2){
         div2 = document.createElement('div');
         div.id='div_principal2';
     }
+    div2.innerHTML=`
+        <div id=nueva-version-detectada style="display:none">Nueva versión detectada <button id=actualizar>Instalar</button></div>
+        <div id=buscando-version style="display:none">Buscando una nueva versión</div>
+        <div id=consola style="background-color:#AAA; font-size:80%; max-height:100px"></div>
+    `;
+    return div2;
+}
+
+function desplegar_hoja_de_ruta(){
+    vaciar_principal2()
     var swa = new ServiceWorkerAdmin();
     swa.installIfIsNotInstalled({
         onEachFile: (url, error)=>{
@@ -3057,11 +3067,7 @@ function desplegar_hoja_de_ruta(){
             }
         },
         onReadyToStart:(installing)=>{
-            div2.innerHTML=`
-                <div id=nueva-version-detectada style="display:none">Nueva versión detectada <button id=actualizar>Instalar</button></div>
-                <div id=buscando-version style="display:none">Buscando una nueva versión</div>
-                <div id=consola style="background-color:#AAA; font-size:80%; max-height:100px"></div>
-            `;
+            vaciar_principal2();
             if(installing){
                 desplegar_installing();
             }else{
