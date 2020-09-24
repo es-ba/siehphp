@@ -37,7 +37,7 @@ td{
     font:200% blue;
     font-family:arial;
     top-margin:2px;
-/* según:
+/* segï¿½n:
 http://www.colorzilla.com/gradient-editor/ 
 otro que se puede usar:
 http://gradients.glrzad.com/
@@ -264,6 +264,27 @@ font-size: 70%;
 
 .opcion_codigo{
     padding-right:5px;
+}
+
+.opcion_codigo{
+    min-width: 12px;
+    min-height: 12px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: #666;
+    border-radius: 6px;
+    font-size: 50%;
+}
+
+.matriz_horizontal .boton_abrir_formulario [type=button]{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.celda_opciones_verticales td{
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .div_mensaje_alerta{

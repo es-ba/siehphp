@@ -3035,15 +3035,16 @@ function desplegar_installing(){
 
 function vaciar_principal2(){
     var div2 = document.getElementById('div_principal2')
-    if(div2){
+    if(div2 == null){
         div2 = document.createElement('div');
-        div.id='div_principal2';
+        div2.id='div_principal2';
     }
     div2.innerHTML=`
         <div id=nueva-version-detectada style="display:none">Nueva versión detectada <button id=actualizar>Instalar</button></div>
         <div id=buscando-version style="display:none">Buscando una nueva versión</div>
-        <div id=consola style="background-color:#AAA; font-size:80%; max-height:100px"></div>
+        <div id=console style="background-color:#AAA; font-size:80%; overflow-y:scroll; max-height:100px"></div>
     `;
+    div_principal.appendChild(div2);
     return div2;
 }
 

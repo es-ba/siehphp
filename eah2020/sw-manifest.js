@@ -53,6 +53,8 @@ var urlsToCache = [
 '../encuestas/cuadrado_calendario.png',
 '../encuestas/cuadradotic_calendario.png',
 '../encuestas/fondo_calendario.png',
+'../tercera/require-bro.js',
+'../service-worker-admin.js',
 ];
 // TEMPLATE-END
 var CACHE_NAME = appName + ':' + version;
