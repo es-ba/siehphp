@@ -1,6 +1,6 @@
 //tedede.js
 //UTF-8:SÍ
-var version_js_tedede='v 2.43';
+var version_js_tedede='v 3.00';
 
 var URL_IMAGEN_LOADING='url(../imagenes/mini_loading.gif)';
 var URL_IMAGEN_CONFIRMADO='url(../imagenes/mini_confirmado.png)';

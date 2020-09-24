@@ -17,7 +17,7 @@ window.addEventListener('load',function(){
     }
 });
 
-var version_js_encuestas='v 2.43';
+var version_js_encuestas='v 3.00';
 
 var total_encuestas_ipad=0;
 var pk_vacia={tra_ope:'', tra_for:'', tra_mat:'', tra_enc:0, tra_hog:0, tra_mie:0, tra_exm:0}; // AGREGAR CLAVE

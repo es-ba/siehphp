@@ -1,6 +1,6 @@
 <?php
 //UTF-8:SÍ
-//v 2.43
+//v 3.00
 
 $NOMBRE_APP='vcm2018';
 $nombre_app='vcm2018';

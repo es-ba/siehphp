@@ -1,6 +1,6 @@
 <?php
 //UTF-8:SÍ
-//v 2.43
+//v 3.00
 $NOMBRE_APP='ipcba';
 $nombre_app='ipcba';
 $login_dual=true;

@@ -396,3 +396,25 @@ input:not([type]){
 .columna_estado{
     background-color:#FEA;
 }
+
+
+.opcion_codigo{
+    min-width: 12px;
+    min-height: 12px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: #666;
+    border-radius: 6px;
+    font-size: 50%;
+}
+
+.matriz_horizontal .boton_abrir_formulario [type=button]{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.celda_opciones_verticales td{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}

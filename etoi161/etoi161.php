@@ -1,6 +1,6 @@
 <?php
 //UTF-8:SÍ
-//v 2.43
+//v 3.00
 
 $NOMBRE_APP='etoi161';
 $nombre_app='etoi161';

@@ -1,6 +1,6 @@
 <?php
 //UTF-8:SÍ
-//v 2.43
+//v 3.00
 
 $NOMBRE_APP='etoi143';
 $nombre_app='etoi143';
@@ -601,7 +601,7 @@ JS
                     $este->salida->enviar('Persona','',array('tipo'=>'span','id'=>'nombre_rol_hdr'));
                     $este->salida->enviar(' ','',array('tipo'=>'span'));
                     $este->salida->enviar('','',array('tipo'=>'span','id'=>'mostrar_encuestador'));
-                    $este->salida->enviar(AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.'HOJA DE RUTA v 2.43  '.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP,'',array('tipo'=>'span'));
+                    $este->salida->enviar(AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.'HOJA DE RUTA v 3.00  '.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP,'',array('tipo'=>'span'));
                     $este->salida->enviar('','',array(
                         'tipo'=>'input',
                         'id'=>'clave_recepcionista',
