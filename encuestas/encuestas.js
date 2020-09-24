@@ -3048,6 +3048,20 @@ function vaciar_principal2(){
     return div2;
 }
 
+function console_log(message, obj, id){
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(message));
+    if(obj!=null){
+        if(obj instanceof Error){
+            div.appendChild(document.createTextNode(obj.message));
+            div.style.color='red';
+        }else{
+            div.appendChild(document.createTextNode(JSON.stringify(obj)));
+        }
+    }
+    document.getElementById(id||'console').appendChild(div);
+}
+
 function desplegar_hoja_de_ruta(){
     vaciar_principal2()
     var swa = new ServiceWorkerAdmin();
