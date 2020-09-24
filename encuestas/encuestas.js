@@ -3063,7 +3063,10 @@ function console_log(message, obj, id){
 }
 
 function desplegar_hoja_de_ruta(){
-    vaciar_principal2()
+    vaciar_principal2();
+    window.addEventListener('error', function myErrorHandler(error, url, lineNumber) {
+        console_log('¡! '+(url||'')+':'+(lineNumber||''), error.message, 'error-console');
+    });
     var swa = new ServiceWorkerAdmin();
     swa.installIfIsNotInstalled({
         onEachFile: (url, error)=>{
