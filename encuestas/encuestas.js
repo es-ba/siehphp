@@ -3076,10 +3076,9 @@ function desplegar_hoja_de_ruta(){
                 var hdr_version = document.getElementById('hdr_version');
                 hdr_version.onclick=()=>{
                     swa.check4newVersion();
+                    document.getElementById('buscando-version').style.display='';
+                    setTimeout(()=>{ document.getElementById('buscando-version').style.display='none' }, 3000);
                 }
-                document.getElementById('buscando-version').style.display='';
-                setTimeout(()=>{ document.getElementById('buscando-version').style.display='none' }, 3000);
-                
             }
         },
         onNewVersionAvailable:(install)=>{
