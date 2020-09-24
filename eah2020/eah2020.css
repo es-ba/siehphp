@@ -398,7 +398,8 @@ input:not([type]){
 }
 
 
-.opcion_codigo{
+.opcion_codigo_id{
+    display: inline-block;
     min-width: 12px;
     min-height: 12px;
     text-align: center;

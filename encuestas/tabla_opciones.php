@@ -51,7 +51,9 @@ class Tabla_opciones extends Tabla{
                 $this->contexto->salida->cerrar_grupo_interno();
                 $this->despliegue->tabla_variables->datos->ya_puse_el_input=true;
             }                
-            $this->contexto->salida->enviar($this->datos->opc_opc,'opcion_codigo',array('tipo'=>'TD'));
+            $this->contexto->salida->abrir_grupo_interno('opcion_codigo',array('tipo'=>'TD'));
+                $this->contexto->salida->enviar($this->datos->opc_opc,'opcion_codigo_id',array('tipo'=>'span'));
+            $this->contexto->salida->cerrar_grupo_interno();
             $this->contexto->salida->abrir_grupo_interno('opcion_texto',array('tipo'=>'TD'));
                 $this->contexto->salida->enviar($this->datos->opc_texto,'opcion_texto',$opciones_del_area_sensible);
                 $this->contexto->salida->enviar($this->datos->opc_aclaracion,'opcion_aclaracion', array('tipo'=>'SPAN'));
@@ -94,7 +96,9 @@ class Tabla_opciones extends Tabla{
             // ESTOS SON LOS ENCABEZADOS DE LAS OPCIONES HORIZONTALES
             if($this->despliegue->tabla_preguntas->datos->todavia_sin_mostrar || $this->despliegue->tabla_variables->cursor->rowCount() == 1){
                 if($this->despliegue->tabla_preguntas->datos->todavia_sin_mostrar){
-                          $this->contexto->salida->enviar($this->datos->opc_opc,'opcion_codigo',array('tipo'=>'TD'));
+                    $this->contexto->salida->abrir_grupo_interno('opcion_codigo',array('tipo'=>'TD'));
+                        $this->contexto->salida->enviar($this->datos->opc_opc,'opcion_codigo_id',array('tipo'=>'span'));
+                    $this->contexto->salida->cerrar_grupo_interno();
                 }
                 // OJO: PROVISORIO PARA FORMATEO:
                 if($this->despliegue->tabla_variables->datos->var_conopc_texto == 'abreviatura'){
@@ -103,8 +107,10 @@ class Tabla_opciones extends Tabla{
                     $this->contexto->salida->enviar($this->datos->opc_texto,'opcion_texto',array('tipo'=>'TD'));
                 }
                 if ($pongo_en_blanco){
-                         $this->contexto->salida->enviar($this->datos->opc_proxima_opc,'opcion_codigo',array('tipo'=>'TD'));
-                         $this->contexto->salida->enviar(substr($this->datos->opc_proxima_texto,0,2),'opcion_texto',array('tipo'=>'TD'));
+                    $this->contexto->salida->abrir_grupo_interno('opcion_codigo',array('tipo'=>'TD'));
+                        $this->contexto->salida->enviar($this->datos->opc_proxima_opc,'opcion_codigo_id',array('tipo'=>'span'));
+                    $this->contexto->salida->cerrar_grupo_interno();
+                    $this->contexto->salida->enviar(substr($this->datos->opc_proxima_texto,0,2),'opcion_texto',array('tipo'=>'TD'));
                 }
             }
         }        
