@@ -76,6 +76,7 @@ async function mandar_a_reinstalar(appName){
         if(!sw){
             rtas.push('ERROR. No habia SW ready');
         }else{
+            rtas.push('reinstalacion');
             var pudo = await sw.unregister();
             rtas.push((pudo?'':'no ')+'pudo desinstalar el SW');
             var cacheNames = await caches.keys();
