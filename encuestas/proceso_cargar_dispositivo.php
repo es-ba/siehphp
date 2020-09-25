@@ -117,6 +117,7 @@ window.addEventListener('load', function(){
                 })
             }
         }
+        div_principal.appendChild(div);
     }
 })
 
