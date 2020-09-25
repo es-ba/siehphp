@@ -110,7 +110,7 @@ window.addEventListener('load', function(){
         input.onblur=function(){
             if(input.value.toUpperCase()=='REINSTALAR'){
                 consola.innerText='intentando reinstalar';
-                mandar_a_reinstalar().then(function(rta){
+                mandar_a_reinstalar('eah2020_test').then(function(rta){
                     consola.innerText=rta.join('\\r\\n');
                 }).catch(function(err){
                     consola.innerText=err.message;
