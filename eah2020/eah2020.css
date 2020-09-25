@@ -439,3 +439,11 @@ input:not([type]){
     padding-top: 3px;
     padding-bottom: 3px;
 }
+
+.caja_boton_cargar_dispositivo input{
+    margin:12px;
+}
+
+[class^=caja_boton_descargar_dispositivo] input{
+    margin:12px;
+}
