@@ -6,7 +6,7 @@ require_once "procesos.php";
 class Proceso_cargar_dispositivo extends Proceso_Formulario{
     function __construct(){
         parent::__construct(array(
-            'titulo'=>'Cargar dispositivo (v 3.00g)',
+            'titulo'=>'Cargar dispositivo (v 3.00h)',
             'submenu'=>PROCESO_INTERNO,
             'permisos'=>array('grupo'=>'recepcionista'),
             'para_produccion'=>false,
@@ -108,7 +108,7 @@ window.addEventListener('load', function(){
         div.appendChild(input);
         div.appendChild(consola);
         input.onblur=function(){
-            if(input.value.toUpperCase()=='REINSTALAR'){
+            if(input.value.trim().toUpperCase()=='REINSTALAR'){
                 consola.innerText='intentando reinstalar';
                 mandar_a_reinstalar('eah2020_test').then(function(rta){
                     consola.innerText=rta.join('\\r\\n');

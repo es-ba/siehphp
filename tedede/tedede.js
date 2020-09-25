@@ -575,7 +575,7 @@ document.onkeypress=function(evento){
                 var no_me_voy_a_colgar=2000;
                 while(este && this.activeElement===enfoco && no_me_voy_a_colgar--){
                     este=proximo_elemento_que_sea(este,es_elemento_interactivo);
-                    este.focus();
+                    if(este.focus) este.focus();
                 }
                 if(este){
                     evento.preventDefault();
