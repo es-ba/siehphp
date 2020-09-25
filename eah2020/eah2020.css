@@ -400,13 +400,13 @@ input:not([type]){
 
 .opcion_codigo_id{
     display: inline-block;
-    min-width: 14px;
-    min-height: 14px;
+    min-width: 12px;
+    min-height: 12px;
     text-align: center;
     vertical-align: middle;
     color: white;
     background-color: #333;
-    border-radius: 7px;
+    border-radius: 6px;
     font-size: 50%;
     margin-bottom: 4px;
 }
@@ -424,4 +424,18 @@ input:not([type]){
 .celda_opciones_verticales td{
     padding-top: 9px;
     padding-bottom: 9px;
+}
+
+.encabezado_variable{
+    padding: 3px;
+}
+
+.encabezado_pregunta{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.celda_opciones_verticales > input {
+    padding-top: 3px;
+    padding-bottom: 3px;
 }

@@ -6,7 +6,7 @@ require_once "procesos.php";
 class Proceso_cargar_dispositivo extends Proceso_Formulario{
     function __construct(){
         parent::__construct(array(
-            'titulo'=>'Cargar dispositivo (v 3.00)',
+            'titulo'=>'Cargar dispositivo (v 3.00g)',
             'submenu'=>PROCESO_INTERNO,
             'permisos'=>array('grupo'=>'recepcionista'),
             'para_produccion'=>false,
@@ -67,7 +67,59 @@ JS
         $ahora=date_format(new DateTime(), "Y-m-d H:i:s");
         $this->salida->enviar_script(<<<JS
 var hoja_de_ruta;
-        
+
+async function mandar_a_reinstalar(appName){
+    /** @type {string[]}  */
+    var rtas=[];
+    try{
+        var sw = await navigator.serviceWorker.ready;
+        if(!sw){
+            rtas.push('ERROR. No habia SW ready');
+        }else{
+            var pudo = await sw.unregister();
+            rtas.push((pudo?'':'no ')+'pudo desinstalar el SW');
+            var cacheNames = await caches.keys();
+            var borrando = await Promise.all(
+                cacheNames.filter((cacheName)=>
+                    cacheName.substr(0,appName.length+1)==appName+':'
+                ).map((cacheName)=>{
+                    rtas.push('borrada la cache '+cacheName);
+                    return caches.delete(cacheName);
+                })
+            );
+            rtas.push((borrado?'':'no ')+'Borradas todas las caches!');
+        }
+    }catch(err){
+        rtas.push('ERROR. NO SE TERMINO.');
+        rtas.push(err.message);
+    }
+    return rtas;
+}
+
+window.addEventListener('load', function(){
+    var div = document.getElementById('zona-recuperacion');
+    if(!div){
+        div = document.createElement('div')
+        div.id='consola-recuperacion';
+        div.style.marginTop='24px';
+        div.textContent='operaciones especiales: ';
+        var input = document.createElement('input');
+        var consola = document.createElement('pre');
+        div.appendChild(input);
+        div.appendChild(consola);
+        input.onblur=function(){
+            if(input.value.toUpperCase()=='REINSTALAR'){
+                consola.innerText='intentando reinstalar';
+                mandar_a_reinstalar().then(function(rta){
+                    consola.innerText=rta.join('\r\n');
+                }).catch(function(err){
+                    consola.innerText=err.message;
+                })
+            }
+        }
+    }
+})
+
 function controlar_hoja_de_ruta_es_seguro(cargar_o_descargar){
 "use strict";
     var rta={};
