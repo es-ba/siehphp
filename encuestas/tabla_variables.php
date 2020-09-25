@@ -120,6 +120,7 @@ class Tabla_variables extends Tabla{
                     $this->contexto->salida->enviar(CARACTER_SALTO.' '.ucfirst($this->datos->var_destino),'opcion_salto_grande',
                         array(
                             'tipo'=>'TD',
+                            'colspan'=>2
                         )
                     );
                 }else{

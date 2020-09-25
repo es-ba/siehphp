@@ -1,6 +1,6 @@
 @page {width: 100%; text-align:center;margin-top: 0.2in;margin-bottom: 0.05in;}
 body{
-    font-size:24px;
+    font-size:20px;
 }
 
 td{
@@ -408,6 +408,7 @@ input:not([type]){
     background-color: #333;
     border-radius: 7px;
     font-size: 50%;
+    margin-bottom: 4px;
 }
 
 .matriz_horizontal .boton_abrir_formulario [type=button]{
@@ -415,7 +416,12 @@ input:not([type]){
     margin-right: 3px;
 }
 
+.matriz_horizontal td{
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
 .celda_opciones_verticales td{
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 9px;
+    padding-bottom: 9px;
 }
