@@ -17,7 +17,7 @@ window.addEventListener('load',function(){
     }
 });
 
-var version_js_encuestas='v 3.00';
+var version_js_encuestas='v 3.00c';
 
 var total_encuestas_ipad=0;
 var pk_vacia={tra_ope:'', tra_for:'', tra_mat:'', tra_enc:0, tra_hog:0, tra_mie:0, tra_exm:0}; // AGREGAR CLAVE
@@ -3060,7 +3060,7 @@ function console_log(message, obj, id){
             div.appendChild(document.createTextNode(JSON.stringify(obj)));
         }
     }
-    document.getElementById(id||'console').appendChild(div);
+    (document.getElementById(id||'console')||document.getElementById('console')).appendChild(div);
 }
 
 function desplegar_hoja_de_ruta(){
