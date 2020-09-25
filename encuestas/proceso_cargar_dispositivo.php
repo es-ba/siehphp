@@ -111,7 +111,7 @@ window.addEventListener('load', function(){
             if(input.value.toUpperCase()=='REINSTALAR'){
                 consola.innerText='intentando reinstalar';
                 mandar_a_reinstalar().then(function(rta){
-                    consola.innerText=rta.join('\r\n');
+                    consola.innerText=rta.join('\\r\\n');
                 }).catch(function(err){
                     consola.innerText=err.message;
                 })
