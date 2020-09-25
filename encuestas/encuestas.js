@@ -1,7 +1,7 @@
 //UTF-8:SÍ
 "use strict";
 
-var version_js_encuestas='v 3.00e';
+var version_js_encuestas='v 3.00f';
 
 var operativo_actual;
 var anio_operativo;
@@ -1799,7 +1799,7 @@ function boton_abre_formulario(parametros,renglon){
         +" style='background-color:"+color_estados_ud[ver_estado_ud(parametros)]+";' " 
 //        +" title='"+JSON.stringify(parametros)+","+JSON.stringify(ver_estado_ud(parametros))+","+JSON.stringify(color_estados_ud[ver_estado_ud(parametros)])+"' " 
         +" onclick='abrir_formulario("+JSON.stringify(parametros)+");'"+
-        (soy_un_ipad?' tabindex="-1" ')+
+        (soy_un_ipad?' tabindex="-1" ':'')+
         " id='boton_"+parametros.tra_for+'_'+parametros.tra_mat+'_'+renglon+"'; "+((parametros.tra_for=='I1' && (operativo_actual=='same2014' ||  (operativo_actual.substr(0,2)=='ut' && parametros.tra_for!='SUP') ||  operativo_actual=='ut2016' || operativo_actual=='vcm2018'))?'disabled':'')+">";
     return rta;
 }
