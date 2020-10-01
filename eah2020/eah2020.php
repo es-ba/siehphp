@@ -1280,6 +1280,51 @@ JS
         ));
     }
    */
+   function proceso_grilla_I1_rama_ocupacion_covid19(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla para codificar rama y ocupación Covid19',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'rama_ocupacion_covid19',
+                array(
+                     'tem_estado'=>'#>=77',
+                ),
+                null,array());
+            }
+        ));
+    }
+    function proceso_grilla_i1_trabajo_ocupados_covid (){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de preguntas abiertas trabajo ocupados Covid',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'i1_trabajo_ocupados_covid',
+                array(
+                     's1_p_estado'=>'#>=77',
+                ),
+                null,array());
+            }
+        ));
+    }
+    function proceso_grilla_i1_trabajo_desocupados_covid (){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de preguntas abiertas trabajo desocupados Covid',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'i1_trabajo_desocupados_covid',
+                array(
+                     's1_p_estado'=>'#>=77',
+                ),
+                null,array());
+            }
+        ));
+    }
 }
 
 if(!isset($no_ejecutar_aplicacion)){
