@@ -10,7 +10,7 @@ $db->log_hasta=@$pdo_log_sql_hasta_fecha?:false;
 if($parametros_db->search_path){
     $db->ejecutar("set search_path = {$parametros_db->search_path}");
 }
-$maquina_ipl=isset($_SERVER['SERVER_ADDR'])?'i'.diferencia_ips($_SERVER['SERVER_ADDR'],$_SERVER['REMOTE_ADDR']):'local ';
+$maquina_ipl=isset($_SERVER['SERVER_ADDR'])?'i'.diferencia_ips_total($_SERVER['SERVER_ADDR'],$_SERVER['REMOTE_ADDR'],0):'local ';
 $GLOBALS['NOMBRE_DB']=$parametros_db->host.'_'.$parametros_db->base_de_datos;
 $db->ejecutar("set application_name = 'i".$maquina_ipl." ".(@$_SESSION["{$GLOBALS['NOMBRE_APP']}/{$GLOBALS['NOMBRE_DB']}_usu_usu"]?:'!LOG')."'");
         
