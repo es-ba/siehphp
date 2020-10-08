@@ -312,7 +312,7 @@ function json_str_error(){
 // luego cambiar proceso_control_encuesta.php para que las tome de comunes
 
 function diferencia_ips($primer_ip,$segundo_ip){
-  return diferencia_ips_total($primer_ip,$segundo_ip,2)
+  return diferencia_ips_total($primer_ip,$segundo_ip,2);
 }
 function diferencia_ips_total($primer_ip,$segundo_ip,$desde){
     $octetos_primer_ip =explode ('.',$primer_ip);

@@ -40,19 +40,26 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
         $heredados[]='pla_t37sd';
         $heredados[]='pla_t40bis_a';
         $heredados[]='pla_t39';
+        $heredados[]='pla_t40bis_a1';
         $heredados[]='pla_t40bis_a2';
         $heredados[]='pla_t40bis_b';
         $heredados[]='pla_t40bis_d';
+        $heredados[]='pla_t40bis_f';
+        $heredados[]='pla_t40bis_g6';
         $heredados[]='pla_t40bis_a3_1'; 
         $heredados[]='pla_t40bis_a3_2';
         $heredados[]='pla_t40bis_a3_3';
         $heredados[]='pla_t40bis_a3_4';
+        $heredados[]='pla_t40bis_a3_5';
+        $heredados[]='pla_ts1';
+        $heredados[]='pla_ts2';
+        $heredados[]='pla_ts3';
         $heredados[]='pla_i4';
         $heredados[]='pla_i7a';
         $heredados[]='pla_i7_bis';
         $heredados[]='pla_i8';
         $heredados[]='pla_i9';
-        $heredados[]='pla_obs' ;
+        $heredados[]='pla_obs';
         return $heredados;
     }
     function permite_grilla_sin_filtro(){
@@ -66,9 +73,12 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                                 's1_p_sexo','s1_p_edad',),
                 $this->filtrar_campos_del_operativo(array(
                     'pla_t30','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd','pla_t40bis_a',
-                    'pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro','pla_t40bis_a2','pla_t40bis_a2_otro',
+                    'pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro','pla_t40bis_a1','pla_t40bis_a1_otro',
+                    'pla_t40bis_a2','pla_t40bis_a2_otro',
                     'pla_t40bis_b','pla_t40bis_b_barrio','pla_t40bis_b_partido','pla_t40bis_b_otro','pla_t40bis_d',
-                    'pla_t40bis_a3_1', 'pla_t40bis_a3_2','pla_t40bis_a3_3','pla_t40bis_a3_4','pla_t40bis_a3_4_esp','pla_i4','pla_i7a','pla_i7_bis','pla_i8','pla_i9',
+                    'pla_t40bis_f','pla_t40bis_g6','pla_t40bis_g6_otro',
+                    'pla_t40bis_a3_1','pla_t40bis_a3_2','pla_t40bis_a3_3','pla_t40bis_a3_5','pla_t40bis_a3_4','pla_t40bis_a3_4_esp',
+                    'pla_ts1','pla_ts2','pla_ts3','pla_i4','pla_i7a','pla_i7_bis','pla_i8','pla_i9',
                     'pla_obs','pla_obs_grilla_ti_co1'
                 )));
     }
