@@ -31,8 +31,13 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         $heredados[]='pla_v1';  
         $heredados[]='pla_total_h';  
         $heredados[]='pla_v5_esp';  
-        $heredados[]='pla_h20_esp';  
+        $heredados[]='pla_h20_esp';
+        $heredados[]='pla_correo';
+        $heredados[]='pla_obs_pmd'; 
         return $heredados;
+    }
+    function remover_en_nombre_de_campo(){
+        return  '_pmd'; 
     }
     function permite_grilla_sin_filtro(){
         return false;
@@ -59,9 +64,11 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         'pla_movil',
         'pla_v1',
         'pla_total_h',
+        'pla_correo',
+        'pla_obs_pmd',
         'pla_obs_grilla_a1',
             )));
-    }
+    } 
     /*
     function campos_a_listar($filtro_para_lectura){
         return array(
