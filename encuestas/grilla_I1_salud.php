@@ -32,6 +32,7 @@ class Grilla_I1_salud extends Grilla_respuestas_para_proc_ind{
         $heredados[]='pla_sn1_5';
         $heredados[]='pla_sn4_esp';
         $heredados[]='pla_sn5_esp';
+        $heredados[]='pla_sn11';
         $heredados[]='pla_sn13';
         $heredados[]='pla_sn14';
         $heredados[]='pla_sn15k_esp';
@@ -47,8 +48,8 @@ class Grilla_I1_salud extends Grilla_respuestas_para_proc_ind{
             $this->filtrar_campos_del_operativo(array('pla_sn1_1', 'pla_sn1_1_esp', 'pla_sn1_7', 'pla_sn1_7_esp', 
             'pla_sn1_2', 'pla_sn1_2_esp', 'pla_sn1_3', 'pla_sn1_3_esp', 'pla_sn1_4', 'pla_sn1_4_esp', 
             'pla_sn1_5',
-            'pla_sn4', 'pla_sn4_esp', 'pla_sn5', 'pla_sn5_esp', 'pla_sn14', 
-            'pla_sn14_esp', 'pla_sn15k', 'pla_sn15k_esp', 'pla_sn13', 'pla_sn13_otro', 'pla_obs_grilla_sa'
+            'pla_sn4', 'pla_sn4_esp', 'pla_sn5', 'pla_sn5_esp','pla_sn11',  'pla_sn13', 'pla_sn13_otro',
+            'pla_sn14', 'pla_sn14_otro', 'pla_sn15k', 'pla_sn15k_esp', 'pla_obs_grilla_sa'
             )));
     }
     function permite_grilla_sin_filtro_manual(){
