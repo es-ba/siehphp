@@ -2191,7 +2191,7 @@ function TransmitirTodo(){
 }
 
 function PresionTeclaEnVariable(id_variable,evento){
-    var tecla=(document.all) ? evento.keyCode : evento.which; 
+    var tecla=evento.keyCode || evento.which;
     if(tecla!=13){
         return;
     }
@@ -2213,8 +2213,7 @@ function PresionTeclaEnVariable(id_variable,evento){
 }
 
 function PresionOtraTeclaEnVariable(id_variable,evento){
-
-    var tecla=(document.all) ? evento.keyCode : evento.which; 
+    var tecla=evento.keyCode || evento.which;
     if(tecla!=38){
         return;
     }
