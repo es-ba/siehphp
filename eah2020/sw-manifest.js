@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.03h';
+var version = 'v 3.02h';
 var appName = 'eah2020_test';
 var urlsToCache = [
 '../eah2020/eah2020_icon.png',
@@ -69,7 +69,7 @@ self.addEventListener('install', async (evt) => {
     // @ts-expect-error Esperando que agregen el listener de 'fetch' en el sistema de tipos
     var event = evt;
     //si hay cambios no espero para cambiarlo
-    // self.skipWaiting();
+    self.skipWaiting();
     console.log("instalando");
     event.waitUntil(caches.open(CACHE_NAME).then((cache) => Promise.all(urlsToCache.map(async (urlToCache) => {
         var error = null;
@@ -110,20 +110,22 @@ self.addEventListener('fetch', async (evt) => {
     else {
         event.respondWith(caches.open(CACHE_NAME).then((cache) => cache.match(event.request).then((response) => {
             console.log("respuesta caché: ", response);
-            return response || fetch(event.request).then((response) => {
-                console.log("respuesta", response);
-                if (!response) {
-                    console.log("no tiene respuesta");
-                    throw Error('without response');
-                }
-                return response;
-            }).catch(async (err) => {
+            return response || fetch(event.request).catch(async (err) => {
                 console.log(err);
-                var client = await self.clients.get(event.clientId);
-                client.postMessage(err);
-                return new Response(`<p>Se produjo un error al intentar cargar la p&aacute;gina, es posible que no haya conexi&oacute;n a internet</p><a href='/'>Volver a Hoja de Ruta</button>`, {
-                    headers: { 'Content-Type': 'text/html' }
-                });
+                console.log("request: ", event.request);
+                var fallbackResult = fallback.find((aFallback) => aFallback.path.includes(source));
+                if (fallbackResult) {
+                    return cache.match(fallbackResult.fallback).then((response) => {
+                        if (response) {
+                            console.log("respuesta fallback: ", response);
+                            return response;
+                        }
+                        else {
+                            throw err;
+                        }
+                    });
+                }
+                throw err;
             });
         })));
     }
