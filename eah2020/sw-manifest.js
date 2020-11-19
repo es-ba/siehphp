@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.02h';
+var version = 'v 3.03h';
 var appName = 'eah2020_test';
 var urlsToCache = [
 '../eah2020/eah2020_icon.png',
@@ -69,7 +69,7 @@ self.addEventListener('install', async (evt) => {
     // @ts-expect-error Esperando que agregen el listener de 'fetch' en el sistema de tipos
     var event = evt;
     //si hay cambios no espero para cambiarlo
-    self.skipWaiting();
+    //self.skipWaiting();
     console.log("instalando");
     event.waitUntil(caches.open(CACHE_NAME).then((cache) => Promise.all(urlsToCache.map(async (urlToCache) => {
         var error = null;
