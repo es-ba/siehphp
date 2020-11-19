@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.01h';
+var version = 'v 3.02h';
 var appName = 'eah2020_test';
 var urlsToCache = [
 '../eah2020/eah2020_icon.png',
@@ -35,6 +35,7 @@ var urlsToCache = [
 '../eah2020/eah2020.php?hacer=hoja_de_ruta',
 '../eah2020/eah2020.php?hacer=hoja_de_ruta_super',
 '../eah2020/eah2020.php?hacer=formularios_de_la_vivienda',
+'../eah2020/eah2020.php?hacer=aviso_offline',
 '../eah2020/eah2020.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2020","tra_for":"S1","tra_mat":""}',
 '../eah2020/eah2020.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2020","tra_for":"S1","tra_mat":"P"}',
 '../eah2020/eah2020.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2020","tra_for":"A1","tra_mat":""}',
@@ -55,6 +56,10 @@ var urlsToCache = [
 '../encuestas/fondo_calendario.png',
 '../tercera/require-bro.js',
 '../service-worker-admin.js',
+];
+  
+var fallback = [
+    {"path":"../eah2020/eah2020.php?hacer=cargar_dispositivo","fallback":"../eah2020/eah2020.php?hacer=aviso_offline"},
 ];
 // TEMPLATE-END
 var CACHE_NAME = appName + ':' + version;
