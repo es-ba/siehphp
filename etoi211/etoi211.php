@@ -10,7 +10,7 @@ $PLA_F_NAC_O='fechadma(pla_f_nac_d,pla_f_nac_m, pla_f_nac_a)';
 $GLOBALS['anio_operativo']=2021;
 //$GLOBALS['trimestre_operativo']=1;
 $GLOBALS['esquema_principal']='encu';
-$GLOBALS['titulo_corto_app']=" ETOI 211";
+$GLOBALS['titulo_corto_app']="etoi211";
 
 $es_teletoi_desa = false;
 
@@ -44,7 +44,9 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         }
         if($soy_un_ipad){
             if(isset($_REQUEST['hacer'])&&isset($this->ver_offline[$_REQUEST['hacer']])){
-                $this->salida->manifiesto="etoi211.manifest";
+                //$this->salida->manifiesto="etoi211.manifest";
+                $this->salida->agregar_js("../tercera/require-bro.js");
+                $this->salida->agregar_js("../service-worker-admin.js");
             }
         }
         $this->salida->agregar_css("../tedede/probador.css");
