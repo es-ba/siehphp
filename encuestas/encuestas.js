@@ -72,6 +72,7 @@ var color_fondo=
 , PG1:"Pink"
 , GH: "#F6CED8"
 , PMD:"#B6E7D3"
+, SUP:"#EEE"
 }
 
 function PosicionarSaltoEn(elemento_destino){
