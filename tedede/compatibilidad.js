@@ -40,18 +40,22 @@ var controles_de_compatibilidad={
     ,controlar:function(parametros){
         return window.getSelection;
     }},
+    /*
     'soporte para trabajo sin conexion (offline)':{gravedad:'incomodidad'
     ,controlar:function(parametros){
         return !!window.applicationCache;
     }},
+    */
     'soporte para tratar eventos internos':{gravedad:'incompatible'
     ,controlar:function(parametros){
         return !!window.addEventListener;
     }},
+    /*
     'soporte para procesos compartidos (SharedWorker)':{gravedad:'depende'
     ,controlar:function(parametros){
         return !!window.SharedWorker;
     }},
+    */
     // ¡conexión Ajax debe ser el último de los controles!
     'conectividad Ajax':{gravedad:'incompatible'
     ,controlar:function(params){
