@@ -1,7 +1,7 @@
 //UTF-8:SÍ
 "use strict";
 
-var version_js_encuestas='v 3.03j';
+var version_js_encuestas='v 3.03k';
 
 var operativo_actual;
 var anio_operativo;
@@ -3511,8 +3511,8 @@ function desplegar_formularios_de_la_vivienda(){
         agregar_texto('Cantidad de hogares: '+si_no_es_nulo(rta_ud_tem.var_hog_tot));        
         agregar_texto('Respondente: '+si_no_es_nulo(rta_ud_S1_hog1.var_respond)+' '+si_no_es_nulo(rta_ud_S1_hog1.var_nombrer));        
         agregar_texto('Observaciones: '+si_no_es_nulo(rta_ud_S1_hog1.var_s1a1_obs));
-        agregar_texto('Teléfono: '+si_no_es_nulo(rta_ud_A1_hog1.var_telefono)+si_no_es_nulo(rta_ud_S1_hog1.var_tel1));
-        agregar_texto('Móvil: '+si_no_es_nulo(rta_ud_A1_hog1.var_movil)+si_no_es_nulo(rta_ud_S1_hog1.var_tel2));
+        agregar_texto('Teléfono: '+si_no_es_nulo(rta_ud_A1_hog1.var_telefono)+si_no_es_nulo(rta_ud_S1_hog1.var_telefono));
+        agregar_texto('Móvil: '+si_no_es_nulo(rta_ud_A1_hog1.var_movil)+si_no_es_nulo(rta_ud_S1_hog1.var_movil));
         for (var i=2; i<=total_hog_declarados; i++ ){
             var pk_ud_S1_hog_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'S1', tra_mat:'', tra_hog:i, tra_mie:0, tra_exm:0}));
             var rta_ud_S1_hog_json=localStorage.getItem("ud_"+pk_ud_S1_hog_json);
@@ -3526,7 +3526,7 @@ function desplegar_formularios_de_la_vivienda(){
               xresp_hogi='HOGAR '+i+' Respondente:'+si_no_es_nulo(el_s1.var_respond)+' '+si_no_es_nulo(el_s1.var_nombrer);
             }  
             if (el_a1){
-              xtel_hogi=' | Teléfono: '+si_no_es_nulo(el_a1.var_telefono)+si_no_es_nulo(el_s1.var_tel1) + ' | Móvil:'+si_no_es_nulo(el_a1.var_movil)+si_no_es_nulo(el_s1.var_tel2);
+              xtel_hogi=' | Teléfono: '+si_no_es_nulo(el_a1.var_telefono)+si_no_es_nulo(el_s1.var_telefono) + ' | Móvil:'+si_no_es_nulo(el_a1.var_movil)+si_no_es_nulo(el_s1.var_movil);
             }
             agregar_texto(xresp_hogi+xtel_hogi);
         }

@@ -12,14 +12,14 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         parent::iniciar('A1_');
         $esnuevoA1="{$GLOBALS['NOMBRE_APP']}"=='etoi211' ?'1':'0';  //en etoi211 cambian la ubicación de telefonos y correo al S1
         $varlook=$esnuevoA1=='1' ?' ,pla_telefono as pla_telefono, pla_movil as pla_movil, pla_correo as pla_correo ':'';
-        $look="(select pla_enc as s1_enc, pla_hog as s1_hog, pla_v1, pla_total_h as pla_total_h ".$varlook. " from plana_s1_) s1 ";
+        $clook="(select pla_enc as s1_enc, pla_hog as s1_hog, pla_v1, pla_total_h as pla_total_h ".$varlook. " from plana_s1_) s1 ";
        /*
         $this->tabla->tablas_lookup["
           (select pla_enc as s1_enc, pla_hog as s1_hog, pla_v1, pla_total_h as pla_total_h  from plana_s1_) s1
         "]="pla_enc=s1_enc and pla_hog=s1_hog";
         */
         $this->tabla->tablas_lookup["
-          {$look}
+          {$clook}
         "]="pla_enc=s1_enc and pla_hog=s1_hog";
         if($esnuevoA1=='1' ){
           $this->tabla->campos_lookup['pla_telefono']=false;

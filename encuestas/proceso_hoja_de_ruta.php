@@ -20,7 +20,7 @@ class Proceso_hoja_de_ruta extends Proceso_Generico{
                     $este->salida->enviar('Persona','',array('tipo'=>'span','id'=>'nombre_rol_hdr'));
                     $este->salida->enviar(' ','',array('tipo'=>'span'));
                     $este->salida->enviar('','',array('tipo'=>'span','id'=>'mostrar_encuestador'));
-                    $este->salida->enviar(AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.($para_supervisor?' hoja de ruta Supervisor':'HOJA DE RUTA').' v 3.03j  '.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP,'',array('tipo'=>'span', 'id'=>'hdr_version'));
+                    $este->salida->enviar(AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP.($para_supervisor?' hoja de ruta Supervisor':'HOJA DE RUTA').' v 3.03k  '.AUTF8_NBSP.AUTF8_NBSP.AUTF8_NBSP,'',array('tipo'=>'span', 'id'=>'hdr_version'));
                     $este->salida->enviar('','',array(
                         'tipo'=>'input',
                         'id'=>'clave_recepcionista',
