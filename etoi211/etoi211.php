@@ -825,8 +825,9 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este) {           
                enviar_grilla($este->salida,'A1',
-               array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp=!NULL|pla_h2_esp=!NULL'),               
-               null,array());                
+               //array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp=!NULL|pla_h2_esp=!NULL'),   
+               array('tem_estado'=>'#>=77',),                  
+               null,array());                              
             }
         ));
     }
