@@ -424,9 +424,9 @@ SQL
                                 foreach($array_dato_hog as $cada_hog){
                                     if ($n>0) $dato_hogar_mie=$dato_hogar_mie.',';
                                     $dato_hogar_mie=$dato_hogar_mie.$cada_hog;
-                                    if ($array_dato_mie[$n]){
+                                    if (isset($array_dato_mie[$n])){
                                         $dato_hogar_mie=$dato_hogar_mie.'('.$array_dato_mie[$n].')';
-                                    };         
+                                    };                                     
                                     $n++;
                                 }
                                 $dato=$dato_hogar_mie;                                
@@ -448,14 +448,14 @@ SQL
                                 $dato=$datos->resultado;                          
                             }else if($definicion[$i]=='respondente'){                                
                                 $cursor=$this->db->ejecutar_sql(new Sql(<<<SQL
-                                        select coalesce(pla_nombrer,'-') as resultado from encu.plana_s1_ 
+                                        select string_agg('h'||pla_hog||coalesce(pla_nombrer,'-'),',' order by pla_hog) as resultado from encu.plana_s1_ 
                                         where pla_enc=:tra_enc;
 SQL
                                 ,array(
                                     ':tra_enc'=>$tabla_tem->datos->pla_enc,
                                 )));
-                                $datos=$cursor->fetchObject();
-                                $dato=$datos->resultado;                                                          
+                                 $datos=$cursor->fetchObject();
+                                 $dato=$datos->resultado;                                                          
                             }else if($definicion[$i]=='telefono'){
                                 if(strtolower(substr($GLOBALS['NOMBRE_APP'],0,4))=='same'  ){
                                     $sentencia_select='tel1';
