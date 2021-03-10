@@ -21,7 +21,7 @@ $this->definir_parametros(array(
     'submenu'=>'novedades',
     'para_produccion'=>true,
     'parametros'=>array(
-        'tra_ope'=>array('label'=>'operativo','style'=>'width:100px','def'=>'etoi211','invisible'=>true),
+        'tra_ope'=>array('label'=>'operativo','style'=>'width:100px','def'=>'etoi212','invisible'=>true),
         'tra_nov'=>array('label'=>'novedad','style'=>'width:100px', 'placeholder'=>'auto','td_width'=>110,'tipo'=>'entero'),
         'tra_titulo'=>array('label'=>'título','style'=>'width:200px', 'td_colspan'=>3), 
         'tra_tipo'=>array('label'=>'tipo de novedad','style'=>'width:100px','opciones'=>$tabla_tipo_nov->lista_opciones(array()), 'td_colspan'=>3, 'def'=>'novedad'), 
@@ -80,7 +80,7 @@ $this->definir_parametros(array(
                 $this->salida->abrir_grupo_interno('',array('tipo'=>'td','style'=>'width:50%'));  
                     $this->salida->enviar('La novedad fue ingresada con éxito - Código de novedad: '.$this->argumentos->tra_nov);
                 $this->salida->cerrar_grupo_interno();
-                $this->salida->enviar_script("ir_a_url('etoi211.php')");
+                $this->salida->enviar_script("ir_a_url('etoi212.php')");
             $this->salida->cerrar_grupo_interno();
         $this->salida->cerrar_grupo_interno();            
         return $this->salida->obtener_una_respuesta_HTML();

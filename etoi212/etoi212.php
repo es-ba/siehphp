@@ -4,28 +4,28 @@
 
 # ini_set('display_errors', 'On');
 
-$NOMBRE_APP='etoi211';
-$nombre_app='etoi211';
+$NOMBRE_APP='etoi212';
+$nombre_app='etoi212';
 $PLA_F_NAC_O='fechadma(pla_f_nac_d,pla_f_nac_m, pla_f_nac_a)';
 $GLOBALS['anio_operativo']=2021;
 //$GLOBALS['trimestre_operativo']=1;
 $GLOBALS['esquema_principal']='encu';
-$GLOBALS['titulo_corto_app']="etoi211";
+$GLOBALS['titulo_corto_app']="etoi212";
 
 $es_teletoi_desa = false;
 
-$GLOBALS['es_tele_etoi']=strpos(__DIR__,"alserver_tele_etoi211/")>0 || !strpos(__DIR__,"alserver_etoi211/")>0 && $es_teletoi_desa;
+$GLOBALS['es_tele_etoi']=strpos(__DIR__,"alserver_tele_etoi212/")>0 || !strpos(__DIR__,"alserver_etoi212/")>0 && $es_teletoi_desa;
 $GLOBALS['titulo_corto_app']=$GLOBALS['es_tele_etoi']?'TELE '.$GLOBALS['titulo_corto_app'].'*': $GLOBALS['titulo_corto_app'];
 require_once "lo_imprescindible.php";
 require_once "aplicaciones.php";
 require_once "tabla_operativos.php";
-require_once "metadatos_etoi211.php";
+require_once "metadatos_etoi212.php";
 require_once "todos_los_php.php";
 incluir_todo("../tedede");
 incluir_todo("../encuestas");
-incluir_todo("../etoi211");
+incluir_todo("../etoi212");
 
-class Aplicacion_etoi211 extends Aplicacion_encuesta{
+class Aplicacion_etoi212 extends Aplicacion_encuesta{
     function __construct(){
         global $esta_es_la_base_en_produccion,$esta_es_la_base_de_capacitacion,$soy_un_ipad;
         $this->ver_offline=array(
@@ -36,15 +36,15 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         );
         parent::__construct();
         if($esta_es_la_base_en_produccion){
-            $this->salida->html_title=" ETOI 211";
+            $this->salida->html_title=" ETOI 212";
         }else if($esta_es_la_base_de_capacitacion){
-            $this->salida->html_title="CAPA - etoi211";
+            $this->salida->html_title="CAPA - etoi212";
         }else{
-            $this->salida->html_title="TEST - etoi211";
+            $this->salida->html_title="TEST - etoi212";
         }
         if($soy_un_ipad){
             if(isset($_REQUEST['hacer'])&&isset($this->ver_offline[$_REQUEST['hacer']])){
-                //$this->salida->manifiesto="etoi211.manifest";
+                //$this->salida->manifiesto="etoi212.manifest";
                 $this->salida->agregar_js("../tercera/require-bro.js");
                 $this->salida->agregar_js("../service-worker-admin.js");
             }
@@ -59,7 +59,7 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         $this->salida->agregar_js("../tercera/aes.js");
         $this->salida->agregar_js("../encuestas/encu_especiales.js");
         $this->salida->agregar_js("estructura_{$GLOBALS['nombre_app']}.js");
-        $this->salida->agregar_js('dbo_etoi211.js');
+        $this->salida->agregar_js('dbo_etoi212.js');
     }
     function mostrar_titulo($proceso=false){        
         global $soy_un_ipad;
@@ -87,7 +87,7 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         $this->salida->cerrar_grupo_interno();
     }
     function obtener_titulo(){
-        return "E.T.O.I 211";
+        return "E.T.O.I 212";
     }
     function probar_aplicacion(){
     }
@@ -146,7 +146,7 @@ JS
                         //new Tabla_usuarios(),
                         new Tabla_operativos(),
                         new Tabla_http_user_agent(),
-                        //new Metadatos_etoi211(), /// aca inserta los metadatos corriendo '..\operaciones_etoi211\etoi211_dump.json'
+                        //new Metadatos_etoi212(), /// aca inserta los metadatos corriendo '..\operaciones_etoi212\etoi212_dump.json'
                         new Tablas_planas(),
                         new Tabla_tabulados(),
                         new Tabla_diccionario(),
@@ -173,9 +173,9 @@ JS
                         $objeto_de_la_base->ejecutar_instalacion();
                     }
                     foreach(array('..\operaciones\insercion_otras_sentencias_instalacion.sql',//ok 
-                                        //'..\operaciones_etoi211\actualizacion_ope_y_anio.sql', //ATENCION: se corre a mano la actualización (#1899)
+                                        //'..\operaciones_etoi212\actualizacion_ope_y_anio.sql', //ATENCION: se corre a mano la actualización (#1899)
                                   '..\operaciones\insercion_tabla_http_user_agent.sql',
-                                  '..\operaciones_etoi211\insercion_tabla_tem.sql',
+                                  '..\operaciones_etoi212\insercion_tabla_tem.sql',
                                   '..\operaciones\insercion_tabla_roles.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_rol_rol.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_con_momentos.sql',//ok normalizado
@@ -267,7 +267,7 @@ JS
                     //$este->salida->enviar('insertando las claves');                        
                     //$este->db->ejecutar_sql(new Sql("INSERT INTO claves (cla_ope, cla_for, cla_mat, cla_enc, cla_tlg) SELECT '{$GLOBALS['NOMBRE_APP']}','TEM','',tem_enc,tem_tlg FROM tem"));
                     
-                    $estructura_encuesta = new Estructura_etoi211();
+                    $estructura_encuesta = new Estructura_etoi212();
                     $estructura_encuesta->contexto=$este;
                     $este->salida->enviar('generando estructura');  
                     $estructura_encuesta->generar_estructura();
@@ -275,7 +275,7 @@ JS
                     // no se insertan las consistencias
                     //$este->salida->enviar('insertando consistencias');  
                     //$archivo='..\operaciones\insercion_tabla_consistencias.sql';
-                    //$este->db->ejecutar_sql(new Sql(str_replace(array('/*CAMPOS_AUDITORIA*/',"'etoi211',"),array(PRIMER_TLG,"'etoi211',"),file_get_contents($archivo))));
+                    //$este->db->ejecutar_sql(new Sql(str_replace(array('/*CAMPOS_AUDITORIA*/',"'etoi212',"),array(PRIMER_TLG,"'etoi212',"),file_get_contents($archivo))));
                     
                     if($esta_es_la_base_en_produccion){
                         $este->db->commit();
@@ -327,7 +327,7 @@ JS
     function para_proceso_actualizar_instalacion($este,$mas_planas){
         global $esta_es_la_base_en_produccion;
         try{
-            Aplicacion_etoi211::salida_enviar_aviso_instalacion($este);
+            Aplicacion_etoi212::salida_enviar_aviso_instalacion($este);
             if($mas_planas){
                 foreach(array(
                     new Tablas_planas(),
@@ -346,9 +346,9 @@ JS
             $triggers_tem->ejecutar_instalacion();
             $tabla_respuestas=$este->nuevo_objeto('Tabla_respuestas');
             $este->db->ejecutar_sqls($tabla_respuestas->restricciones_especificas());                    
-            //$este->db->ejecutar_sqls(new Sqls(explode('/*OTRA*/',file_get_contents('..\operaciones_etoi211\actualizar_a_etoi211.sql'))));                    
+            //$este->db->ejecutar_sqls(new Sqls(explode('/*OTRA*/',file_get_contents('..\operaciones_etoi212\actualizar_a_etoi212.sql'))));                    
             // esta sentencia se incluye a partir de etoi143 en '..\operaciones_etoi143\otras_sentencias_instalacion.sql'                    
-            $estructura_encuesta = new Estructura_etoi211();
+            $estructura_encuesta = new Estructura_etoi212();
             $estructura_encuesta->contexto=$este;
             $estructura_encuesta->generar_estructura();
             // Se comentan porque se corren por separado
@@ -381,7 +381,7 @@ JS
                 }
                 try{
                     $este->salida->enviar('instalando TEM de prueba');
-                    $metadatos=$este->nuevo_objeto("Metadatos_etoi211");
+                    $metadatos=$este->nuevo_objeto("Metadatos_etoi212");
                     $metadatos->instalar_tem_de_prueba();
                     $este->salida->enviar('Listo');
                 }catch(Exception $e){
@@ -1269,6 +1269,6 @@ JS
     }
 }
 if(!isset($no_ejecutar_aplicacion)){
-    Aplicacion::correr(new Aplicacion_etoi211());
+    Aplicacion::correr(new Aplicacion_etoi212());
 }
 ?>
