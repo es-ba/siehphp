@@ -99,7 +99,8 @@ class Tabla_tem extends Tabla{
               $this->definir_campo('tem_codviviendaparticular',array('tipo'=>'texto','largo'=>1));               
               $this->definir_campo('tem_sector',array('tipo'=>'texto', 'largo'=>10));
               $this->definir_campo('tem_edificio',array('tipo'=>'texto','largo'=>30));
-              $this->definir_campo('tem_entrada',array('tipo'=>'texto','largo'=>24));                      
+              $this->definir_campo('tem_entrada',array('tipo'=>'texto','largo'=>24)); 
+              $this->definir_campo('tem_usodomicilio',array('tipo'=>'entero'));                
         };
         
     }
