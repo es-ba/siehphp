@@ -10,6 +10,7 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
     }
     function iniciar($nombre_del_objeto_base){
         parent::iniciar('A1_');
+        
         $esnuevoA1="{$GLOBALS['NOMBRE_APP']}"=='etoi211' ?'1':'0';  //en etoi211 cambian la ubicación de telefonos y correo al S1
         $varlook=$esnuevoA1=='1' ?' ,pla_telefono as pla_telefono, pla_movil as pla_movil, pla_correo as pla_correo ':'';
         $clook="(select pla_enc as s1_enc, pla_hog as s1_hog, pla_v1, pla_total_h as pla_total_h ".$varlook. " from plana_s1_) s1 ";
@@ -21,15 +22,18 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         $this->tabla->tablas_lookup["
           {$clook}
         "]="pla_enc=s1_enc and pla_hog=s1_hog";
+        
         if($esnuevoA1=='1' ){
           $this->tabla->campos_lookup['pla_telefono']=false;
           $this->tabla->campos_lookup['pla_movil']=false;
           $this->tabla->campos_lookup['pla_correo']=false;
         }
+      
         $this->tabla->campos_lookup['pla_v1']=false;
         $this->tabla->campos_lookup['pla_total_h']=false;
     }
     function campos_solo_lectura(){
+        $esnuevoA1="{$GLOBALS['NOMBRE_APP']}"=='etoi211' ?'1':'0'; 
         $heredados=parent::campos_solo_lectura();
         $heredados[]='pla_enc';
         $heredados[]='pla_hog';
@@ -45,10 +49,13 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         $heredados[]='pla_total_h';  
         $heredados[]='pla_v5_esp';  
         $heredados[]='pla_h20_esp';
-        $heredados[]='pla_telefono';
-        $heredados[]='pla_movil';
-        $heredados[]='pla_correo';
-        $heredados[]='pla_obs_pmd'; 
+        if($esnuevoA1=='1' ){
+          $heredados[]='pla_telefono';
+          $heredados[]='pla_movil';
+          $heredados[]='pla_correo';
+        }
+       // $heredados[]='pla_obs_a1';
+       // $heredados[]='pla_obs_pmd'; 
         return $heredados;
     }
     function remover_en_nombre_de_campo(){
@@ -58,13 +65,15 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         return false;
     }
     function campos_a_listar($filtro_para_lectura){
+         $camposa=($GLOBALS['anio_operativo']<2021  | "{$GLOBALS['NOMBRE_APP']}"=='etoi211'  )?array('pla_telefono','pla_movil','pla_correo','pla_v1','pla_total_h',
+        'pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1' ):array('pla_v1','pla_total_h','pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1') ;
         return array_merge(array('pla_enc',
         'pla_hog',        
         'tem_bolsa',
         'tem_estado',
         'tem_cod_anacon',
         'pla_etapa_pro'), 
-            $this->filtrar_campos_del_operativo(array('pla_v2',
+            $this->filtrar_campos_del_operativo( array_merge(array('pla_v2',
         'pla_v2_esp',
         'pla_v4',
         'pla_v5',
@@ -74,14 +83,7 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         'pla_h2_esp',
         'pla_h3',
         'pla_h20_14',
-        'pla_h20_esp',
-        'pla_telefono',
-        'pla_movil',
-        'pla_v1',
-        'pla_total_h',
-        'pla_correo',
-        'pla_obs_pmd',
-        'pla_obs_grilla_a1',
+        'pla_h20_esp'), $camposa
             )));
     } 
     /*

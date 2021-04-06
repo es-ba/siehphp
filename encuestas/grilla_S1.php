@@ -30,6 +30,20 @@ class Grilla_S1 extends Grilla_respuestas_para_proc{
           $this->filtrar_campos_del_operativo(array('pla_total_h','pla_telefono', 'pla_movil',  'pla_correo', 'pla_rmod','pla_s1a1_obs', 'pla_obs_grilla_s1' ))
         );
     }
+    function responder_grabar_campo(){
+        $this->tabla_plana_s1=$this->contexto->nuevo_objeto("Tabla_plana_S1_");
+        $tabla_variables=$this->contexto->nuevo_objeto("Tabla_variables");                
+                $variable=quitar_prefijo($this->argumentos->campo,'pla_');
+                $tabla_variables->leer_uno_si_hay(array(
+                    'var_ope'=>$GLOBALS['NOMBRE_APP'],
+                    'var_var'=>$variable,                    
+                )); 
+        if($tabla_variables->obtener_leido()){
+            return parent::responder_grabar_campo();               
+       }else{
+            return $this->responder_grabar_campo_directo();
+       }
+    }
     function permite_grilla_sin_filtro_manual(){
         return false;
     }

@@ -241,10 +241,11 @@ SQL
                                     }
                                 }
                                 $para_telefonos='';
+                                $esfor=($GLOBALS['anio_operativo']>='2021')?'S1':'A1';
                                 $tabla_respuestas->leer_varios(array(
                                     'res_ope'=>$tabla_operativos->datos->ope_ope_anterior,
                                     'res_enc'=>$tabla_tem->datos->pla_enc, 
-                                    'res_for'=>'A1',
+                                    'res_for'=>$esfor,
                                     'res_var'=>'telefono',
                                 ));
                                 while($tabla_respuestas->obtener_leido()){
@@ -256,7 +257,7 @@ SQL
                                 $tabla_respuestas->leer_varios(array(
                                     'res_ope'=>$tabla_operativos->datos->ope_ope_anterior,
                                     'res_enc'=>$tabla_tem->datos->pla_enc, 
-                                    'res_for'=>'A1',
+                                    'res_for'=>$esfor,
                                     'res_var'=>'movil',
                                 ));
                                 while($tabla_respuestas->obtener_leido()){

@@ -4138,14 +4138,14 @@ function armar_mini_grilla_personas_y_norea(datos,elemento_cercano,mensaje){
             }
             var ud_a1=datos.a1[0];
             if(ud_a1){
-                if(ud_a1.var_telefono){
+                if(ud_a1.var_telefono || ud_s1.var_telefono){
                     fila=tabla.insertRow(-1);
-                    var celda=agregar_celda('tel: '+ud_a1.var_telefono);    
+                    var celda=agregar_celda('tel: '+si_no_es_nulo(ud_a1.var_telefono) +si_no_es_nulo(ud_s1.var_telefono));    
                     celda.colSpan=3;
                 }
-                if(ud_a1.var_movil){
+                if(ud_a1.var_movil || ud_s1.var_movil){
                     fila=tabla.insertRow(-1);
-                    var celda=agregar_celda('móvil: '+ud_a1.var_movil); 
+                    var celda=agregar_celda('móvil: '+si_no_es_nulo(ud_a1.var_movil) +si_no_es_nulo(ud_s1.var_movil)); 
                     celda.colSpan=3;
                 }
             }
