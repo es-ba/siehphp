@@ -2,30 +2,25 @@
 //UTF-8:SÍ
 //v 3.00
 
-# ini_set('display_errors', 'On');
-
-$NOMBRE_APP='etoi211';
-$nombre_app='etoi211';
+$NOMBRE_APP='eah2021';
+$nombre_app='eah2021';
 $PLA_F_NAC_O='fechadma(pla_f_nac_d,pla_f_nac_m, pla_f_nac_a)';
 $GLOBALS['anio_operativo']=2021;
-//$GLOBALS['trimestre_operativo']=1;
+//$GLOBALS['trimestre_operativo']=2;
 $GLOBALS['esquema_principal']='encu';
-$GLOBALS['titulo_corto_app']="etoi211";
+$GLOBALS['titulo_corto_app']="eah2021";
 
-$es_teletoi_desa = false;
-
-$GLOBALS['es_tele_etoi']=strpos(__DIR__,"alserver_tele_etoi211/")>0 || !strpos(__DIR__,"alserver_etoi211/")>0 && $es_teletoi_desa;
-$GLOBALS['titulo_corto_app']=$GLOBALS['es_tele_etoi']?'TELE '.$GLOBALS['titulo_corto_app'].'*': $GLOBALS['titulo_corto_app'];
 require_once "lo_imprescindible.php";
 require_once "aplicaciones.php";
 require_once "tabla_operativos.php";
-require_once "metadatos_etoi211.php";
+require_once "metadatos_eah2021.php";
 require_once "todos_los_php.php";
 incluir_todo("../tedede");
 incluir_todo("../encuestas");
-incluir_todo("../etoi211");
+incluir_todo("../eah2021");
 
-class Aplicacion_etoi211 extends Aplicacion_encuesta{
+/* Nota: 2016-09-15  para las EAH ES NECESARIO INCLUIR LA FUNCION function proceso_setear_modo_encuesta()  en el principal*/
+class Aplicacion_eah2021 extends Aplicacion_encuesta{
     function __construct(){
         global $esta_es_la_base_en_produccion,$esta_es_la_base_de_capacitacion,$soy_un_ipad;
         $this->ver_offline=array(
@@ -36,15 +31,15 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         );
         parent::__construct();
         if($esta_es_la_base_en_produccion){
-            $this->salida->html_title=" ETOI 211";
+            $this->salida->html_title="eah2021";
         }else if($esta_es_la_base_de_capacitacion){
-            $this->salida->html_title="CAPA - etoi211";
+            $this->salida->html_title="CAPA - eah2021";
         }else{
-            $this->salida->html_title="TEST - etoi211";
+            $this->salida->html_title="TEST - eah2021";
         }
         if($soy_un_ipad){
             if(isset($_REQUEST['hacer'])&&isset($this->ver_offline[$_REQUEST['hacer']])){
-                //$this->salida->manifiesto="etoi211.manifest";
+                // $this->salida->manifiesto="eah2021.manifest";
                 $this->salida->agregar_js("../tercera/require-bro.js");
                 $this->salida->agregar_js("../service-worker-admin.js");
             }
@@ -59,7 +54,7 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         $this->salida->agregar_js("../tercera/aes.js");
         $this->salida->agregar_js("../encuestas/encu_especiales.js");
         $this->salida->agregar_js("estructura_{$GLOBALS['nombre_app']}.js");
-        $this->salida->agregar_js('dbo_etoi211.js');
+        $this->salida->agregar_js('dbo_eah2021.js');
     }
     function mostrar_titulo($proceso=false){        
         global $soy_un_ipad;
@@ -87,7 +82,7 @@ class Aplicacion_etoi211 extends Aplicacion_encuesta{
         $this->salida->cerrar_grupo_interno();
     }
     function obtener_titulo(){
-        return "E.T.O.I 211";
+        return "E.A.H 2021";
     }
     function probar_aplicacion(){
     }
@@ -142,19 +137,19 @@ JS
                         new Tabla_importancia(),
                         new Tabla_tipo_nov(),
                         new Tabla_planillas(), 
-                        new Tabla_con_momentos(),
+                        new Tabla_con_momentos(),                        
                         //new Tabla_usuarios(),
                         new Tabla_operativos(),
                         new Tabla_http_user_agent(),
-                        //new Metadatos_etoi211(), /// aca inserta los metadatos corriendo '..\operaciones_etoi211\etoi211_dump.json'
+                        //new Metadatos_eah2021(), /// aca inserta los metadatos corriendo '..\operaciones_eah2021\eah2021_dump.json'
                         new Tablas_planas(),
                         new Tabla_tabulados(),
                         new Tabla_diccionario(),
                         new Tabla_dispositivo(),
-                        new Tabla_dominio(),
-                        new Tabla_replica(),
+                        new Tabla_dominio(),                        
+                        new Tabla_replica(),                        
                         new Tabla_result_sup(),
-                        new Tabla_verificado(),
+                        new Tabla_verificado(),                        
                         new Tabla_a_ingreso(),
                         new Tabla_volver_a_cargar(),
                         new Tabla_tem(),
@@ -173,9 +168,9 @@ JS
                         $objeto_de_la_base->ejecutar_instalacion();
                     }
                     foreach(array('..\operaciones\insercion_otras_sentencias_instalacion.sql',//ok 
-                                        //'..\operaciones_etoi211\actualizacion_ope_y_anio.sql', //ATENCION: se corre a mano la actualización (#1899)
+                                        //'..\operaciones_eah2021\actualizacion_ope_y_anio.sql', //ATENCION: se corre a mano la actualización (#1899)
                                   '..\operaciones\insercion_tabla_http_user_agent.sql',
-                                  '..\operaciones_etoi211\insercion_tabla_tem.sql',
+                                  '..\operaciones_eah2021\insercion_tabla_tem.sql',
                                   '..\operaciones\insercion_tabla_roles.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_rol_rol.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_con_momentos.sql',//ok normalizado
@@ -184,11 +179,11 @@ JS
 //                                  '..\operaciones\insercion_tabla_claves.sql',
                                   '..\operaciones\insercion_tabla_personal.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_estados_ingreso.sql',//ok normalizado
-                                  '..\operaciones\insercion_tabla_importancia.sql',//ok normalizado                       
-                                  '..\operaciones\insercion_tabla_tipo_nov.sql',//ok normalizado        
-                                  '..\operaciones\insercion_tabla_relaciones.sql',//ok normalizado         
-                                  '..\operaciones\insercion_tabla_planillas.sql',//ok normalizado     
-                                  '..\operaciones\insercion_tabla_pla_var.sql',  //ok normalizado     
+                                  '..\operaciones\insercion_tabla_importancia.sql',//ok normalizado
+                                  '..\operaciones\insercion_tabla_tipo_nov.sql',//ok normalizado
+                                  '..\operaciones\insercion_tabla_relaciones.sql',//ok normalizado
+                                  '..\operaciones\insercion_tabla_planillas.sql',//ok normalizado 
+                                  '..\operaciones\insercion_tabla_pla_var.sql',  //ok normalizado 
                                               //EMILIO: ESTAS POR AHORA NO
                                               //'..\operaciones\insercion_tabla_diccionario.sql',  // ok n
                                               //'..\operaciones\insercion_tabla_dictra.sql',  // ok n
@@ -201,11 +196,11 @@ JS
                                   '..\operaciones\insercion_tabla_verificado.sql',  // ok n
                                   '..\operaciones\insercion_tabla_volver_a_cargar.sql', // ok n
                                   '..\operaciones\insercion_tabla_estados.sql', // ok n
-                                  '..\operaciones\insercion_tabla_est_rol.sql', // ok n                             
-                                  '..\operaciones\insercion_tabla_pla_est.sql', // ok n                                  
+                                  '..\operaciones\insercion_tabla_est_rol.sql', // ok n
+                                  '..\operaciones\insercion_tabla_pla_est.sql', // ok n
                                   
                                   '..\operaciones\insercion_tabla_varcal.sql', //ok n
-                                  '..\operaciones\insercion_tabla_varcalopc.sql',// ok n                                  
+                                  '..\operaciones\insercion_tabla_varcalopc.sql',// ok n
                                   '..\operaciones\insercion_tabla_est_var.sql', 
                                   '..\operaciones\vista_var_orden.sql',// ok
                                   '..\operaciones\insercion_tabla_import_info.sql', //
@@ -267,7 +262,7 @@ JS
                     //$este->salida->enviar('insertando las claves');                        
                     //$este->db->ejecutar_sql(new Sql("INSERT INTO claves (cla_ope, cla_for, cla_mat, cla_enc, cla_tlg) SELECT '{$GLOBALS['NOMBRE_APP']}','TEM','',tem_enc,tem_tlg FROM tem"));
                     
-                    $estructura_encuesta = new Estructura_etoi211();
+                    $estructura_encuesta = new Estructura_eah2021();
                     $estructura_encuesta->contexto=$este;
                     $este->salida->enviar('generando estructura');  
                     $estructura_encuesta->generar_estructura();
@@ -275,7 +270,7 @@ JS
                     // no se insertan las consistencias
                     //$este->salida->enviar('insertando consistencias');  
                     //$archivo='..\operaciones\insercion_tabla_consistencias.sql';
-                    //$este->db->ejecutar_sql(new Sql(str_replace(array('/*CAMPOS_AUDITORIA*/',"'etoi211',"),array(PRIMER_TLG,"'etoi211',"),file_get_contents($archivo))));
+                    //$este->db->ejecutar_sql(new Sql(str_replace(array('/*CAMPOS_AUDITORIA*/',"'eah2021',"),array(PRIMER_TLG,"'eah2021',"),file_get_contents($archivo))));
                     
                     if($esta_es_la_base_en_produccion){
                         $este->db->commit();
@@ -327,7 +322,7 @@ JS
     function para_proceso_actualizar_instalacion($este,$mas_planas){
         global $esta_es_la_base_en_produccion;
         try{
-            Aplicacion_etoi211::salida_enviar_aviso_instalacion($este);
+            Aplicacion_eah2021::salida_enviar_aviso_instalacion($este);
             if($mas_planas){
                 foreach(array(
                     new Tablas_planas(),
@@ -346,9 +341,9 @@ JS
             $triggers_tem->ejecutar_instalacion();
             $tabla_respuestas=$este->nuevo_objeto('Tabla_respuestas');
             $este->db->ejecutar_sqls($tabla_respuestas->restricciones_especificas());                    
-            //$este->db->ejecutar_sqls(new Sqls(explode('/*OTRA*/',file_get_contents('..\operaciones_etoi211\actualizar_a_etoi211.sql'))));                    
+            //$este->db->ejecutar_sqls(new Sqls(explode('/*OTRA*/',file_get_contents('..\operaciones_eah2021\actualizar_a_eah2021.sql'))));                    
             // esta sentencia se incluye a partir de etoi143 en '..\operaciones_etoi143\otras_sentencias_instalacion.sql'                    
-            $estructura_encuesta = new Estructura_etoi211();
+            $estructura_encuesta = new Estructura_eah2021();
             $estructura_encuesta->contexto=$este;
             $estructura_encuesta->generar_estructura();
             // Se comentan porque se corren por separado
@@ -381,7 +376,7 @@ JS
                 }
                 try{
                     $este->salida->enviar('instalando TEM de prueba');
-                    $metadatos=$este->nuevo_objeto("Metadatos_etoi211");
+                    $metadatos=$este->nuevo_objeto("Metadatos_eah2021");
                     $metadatos->instalar_tem_de_prueba();
                     $este->salida->enviar('Listo');
                 }catch(Exception $e){
@@ -405,11 +400,25 @@ JS
     }
     function proceso_desplegar_i1(){
         return $this->proceso_desplegar_formulario('I1');
-    }    
+    }
+    /*
+    function proceso_desplegar_pmd(){
+        return $this->proceso_desplegar_formulario('PMD');
+    } 
+   */    
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
     }
     /*
+    function proceso_desplegar_pg1(){
+        return $this->proceso_desplegar_formulario('PG1');
+    }
+    function proceso_desplegar_pg1_m(){
+        return $this->proceso_desplegar_formulario('PG1','M');
+    }
+    function proceso_desplegar_md(){
+        return $this->proceso_desplegar_formulario('MD');
+    }
     function proceso_desplegar_gh(){
         return $this->proceso_desplegar_formulario('GH');
     }
@@ -489,7 +498,7 @@ JS
     function proceso_reporte_errores(){
         return new Proceso_reporte_errores();
     }    
-    function proceso_planilla_carga_encuestador(){
+    function proceso_planilla_carga_encuestador(){    
         return new planilla_carga_encuestador();
     }
     function proceso_planilla_carga_recuperador(){    
@@ -566,7 +575,7 @@ JS
             }
         ));
     }
-    function proceso_grilla_viviendas_para_el_muestrista(){
+	function proceso_grilla_viviendas_para_el_muestrista(){
         return new Proceso_generico(array(
             'titulo'=>'Viviendas para el muestrista',
             'permisos'=>array('grupo'=>'procesamiento'),
@@ -825,9 +834,9 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este) {           
                enviar_grilla($este->salida,'A1',
-               array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_a1!=NULL'),   
-               //array('tem_estado'=>'#>=77',),                  
-               null,array('tem_estado'=>'#>=77',));                              
+               //array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp=!NULL|pla_h2_esp=!NULL'),  
+               array('tem_estado'=>'#>=77',),               
+               null,array());                
             }
         ));
     }
@@ -851,7 +860,7 @@ JS
     function proceso_grilla_I1_trabajo_ingresos(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Preguntas abiertas del I1 (trabajo e ingresos)',
-            'permisos'=>array('grupo'=>'procesamiento','grupo1'=>'subcoor_campo'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'procesamiento',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
@@ -1046,7 +1055,7 @@ JS
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_rama_ocupacion',
                 array(
-                   'tem_estado'=>'#>=77', 
+                    'tem_estado'=>'#>=77',
                 ),                
                 null,array());                
             }
@@ -1062,6 +1071,93 @@ JS
                 enviar_grilla($este->salida,'registro_claves', array('regcla_ope'=>$GLOBALS['NOMBRE_APP']),false,array('otras_opciones'=>array('agregando_filas_completas'=>false)));
             }
         ));
+    }
+    function proceso_grilla_sup_norespuesta(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de no respuesta',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_norespuesta',array(
+            'pla_sp1'=>'#=2|pla_sp1=3'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }     
+    function proceso_grilla_sup_vivhog(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de vivienda y hogar',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_vivhog',array(
+            'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }     
+    function proceso_grilla_sup_familiar(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de modulo familiar',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_familiar',array(
+            'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }     
+    function proceso_grilla_sup_trabajo(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de modulo trabajo',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_trabajo',array(
+            'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    } 
+    function proceso_grilla_sup_ingresos(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de modulo ingresos',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_ingresos',array(
+            'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }     
+    function proceso_grilla_sup_educacion(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de modulo educación',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_educacion',array(
+            'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }
+    function proceso_setear_modo_encuesta(){
+        return new Proceso_setear_modo_encuesta();
     }
     function proceso_grilla_glosario_tem(){
         return new Proceso_generico(array(
@@ -1099,8 +1195,23 @@ JS
         return new Proceso_borrar_miembros_individuales();
     }
     /*
+    function proceso_borrar_mascotas(){
+        return new Proceso_borrar_mascotas();
+    }
+    function proceso_eliminar_formulario_pg1(){
+        return new Proceso_eliminar_formulario_pg1();
+    }
+    function proceso_eliminar_formulario_md(){
+        return new Proceso_borrar_md();
+    }
+    
     function proceso_eliminar_formulario_gh(){
         return new Proceso_eliminar_formulario_gh();
+    }
+    */
+    /*
+    function proceso_eliminar_formulario_pmd(){
+        return new Proceso_eliminar_formulario_pmd();
     }
     */
     function proceso_eliminar_formulario_sup(){
@@ -1112,99 +1223,15 @@ JS
     function proceso_exportar_linea_pobreza(){
         return new Proceso_exportar_linea_pobreza();
     }
-    function proceso_grilla_sup_norespuesta(){
-        return new Proceso_generico(array(
-            'titulo'=>'Grilla de Supervision de no respuesta',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
-            'submenu'=>'supervisión',
-            'para_produccion'=>true,
-            'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'sup_norespuesta',array(
-            'pla_sp1'=>'#=2|pla_sp1=3'
-                )                    
-                ,null,array());
-            }            
-        ));
-    }     
-    function proceso_grilla_sup_vivhog(){
-        return new Proceso_generico(array(
-            'titulo'=>'Grilla de Supervision de vivienda y hogar',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
-            'submenu'=>'supervisión',
-            'para_produccion'=>true,
-            'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'sup_vivhog',array(
-            'pla_sp1'=>'#=1'
-                )                    
-                ,null,array());
-            }            
-        ));
-    }     
-    function proceso_grilla_sup_familiar(){
-        return new Proceso_generico(array(
-            'titulo'=>'Grilla de Supervision de modulo familiar',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
-            'submenu'=>'supervisión',
-            'para_produccion'=>true,
-            'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'sup_familiar',array(
-            'pla_sp1'=>'#=1'
-                )                    
-                ,null,array());
-            }            
-        ));
-    }     
-    function proceso_grilla_sup_trabajo(){
-        return new Proceso_generico(array(
-            'titulo'=>'Grilla de Supervision de modulo trabajo',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
-            'submenu'=>'supervisión',
-            'para_produccion'=>true,
-            'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'sup_trabajo',array(
-            'pla_sp1'=>'#=1'
-                )                    
-                ,null,array());
-            }            
-        ));
-    } 
-    function proceso_grilla_sup_ingresos(){
-        return new Proceso_generico(array(
-            'titulo'=>'Grilla de Supervision de modulo ingresos',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
-            'submenu'=>'supervisión',
-            'para_produccion'=>true,
-            'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'sup_ingresos',array(
-            'pla_sp1'=>'#=1'
-                )                    
-                ,null,array());
-            }            
-        ));
-    }     
-    function proceso_grilla_sup_educacion(){
-        return new Proceso_generico(array(
-            'titulo'=>'Grilla de Supervision de modulo educación',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
-            'submenu'=>'supervisión',
-            'para_produccion'=>true,
-            'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'sup_educacion',array(
-            'pla_sp1'=>'#=1'
-                )                    
-                ,null,array());
-            }            
-        ));
-    }
     function proceso_grilla_norea_etoi_eah(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de NOREA',
             'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'subcoor_campo'),
             'submenu'=>'procesamiento',
             'para_produccion'=>true,
-            'funcion'=>function(Procesos $este) {
+            'funcion'=>function(Procesos $este) {           
                enviar_grilla($este->salida,'norea_etoi_eah',
-                array('pla_entrea'=>'#=2|=4'),null,array()); 
+                array('pla_entrea'=>'#=2|=4'),null,array());            
             }
         ));
     }
@@ -1216,13 +1243,45 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_monitoreo_trabajo',
-                array(
-                ),
-                null,array());
+                array(                      
+                ),                
+                null,array());                
             }
         ));
     }
-    function proceso_grilla_I1_rama_ocupacion_covid19(){
+    /*
+    function proceso_grilla_PMD_proc(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de preguntas abiertas del PMD',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'PMD_proc',
+                array(                      
+                ),                
+                null,array());                
+            }
+        ));
+    }
+    */
+    /*
+    function proceso_grilla_sup_pmd(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision del formulario PMD',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_pmd',array(
+           -- 'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }
+   */
+   function proceso_grilla_I1_rama_ocupacion_covid19(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla para codificar rama y ocupación Covid19',
             'permisos'=>array('grupo'=>'procesamiento'),
@@ -1268,7 +1327,8 @@ JS
         ));
     }
 }
+
 if(!isset($no_ejecutar_aplicacion)){
-    Aplicacion::correr(new Aplicacion_etoi211());
+    Aplicacion::correr(new Aplicacion_eah2021());
 }
 ?>
