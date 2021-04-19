@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.03k';
+var version = 'v 3.03l';
 var appName = 'etoi212_test';
 var urlsToCache = [
 '../etoi212/etoi212_icon.png',
