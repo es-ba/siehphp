@@ -26,12 +26,12 @@ class Grilla_baspro_var extends Grilla_tabla{
             "(SELECT basprovar_var as bases_var, string_agg(basprovar_baspro,', ' order by basprovar_baspro) as bases
                 FROM baspro_var
                 GROUP BY basprovar_var) bases"=>"bases_var=basprovar_var",
-            "(SELECT basprovar_ope as ope, coalesce(var_var,varcal_varcal) as variable, encu.nombre_largo_para_documentacion(basprovar_var,basprovar_baspro) as nombre_largo_para_documentacion
+            "(SELECT basprovar_ope as ope, basprovar_baspro as base,coalesce(var_var,varcal_varcal) as variable, encu.nombre_largo_para_documentacion(basprovar_var,basprovar_baspro) as nombre_largo_para_documentacion
               FROM baspro_var b 
                 LEFT JOIN variables v ON b.basprovar_ope = v.var_ope AND b.basprovar_var = v.var_var
                 LEFT JOIN varcal c ON b.basprovar_ope = c.varcal_ope AND b.basprovar_var = c.varcal_varcal
                 LEFT JOIN preguntas p ON v.var_ope = p.pre_ope AND v.var_pre = p.pre_pre) as dr"
-            =>'dr.variable=basprovar_var AND dr.ope=basprovar_ope',
+            =>'dr.variable=basprovar_var AND dr.base=basprovar_baspro AND dr.ope=basprovar_ope',
         );
     }
     function campos_editables($filtro_para_lectura){
