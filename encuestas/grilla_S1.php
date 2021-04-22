@@ -49,7 +49,16 @@ class Grilla_S1 extends Grilla_respuestas_para_proc{
     }
     function cantidadColumnasFijas(){
         return 3;
-    } 
+    }
+    function boton_enviar(){
+        return array(
+            'leyenda'=>'ir',
+            'title'=>'abrir encuesta',
+            'proceso'=>'ingresar_encuesta',
+            'campos_parametros'=>array('tra_enc'=>null,'tra_hn'=>array('forzar_valor'=>-951)),
+            'y_luego'=>'boton_ingresar_encuesta',
+        );
+    }
 
 }
 ?>
