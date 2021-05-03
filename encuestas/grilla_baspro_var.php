@@ -18,11 +18,10 @@ class Grilla_baspro_var extends Grilla_tabla{
         $this->tabla->tablas_lookup=array( 
             "variables va"=>'va.var_var=basprovar_var AND va.var_ope=basprovar_ope',
             "varcal vc"=>'vc.varcal_varcal=basprovar_var AND vc.varcal_ope=basprovar_ope',
-            "(SELECT substr(column_name,5) as variableinfo, encu.tabla_variable(substr(column_name,5)) as table_name
-                   FROM information_schema.columns  
-                   WHERE table_name IN ('plana_a1_', 'plana_tem_', 'plana_s1_','plana_s1_p','plana_i1_', 'plana_a1_m', 'plana_a1_x','pla_ext_hog') AND table_schema='encu' AND substr(column_name,5) NOT IN ('enc','hog','mie','exm','tlg')
+            "(SELECT basprovar_baspro baseinfo, basprovar_var as variableinfo, encu.tabla_variable(basprovar_var) as table_name
+                   FROM baspro_var  
                 ) as c"
-            =>'variableinfo=basprovar_var',
+            =>'variableinfo=basprovar_var  and baseinfo=basprovar_baspro',
             "(SELECT basprovar_var as bases_var, string_agg(basprovar_baspro,', ' order by basprovar_baspro) as bases
                 FROM baspro_var
                 GROUP BY basprovar_var) bases"=>"bases_var=basprovar_var",
