@@ -1328,7 +1328,7 @@ JS
     }
     function proceso_cuadro_comparativo_supervision(){
         return new Proceso_generico(array(
-            'titulo'=>'Cuadro comparativo supervisión',
+            'titulo'=>'Grilla de Supervisión del Bloque COVID-19',
             'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
