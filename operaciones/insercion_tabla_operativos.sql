@@ -1,6 +1,6 @@
 INSERT INTO encu.operativos(
             ope_ope, ope_nombre, ope_ope_anterior, ope_en_campo, ope_rev_metadatos, 
             ope_dispositivo_unico, ope_tlg)
-values ('eah2021', 'Encuesta Anual de Hogares 2021','', true, false, 
+values ('etoi213', 'Encuesta de Trabajo, Ocupación e Ingreso 2021 3','', true, false, 
             null, 1 );
 
