@@ -36,7 +36,7 @@ class Aplicacion_etoi213 extends Aplicacion_encuesta{
         );
         parent::__construct();
         if($esta_es_la_base_en_produccion){
-            $this->salida->html_title=" ETOI 212";
+            $this->salida->html_title=" ETOI 213";
         }else if($esta_es_la_base_de_capacitacion){
             $this->salida->html_title="CAPA - etoi213";
         }else{
