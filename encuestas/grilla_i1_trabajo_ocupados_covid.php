@@ -65,7 +65,26 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
     function permite_grilla_sin_filtro(){
         return false;
     }
-
+    
+    function campos_editables($filtro_para_lectura){
+        $editables=array();
+        if(tiene_rol('procesamiento')){
+           $editables[]='pla_t41';
+           $editables[]='pla_t39'; 
+           $editables[]='pla_t39_barrio';
+           $editables[]='pla_t39_partido'; 
+           $editables[]='pla_t39_otro'; 
+           $editables[]='pla_t40bis_a1_otro'; 
+           $editables[]='pla_t40bis_a2_otro'; 
+           $editables[]='pla_t40bis_b_barrio'; 
+           $editables[]='pla_t40bis_b_partido'; 
+           $editables[]='pla_t40bis_b_otro'; 
+           $editables[]='pla_t40bis_g6_otro'; 
+           $editables[]='pla_t40bis_a3_4_esp';
+           $editables[]='pla_obs_grilla_ti_co1';
+        }   
+        return $editables;
+    }    
     function campos_a_listar($filtro_para_lectura){
         return array_merge(array('s1_p_semana','pla_enc', 'pla_hog','pla_mie',
                                 'pla_participacion','s1_p_bolsa','s1_p_estado',
@@ -82,6 +101,8 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                     'pla_obs','pla_obs_grilla_ti_co1'
                 )));
     }
+
+  
     function permite_grilla_sin_filtro_manual(){
         return false;
     }

@@ -1241,7 +1241,7 @@ JS
     function proceso_grilla_i1_trabajo_ocupados_covid (){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de preguntas abiertas trabajo ocupados Covid',
-            'permisos'=>array('grupo'=>'procesamiento'),
+            'permisos'=>array('grupo'=>'procesamiento','grupo1'=>'ana_campo'),
             'submenu'=>'procesamiento',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
