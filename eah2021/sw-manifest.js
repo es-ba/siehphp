@@ -40,7 +40,7 @@ var urlsToCache = [
 '../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"S1","tra_mat":"P"}',
 '../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"A1","tra_mat":""}',
 '../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"I1","tra_mat":""}',
-// '../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"PMD","tra_mat":""}',
+'../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"PMD","tra_mat":""}',
 // '../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"GH","tra_mat":""}',
 '../eah2021/eah2021.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2021","tra_for":"SUP","tra_mat":""}',
 '../tedede/compatibilidad.js ',

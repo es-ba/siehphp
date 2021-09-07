@@ -1209,11 +1209,11 @@ JS
         return new Proceso_eliminar_formulario_gh();
     }
     */
-    /*
+
     function proceso_eliminar_formulario_pmd(){
         return new Proceso_eliminar_formulario_pmd();
     }
-    */
+
     function proceso_eliminar_formulario_sup(){
         return new Proceso_eliminar_formulario_sup();
     }
@@ -1249,7 +1249,7 @@ JS
             }
         ));
     }
-    /*
+
     function proceso_grilla_PMD_proc(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de preguntas abiertas del PMD',
@@ -1264,8 +1264,7 @@ JS
             }
         ));
     }
-    */
-    /*
+
     function proceso_grilla_sup_pmd(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision del formulario PMD',
@@ -1274,13 +1273,13 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'sup_pmd',array(
-           -- 'pla_sp1'=>'#=1'
+           // 'pla_sp1'=>'#=1'
                 )                    
                 ,null,array());
             }            
         ));
     }
-   */
+
    function proceso_grilla_I1_rama_ocupacion_covid19(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla para codificar rama y ocupación Covid19',
@@ -1323,6 +1322,19 @@ JS
                      's1_p_estado'=>'#>=77',
                 ),
                 null,array());
+            }
+        ));
+    }
+    function proceso_grilla_S1(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Preguntas del S1',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este) {           
+               enviar_grilla($este->salida,'S1', 
+               array('tem_estado'=>'#>=77',),                  
+               null,array());                              
             }
         ));
     }

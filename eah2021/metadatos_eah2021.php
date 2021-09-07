@@ -197,7 +197,7 @@ class Tablas_planas extends Objeto_de_la_base{
         $tabla_matrices=$this->contexto->nuevo_objeto('Tabla_matrices');
         $tabla_matrices->leer_varios(array('mat_ope'=>$GLOBALS['NOMBRE_APP']));
         while($tabla_matrices->obtener_leido()){
-        //if ($tabla_matrices->datos->mat_for!='TEM'){
+        if ($tabla_matrices->datos->mat_for!='TEM'){
         //if ($tabla_matrices->datos->mat_for=='A1'){    
                 $tra_for=$tabla_matrices->datos->mat_for;
                 $tra_mat=$tabla_matrices->datos->mat_mat;
@@ -205,7 +205,7 @@ class Tablas_planas extends Objeto_de_la_base{
                 $tabla_plana=$this->contexto->nuevo_objeto("Tabla_plana_{$tra_for}_{$tra_mat}");
                 $tabla_plana->ejecutar_instalacion($con_dependientes);
         //  } 
-       // } 
+        } 
        }
     }
     function crear_jsones(){
