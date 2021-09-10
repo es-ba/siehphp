@@ -84,7 +84,7 @@ class Tabla_bloques extends Tabla{
               if((substr($GLOBALS['nombre_app'],0,4)=='etoi' && (int)(substr($GLOBALS['nombre_app'],4))>=162 && (int)(substr($GLOBALS['nombre_app'],4))<=172 ) || (substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'&& $GLOBALS['anio_operativo']==2016) ){
                 $this->contexto->salida->enviar('',"celda_matriz_formulario hori_pre_pre",array('tipo'=>'TD','id'=>'boton_general_GH','style'=>'text-align:right'));
               }
-              if($GLOBALS['nombre_app']=='eah2019'){
+              if($GLOBALS['nombre_app']=='eah2019'|| $GLOBALS['nombre_app']=='eah2021'){
                 $this->contexto->salida->enviar('',"celda_matriz_formulario hori_pre_pre",array('tipo'=>'TD','id'=>'boton_general_PMD','style'=>'text-align:right'));
               }              
               $this->contexto->salida->cerrar_grupo_interno();

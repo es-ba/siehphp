@@ -1606,7 +1606,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                     str_nueva_fila+="<td class='boton_abrir_formulario'>";
                     str_nueva_fila+=boton_abre_formulario(pk_ud_renglon,num_renglon);
                     var pks_otros_botones=pk_ud_otros_formularios_hermanos_de(pk_ud_renglon,ultimo_campo_pk);
-                    if(rta_ud_renglon_matriz && pk_ud.tra_for!='A1' && pk_ud.tra_for!='PG1' && pk_ud.tra_for!='GH' && pk_ud.tra_for!='PDM' /*&& (pk_ud.tra_for=='I1' */&& pk_ud.tra_mat!='Z'){
+                    if(rta_ud_renglon_matriz && pk_ud.tra_for!='A1' && pk_ud.tra_for!='PG1' && pk_ud.tra_for!='GH' && pk_ud.tra_for!='PMD' /*&& (pk_ud.tra_for=='I1' */&& pk_ud.tra_mat!='Z'){
                         for(var id_pk in pks_otros_botones) if( iterable(id_pk,pks_otros_botones)){ 
                             var datos_formulario=estructura.otros_datos_formulario[pks_otros_botones[id_pk].tra_for];
                             if (!datos_formulario.es_especial && 
