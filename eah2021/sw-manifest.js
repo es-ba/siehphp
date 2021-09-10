@@ -1,11 +1,12 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.03h';
+var version = 'v 3.03l';
 var appName = 'eah2021_test';
 var urlsToCache = [
 '../eah2021/eah2021_icon.png',
 '../eah2021/eah2021_icon_super.png',
 '../eah2021/eah2021_icon_capa.png',
+'../eah2021/eah2021_icon_test.png',
 '../tedede/comunes.js ',
 '../tedede/cuantas_instancias.js ',
 '../tedede/probador.css',
