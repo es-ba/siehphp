@@ -23,9 +23,6 @@ class Grilla_personal extends Grilla_tabla{
     function puede_eliminar(){
         return tiene_rol('programador')||tiene_rol('subcoor_campo')||tiene_rol('ana_campo');
     }
-    function puede_insertar(){
-        return tiene_rol('programador')||tiene_rol('coor_campo')||tiene_rol('ana_campo');
-    }
     function campos_editables($filtro_para_lectura){
         $editables=array();
         if(tiene_rol('programador')||tiene_rol('subcoor_campo')||tiene_rol('ana_campo')){
@@ -38,10 +35,9 @@ class Grilla_personal extends Grilla_tabla{
             $editables[]='per_activo';
             $editables[]='per_usu';
         };
-        if(tiene_rol('procesamiento')||tiene_rol('coor_campo')||tiene_rol('programador')){
+        if(tiene_rol('procesamiento')||tiene_rol('subcoor_campo')||tiene_rol('programador')){
             $editables[]='per_activo';
             $editables[]='per_usu';
-            $editables[]='per_per';
         };
         return $editables;
     }

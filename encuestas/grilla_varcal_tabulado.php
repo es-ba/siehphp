@@ -138,7 +138,7 @@ SQL
         $leer_join_a1=$cur->fetchObject();
         $v_join_a1= ($leer_join_a1)? $leer_join_a1->join_a1: '';
         $v_otras_tablas="";
-        if($GLOBALS['NOMBRE_APP']=='eah2019'){
+        if($GLOBALS['NOMBRE_APP']=='eah2019' || $GLOBALS['NOMBRE_APP']=='eah2021'){
             $v_otras_tablas=<<<SQL
                    left join plana_pmd_ pm on pm.pla_enc=s1.pla_enc and pm.pla_hog=s1.pla_hog 
 SQL;
