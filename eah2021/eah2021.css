@@ -1,6 +1,6 @@
 @page {width: 100%; text-align:center;margin-top: 0.2in;margin-bottom: 0.05in;}
 body{
-    font-size:20px;
+    font-size:24px;
 }
 
 td{
@@ -33,7 +33,7 @@ td{
     font:200% blue;
     font-family:arial;
     top-margin:2px;
-/* seg�n:
+/* según:
 http://www.colorzilla.com/gradient-editor/ 
 otro que se puede usar:
 http://gradients.glrzad.com/
@@ -71,6 +71,7 @@ border-collapse: collapse;
 .tabla_remito_cnombre15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
 .tabla_remito_barrio15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
 .tabla_remito_ident_edif15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
+.tabla_remito_edificio15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
 .tabla_remito_obs15{border-top:1px solid black;font-size:17px;min-width:25px; padding-left:2px;}
 @media print{
     .app_titulo{display:none;}
@@ -285,6 +286,30 @@ input:not([type]){
     background-color:#FED;
 }
 
+.hdr_celda{
+    border:2px solid silver;
+    /* border-collapse:collapse; */
+    /* margin:0px; */
+}
+.hdr_celda_sin_borde{
+    border:2px solid silver;
+    border-collapse:collapse;
+    margin:0px; 
+}
+.hdr_observaciones{
+    min-width:500px;
+    font-size:45%;
+    font-family:arial;
+}
+.hdr_titulo{
+    border:2px solid silver;
+    background-color:#EEF;
+    text-align:center;
+    font-family:arial;
+    font-size:80%;
+    /* border-collapse:collapse; */
+    /* margin:0px; */
+}
 .pie_titulo{
     border:2px solid silver;
     background-color:Khaki;
