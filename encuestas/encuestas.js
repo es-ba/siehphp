@@ -400,6 +400,9 @@ function blanco(valor){
 function informado(valor){
     return !blanco(valor);
 }
+function negado(valor){
+    return !!!(valor);
+}
 
 function ver_estado_ud(id_ud_actual){
     var estado_este_ud={};
