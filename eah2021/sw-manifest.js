@@ -23,6 +23,7 @@ var urlsToCache = [
 '../tedede/para_grilla.js',
 '../tedede/tabulados.js',     //   #agregado para test
 '../tedede/test_fondo_t.png', //   #agregado para test
+'../tedede/capacitacion.png', //   #agregado para capa
 '../eah2021/estructura_eah2021.js',
 '../tercera/md5_paj.js',
 '../tercera/aes.js',
