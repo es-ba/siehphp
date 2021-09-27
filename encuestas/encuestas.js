@@ -304,6 +304,12 @@ dbo.texto_a_fecha=function(str_fecha){
         return null;
     }       
 };
+dbo.texto_a_fecha_date=function(str_fecha){
+    var vfecha = [];
+    vfecha     = dbo.texto_a_fecha(str_fecha);
+    var dfecha = vfecha? new Date(vfecha[2],vfecha[1]-1, vfecha[0]) : null;
+    return dfecha;
+};
 dbo.esFechaValida=function(p_dia,p_mes,p_annio){
         var dia  =  parseInt(p_dia,10);
         var mes  =  parseInt(p_mes,10);
@@ -463,6 +469,7 @@ function hacer_expresion_evaluable(expresion_pura){
             .replace(/([^><!])=/g,"$1 == ")
             .replace(/<>/ig,"!=")
             .replace(/rta_ud.var_false/g,"false")
+            .replace(/\$\$/g,'"')
             .replace(/rta_ud.var_true/g,"true");
     if(!"controlar_que_existan_los_campos"){
         expresion_evaluable=expresion_evaluable.replace(/copia_ud.copia_\w*/g,"$&.valueOf()");

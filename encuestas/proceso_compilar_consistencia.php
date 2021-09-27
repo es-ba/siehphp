@@ -214,7 +214,8 @@ SQL
             $this->cursor_consistencia = $este->db->ejecutar_sql(new Sql($poner_expresion_sql));
             $this->con_error_compilacion=null;
             $con_valida = true;
-            if( /*$este->tabla_consistencias->datos->con_modulo!='DIARIO' && */ count(@$this->error_var_no_encontradas[$este->tabla_consistencias->datos->con_con])>0){
+            $var_no_encontradas_lista=@$this->error_var_no_encontradas[$este->tabla_consistencias->datos->con_con];
+            if( /*$este->tabla_consistencias->datos->con_modulo!='DIARIO' && */ $var_no_encontradas_lista &&count($var_no_encontradas_lista)>0){
                 $this->con_error_compilacion = "VARIABLES NO ENCONTRADAS: ".implode(', ',$this->error_var_no_encontradas[$este->tabla_consistencias->datos->con_con]);
                 $con_valida = false;
                 $this->estado->cantidad_sin_compilar++;
