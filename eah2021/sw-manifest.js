@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.03n';
+var version = 'v 3.03o';
 var appName = 'eah2021_test';
 var urlsToCache = [
 '../eah2021/eah2021_icon.png',
