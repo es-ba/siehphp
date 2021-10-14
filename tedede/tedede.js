@@ -608,7 +608,13 @@ function mostrar_opciones_asignar(id_elemento_destino,valor){
 
 function mostrar_status(fondo,que,evaluo){
     var texto=document.createElement('div');
-    texto.textContent=que+(evaluo?': '+eval(que):'');
+    var valor='[no definido]'
+    try{
+        valor = evaluo && eval(que)
+    }catch(err){
+        valor = '['+err.mensaje+']';
+    }
+    texto.textContent=que+(evaluo?': '+valor:'');
     fondo.appendChild(texto);
 }
 
