@@ -406,7 +406,7 @@ function boton_login(){
             elemento_existente('proceso_formulario_respuesta').textContent=datos;
             elemento_existente('tra_clave').value='';
             if(elemento_existente('tra_borrar_localstorage').checked){
-                borrar_localStorage(true);
+                borrar_localStorage("al_loguearse");
             }
             // var regexp_logut=/(logout|login)$/i;
             // ir_a_url(regexp_logut.test(document.location.href)?(location.pathname+'?hacer=menu'):document.location.href);
