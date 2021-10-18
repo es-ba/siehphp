@@ -88,7 +88,9 @@ function estoMismo(estoMismoDevuelvo){
 
 function borrar_localStorage(forzar){
 "use strict";
-    if(forzar || confirm('¿borrar localStorage?')){
+    if(localStorage['hoja_de_ruta'] && confirm('ATENCIÓN. Se detectó una hoja de ruta y no se detecta que sea un dispositivo móvil. Si está en un dipositivo móvil conteste No a las siguiente pregunta y luego verifique que no está en modo de despliegue escritorio') && confirm('¿desea borrar todo el contenido de la memoria (localStorage?')){
+        localStorage.clear();
+    }else if(forzar || confirm('¿borrar localStorage?')){
         localStorage.clear();
         if(!forzar){
             alert('borrado');
