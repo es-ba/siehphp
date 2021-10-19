@@ -3079,6 +3079,10 @@ function desplegar_hoja_de_ruta(){
     window.addEventListener('error', function myErrorHandler(error, url, lineNumber) {
         console_log('¡! '+(url||'')+':'+(lineNumber||''), error.message, 'error-console');
     });
+    if(typeof ServiceWorkerAdmin == "undefined"){
+        console_log('¡ATENCIÓN! se detectó una hoja de ruta y no se reconoce el dispositivo móvil');
+        console_log('Verificar que no se haya seleccionado la opción "Sitio de escritorio" (o equivalente)')
+    }
     var swa = new ServiceWorkerAdmin();
     swa.installIfIsNotInstalled({
         onEachFile: (url, error)=>{
