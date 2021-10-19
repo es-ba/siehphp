@@ -3081,7 +3081,7 @@ function desplegar_hoja_de_ruta(){
     });
     if(typeof ServiceWorkerAdmin == "undefined"){
         console_log('¡ATENCIÓN! se detectó una hoja de ruta y no se reconoce el dispositivo móvil');
-        console_log('Verificar que no se haya seleccionado la opción "Sitio de escritorio" (o equivalente)')
+        console_log('Verificar que no se haya seleccionado la opción "Sitio de escritorio" ("vista ordenador" o equivalente)')
     }
     var swa = new ServiceWorkerAdmin();
     swa.installIfIsNotInstalled({
