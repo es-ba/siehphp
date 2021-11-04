@@ -39,7 +39,7 @@ class Grilla_respuestas extends Grilla_tabla{
         */
     }
     function filtrar_campos_del_operativo($p_arraycampos){
-            loguear('2014-12-11','**** entrada '.implode($p_arraycampos,','));
+            //loguear('2014-12-11','**** entrada '.implode(',',$p_arraycampos));
             $p_arraycamposope=array();
             $vista_varmae=$this->contexto->nuevo_objeto("Vista_varmae");     
             foreach($p_arraycampos as $campo){
@@ -52,7 +52,7 @@ class Grilla_respuestas extends Grilla_tabla{
                     $p_arraycamposope[]=$campo;
                 }
             }
-            loguear('2014-12-11','****  salida'.implode($p_arraycamposope,','));
+            //loguear('2014-12-11','****  salida'.implode($p_arraycamposope,','));
             return $p_arraycamposope;
     }
     function campos_solo_lectura(){
