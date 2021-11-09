@@ -43,7 +43,8 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         $heredados[]='pla_etapa_pro';
         $heredados[]='pla_v2';
         $heredados[]='pla_v5';
-        $heredados[]='pla_h2';  
+        $heredados[]='pla_h2'; 
+        $heredados[]='pla_h2a'; 
         $heredados[]='pla_h3';  
         $heredados[]='pla_v1';  
         $heredados[]='pla_total_h';  
@@ -54,8 +55,14 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
           $heredados[]='pla_movil';
           $heredados[]='pla_correo';
         }
-       // $heredados[]='pla_obs_a1';
+        // $heredados[]='pla_obs_a1';
        // $heredados[]='pla_obs_pmd'; 
+        $heredados[]='pla_h36_1';
+        $heredados[]='pla_h36_2'; 
+        $heredados[]='pla_h36_3';
+        $heredados[]='pla_h36_4'; 
+        $heredados[]='pla_h36_5';
+        $heredados[]='pla_h36_6';
         return $heredados;
     }
     function remover_en_nombre_de_campo(){
@@ -68,7 +75,7 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
          $camposa=($GLOBALS['anio_operativo']<2021  | "{$GLOBALS['NOMBRE_APP']}"=='etoi211'  )?array('pla_telefono','pla_movil','pla_correo','pla_v1','pla_total_h',
         'pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1' ):array('pla_v1','pla_total_h','pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1') ;
         return array_merge(array('pla_enc',
-        'pla_hog',        
+        'pla_hog', 
         'tem_bolsa',
         'tem_estado',
         'tem_cod_anacon',
@@ -81,11 +88,14 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         'pla_v12',
         'pla_h2',
         'pla_h2_esp',
+        'pla_h2a',
         'pla_h3',
+        'pla_h36',
+        'pla_h36_1', 'pla_h36_1x', 'pla_h36_2', 'pla_h36_2x','pla_h36_3', 'pla_h36_3x', 'pla_h36_4', 'pla_h36_4x','pla_h36_5', 'pla_h36_5x','pla_h36_6','pla_h36_6x','pla_h36_6_esp', 
         'pla_h20_14',
         'pla_h20_esp'), $camposa
             )));
-    } 
+    }
     /*
     function campos_a_listar($filtro_para_lectura){
         return array(
