@@ -160,8 +160,8 @@ function controlar_hoja_de_ruta_es_seguro(cargar_o_descargar){
         razon=rta.atencion;
     }else if(cargar_o_descargar=='cargar'){
         ok=localStorage.getItem('estado_carga')=='descargado' {$or_capacitando_1};
-        var rta = prompt('No hay registro de que se hayan terminado de descargar las encuestas. Verifique en la TEM que esten descargadas!!. Anote SEGURO si está seguro de cargar las encuestas (se procedera a borrar la carga actual del dispositivo.')
-        if(rta.trim()=='SEGURO'){
+        var rta = prompt('No hay registro de que se hayan terminado de descargar las encuestas. Verifique en el sistema central que esten descargadas!!. Anote BORRAR TODO si está seguro de BORRAR TODO para cargar las encuestas (todo lo que esté en el dispositivo se va a perder).')
+        if(rta.trim()=='BORRAR TODO'){
             ok=true;
         }else{
             razon='No hay registro de que las encuestas cargadas hayan sido descargadas';
