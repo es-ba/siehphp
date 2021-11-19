@@ -2680,7 +2680,10 @@ function hacer_backup_encuesta(){
             paq_uds:{},
         };
         for(var clave_json in claves_jsoneadas) if(iterable(clave_json,claves_jsoneadas)){
-            paquete.paq_uds[clave_json]=JSON.parse(localStorage['ud_'+clave_json]);
+            var esta_ud_json=localStorage.getItem('ud_'+clave_json);
+            if(esta_ud_json!==null){
+               paquete.paq_uds[clave_json]=JSON.parse(localStorage['ud_'+clave_json]);
+            }   
         }
         elemento_disparador.textContent='cr';
         setTimeout(function(){
