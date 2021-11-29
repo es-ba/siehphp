@@ -111,7 +111,7 @@ window.addEventListener('load', function(){
         input.onblur=function(){
             if(input.value.trim().toUpperCase()=='REINSTALAR'){
                 consola.innerText='intentando reinstalar';
-                mandar_a_reinstalar('eah2020_test').then(function(rta){
+                mandar_a_reinstalar('etoi221_test').then(function(rta){
                     consola.innerText=rta.join('\\r\\n');
                 }).catch(function(err){
                     consola.innerText=err.message;
