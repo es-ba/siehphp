@@ -1,14 +1,14 @@
 <?php
-set_include_path(get_include_path() . PATH_SEPARATOR . "../etoi213");
+set_include_path(get_include_path() . PATH_SEPARATOR . "../etoi221");
 
-$nombre_app='etoi213';
-$NOMBRE_APP='etoi213';
+$nombre_app='etoi221';
+$NOMBRE_APP='etoi221';
 
 require_once "lo_imprescindible.php";
 
 $parametros_db->user='tedede_php';
 $parametros_db->pass='laclave';
-$parametros_db->base_de_datos='etoi213_produc_db';
+$parametros_db->base_de_datos='etoi221_produc_db';
 $parametros_db->port='5432';
 $parametros_db->host='10.35.200.10';
 
