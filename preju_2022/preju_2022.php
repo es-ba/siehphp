@@ -36,7 +36,7 @@ class Aplicacion_preju_2022 extends Aplicacion_encuesta{
         );
         parent::__construct();
         if($esta_es_la_base_en_produccion){
-            $this->salida->html_title=" ETOI 221";
+            $this->salida->html_title="PREJU 2022";
         }else if($esta_es_la_base_de_capacitacion){
             $this->salida->html_title="CAPA - preju_2022";
         }else{
