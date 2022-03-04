@@ -95,7 +95,7 @@ class Tabla_tem extends Tabla{
         };
         //a partir de etoi201
          if ( $GLOBALS['anio_operativo']>=2020 && 
-              ( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'||substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' )){ 
+              ( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'||substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' || substr($GLOBALS['NOMBRE_APP'],0,5)=='preju')){ 
               $this->definir_campo('tem_codviviendaparticular',array('tipo'=>'texto','largo'=>1));               
               $this->definir_campo('tem_sector',array('tipo'=>'texto', 'largo'=>10));
               $this->definir_campo('tem_edificio',array('tipo'=>'texto','largo'=>30));
