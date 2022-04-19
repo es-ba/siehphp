@@ -12,6 +12,8 @@ class Tabla_dispositivos extends Tabla{
         $this->definir_campo('dis_os', array('tipo'=>'texto'));
         $this->definir_campo('dis_observaciones', array('tipo'=>'texto'));
         $this->definir_campo('dis_nro_serie', array('tipo'=>'texto'));
+        $this->definir_campo('dis_ficha_estante', array('tipo'=>'texto'));
+        $this->definir_campo('dis_imei', array('tipo'=>'texto'));
         $this->definir_campo('dis_tenencia_operativo', array('hereda'=>'tenencia_operativo','modo'=>'fk_optativa','campo_relacionado'=>'tenope_tenope'));
         $this->definir_campo('dis_responsable', array('tipo'=>'texto'));
         $this->definir_campo('dis_fecha_entrega', array('tipo'=>'timestamp'));
