@@ -1,7 +1,7 @@
 //UTF-8:SÍ
 "use strict";
 
-var version_js_encuestas='v 3.04';
+var version_js_encuestas='v 3.04b';
 
 var operativo_actual;
 var anio_operativo;
@@ -2200,7 +2200,7 @@ function TransmitirTodo(){
         }
     );
 }
-
+/*
 function PresionTeclaEnVariable(id_variable,evento){
     var tecla=evento.keyCode || evento.which;
     if(tecla!=13){
@@ -2211,17 +2211,46 @@ function PresionTeclaEnVariable(id_variable,evento){
     if(!proximo){
         proximo=preguntas_ud[id_variable].siguiente;
     }
-    /*if(preguntas_ud[id_variable].saltar_a_boton){
-        if(evaluar_en_encuestas(preguntas_ud[id_variable].expresion_saltar_a_boton)){
-            proximo=preguntas_ud[id_variable].saltar_a_boton;
-        }
-    }*/
+   // sentencias a continuacion originalmente comentadas
+   // if(preguntas_ud[id_variable].saltar_a_boton){
+   //     if(evaluar_en_encuestas(preguntas_ud[id_variable].expresion_saltar_a_boton)){
+   //         proximo=preguntas_ud[id_variable].saltar_a_boton;
+   //     }
+   // } 
+
     if(proximo){
         elemento_existente(proximo).focus();
         evento.preventDefault();
     }
     suspender_validacion_onblur=false;
 }
+*/
+/* prueba -AGREGAMOS NUEVA VERSION de esta función PARA PROBAR CONSIDERANDO TECLA # */
+function PresionTeclaEnVariable(id_variable,evento){ 
+	var tecla=(document.all) ? evento.keyCode : evento.which; 
+	if(tecla!=13 && tecla != 35){
+		return;
+	}
+	if(tecla == 35){
+		console.log('entra')
+		evento.preventDefault();
+	}
+	suspender_validacion_onblur=true;
+	var proximo=ValidarOpcion(id_variable,true);
+	if(!proximo){
+		proximo=preguntas_ud[id_variable].siguiente;
+	}
+	if(preguntas_ud[id_variable].saltar_a_boton){
+		if(eval(hacer_expresion_evaluable(preguntas_ud[id_variable].expresion_saltar_a_boton))){
+			proximo=preguntas_ud[id_variable].saltar_a_boton;
+		}
+	}
+	if(proximo){
+		elemento_existente(proximo).focus();
+	}
+	suspender_validacion_onblur=false;
+}
+
 
 function PresionOtraTeclaEnVariable(id_variable,evento){
     var tecla=evento.keyCode || evento.which;
