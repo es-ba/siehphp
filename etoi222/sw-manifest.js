@@ -1,23 +1,22 @@
 "use strict";
 // TEMPLATE-START
 var version = 'v 3.04b';
-var jsVersion = '?1';
 var appName = 'etoi222_test';
 var urlsToCache = [
 '../etoi222/etoi222_icon.png',
 '../etoi222/etoi222_icon_super.png',
 '../etoi222/etoi222_icon_capa.png',
-'../tedede/comunes.js',
-'../tedede/cuantas_instancias.js',
+'../tedede/comunes.js ',
+'../tedede/cuantas_instancias.js ',
 '../tedede/probador.css',
 '../tedede/menu.css',
 '../encuestas/encuestas.css',
-'../encuestas/encuestas.js' + jsVersion,
+'../encuestas/encuestas.js',
 '../encuestas/mostrar_como_cachea.js',
 '../encuestas/encu_especiales.js',
 '../etoi222/etoi222.css',
 '../etoi222/dbo_etoi222.js',
-'../tedede/tedede.js',
+'../tedede/tedede.js ',
 '../tedede/tedede.css ',
 '../tedede/editor.js',
 '../tedede/para_grilla.js',
@@ -42,7 +41,7 @@ var urlsToCache = [
 '../etoi222/etoi222.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi222","tra_for":"A1","tra_mat":""}',
 '../etoi222/etoi222.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi222","tra_for":"I1","tra_mat":""}',
 '../etoi222/etoi222.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi222","tra_for":"SUP","tra_mat":""}',
-'../tedede/compatibilidad.js',
+'../tedede/compatibilidad.js ',
 '../imagenes/bloq_mayus.jpg',
 '../encuestas/control_mini_cal.js',
 '../encuestas/calendario01.png',
