@@ -1,31 +1,31 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.04c';
+var version = 'v 3.04b';
 var jsVersion = '?1';
 var appName = 'etoi222_test';
 var urlsToCache = [
 '../etoi222/etoi222_icon.png',
 '../etoi222/etoi222_icon_super.png',
 '../etoi222/etoi222_icon_capa.png',
-'../tedede/comunes.js' + jsVersion,
-'../tedede/cuantas_instancias.js' + jsVersion,
+'../tedede/comunes.js',
+'../tedede/cuantas_instancias.js',
 '../tedede/probador.css',
 '../tedede/menu.css',
 '../encuestas/encuestas.css',
 '../encuestas/encuestas.js' + jsVersion,
-'../encuestas/mostrar_como_cachea.js' + jsVersion,
-'../encuestas/encu_especiales.js' + jsVersion,
+'../encuestas/mostrar_como_cachea.js',
+'../encuestas/encu_especiales.js',
 '../etoi222/etoi222.css',
-'../etoi222/dbo_etoi222.js' + jsVersion,
-'../tedede/tedede.js' + jsVersion,
+'../etoi222/dbo_etoi222.js',
+'../tedede/tedede.js',
 '../tedede/tedede.css ',
-'../tedede/editor.js' + jsVersion,
-'../tedede/para_grilla.js' + jsVersion,
-'../tedede/tabulados.js' + jsVersion,     //   #agregado para test
+'../tedede/editor.js',
+'../tedede/para_grilla.js',
+'../tedede/tabulados.js',     //   #agregado para test
 '../tedede/test_fondo_t.png', //   #agregado para test
-'../etoi222/estructura_etoi222.js' + jsVersion,
-'../tercera/md5_paj.js' + jsVersion,
-'../tercera/aes.js' + jsVersion,
+'../etoi222/estructura_etoi222.js',
+'../tercera/md5_paj.js',
+'../tercera/aes.js',
 '../etoi222/logo_app.png',
 '../etoi222/logo_esperar.png',
 '../etoi222/etoi222_fondo_t.png',
@@ -42,9 +42,9 @@ var urlsToCache = [
 '../etoi222/etoi222.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi222","tra_for":"A1","tra_mat":""}',
 '../etoi222/etoi222.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi222","tra_for":"I1","tra_mat":""}',
 '../etoi222/etoi222.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi222","tra_for":"SUP","tra_mat":""}',
-'../tedede/compatibilidad.js' + jsVersion,
+'../tedede/compatibilidad.js',
 '../imagenes/bloq_mayus.jpg',
-'../encuestas/control_mini_cal.js' + jsVersion,
+'../encuestas/control_mini_cal.js',
 '../encuestas/calendario01.png',
 '../encuestas/lapiz_calendario_active.png',
 '../encuestas/lapiz_calendario.png',
@@ -53,8 +53,8 @@ var urlsToCache = [
 '../encuestas/cuadrado_calendario.png',
 '../encuestas/cuadradotic_calendario.png',
 '../encuestas/fondo_calendario.png',
-'../tercera/require-bro.js' + jsVersion,
-'../service-worker-admin.js' + jsVersion,
+'../tercera/require-bro.js',
+'../service-worker-admin.js',
 ];
   
 var fallback = [
