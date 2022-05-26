@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.05';
+var version = 'v 3.05a';
 var appName = 'etoi222_test';
 var urlsToCache = [
 '../etoi222/etoi222_icon.png',
@@ -90,6 +90,8 @@ self.addEventListener('install', async (evt) => {
             for (const client of clients)
                 client.postMessage(message);
         });
+        self.skipWaiting();
+        console.log("fin instalando");
         if (error)
             throw error;
     }))));
