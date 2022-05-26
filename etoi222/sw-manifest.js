@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.04b';
+var version = 'v 3.05';
 var appName = 'etoi222_test';
 var urlsToCache = [
 '../etoi222/etoi222_icon.png',
@@ -69,10 +69,18 @@ self.addEventListener('install', async (evt) => {
     //si hay cambios no espero para cambiarlo
     //self.skipWaiting();
     console.log("instalando");
+    var myHeaders = new Headers();
+    myHeaders.append('pragma', 'no-cache');
+    myHeaders.append('cache-control', 'no-cache');
     event.waitUntil(caches.open(CACHE_NAME).then((cache) => Promise.all(urlsToCache.map(async (urlToCache) => {
         var error = null;
         try {
-            await cache.add(urlToCache);
+            var myInit = {
+            method: 'GET',
+            headers: myHeaders,
+            };
+            var myRequest = new Request(urlToCache, myInit);
+            await cache.add(myRequest);
         }
         catch (err) {
             error = err;
