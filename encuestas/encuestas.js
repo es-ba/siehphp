@@ -1,7 +1,7 @@
 //UTF-8:SÍ
 "use strict";
 
-var version_js_encuestas='v 3.05a';
+var version_js_encuestas='v 3.05b';
 
 var operativo_actual;
 var anio_operativo;
@@ -3146,13 +3146,13 @@ function desplegar_hoja_de_ruta(){
                 }
             }
         },
-        onNewVersionAvailable:(install)=>{
+        /*onNewVersionAvailable:(install)=>{
             document.getElementById('nueva-version-detectada').style.display='';
             document.getElementById('buscando-version').style.display='none';
             document.getElementById('actualizar').onclick=()=>{
                 install();
             }
-        }
+        }*/
     })
 }
 
