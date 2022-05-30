@@ -409,7 +409,13 @@ function informado(valor){
 function negado(valor){
     return !!!(valor);
 }
-
+function enrango(pvalor, pinferior, psuperior){
+    var res=0;
+    if (pvalor>=pinferior && pvalor<=psuperior){
+        res=1;
+    };    
+    return res;
+}
 function ver_estado_ud(id_ud_actual){
     var estado_este_ud={};
     if(localStorage.getItem("estado_ud_"+JSON.stringify(id_ud_actual))){
