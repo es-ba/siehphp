@@ -15,11 +15,11 @@ $GLOBALS['titulo_corto_app']="Sistema Central";
 
 if(tiene_rol('programador')){
     $db->ejecutar_sql(new Sql(<<<SQL
-        select dblink_connect('trac_yeah','host=10.35.3.234 dbname=trac_db user=trac_ro password=laclave');
+        select dblink_connect('trac_yeah','host=10.35.21.78 dbname=trac_db user=trac_ro password=laclave');
 SQL
     ));
     $db->ejecutar_sql(new Sql(<<<SQL
-        select dblink_connect('trac_xcan','host=10.35.3.234 dbname=trac_db user=trac_ro password=laclave');
+        select dblink_connect('trac_xcan','host=10.35.21.78 dbname=trac_db user=trac_ro password=laclave');
 SQL
     ));
 }

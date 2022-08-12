@@ -409,13 +409,15 @@ JS
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
     }
-    /*
+    
     function proceso_desplegar_pg1(){
         return $this->proceso_desplegar_formulario('PG1');
     }
     function proceso_desplegar_pg1_m(){
         return $this->proceso_desplegar_formulario('PG1','M');
     }
+    
+    /*
     function proceso_desplegar_md(){
         return $this->proceso_desplegar_formulario('MD');
     }
