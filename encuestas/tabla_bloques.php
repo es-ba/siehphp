@@ -107,7 +107,7 @@ class Tabla_bloques extends Tabla{
               }
               $this->contexto->salida->cerrar_grupo_interno();
             $this->contexto->salida->cerrar_grupo_interno();
-              if($GLOBALS['nombre_app']=='eah2014'||$GLOBALS['nombre_app']=='eah2018'){
+              if($GLOBALS['nombre_app']=='eah2014'||$GLOBALS['nombre_app']=='eah2018'||$GLOBALS['nombre_app']=='eah2022'){
                   $this->contexto->salida->enviar('',"celda_matriz_formulario hori_pre_pre",array('tipo'=>'DIV','id'=>'boton_general_PG1','style'=>'text-align:right'));
               }
           $this->contexto->salida->cerrar_grupo_interno();

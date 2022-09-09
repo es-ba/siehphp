@@ -1744,7 +1744,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
             var boton_general_A1=elemento_existente('boton_general_A1');
             boton_general_A1.innerHTML=boton_abre_formulario(cambiandole(pk_ud,{tra_for:'A1'}),'');
         }
-        if(formulario=='S1' && ( operativo_actual=='eah2014'|| operativo_actual=='eah2018') ){
+        if(formulario=='S1' && ( operativo_actual=='eah2014'|| operativo_actual=='eah2018'|| operativo_actual=='eah2022') ){
             var pk_ud_A1_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'A1', tra_mat:'', tra_mie:0, tra_exm:0}));
             var rta_ud_A1_json=localStorage.getItem("ud_"+pk_ud_A1_json);
             var rta_ud_A1=rta_ud_A1_json?JSON.parse(rta_ud_A1_json):{};
