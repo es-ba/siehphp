@@ -401,11 +401,11 @@ JS
     function proceso_desplegar_i1(){
         return $this->proceso_desplegar_formulario('I1');
     }
-    
+ /*   
     function proceso_desplegar_pmd(){
         return $this->proceso_desplegar_formulario('PMD');
     } 
-    
+ */   
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
     }
@@ -1202,13 +1202,14 @@ JS
     function proceso_borrar_miembros_individuales(){
         return new Proceso_borrar_miembros_individuales();
     }
-    /*
+   /* 
     function proceso_borrar_mascotas(){
-        return new Proceso_borrar_mascotas();
+        return new Proceso_borrar_mascotas(); --antes de habilitarlo revisar
     }
     function proceso_eliminar_formulario_pg1(){
-        return new Proceso_eliminar_formulario_pg1();
+        return new Proceso_eliminar_formulario_pg1(); --antes de habilitarlo revisar
     }
+  
     function proceso_eliminar_formulario_md(){
         return new Proceso_borrar_md();
     }
@@ -1216,12 +1217,12 @@ JS
     function proceso_eliminar_formulario_gh(){
         return new Proceso_eliminar_formulario_gh();
     }
-    */
+ 
 
     function proceso_eliminar_formulario_pmd(){
         return new Proceso_eliminar_formulario_pmd();
     }
-
+   */
     function proceso_eliminar_formulario_sup(){
         return new Proceso_eliminar_formulario_sup();
     }
@@ -1257,7 +1258,7 @@ JS
             }
         ));
     }
-
+/*
     function proceso_grilla_PMD_proc(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de preguntas abiertas del PMD',
@@ -1287,7 +1288,7 @@ JS
             }            
         ));
     }
-
+*/
    function proceso_grilla_I1_rama_ocupacion_covid19(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla para codificar rama y ocupación Covid19',

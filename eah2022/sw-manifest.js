@@ -42,7 +42,7 @@ var urlsToCache = [
 '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"S1","tra_mat":"P"}',
 '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"A1","tra_mat":""}',
 '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"I1","tra_mat":""}',
-'../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"PMD","tra_mat":""}',
+// '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"PMD","tra_mat":""}',
 '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"PG1","tra_mat":""}',
 '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"PG1","tra_mat":"M"}',
 // '../eah2022/eah2022.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2022","tra_for":"GH","tra_mat":""}',
