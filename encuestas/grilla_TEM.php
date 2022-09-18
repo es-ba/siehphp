@@ -161,5 +161,5 @@ class Grilla_I1_  extends Grilla_respuestas_para_proc{}
 class Grilla_A1_  extends Grilla_respuestas_para_proc{}
 class Grilla_A1_X extends Grilla_respuestas_para_proc{}
 class Grilla_GH_  extends Grilla_respuestas_para_proc{}
-class Grilla_PMD_ extends Grilla_respuestas_para_proc{}
+//class Grilla_PMD_ extends Grilla_respuestas_para_proc{}
 ?>
