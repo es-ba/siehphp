@@ -84,6 +84,9 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
         $heredados[]='pla_t24'; 
         $heredados[]='pla_t25'; 
         $heredados[]='pla_t26';
+        $heredados[]='pla_i3_32';
+        $heredados[]='pla_i3_32x';
+        $heredados[]='pla_i3_13a';
         return $heredados;
     }
     function permite_grilla_sin_filtro(){
@@ -106,6 +109,7 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
                     'pla_i3_10', 'pla_i3_10x', 'pla_i3_10_otro', 
                     'pla_i4', 'pla_i6_2','pla_i6_3','pla_i6_4','pla_i6_5','pla_i6_6','pla_i6_7','pla_i6_8','pla_i6_9','pla_i6_10','pla_i6_10_esp',
                     'pla_i3_1','pla_i3_1x','pla_i3_2','pla_i3_2x','pla_i3_3','pla_i3_3x','pla_i3_4','pla_i3_4x','pla_i3_5','pla_i3_5x','pla_i3_6','pla_i3_6x','pla_i3_7','pla_i3_7x','pla_i3_13','pla_i3_13x','pla_i3_81','pla_i3_81x','pla_i3_82','pla_i3_82x','pla_i3_11','pla_i3_11x','pla_i3_31','pla_i3_31x','pla_i3_12','pla_i3_12x','pla_i3_10','pla_i3_10x','pla_i3_10_otro',
+                    'pla_i3_13a','pla_i3_32','pla_i3_32x', 
                     'pla_obs','pla_check_pro_ti','pla_obs_grilla_ti'
                 )));
     }

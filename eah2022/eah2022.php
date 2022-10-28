@@ -1202,10 +1202,11 @@ JS
     function proceso_borrar_miembros_individuales(){
         return new Proceso_borrar_miembros_individuales();
     }
-   /* 
+
     function proceso_borrar_mascotas(){
-        return new Proceso_borrar_mascotas(); --antes de habilitarlo revisar
+        return new Proceso_borrar_mascotas(); 
     }
+    /*
     function proceso_eliminar_formulario_pg1(){
         return new Proceso_eliminar_formulario_pg1(); --antes de habilitarlo revisar
     }
