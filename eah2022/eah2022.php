@@ -1206,11 +1206,11 @@ JS
     function proceso_borrar_mascotas(){
         return new Proceso_borrar_mascotas(); 
     }
-    /*
+    
     function proceso_eliminar_formulario_pg1(){
-        return new Proceso_eliminar_formulario_pg1(); --antes de habilitarlo revisar
+        return new Proceso_eliminar_formulario_pg1(); 
     }
-  
+   /*
     function proceso_eliminar_formulario_md(){
         return new Proceso_borrar_md();
     }
