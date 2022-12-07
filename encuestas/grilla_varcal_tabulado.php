@@ -61,13 +61,22 @@ SQL
             ));
             $datos_varcal=$cur->fetchObject();
         }
+        $this->vista->listColumnAux=[];
         if($datos_varcal){
             $variables=expresion_regular_extraer_variables($datos_varcal->variables);
-            Loguear('2017-03-31','Tenemos $datos_varcal '.json_encode($datos_varcal));
-            Loguear('2017-03-31','Tenemos $variables '.json_encode($variables));
+            $varNoRepetidas=[];
+            foreach($variables  as $unavar ){
+                if(!in_array($unavar,$varNoRepetidas)){
+                    $varNoRepetidas[]=$unavar;
+                }
+            };
+            //Loguear('2022-12-07','Tenemos $datos_varcal '.json_encode($datos_varcal));
+            //Loguear('2022-12-07','-*od-------Tenemos $variables '.json_encode($variables));
             $this->vista->destino=$destino=$datos_varcal->destino;
             $this->vista->tipo=$tipo=$datos_varcal->tipo;
-            if($variables){
+            $this->vista->listColumnAux=[$variable];
+            $this->vista->listColumnAuxStr='';
+            if(count($variables)>1){
                 $vista_varmae=$this->contexto->nuevo_objeto("Vista_varmae");     
                 foreach($variables as $varaux){
                     if($varaux=='enc'){
@@ -91,6 +100,17 @@ SQL
                     } 
                 }
             }
+            $this->vista->listColumnAux=array_merge($this->vista->listColumnAux,$varNoRepetidas);
+            $xaux=implode(',',$this->vista->listColumnAux);
+            //Loguear('2022-12-07','-*od-------Tenemos $listColumnAux '.$xaux);
+            foreach(($this->vista->listColumnAux) as &$varaux){
+                $varaux='pla_'.$varaux;
+            };
+            unset($varaux);                   
+            //armar la str lista select viene con la varcal,sus dependientes y variables agregadas, fexp con prefijo
+            $this->vista->listColumnAuxStr=implode(',',$this->vista->listColumnAux).', pla_fexp,';
+            //Loguear('2022-12-07','-*od-------Tenemos $str_listColumnAux '.json_encode($this->vista->listColumnAuxStr));
+
         }
         return parent::obtener_datos($filtro_para_lectura_sin_filtro_manual,$filtro_manual);
     }
@@ -99,6 +119,7 @@ SQL
 class Vista_varcal_tabulado extends Vistas{
     var $varcal;
     var $tra_estado;
+    var $listColumnAux;
     function definicion_estructura(){
         $this->definir_campo('vis_casos',array('operacion'=>'cuenta','origen'=>'x.pla_enc_','title'=>'cantidad casos'));
         $this->definir_campo('vis_expandido',array('operacion'=>'sum','origen'=>'pla_fexp','title'=>'suma factor'));
@@ -144,7 +165,7 @@ SQL
 SQL;
         }
         $sql_str=<<<SQL
-            (select *, t.pla_enc as pla_enc_, s1.pla_hog as pla_hog_, s1.pla_mie as pla_mie_
+            (select {$this->listColumnAuxStr} t.pla_enc as pla_enc_, s1.pla_hog as pla_hog_, s1.pla_mie as pla_mie_
                 from plana_tem_ t 
                 inner join plana_s1_ s1 on t.pla_enc=s1.pla_enc 
                 {$v_join_a1}
@@ -172,8 +193,8 @@ SQL
 SQL
             );
         //var_dump($sql_str);
-        Loguear('2017-03-31','----------------------str:'.$sql_str);
-        
+        //Loguear('2022-12-07','-*-from--------------------str:'.$sql_str);
+        //Loguear('2022-12-07','-*-from--------------------str_listColumnAux:'.$this->listColumnAuxStr);
         return $sql_str;
 
     }
