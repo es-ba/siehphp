@@ -353,7 +353,7 @@ class Grilla_sup_educacion extends Grilla_supervision_para_proc{
     }
 }
 
-/*
+
 class Grilla_sup_pmd extends Grilla_supervision_para_proc{
     function iniciar($nombre_del_objeto_base){
         parent::iniciar('SUP_');
@@ -414,5 +414,5 @@ class Grilla_sup_pmd extends Grilla_supervision_para_proc{
        }
     }
 }
-*/
+
 ?>
