@@ -33,7 +33,9 @@ class Grilla_i1_trabajo_desocupados_covid extends Grilla_respuestas_para_proc_in
         $heredados[]='s1_p_sexo';
         $heredados[]='s1_p_edad';
         $heredados[]= 'pla_t12';
+        $heredados[]= 'pla_t15';
         $heredados[]= 'pla_t18';
+        $heredados[]= 'pla_t19';
         $heredados[]= 'pla_t19_1';
         $heredados[]= 'pla_t20_1';
         $heredados[]= 'pla_t48a_d';
@@ -46,14 +48,13 @@ class Grilla_i1_trabajo_desocupados_covid extends Grilla_respuestas_para_proc_in
         return false;
     }
 
-
     function campos_a_listar($filtro_para_lectura){
         return array_merge(array('s1_p_semana','pla_enc', 'pla_hog','pla_mie',
                                 'pla_participacion','s1_p_bolsa','s1_p_estado',
                                 's1_p_area','s1_p_cod_anacon',
                                 's1_p_sexo','s1_p_edad',),
                 $this->filtrar_campos_del_operativo(array(
-                    'pla_t12','pla_t18','pla_t19_1','pla_t20_1','pla_t48a_d','pla_t48b_d','pla_t48b_d_esp','pla_t51_d',
+                    'pla_t12','pla_t15','pla_t18','pla_t19','pla_t19_1','pla_t20_1','pla_t48a_d','pla_t48b_d','pla_t48b_d_esp','pla_t51_d',
                     'pla_obs','pla_obs_grilla_ti_co2'
                 )));
     }

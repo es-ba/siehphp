@@ -38,6 +38,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
         $heredados[]='pla_t47';
         $heredados[]='pla_t51';
         $heredados[]='pla_t37sd';
+        $heredados[]='pla_tsd7';
         $heredados[]='pla_t40bis_a';
         $heredados[]='pla_t39';
         $heredados[]='pla_t40bis_a1';
@@ -91,7 +92,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                                 's1_p_area','s1_p_cod_anacon',
                                 's1_p_sexo','s1_p_edad',),
                 $this->filtrar_campos_del_operativo(array(
-                    'pla_t30','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd','pla_t40bis_a',
+                    'pla_t30','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd','pla_tsd7','pla_t40bis_a',
                     'pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro','pla_t40bis_a1','pla_t40bis_a1_otro',
                     'pla_t40bis_a2','pla_t40bis_a2_otro',
                     'pla_t40bis_b','pla_t40bis_b_barrio','pla_t40bis_b_partido','pla_t40bis_b_otro','pla_t40bis_d',
@@ -102,7 +103,6 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                 )));
     }
 
-  
     function permite_grilla_sin_filtro_manual(){
         return false;
     }
