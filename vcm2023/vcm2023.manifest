@@ -1,0 +1,55 @@
+CACHE MANIFEST
+# v 3.00
+# Cosas a cachear !!
+
+../vcm2023/vcm2023_icon.png
+../vcm2023/vcm2023_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../vcm2023/vcm2023.css
+../vcm2023/dbo_vcm2023.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../vcm2023/estructura_vcm2023.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../vcm2023/logo_app.png
+../vcm2023/logo_esperar.png
+../vcm2023/vcm2023_fondo_t.png
+../vcm2023/vcm2023_icon.gif
+../vcm2023/vcm2023_icon_test.gif
+../vcm2023/vcm2023_icon_desa.gif
+../vcm2023/vcm2023_icon_capa.gif
+../vcm2023/vcm2023.php?hacer=hoja_de_ruta
+../vcm2023/vcm2023.php?hacer=hoja_de_ruta_super
+../vcm2023/vcm2023.php?hacer=formularios_de_la_vivienda
+../vcm2023/vcm2023.php?hacer=desplegar_formulario&todo={"tra_ope":"vcm2023","tra_for":"S1","tra_mat":""}
+../vcm2023/vcm2023.php?hacer=desplegar_formulario&todo={"tra_ope":"vcm2023","tra_for":"S1","tra_mat":"P"}
+../vcm2023/vcm2023.php?hacer=desplegar_formulario&todo={"tra_ope":"vcm2023","tra_for":"A1","tra_mat":""}
+../vcm2023/vcm2023.php?hacer=desplegar_formulario&todo={"tra_ope":"vcm2023","tra_for":"I1","tra_mat":""}
+# ../vcm2023/vcm2023.php?hacer=desplegar_formulario&todo={"tra_ope":"vcm2023","tra_for":"GH","tra_mat":""}
+../vcm2023/vcm2023.php?hacer=desplegar_formulario&todo={"tra_ope":"vcm2023","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+../encuestas/control_mini_cal.js
+../encuestas/calendario01.png
+../encuestas/lapiz_calendario_active.png
+../encuestas/lapiz_calendario.png
+../encuestas/goma01_calendario_active.png
+../encuestas/goma01_calendario.png
+../encuestas/cuadrado_calendario.png
+../encuestas/cuadradotic_calendario.png
+../encuestas/fondo_calendario.png
+
+FALLBACK:
+../vcm2023/vcm2023.php?hacer=cargar_dispositivo  ../vcm2023/vcm2023.php?hacer=aviso_offline
