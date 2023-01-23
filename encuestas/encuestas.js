@@ -150,8 +150,8 @@ function ValidarOpcion(id_variable_cursor_actual,forzar){
                 }
                 elemento_existente(id_variable_cursor_actual).value=rta_ud[id_variable_cursor_actual];
             }
-            //condiciones para vcm2018
-            if( operativo_actual=='vcm2018' && ((id_variable_cursor_actual=='var_esm1' && rta_ud.var_esm1==2)||(id_variable_cursor_actual=='var_no_entrevista' && rta_ud.var_no_entrevista==1 )) && !rta_ud.var_entrea && rta_ud_tem.var_rol!='ingresador'){
+            //condiciones para vcm2018, vcm2023
+            if( (operativo_actual=='vcm2018' || operativo_actual=='vcm2023') && ((id_variable_cursor_actual=='var_esm1' && rta_ud.var_esm1==2)||(id_variable_cursor_actual=='var_no_entrevista' && rta_ud.var_no_entrevista==1 )) && !rta_ud.var_entrea && rta_ud_tem.var_rol!='ingresador'){
                 rta_ud.var_entrea=2;
                 elemento_existente('var_entrea').value=rta_ud.var_entrea;
             }
@@ -696,7 +696,7 @@ function meta_reemplazo_elemento(pk_ud, elemento){
       var nombre='..........';
       //var dia='........';
   }
-  if (pk_ud.tra_for=='SUP'&& (operativo_actual.substr(0,2)=='ut'||operativo_actual=='vcm2018') && pk_ud.tra_mat==''){ 
+  if (pk_ud.tra_for=='SUP'&& (operativo_actual.substr(0,2)=='ut'||operativo_actual=='vcm2018'||operativo_actual=='vcm2023') && pk_ud.tra_mat==''){ 
       var pk_uts=cambiandole(pk_ud,{tra_for:'S1',tra_mat:''});
       var rta_uts=otras_rta[JSON.stringify(pk_uts)];
       var numero_resp=rta_uts.var_respond;
@@ -1626,7 +1626,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                         for(var id_pk in pks_otros_botones) if( iterable(id_pk,pks_otros_botones)){ 
                             var datos_formulario=estructura.otros_datos_formulario[pks_otros_botones[id_pk].tra_for];
                             if (!datos_formulario.es_especial && 
-                              ( (operativo_actual.substr(0,2)!='ut' && operativo_actual!='vcm2018')||(  (operativo_actual.substr(0,2)=='ut'|| operativo_actual=='vcm2018') &&(  (pk_ud.tra_for!='SUP'&& pk_ud.tra_for!='S1')|| (pk_ud.tra_for=='SUP' && pks_otros_botones[id_pk].tra_for!='S1' && pks_otros_botones[id_pk].tra_for!='I1')|| (pk_ud.tra_for=='S1' && pks_otros_botones[id_pk].tra_for!='SUP') ) )  )
+                              ( (operativo_actual.substr(0,2)!='ut' && operativo_actual!='vcm2018' && operativo_actual!='vcm2023' )||(  (operativo_actual.substr(0,2)=='ut'|| operativo_actual=='vcm2018' ||  operativo_actual=='vcm2023') &&(  (pk_ud.tra_for!='SUP'&& pk_ud.tra_for!='S1')|| (pk_ud.tra_for=='SUP' && pks_otros_botones[id_pk].tra_for!='S1' && pks_otros_botones[id_pk].tra_for!='I1')|| (pk_ud.tra_for=='S1' && pks_otros_botones[id_pk].tra_for!='SUP') ) )  )
                               ){ 
                             str_nueva_fila+=boton_abre_formulario(pks_otros_botones[id_pk],num_renglon);
                             }
@@ -1740,7 +1740,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                 }                
             }
         }
-        if(formulario=='S1' && operativo_actual!='same2014' && operativo_actual!='ut2015'  && operativo_actual!='ut2016' && operativo_actual!='colon2015' && operativo_actual!='empav31' && operativo_actual!='eder2017' && operativo_actual!='vcm2018'){
+        if(formulario=='S1' && operativo_actual!='same2014' && operativo_actual!='ut2015'  && operativo_actual!='ut2016' && operativo_actual!='colon2015' && operativo_actual!='empav31' && operativo_actual!='eder2017' && operativo_actual!='vcm2018' && operativo_actual!='vcm2023'){
             var boton_general_A1=elemento_existente('boton_general_A1');
             boton_general_A1.innerHTML=boton_abre_formulario(cambiandole(pk_ud,{tra_for:'A1'}),'');
         }
@@ -1779,7 +1779,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
     modificado_db=false;
     grabar_si_es_necesario_o_seguir(!!sessionStorage['pantalla-especial-modifico-db']);
     sessionStorage['pantalla-especial-modifico-db']=false;
-    if((pk_ud.tra_ope=='same2014'|| pk_ud.tra_ope=='ut2015'|| pk_ud.tra_ope=='ut2016' || pk_ud.tra_ope=='vcm2018') && pk_ud.tra_for=='S1' && pk_ud.tra_mat==''){
+    if((pk_ud.tra_ope=='same2014'|| pk_ud.tra_ope=='ut2015'|| pk_ud.tra_ope=='ut2016' || pk_ud.tra_ope=='vcm2018' || pk_ud.tra_ope=='vcm2023') && pk_ud.tra_for=='S1' && pk_ud.tra_mat==''){
         var idboton='boton_I1__'+String(rta_ud.var_cr_num_miembro);
         if(document.getElementById(idboton)){
             habilitar_boton(idboton); 
@@ -1817,7 +1817,7 @@ function boton_abre_formulario(parametros,renglon){
 //        +" title='"+JSON.stringify(parametros)+","+JSON.stringify(ver_estado_ud(parametros))+","+JSON.stringify(color_estados_ud[ver_estado_ud(parametros)])+"' " 
         +" onclick='abrir_formulario("+JSON.stringify(parametros)+");'"+
         (soy_un_ipad?' tabindex="-1" ':'')+
-        " id='boton_"+parametros.tra_for+'_'+parametros.tra_mat+'_'+renglon+"'; "+((parametros.tra_for=='I1' && (operativo_actual=='same2014' ||  (operativo_actual.substr(0,2)=='ut' && parametros.tra_for!='SUP') ||  operativo_actual=='ut2016' || operativo_actual=='vcm2018'))?'disabled':'')+">";
+        " id='boton_"+parametros.tra_for+'_'+parametros.tra_mat+'_'+renglon+"'; "+((parametros.tra_for=='I1' && (operativo_actual=='same2014' ||  (operativo_actual.substr(0,2)=='ut' && parametros.tra_for!='SUP') ||  operativo_actual=='ut2016' || operativo_actual=='vcm2018' || operativo_actual=='vcm2023'))?'disabled':'')+">";
     return rta;
 }
 

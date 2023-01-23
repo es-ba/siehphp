@@ -82,7 +82,8 @@ class Tabla_tem extends Tabla{
         //$this->definir_campo('tem_periodicidad',array('tipo'=>'texto', 'largo'=>1));
         //a partir de eah2017  
         if ((substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'&& $GLOBALS['anio_operativo']>=2017 ) ||
-            (substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi'&& $GLOBALS['anio_operativo']>=2018 )){      
+            (substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi'&& $GLOBALS['anio_operativo']>=2018 )||
+            (substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'&& $GLOBALS['anio_operativo']=2023 )){      
             $this->definir_campo('tem_cant_participaciones',array('tipo'=>'entero'));
         };
         if ($GLOBALS['NOMBRE_APP']==='empa171') {
@@ -95,7 +96,7 @@ class Tabla_tem extends Tabla{
         };
         //a partir de etoi201
          if ( $GLOBALS['anio_operativo']>=2020 && 
-              ( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'||substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' || substr($GLOBALS['NOMBRE_APP'],0,5)=='preju')){ 
+              ( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'||substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' || substr($GLOBALS['NOMBRE_APP'],0,5)=='preju')|| substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'){ 
               $this->definir_campo('tem_codviviendaparticular',array('tipo'=>'texto','largo'=>1));               
               $this->definir_campo('tem_sector',array('tipo'=>'texto', 'largo'=>10));
               $this->definir_campo('tem_edificio',array('tipo'=>'texto','largo'=>30));

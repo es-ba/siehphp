@@ -397,9 +397,11 @@ JS
     function proceso_desplegar_s1(){
         return $this->proceso_desplegar_formulario('S1');
     }
+    /*
     function proceso_desplegar_a1(){
         return $this->proceso_desplegar_formulario('A1');
     }
+    */
     function proceso_desplegar_s1_p(){
         return $this->proceso_desplegar_formulario('S1','P');
     }
@@ -408,6 +410,9 @@ JS
     }    
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
+    }
+    function proceso_desplegar_sup_p(){
+        return $this->proceso_desplegar_formulario('SUP','P');
     }
     /*
     function proceso_desplegar_gh(){
@@ -816,7 +821,13 @@ JS
     }    
     function proceso_agregar_novedades(){
         return new Proceso_agregar_novedades();
-    }  
+    }
+    function preparar_scripts_iniciales(){
+        parent::preparar_scripts_iniciales();
+        $this->salida->agregar_js("seleccion_miembro.js");
+        $this->salida->agregar_js("seleccion_miembro_sup.js"); //descomentar para la supervision
+    }
+    /*
     function proceso_grilla_A1(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Preguntas abiertas del A1',
@@ -832,6 +843,7 @@ JS
             }
         ));
     }
+    */
     /*
     function proceso_grilla_A1_X_abiertas(){
         return new Proceso_generico(array(
@@ -892,6 +904,17 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_migracion',array('pla_m1'=>'#=2|pla_m1=3|pla_m1=4'),null,array());
+            }
+        ));
+    }
+     function proceso_grilla_vcm_norea(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Preguntas NoRea VCM',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'vcm_norea',array('pla_entrea'=>'#=2|=4'),null,array());
             }
         ));
     }
@@ -1093,9 +1116,11 @@ JS
     function proceso_eliminar_hogar(){
         return new Proceso_eliminar_hogar();
     }
+    /*
     function proceso_eliminar_formulario_a1(){
         return new Proceso_eliminar_formulario_a1();
     }
+    */
     function proceso_borrar_miembros_individuales(){
         return new Proceso_borrar_miembros_individuales();
     }
