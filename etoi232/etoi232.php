@@ -87,7 +87,7 @@ class Aplicacion_etoi232 extends Aplicacion_encuesta{
         $this->salida->cerrar_grupo_interno();
     }
     function obtener_titulo(){
-        return "E.T.O.I 231";
+        return "E.T.O.I 232";
     }
     function probar_aplicacion(){
     }
