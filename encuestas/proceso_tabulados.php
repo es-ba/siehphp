@@ -426,7 +426,7 @@ SQL;
             break;  
             case 'suma': 
                 $campos['pla_suma']=array('posicion'=>'arriba');
-                $campos['pla_cantidad'] = array('posicion'=>'centro', 'origen'=>$this->argumentos->tra_expandido?'round(sum(pla_'.$td->tab_columna."*{$pla_fexp})::numeric,{$DECIMALES})":'round(sum(pla_'.$td->tab_columna.")::numeric,{$DECIMALES})");
+                $campos['pla_cantidad'] = array('posicion'=>'centro', 'origen'=>$this->argumentos->tra_expandido?'round(sum(pla_'.$td->tab_columna."::numeric *{$pla_fexp})::numeric,{$DECIMALES})":'round(sum(pla_'.$td->tab_columna.")::numeric,{$DECIMALES})");
             break;  
             case 'mediana': 
                 $campos['pla_mediana']=array('posicion'=>'arriba');
@@ -627,7 +627,7 @@ SQL;
                         case 'suma':                     
                             $sql_columnas="select 'SUMA' as pla_suma ";
                             if($this->argumentos->tra_expandido){
-                                $sql_principio="select 'SUMA' as pla_suma, {$FRASE_TOTAL} as ".implode(','.$FRASE_TOTAL.' as ',$campos_fila).", round(sum(pla_".$td->tab_columna."*{$pla_fexp})::numeric,{$DECIMALES}) as pla_cantidad ".$junta." WHERE ".$campos_filtro." UNION ";
+                                $sql_principio="select 'SUMA' as pla_suma, {$FRASE_TOTAL} as ".implode(','.$FRASE_TOTAL.' as ',$campos_fila).", round(sum(pla_".$td->tab_columna."::numeric*{$pla_fexp})::numeric,{$DECIMALES}) as pla_cantidad ".$junta." WHERE ".$campos_filtro." UNION ";
                             }else{
                                 $sql_principio="select 'SUMA' as pla_suma, {$FRASE_TOTAL} as ".implode(','.$FRASE_TOTAL.' as ',$campos_fila).", round(sum(pla_".$td->tab_columna.")::numeric,{$DECIMALES}) as pla_cantidad ".$junta." WHERE ".$campos_filtro." UNION ";
                             }
