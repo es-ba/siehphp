@@ -70,15 +70,16 @@ SQL
                     $varNoRepetidas[]=$unavar;
                 }
             };
-            //Loguear('2022-12-07','Tenemos $datos_varcal '.json_encode($datos_varcal));
-            //Loguear('2022-12-07','-*od-------Tenemos $variables '.json_encode($variables));
+            Loguear('2023-03-17','*-------Tenemos $datos_varcal '.json_encode($datos_varcal));
+            Loguear('2022-03-17','*-------Tenemos $variables '.json_encode($variables));
             $this->vista->destino=$destino=$datos_varcal->destino;
             $this->vista->tipo=$tipo=$datos_varcal->tipo;
             $this->vista->listColumnAux=[$variable];
             $this->vista->listColumnAuxStr='';
             if(count($variables)>1){
-                $vista_varmae=$this->contexto->nuevo_objeto("Vista_varmae");     
-                foreach($variables as $varaux){
+                $vista_varmae=$this->contexto->nuevo_objeto("Vista_varmae");
+                $listaSelect=[];     
+                foreach($varNoRepetidas as $varaux){
                     if($varaux=='enc'){
                         continue;
                     }
@@ -87,6 +88,7 @@ SQL
                     }
                     if($datos_varcal->destino!='hog' ){ // REVISAR porque variables para hogar pueden involucrar variables del individual o de la matriz P
                             $this->vista->definir_campo("vis_$varaux",array('operacion'=>'concato_texto','origen'=>"distinct pla_$varaux::text"));
+                            $listaSelect[]=$varaux;
                     }else{
                         $vista_varmae->leer_uno_si_hay(array('varmae_ope'=>$GLOBALS['NOMBRE_APP'], 'varmae_var'=>$varaux ));
                         if($vista_varmae->obtener_leido()){
@@ -94,15 +96,16 @@ SQL
                                 $vista_varmae->datos->varmae_sufijodest==='A1_' or
                                 $vista_varmae->datos->varmae_sufijodest==='TEM_' or
                                 $vista_varmae->datos->varmae_sufijodest==='PMD_' ){
-                                    $this->vista->definir_campo("vis_$varaux",array('operacion'=>'concato_texto','origen'=>"distinct pla_$varaux::text"));    
+                                    $this->vista->definir_campo("vis_$varaux",array('operacion'=>'concato_texto','origen'=>"distinct pla_$varaux::text"));
+                                    $listaSelect[]=$varaux;
                             }        
                         } 
                     } 
                 }
             }
-            $this->vista->listColumnAux=array_merge($this->vista->listColumnAux,$varNoRepetidas);
+            $this->vista->listColumnAux=array_merge($this->vista->listColumnAux,$listaSelect);
             $xaux=implode(',',$this->vista->listColumnAux);
-            //Loguear('2022-12-07','-*od-------Tenemos $listColumnAux '.$xaux);
+            Loguear('2023-03-17','-*od-------Tenemos $listColumnAux '.$xaux);
             foreach(($this->vista->listColumnAux) as &$varaux){
                 $varaux='pla_'.$varaux;
             };
