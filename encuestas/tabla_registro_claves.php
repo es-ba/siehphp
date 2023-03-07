@@ -9,7 +9,7 @@ class Tabla_registro_claves extends Tabla{
         $this->definir_prefijo('regcla');
         $this->definir_esquema($GLOBALS['esquema_principal']);
         $this->definir_campo('regcla_ope',array('hereda'=>'operativos','modo'=>'pk','def'=>$GLOBALS['NOMBRE_APP'],'validart'=>'codigo'));
-        $this->definir_campo('regcla_usu',array('es_pk'=>true,'hereda'=>'usuarios','modo'=>'pk' /*,'def'=>$_SESSION["{$GLOBALS['NOMBRE_APP']}/{$GLOBALS['NOMBRE_DB']}_usu_usu"]*/)); //NOTA: comentar def para inst. de un nuevo operativo.
+        $this->definir_campo('regcla_usu',array('es_pk'=>true,'hereda'=>'usuarios','modo'=>'pk' ,'def'=>$_SESSION["{$GLOBALS['NOMBRE_APP']}/{$GLOBALS['NOMBRE_DB']}_usu_usu"])); //NOTA: comentar def para inst. de un nuevo operativo.
         $this->definir_campo('regcla_fecha',array('es_pk'=>true, 'tipo'=>'fecha','def'=>$ahora->format('Y-m-d')));
         $this->definir_campo('regcla_enc',array('es_pk'=>true,'tipo'=>'entero'));
         $this->definir_campo('regcla_pedido_recep',array('tipo'=>'texto','validart'=>'castellano'));

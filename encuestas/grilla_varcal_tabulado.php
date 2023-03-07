@@ -70,8 +70,8 @@ SQL
                     $varNoRepetidas[]=$unavar;
                 }
             };
-            Loguear('2023-03-17','*-------Tenemos $datos_varcal '.json_encode($datos_varcal));
-            Loguear('2022-03-17','*-------Tenemos $variables '.json_encode($variables));
+            //Loguear('2023-03-17','*-------Tenemos $datos_varcal '.json_encode($datos_varcal));
+            //Loguear('2022-03-17','*-------Tenemos $variables '.json_encode($variables));
             $this->vista->destino=$destino=$datos_varcal->destino;
             $this->vista->tipo=$tipo=$datos_varcal->tipo;
             $this->vista->listColumnAux=[$variable];
@@ -105,7 +105,7 @@ SQL
             }
             $this->vista->listColumnAux=array_merge($this->vista->listColumnAux,$listaSelect);
             $xaux=implode(',',$this->vista->listColumnAux);
-            Loguear('2023-03-17','-*od-------Tenemos $listColumnAux '.$xaux);
+            //Loguear('2023-03-17','-*od-------Tenemos $listColumnAux '.$xaux);
             foreach(($this->vista->listColumnAux) as &$varaux){
                 $varaux='pla_'.$varaux;
             };
