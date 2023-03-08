@@ -205,7 +205,7 @@ class Tablas_planas extends Objeto_de_la_base{
                 $tabla_plana=$this->contexto->nuevo_objeto("Tabla_plana_{$tra_for}_{$tra_mat}");
                 $tabla_plana->ejecutar_instalacion($con_dependientes);
         // } 
-         } 
+           } 
        }
     }
     function crear_jsones(){
