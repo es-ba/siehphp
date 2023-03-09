@@ -19,7 +19,7 @@ class Vista_verificador_supervision extends Vistas{
         $this->definir_campos_orden('varord_orden_total');
     }
     function clausula_from(){
-        $var_considerar=$GLOBALS['NOMBRE_APP']=='vcm2018'?"'cr_num_miembro'":"'respond'";
+        $var_considerar=substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'?"'cr_num_miembro'":"'respond'";
         return "respuestas rs 
                inner join variables vs on rs.res_var=vs.var_var and rs.res_ope=vs.var_ope and rs.res_for=vs.var_for
                inner join preguntas pr on vs.var_pre=pr.pre_pre and vs.var_ope=pr.pre_ope and vs.var_for=pr.pre_for               

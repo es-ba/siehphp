@@ -69,6 +69,7 @@ class Proceso_imprimir_hoja_de_ruta extends Proceso_Formulario{
             12=>'Diciembre',
         );
         global $hoy;
+        $nombreAppLow=$GLOBALS['NOMBRE_APP'];
         $numero_carga=null;
         $rol_texto = '';
         $this->inforol=Info_Rol::a_partir_de_sufijo($this->argumentos->tra_sufijo_rol);
@@ -458,10 +459,10 @@ SQL
                                  $datos=$cursor->fetchObject();
                                  $dato=$datos->resultado;                                                          
                             }else if($definicion[$i]=='telefono'){
-                                if(strtolower(substr($GLOBALS['NOMBRE_APP'],0,4))=='same'  ){
+                                if(substr($nombreAppLow,0,4)=='same'  ){
                                     $sentencia_select='tel1';
                                     $sentencia_from='left join encu.plana_i1_ i1 on t.pla_enc=i1.pla_enc';
-                                }elseif( strtolower(substr($GLOBALS['NOMBRE_APP'],0,2))=='ut' || strtolower($GLOBALS['NOMBRE_APP']=='vcm2018') ) {
+                                }elseif(substr($nombreAppLow,0,2)=='ut' || substr($nombreAppLow,0,3)=='vcm' ) {
                                     $sentencia_select='coalesce(pla_tel1,pla_tel2)';
                                     $sentencia_from='';
                                 }

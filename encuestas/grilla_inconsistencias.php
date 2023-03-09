@@ -9,12 +9,14 @@ class Grilla_inconsistencias extends Grilla_tabla{
     function iniciar($nombre_del_objeto_base){
         $this->nombre_grilla="inconsistencias";
         $this->tabla_o_vista=$this->tabla=$this->contexto->nuevo_objeto("Tabla_inconsistencias");
-        if($GLOBALS['nombre_app'] ==='colon2015'){
+        $this->nameApp=$GLOBALS['NOMBRE_APP'];
+        if($this->nameApp ==='colon2015'){
             $var_obs_s1='pla_obs';
         }else{
             $var_obs_s1='pla_s1a1_obs';                        
         };
-        if($GLOBALS['nombre_app'] ==='ut2015'||$GLOBALS['nombre_app'] ==='ut2016'|| $GLOBALS['nombre_app'] ==='vcm2018' ){
+        //if($GLOBALS['nombre_app'] ==='ut2015'||$GLOBALS['nombre_app'] ==='ut2016'|| $GLOBALS['nombre_app'] ==='vcm2018' ){
+        if(preg_match("/^(ut|vcm)/",$this->nameApp)==1){    
             $var_obs_i1='pla_observ';
         }else{
             $var_obs_i1='pla_obs';
@@ -47,7 +49,7 @@ SQL
 SQL
               =>false
         );
-        if (substr($GLOBALS['nombre_app'],0,4) ==='empa'){
+        if (substr($this->nameApp,0,4) ==='empa'){
             $this->tabla->campos_lookup["pla_sectorb as pla_sectorb"]=false;
             $this->var_empa_arr=array('pla_sectorb');
         }

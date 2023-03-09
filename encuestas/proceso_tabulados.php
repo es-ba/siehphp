@@ -89,7 +89,7 @@ class Proceso_tabulados extends Proceso_Formulario{
             $val_modo= ($_SESSION['modo_encuesta']=='ETOI')?$_SESSION['modo_encuesta']:$GLOBALS['NOMBRE_APP'];
             $existe_factor($hay_factor,'pla_ext_hog', 'pla_fexp',array('pla_modo'=>$val_modo), $this);  //modo_encuesta
             $vtitulo_modo=' - Modo '. $_SESSION['modo_encuesta'];
-        }elseif( $GLOBALS['NOMBRE_APP']=='vcm2018'){
+        }elseif( substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'){
             $existe_factor($hay_factor,'plana_s1_', 'pla_fexpind',array(), $this);
         }
         else{
@@ -99,13 +99,13 @@ class Proceso_tabulados extends Proceso_Formulario{
         $hay_findividual=false;
         $opci_findividual=array();
         //if($GLOBALS['NOMBRE_APP']=='same2014'){
-        if(preg_match("/^(same2014|ut2016|vcm2018)$/", $GLOBALS['NOMBRE_APP'])==1){
+        if(preg_match("/^(same2014|ut2016|vcm2018|vcm2023)$/", $GLOBALS['NOMBRE_APP'])==1){
             // para ut2016 asumo que si hay pla_fexpind, tambien estan los otros factores
             $existe_factor($hay_findividual,'plana_s1_', 'pla_fexpind', array(),$this);
             if ($GLOBALS['NOMBRE_APP']=='same2014'){
                 $opci_findividual=array('individual','comun');
             }
-            elseif($GLOBALS['NOMBRE_APP']=='vcm2018'){
+            elseif(substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'){
                 $opci_findividual=array('individual');
             }
             else{
@@ -258,7 +258,7 @@ SQL
         //$DECIMALES=$tabla_tabulados->datos->tab_cel_tipo=='promedio'?0:1;
 //Factor Expansion  
         if($this->argumentos->tra_expandido){
-            if(preg_match("/^(same2014|ut2016|vcm2018)$/", $GLOBALS['NOMBRE_APP'])==1 && preg_match("/^(individual|ind. Lu a Vi|ind. Sa a Do)$/", $this->argumentos->tra_findividual)==1){
+            if(preg_match("/^(same2014|ut2016|vcm2018|vcm2023)$/", $GLOBALS['NOMBRE_APP'])==1 && preg_match("/^(individual|ind. Lu a Vi|ind. Sa a Do)$/", $this->argumentos->tra_findividual)==1){
                 switch($this->argumentos->tra_findividual){
                     case 'individual':
                         $pla_fexp='pla_fexpind';
