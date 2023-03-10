@@ -69,7 +69,7 @@ class Proceso_imprimir_hoja_de_ruta extends Proceso_Formulario{
             12=>'Diciembre',
         );
         global $hoy;
-        $nombreAppLow=$GLOBALS['NOMBRE_APP'];
+        $nombreAppLow=strtolower($GLOBALS['NOMBRE_APP']);
         $numero_carga=null;
         $rol_texto = '';
         $this->inforol=Info_Rol::a_partir_de_sufijo($this->argumentos->tra_sufijo_rol);
