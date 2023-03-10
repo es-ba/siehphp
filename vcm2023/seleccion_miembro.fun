@@ -7,7 +7,7 @@ revisar
 ##DETALLE
 
 ##PROVISORIO
-set search_path = encu, comun, public;
+set search_path = dbo,encu, comun, public;
 
 -- Function: dbo.seleccion_miembro(integer)
 
@@ -64,8 +64,9 @@ BEGIN
        where pla_enc=p_enc 
             and pla_hog=p_hog 
             and pla_exm=0 
-            and((v_dominio is distinct from 5 and pla_edad between 18 and 999 and pla_sexo=2) or
-                (v_dominio=5 and coalesce(pla_l0,'') <>'')) ;
+           -- and((v_dominio is distinct from 5 and pla_edad between 18 and 999 and pla_sexo=2) or
+             --   (v_dominio=5 and coalesce(pla_l0,'') <>'')) ;--vcm2018
+            and (pla_edad between 18 and 999 and pla_sexo=2 and (vdominio=3 or (vdominio=5 and pla_lp=1))); --vcm2023
     if v_cantidad_candidatos>0 then
         -- obtenemos los miembros candidatos ordenador por edad
         v_numero_letra:=ascii('A');
@@ -76,8 +77,9 @@ BEGIN
                 where pla_enc=p_enc 
                     and pla_hog=p_hog
                     and pla_exm=0
-                    and ((v_dominio is distinct from 5 and pla_edad between 18 and 999 and pla_sexo=2) or
-                         (v_dominio=5 and coalesce(pla_l0,'') <>'')) 
+                  --  and ((v_dominio is distinct from 5 and pla_edad between 18 and 999 and pla_sexo=2) or
+                   --      (v_dominio=5 and coalesce(pla_l0,'') <>''))  --vcm2018
+                    and (pla_edad between 18 and 999 and pla_sexo=2 and (vdominio=3 or (vdominio=5 and pla_lp=1))) --vcm2023
                 order by pla_edad desc, /*case when dbo.es_fecha(comun.fechadma(pla_f_nac_d,pla_f_nac_m,pla_f_nac_a)::text)= 1 then dbo.texto_a_fecha(comun.fechadma(pla_f_nac_d,pla_f_nac_m,pla_f_nac_a)) else null end,*/ pla_mie
         LOOP
             v_miembros_ordenados[v_ubicacion]:=v_candidatos.pla_mie;
