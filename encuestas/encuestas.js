@@ -702,6 +702,7 @@ function meta_reemplazo_elemento(pk_ud, elemento){
       var numero_resp=rta_uts.var_respond;
       var nombre_resp=' '+rta_uts.var_nombrer+' ';
       var frealizac=' '+rta_uts.var_f_realiz_o+'   ';
+      var cantihogares=' '+rta_uts.var_total_h+' '; //agregada para SUP vcm2023
       var pk_utsp=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P', tra_mie:parseInt(numero_resp)});
       var rta_utsp=otras_rta[JSON.stringify(pk_utsp)];
       var p4miem=operativo_actual.substr(0,2)=='ut'?rta_utsp.var_p4:rta_utsp.var_p4r;
@@ -723,6 +724,7 @@ function meta_reemplazo_elemento(pk_ud, elemento){
       var relp_respi='........';
       var nombre_jefe='........';
       var frealizac='........';
+      var cantihogares='........';
   }
   var texto_anterior=elemento.textContent;
   var texto=texto_anterior;
@@ -734,6 +736,7 @@ function meta_reemplazo_elemento(pk_ud, elemento){
   texto=texto.replace(/@parenti1/g,relp_respi);
   texto=texto.replace(/@njefe/g,nombre_jefe);
   texto=texto.replace(/@frealiz/g,frealizac);
+  texto=texto.replace(/@cant_hogares/g,cantihogares);
   var pk_ud_tem=cambiandole(pk_ud,{tra_for:'TEM', tra_hog:0, tra_mie:0, tra_mat:'', tra_exm:0});
   rta_ud_tem=otras_rta[JSON.stringify(pk_ud_tem)];
   var semana_de_esta_encuesta=rta_ud_tem.copia_semana;
