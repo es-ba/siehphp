@@ -55,6 +55,8 @@ var urlsToCache = [
 '../encuestas/fondo_calendario.png',
 '../tercera/require-bro.js',
 '../service-worker-admin.js',
+seleccion_miembro.js,
+seleccion_miembro_sup.js,
 ];
   
 var fallback = [
