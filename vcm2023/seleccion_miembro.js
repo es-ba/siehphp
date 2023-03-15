@@ -58,7 +58,7 @@ function seleccionar_miembro(solo_controla,este){
         if (ud_este){
             uds_miembros[num_miembro]=ud_este;
            // if ((letra_manual && uds_miembros[num_miembro].var_l0) || (!letra_manual && ud_este.var_edad>=18 && ud_este.var_edad<=999 && ud_este.var_sexo==2)){ //vcm2018
-              if ( ud_este.var_edad>=18 && ud_este.var_edad<=999 && ud_este.var_sexo==2 && (dominio==3 || (dominio==5 && var_lp==1 ))){    
+              if ( ud_este.var_edad>=18 && ud_este.var_edad<=999 && ud_este.var_sexo==2 && (dominio==3 || (dominio==5 && ud_este.var_lp==1 ))){    
                 cant_candidatos=cant_candidatos+1;
                 en_rango.push({
                     edad:ud_este.var_edad, 
