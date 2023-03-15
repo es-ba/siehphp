@@ -53,7 +53,7 @@ BEGIN
                 'dbo.var_opcion_valida($$'||var_conopc||'$$,'||var_var||')' as postcondicion,
                 xcon_activa, 'Variable ' ||var_var ||' de opciones, con valor invalido' as con_explicacion, xcon_tipo, xcon_falsos_positivos, xcon_importancia, xcon_momento, xcon_grupo, xcon_gravedad, 1
             FROM encu.variables_ordenadas
-            WHERE var_ope=poperativo and var_for is distinct from 'SUP' and var_conopc is not null and var_var not like 'entrea%' and var_tipovar in ('opciones','si_no', 'si_no_nosabe3')
+            WHERE var_ope=poperativo and var_for is distinct from 'SUP' and var_conopc is not null and var_var not like 'entrea%' and var_tipovar <>'multiple_marcar'
             ORDER BY orden; 
             
         INSERT INTO encu.consistencias( con_ope,con_con,con_precondicion,con_rel,

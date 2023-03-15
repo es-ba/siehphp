@@ -36,7 +36,7 @@ BEGIN
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
         SELECT  var_ope, 'audi_nsnc_'||var_var, 'informado('||var_var||')' as precondicion, xcon_rel,
                 case when var_tipovar in ('anios','numeros','marcar_nulidad','edad','anio'
-                                        ,'horas','meses','si_no','opciones','monetaria', 'si_no_nosabe3' ) then
+                                        ,'horas','meses','si_no','opciones','monetaria', 'si_no_nosabe3','multiple_marcar' ) then
                          var_var ||'<> -1 and '||var_var ||'<> -9 and '||var_var ||'<> -5' 
                      else  --'observaciones','telefono','texto_especificar','fecha_corta','texto','fecha','texto_libre'
                          'not es_cadena_vacia('||var_var ||') and '||
