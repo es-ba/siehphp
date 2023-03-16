@@ -3275,7 +3275,7 @@ function desplegar_visitas_de_la_vivienda(){
         elemento_existente('div_principal').appendChild(editor.obtener_el_contenedor_dom());
         editor.cargar_grilla(document.body,false);
     }        
-    if(tiene_rol_subcoor_campo || tiene_rol_recepcionista || tiene_rol_procesamiento){
+    if( !soy_un_ipad && (tiene_rol_subcoor_campo || tiene_rol_recepcionista || tiene_rol_procesamiento )){
         setTimeout(function(){ 
             var div_aviso=document.createElement('div');
             div_aviso.textContent='cargando resultados de la supervisión ';
