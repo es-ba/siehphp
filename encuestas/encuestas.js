@@ -416,6 +416,11 @@ function enrango(pvalor, pinferior, psuperior){
     };    
     return res;
 }
+function round (valor, decimales) {
+    //https://es.stackoverflow.com/questions/48958/redondear-a-dos-decimales-cuando-sea-necesario
+    var factor = Math.pow(10, decimales);
+    return Math.round(valor * factor) / factor;
+  }
 function ver_estado_ud(id_ud_actual){
     var estado_este_ud={};
     if(localStorage.getItem("estado_ud_"+JSON.stringify(id_ud_actual))){
