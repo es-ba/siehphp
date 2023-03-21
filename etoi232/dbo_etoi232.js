@@ -443,3 +443,19 @@ dbo.largo_cadena=function(cvalor){
 dbo.sin_dato_horario_tel=function(p_horario){
     return (p_horario == null || p_horario.indexOf('true')==-1);
 };
+dbo.sitconyjefe=function(encues,nhogar){ //a apartir de eah2019 se renombra estadojefe poe sitconyjefe
+    var nro_mie=1;
+    var ud_este;
+    var pk_este=cambiandole(pk_ud,{tra_for:'S1', tra_mat:'P', tra_enc:encues, tra_hog:nhogar, tra_mie:nro_mie}); // queda:mie es una dbo
+    ud_este=otras_rta[JSON.stringify(pk_este)];
+    while(ud_este || ud_este!=undefined){
+        if(ud_este.var_p4==1){
+            return ud_este.var_p5;    // queda:mie es una dbo
+        }
+        nro_mie++;
+        pk_este=cambiandole(pk_este,{tra_mie:nro_mie}); // queda:mie es una dbo
+        ud_este=otras_rta[JSON.stringify(pk_este)];
+    }
+    return 0;
+};
+
