@@ -704,24 +704,34 @@ function meta_reemplazo_elemento(pk_ud, elemento){
   if (pk_ud.tra_for=='SUP'&& (operativo_actual.substr(0,2)=='ut'||operativo_actual=='vcm2018'||operativo_actual=='vcm2023') && pk_ud.tra_mat==''){ 
       var pk_uts=cambiandole(pk_ud,{tra_for:'S1',tra_mat:''});
       var rta_uts=otras_rta[JSON.stringify(pk_uts)];
+      var entrea_resp=rta_uts.var_entrea;
       var numero_resp=rta_uts.var_respond;
       var nombre_resp=' '+rta_uts.var_nombrer+' ';
       var frealizac=' '+rta_uts.var_f_realiz_o+'   ';
       var cantihogares=' '+rta_uts.var_total_h+' '; //agregada para SUP vcm2023
       var pk_utsp=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P', tra_mie:parseInt(numero_resp)});
       var rta_utsp=otras_rta[JSON.stringify(pk_utsp)];
-      var p4miem=operativo_actual.substr(0,2)=='ut'?rta_utsp.var_p4:rta_utsp.var_p4r;
-      var relp_resp=operativo_actual.substr(0,2)=='ut'?' '+texto_parentesco[p4miem-1]+' ':' '+texto_parentesco_vcm[p4miem-1]+' ';
-      var pk_utsj=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P', tra_mie: 1});
-      var rta_utsj=otras_rta[JSON.stringify(pk_utsj)];
-      var nombre_jefe=operativo_actual.substr(0,2)=='ut'?' '+rta_utsj.var_nombre+' ':'........';
-      //a futuro si se sigue utilizando se puede hacer una función para recuperar esta información.
-      var numero_respi=rta_uts.var_cr_num_miembro;
-      var pk_utspi=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P', tra_mie:parseInt(numero_respi)});
-      var rta_utspi=otras_rta[JSON.stringify(pk_utspi)];
-      var nombre_respi=' '+rta_utspi.var_nombre+' ';
-      var p4_imie=operativo_actual.substr(0,2)=='ut'?rta_utspi.var_p4:rta_utspi.var_p4r;
-      var relp_respi=operativo_actual.substr(0,2)=='ut'?' '+texto_parentesco[p4_imie-1]+' ':texto_parentesco_vcm[p4_imie-1]+' ';
+      if (entrea_resp==1) {
+        var p4miem=operativo_actual.substr(0,2)=='ut'?rta_utsp.var_p4:rta_utsp.var_p4r;
+        var relp_resp=operativo_actual.substr(0,2)=='ut'?' '+texto_parentesco[p4miem-1]+' ':' '+texto_parentesco_vcm[p4miem-1]+' ';
+        var pk_utsj=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P', tra_mie: 1});
+        var rta_utsj=otras_rta[JSON.stringify(pk_utsj)];
+        var nombre_jefe=operativo_actual.substr(0,2)=='ut'?' '+rta_utsj.var_nombre+' ':'........';
+         //a futuro si se sigue utilizando se puede hacer una función para recuperar esta información.
+        var numero_respi=rta_uts.var_cr_num_miembro;
+        var pk_utspi=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P', tra_mie:parseInt(numero_respi)});
+        var rta_utspi=otras_rta[JSON.stringify(pk_utspi)];
+        var nombre_respi=' '+rta_utspi.var_nombre+' ';
+        var p4_imie=operativo_actual.substr(0,2)=='ut'?rta_utspi.var_p4:rta_utspi.var_p4r;
+        var relp_respi=operativo_actual.substr(0,2)=='ut'?' '+texto_parentesco[p4_imie-1]+' ':texto_parentesco_vcm[p4_imie-1]+' ';
+      }else{
+        var nombre_resp='........';
+        var relp_resp='........';
+        var nombre_respi='........';
+        var relp_respi='........';   
+        var nombre_jefe='........'; 
+        var frealizac='........';
+      }         
   }else{
       var nombre_resp='........';
       var relp_resp='........';
@@ -2934,6 +2944,7 @@ function desplegar_hoja_de_ruta_uvi(){
             if (in_array('completa_norea', todos_los_estados_de_esta_encuesta)){
                 estado_encuesta='completa_norea';
             } else if (hay_for['S1']&&hay_for['S1_P']&&hay_for['A1']&&hay_for['I1']) /*else if (hay_for['S1']&&hay_for['S1_P']&&(hay_for['A1']||/ut(\d)+/.test((operativo_actual)))&&hay_for['I1'])*/{
+              // else if (hay_for['S1']&&hay_for['S1_P']&& (hay_for['A1'] ||operativo_actual=='vcm2023') &&hay_for['I1']) /*else if (hay_for['S1']&&hay_for['S1_P']&&(hay_for['A1']||/ut(\d)+/.test((operativo_actual)))&&hay_for['I1'])*/{
                     estado_encuesta='completa_ok';
                     if (in_array('incompleta', todos_los_estados_de_esta_encuesta)){
                         estado_encuesta='incompleta';

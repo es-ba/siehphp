@@ -50,14 +50,15 @@ function seleccionar_miembro_sup(solo_controla,este){
     var otra_ud_tem=JSON.stringify(pk_tem);
     var ud_este_tem=JSON.parse(localStorage.getItem("ud_"+otra_ud_tem));
     var dominio= ud_este_tem.copia_dominio;
-    var letra_manual=dominio==5;
+   // var letra_manual=dominio==5;
     for(var num_miembro=1; num_miembro<=100; num_miembro++){    
         var pk_este=cambiandole(pk_ud,{tra_for:'SUP', tra_mat:'P', tra_mie:num_miembro}); // queda:mie es una dbo
         var otra_ud=JSON.stringify(pk_este);
         var ud_este=JSON.parse(localStorage.getItem("ud_"+otra_ud));
         if (ud_este){
             uds_miembros[num_miembro]=ud_este;
-            if ((letra_manual && uds_miembros[num_miembro].var_sv_l0) || (!letra_manual && ud_este.var_sv_edad>=18 && ud_este.var_sv_edad<=999 && ud_este.var_sv_sexo==2)){
+          //  if ((letra_manual && uds_miembros[num_miembro].var_sv_l0) || (!letra_manual && ud_este.var_sv_edad>=18 && ud_este.var_sv_edad<=999 && ud_este.var_sv_sexo==2)){ //vcm2018
+              if ( ud_este.var_sv_edad>=18 && ud_este.var_sv_edad<=999 && ud_este.var_sv_sexo==2 && dominio==3 ){ //vcm2023  no hay supervision dominio 5   
                 cant_candidatos=cant_candidatos+1;
                 en_rango.push({
                     edad:ud_este.var_sv_edad, 
@@ -110,7 +111,7 @@ function seleccionar_miembro_sup(solo_controla,este){
         for(var cada_miembro_sorteado in en_rango){
             var num_miembro_sorteado=en_rango[cada_miembro_sorteado].num;  
             LetraMiembro[letra]=num_miembro_sorteado;
-            if(!letra_manual){
+            //if(!letra_manual){
                 if(solo_controla){                
                     control=control && uds_miembros[num_miembro_sorteado].var_sv_l0==letra;                
                 }else{                
@@ -136,7 +137,7 @@ function seleccionar_miembro_sup(solo_controla,este){
                         });
                     }
                 }
-            }
+            //}
             letra=String.fromCharCode(letra.charCodeAt(0)+1);        
         }
         var encuesta=String(pk_ud.tra_enc);
