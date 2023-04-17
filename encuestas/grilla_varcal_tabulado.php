@@ -63,7 +63,7 @@ SQL
         }
         $this->vista->listColumnAux=[];
         if($datos_varcal){
-            $variables=expresion_regular_extraer_variables($datos_varcal->variables);
+            $variables=expresion_regular_extraer_variables(strtolower($datos_varcal->variables));
             $varNoRepetidas=[];
             foreach($variables  as $unavar ){
                 if(!in_array($unavar,$varNoRepetidas)){
