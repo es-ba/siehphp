@@ -76,9 +76,9 @@ SQL
             $this->vista->tipo=$tipo=$datos_varcal->tipo;
             $this->vista->listColumnAux=[$variable];
             $this->vista->listColumnAuxStr='';
-            if(count($variables)>1){
+            $listaSelect=[];     
+            if(count($varNoRepetidas)>=1){
                 $vista_varmae=$this->contexto->nuevo_objeto("Vista_varmae");
-                $listaSelect=[];     
                 foreach($varNoRepetidas as $varaux){
                     if($varaux=='enc'){
                         continue;
@@ -104,7 +104,7 @@ SQL
                 }
             }
             $this->vista->listColumnAux=array_merge($this->vista->listColumnAux,$listaSelect);
-            $xaux=implode(',',$this->vista->listColumnAux);
+            //$xaux=implode(',',$this->vista->listColumnAux);
             //Loguear('2023-03-17','-*od-------Tenemos $listColumnAux '.$xaux);
             foreach(($this->vista->listColumnAux) as &$varaux){
                 $varaux='pla_'.$varaux;
