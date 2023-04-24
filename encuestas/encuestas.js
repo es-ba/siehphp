@@ -2943,8 +2943,8 @@ function desplegar_hoja_de_ruta_uvi(){
             log_pantalla_principal('revisando los estados');
             if (in_array('completa_norea', todos_los_estados_de_esta_encuesta)){
                 estado_encuesta='completa_norea';
-            } else if (hay_for['S1']&&hay_for['S1_P']&&hay_for['A1']&&hay_for['I1']) /*else if (hay_for['S1']&&hay_for['S1_P']&&(hay_for['A1']||/ut(\d)+/.test((operativo_actual)))&&hay_for['I1'])*/{
-              // else if (hay_for['S1']&&hay_for['S1_P']&& (hay_for['A1'] ||operativo_actual=='vcm2023') &&hay_for['I1']) /*else if (hay_for['S1']&&hay_for['S1_P']&&(hay_for['A1']||/ut(\d)+/.test((operativo_actual)))&&hay_for['I1'])*/{
+            //} else if (hay_for['S1']&&hay_for['S1_P']&&hay_for['A1']&&hay_for['I1']) /*else if (hay_for['S1']&&hay_for['S1_P']&&(hay_for['A1']||/ut(\d)+/.test((operativo_actual)))&&hay_for['I1'])*/{
+            } else if (hay_for['S1']&& hay_for['S1_P']&& (hay_for['A1'] ||operativo_actual=='vcm2023') && hay_for['I1']) {
                     estado_encuesta='completa_ok';
                     if (in_array('incompleta', todos_los_estados_de_esta_encuesta)){
                         estado_encuesta='incompleta';
