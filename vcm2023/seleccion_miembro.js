@@ -1,5 +1,5 @@
 "use strict";
-var version_js_seleccion_miembro='v 3.07';
+var version_js_seleccion_miembro='v 3.07a';
 
 var tabla_aleatoria_miembro=[
     'AAAAAAAAAA',

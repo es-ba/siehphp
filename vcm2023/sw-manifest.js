@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.07';
+var version = 'v 3.07a';
 var appName = 'vcm2023_test';
 var urlsToCache = [
 '../vcm2023/vcm2023_icon.png',
