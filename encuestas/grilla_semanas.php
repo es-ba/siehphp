@@ -21,14 +21,14 @@ class Grilla_semanas extends Grilla_tabla{
         return $this->ordenar_campos_a_listar(array('sem_sem'));
     }
     function puede_insertar(){
-        return tiene_rol('programador','coor_campo');
+        return tiene_rol('programador')||tiene_rol('coor_campo');
     }
     function puede_eliminar(){
         return tiene_rol('programador');
     }
     function campos_editables($filtro_para_lectura){
         $editables=array();
-        if(tiene_rol('programador','coor_campo')){
+        if(tiene_rol('programador')|| tiene_rol('coor_campo')){
             $editables[]='sem_semana_referencia_desde';
             $editables[]='sem_semana_referencia_hasta';
             $editables[]='sem_30dias_referencia_desde';
