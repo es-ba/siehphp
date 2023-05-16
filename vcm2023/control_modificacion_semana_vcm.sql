@@ -13,7 +13,7 @@ AS $BODY$
             from encu.tiempo_logico join encu.sesiones on tlg_ses=ses_ses join encu.usuarios on usu_usu=ses_usu
             where tlg_tlg=new.pla_tlg;       
      if v_rol in ('programador','coor_campo', 'subcoor_campo') then    
-            if  new.pla_estado in (null, 18,19)  then
+            if  new.pla_estado in (null, 18,19,20)  then
                     new.pla_replica=new.pla_semana;
                     update encu.tem set tem_semana=new.pla_semana, tem_replica=new.pla_semana
                       where tem_enc=new.pla_enc ;
