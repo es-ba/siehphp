@@ -30,7 +30,6 @@ class Grilla_respuestas_para_proc_s1 extends Grilla_respuestas{
     }
 }
 
-
 class Grilla_vcm_migracion extends Grilla_respuestas_para_proc_s1{
     function __construct(){
         parent::__construct();
@@ -59,7 +58,7 @@ class Grilla_vcm_migracion extends Grilla_respuestas_para_proc_s1{
     }
     function campos_a_listar($filtro_para_lectura){
         return array_merge(array('pla_enc', 'pla_hog','pla_mie',
-            't_bolsa','t_estado', 't_cod_anacon','t_fin_anacon','t_etapa_pro','pla_sexo', 'pla_edad'),
+            't_bolsa','t_estado', 't_cod_anacon','t_fin_anacon','t_etapa_pro','pla_sexo', 'pla_edad','pla_lp','pla_l0'),
             $this->filtrar_campos_del_operativo(array('pla_m1', 'pla_m1_esp2', 'pla_m1_esp3','pla_m1_esp4', 
              'pla_obs_grilla_mi_s1p'))
         );

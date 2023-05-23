@@ -896,14 +896,14 @@ JS
             }
         ));
     }
-    function proceso_grilla_I1_migracion(){
+    function proceso_grilla_vcm_migracion(){
         return new Proceso_generico(array(
-            'titulo'=>'Grilla de Preguntas abiertas del I1 migración',
+            'titulo'=>'Grilla de Preguntas abiertas de migración VCM',
             'permisos'=>array('grupo'=>'procesamiento'),
             'submenu'=>'procesamiento',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'I1_migracion',array('pla_m1'=>'#=2|pla_m1=3|pla_m1=4'),null,array());
+                enviar_grilla($este->salida,'vcm_migracion',array('pla_m1'=>'#=2|pla_m1=3|pla_m1=4'),null,array());
             }
         ));
     }
