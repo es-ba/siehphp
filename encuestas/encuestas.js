@@ -351,6 +351,12 @@ dbo.comprobarSiBisisesto=function(annio){
         return false;
     }
 };
+dbo.semana_enc=function(encues){
+    var pk_ud_tem=cambiandole(pk_ud,{tra_for:'TEM', tra_hog:0, tra_mie:0, tra_mat:'', tra_exm:0});
+    var rta_ud_tem=otras_rta[JSON.stringify(pk_ud_tem)];
+    var semana_encuesta=rta_ud_tem?rta_ud_tem.copia_semana:null;
+    return semana_encuesta;
+};
 dbo.nsnc=function(valor){
     if(valor===null){
         return false;
