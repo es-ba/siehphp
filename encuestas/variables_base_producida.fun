@@ -103,7 +103,7 @@ BEGIN
             end if;
             v_join_pla_ext_hog=' inner join encu.pla_ext_hog x on x.pla_enc= s1.pla_enc and x.pla_hog= s1.pla_hog and x.pla_modo='''|| val_modo ||'''';
         end if;
-       CASE WHEN ( (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa'  ) and v_var_seleccionadas.table_name = 'plana_s1_') or v_var_seleccionadas.table_name = 'plana_a1_' and v_var_seleccionadas.var_bu<>'pla_exm'
+       CASE WHEN ( (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' or substr(dbo.ope_actual(),1,3)='vcm' ) and v_var_seleccionadas.table_name = 'plana_s1_') or v_var_seleccionadas.table_name = 'plana_a1_' and v_var_seleccionadas.var_bu<>'pla_exm'
          THEN CASE WHEN v_var_seleccionadas.pre_blo = 'Viv'
                 THEN v_var_bu = 'v.'||v_var_seleccionadas.var_bu;
                 ELSE v_var_bu = 'a.'||v_var_seleccionadas.var_bu;
@@ -113,6 +113,10 @@ BEGIN
        END CASE;
        IF v_var_bu='pla_exm' THEN
          v_var_bu:='a1_x.pla_exm';
+       END IF;
+	     /* solución provisoria: para caso en que se elija pla_obs del I1 es necesario ponerle un alias*/
+	     IF (v_var_bu='pla_obs' and v_var_seleccionadas.table_name='plana_i1_') THEN
+         v_var_bu:='i1.pla_obs';
        END IF;
        v_tipo:=v_var_seleccionadas.var_tipo;
        v_sindato:=v_var_seleccionadas.baspro_cambiar_sindato_por;
@@ -180,7 +184,7 @@ BEGIN
        END IF;  
     END LOOP;
     IF p_base='basehogar' THEN 
-          CASE WHEN (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' )  THEN
+          CASE WHEN (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' or substr(dbo.ope_actual(),1,3)='vcm' )  THEN
             v_clausula:=' from encu.plana_s1_ as a
                          inner join encu.plana_tem_ t on a.pla_enc=t.pla_enc
                          LEFT JOIN encu.plana_s1_ v ON a.pla_enc = v.pla_enc AND 1 = v.pla_hog                         
@@ -206,9 +210,9 @@ BEGIN
                     inner join encu.plana_i1_ i1 on s1_p.pla_enc=i1.pla_enc and s1_p.pla_hog=i1.pla_hog and s1_p.pla_mie=i1.pla_mie
                     inner join encu.plana_tem_ t on t.pla_enc=i1.pla_enc and t.pla_hog=0 and t.pla_mie=0
                     left join encu.plana_s1_ s1 on s1_p.pla_enc=s1.pla_enc and s1_p.pla_hog=s1.pla_hog
-                        left join encu.'||case when (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' ) then 'plana_s1_' else 'plana_a1_' end
+                        left join encu.'||case when (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' or substr(dbo.ope_actual(),1,3)='vcm' ) then 'plana_s1_' else 'plana_a1_' end
                         ||' v  ON s1_p.pla_enc = v.pla_enc AND s1_p.pla_hog = v.pla_hog '
-                        ||case when (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' ) then ' left join encu.plana_s1_ a on s1_p.pla_enc = a.pla_enc AND s1_p.pla_hog = a.pla_hog ' else '' end||
+                        ||case when (dbo.ope_actual()= 'same2014' or substr(dbo.ope_actual(),1,2)= 'ut' or substr(dbo.ope_actual(),1,4)='empa' or substr(dbo.ope_actual(),1,3)='vcm' ) then ' left join encu.plana_s1_ a on s1_p.pla_enc = a.pla_enc AND s1_p.pla_hog = a.pla_hog ' else '' end||
                     v_join_pla_ext_hog ||    
                     ' where t.pla_estado between '||p_estado_desde||' and '||p_estado_hasta||v_filtro_sector||v_filtro_ue||'                        
                     order by 1,2,3,4  ';
