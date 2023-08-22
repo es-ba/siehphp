@@ -8,11 +8,12 @@ estructura_*.js
 
 *.backup
 *.dump
+*.bak
 
 ruta_principal*
 *local.*
 local*
 *.dsn
-configuracion_local
+configuracion_local*
 
 ajus/documentacion
