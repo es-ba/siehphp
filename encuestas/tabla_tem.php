@@ -23,7 +23,7 @@ class Tabla_tem extends Tabla{
         $this->definir_campo('tem_usp',array('tipo'=>'texto','largo'=>255));
         $this->definir_campo('tem_barrio',array('tipo'=>'texto','largo'=>255));
         $this->definir_campo('tem_ident_edif',array('tipo'=>'texto','largo'=>255, 'title' => 'TORRE O CUERPO'));
-        $this->definir_campo('tem_obs',array('tipo'=>'texto','largo'=>255, 'title' => 'OBSERVACIONES'));
+        $this->definir_campo('tem_obs',array('tipo'=>'texto','largo'=>500, 'title' => 'OBSERVACIONES'));
         $this->definir_campo('tem_frac_comun',array('tipo'=>'entero'));
         $this->definir_campo('tem_radio_comu',array('tipo'=>'entero'));
         $this->definir_campo('tem_mza_comuna',array('tipo'=>'entero'));
@@ -98,7 +98,7 @@ class Tabla_tem extends Tabla{
          if ( $GLOBALS['anio_operativo']>=2020 && 
               ( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'||substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' || substr($GLOBALS['NOMBRE_APP'],0,5)=='preju')|| substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'){ 
               $this->definir_campo('tem_codviviendaparticular',array('tipo'=>'texto','largo'=>1));               
-              $this->definir_campo('tem_sector',array('tipo'=>'texto', 'largo'=>10));
+              $this->definir_campo('tem_sector',array('tipo'=>'texto', 'largo'=>20));
               $this->definir_campo('tem_edificio',array('tipo'=>'texto','largo'=>30));
               $this->definir_campo('tem_entrada',array('tipo'=>'texto','largo'=>24));  
               $this->definir_campo('tem_usodomicilio',array('tipo'=>'entero'));               
