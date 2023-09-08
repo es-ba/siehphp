@@ -409,14 +409,15 @@ JS
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
     }
-    
+/*    
     function proceso_desplegar_pg1(){
         return $this->proceso_desplegar_formulario('PG1');
     }
     function proceso_desplegar_pg1_m(){
         return $this->proceso_desplegar_formulario('PG1','M');
     }
-    
+ 
+*/ 
     /*
     function proceso_desplegar_md(){
         return $this->proceso_desplegar_formulario('MD');
@@ -1202,7 +1203,7 @@ JS
     function proceso_borrar_miembros_individuales(){
         return new Proceso_borrar_miembros_individuales();
     }
-
+/*
     function proceso_borrar_mascotas(){
         return new Proceso_borrar_mascotas(); 
     }
@@ -1210,6 +1211,7 @@ JS
     function proceso_eliminar_formulario_pg1(){
         return new Proceso_eliminar_formulario_pg1(); 
     }
+*/    
    /*
     function proceso_eliminar_formulario_md(){
         return new Proceso_borrar_md();
