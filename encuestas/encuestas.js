@@ -1,7 +1,7 @@
 //UTF-8:SÍ
 "use strict";
 
-var version_js_encuestas='v 3.08';
+var version_js_encuestas='v 3.09';
 
 var operativo_actual;
 var anio_operativo;
