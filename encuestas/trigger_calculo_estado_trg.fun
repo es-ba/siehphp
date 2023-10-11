@@ -74,9 +74,9 @@ BEGIN
             from encu.plana_tem_
             where pla_enc=new.res_enc and pla_hog=new.res_hog and pla_mie=new.res_mie and pla_exm=new.res_exm; 
         if (v_rea_enc = 1 or dbo.norea_supervisable(v_norea_enc)) and v_dominio=3 then
-            if v_calculo_enc = 7 and coalesce(v_hog_tot,0)<=1 then
+            if v_calculo_enc = 8 and coalesce(v_hog_tot,0)<=1 then
                 v_aux_aleat_enc := '3';
-            elsif v_calculo_enc = 6 and v_rea_enc = 1 and coalesce(v_hog_tot,0)<=1 then
+            elsif v_calculo_enc = 7 and v_rea_enc = 1 and coalesce(v_hog_tot,0)<=1 then
                 v_aux_aleat_enc='4';
             else
                 v_aux_aleat_enc := null;
@@ -98,9 +98,9 @@ BEGIN
             from encu.plana_tem_
             where pla_enc=new.res_enc and pla_hog=new.res_hog and pla_mie=new.res_mie and pla_exm=new.res_exm;  
         if (v_rea_recu = 3 or dbo.norea_supervisable(v_norea_recu)) and v_dominio = 3 then
-            if v_calculo_recu =5 and 'si es la misma persona no hay supervision de campo'='x' then
+            if v_calculo_recu =4 and 'si es la misma persona no hay supervision de campo'='x' then
                 v_aux_aleat_recu := '3';
-            elsif v_calculo_recu = 4 and v_rea_recu = 3 then
+            elsif v_calculo_recu = 3 and v_rea_recu = 3 then
                 v_aux_aleat_recu := '4';
             else
                 v_aux_aleat_recu := null;
