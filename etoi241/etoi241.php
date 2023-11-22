@@ -143,7 +143,7 @@ JS
                         new Tabla_tipo_nov(),
                         new Tabla_planillas(), 
                         new Tabla_con_momentos(),
-                        //new Tabla_usuarios(),
+                       // new Tabla_usuarios(),
                         new Tabla_operativos(),
                         new Tabla_http_user_agent(),
                         //new Metadatos_etoi241(), /// aca inserta los metadatos corriendo '..\operaciones_etoi241\etoi241_dump.json'
@@ -179,10 +179,10 @@ JS
                                   '..\operaciones\insercion_tabla_roles.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_rol_rol.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_con_momentos.sql',//ok normalizado
-                                  '..\operaciones\insercion_tabla_usuarios.sql',//ok normalizado
+                                 // '..\operaciones\insercion_tabla_usuarios.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_operativos.sql',//ok normalizado
 //                                  '..\operaciones\insercion_tabla_claves.sql',
-                                  '..\operaciones\insercion_tabla_personal.sql',//ok normalizado
+                               //   '..\operaciones\insercion_tabla_personal.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_estados_ingreso.sql',//ok normalizado
                                   '..\operaciones\insercion_tabla_importancia.sql',//ok normalizado                       
                                   '..\operaciones\insercion_tabla_tipo_nov.sql',//ok normalizado        
