@@ -424,7 +424,7 @@ dbo.suma_auh_i3_13a_hog=function(p_enc,p_hog){
             ss=0;
             if(ud_este.var_i3_13==1){
                 if(ud_este.var_i3_13a>=0){
-                    ss=ud_este.var_i3a;
+                    ss=ud_este.var_i3_13a;
                 }else if(ud_este.var_i3_13a<0){
                     ss=1;                
                 }else{
