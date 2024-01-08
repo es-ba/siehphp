@@ -77,7 +77,7 @@ declare
   vVarProm text;
   vConexion text;
 begin
-  select dblink_connect('ipcba_conn' , 'host=10.32.3.38 port=5432 dbname=cvp_db user=sieh password=laclave') INTO vConexion;
+  select dblink_connect('ipcba_conn' , 'host=10.32.3.38 port=5432 dbname=ipc_db user=sieh password=laclave') INTO vConexion;
    --select par_periodo_ipcba into strict vPeriodo from encu.parametros;
    --RAISE notice 'SENTENCIA %', 'select * from cvp.transf_data where periodo=$$'||vPeriodo||'$$';   
   insert into  encu.valcan (pla_ope, pla_tlg) (select dbo.ope_actual(),1); 
