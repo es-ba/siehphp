@@ -395,6 +395,14 @@ dbo.cant_rango_edad=function(encues, nhogar, nedad1, nedad2){
     return cant;
 };
 // Hasta acá llegan las funciones dbo
+function ignorado(valor){
+    if(valor=="--"){ 
+        return true;
+    }else{
+       return false    
+    }
+}
+
 function nsnc(valor){
     if(valor===null){
         return false;
@@ -417,7 +425,9 @@ function negado(valor){
 }
 function enrango(pvalor, pinferior, psuperior){
     var res=0;
-    if (pvalor>=pinferior && pvalor<=psuperior){
+    var vinferior=nsnc(pinferior)?-9:(ignorado(pinferior)?-1:pinferior);
+    var vsuperior=nsnc(psuperior)?-9:(ignorado(psuperior)?-1:psuperior);
+    if (pvalor>=vinferior && pvalor<=vsuperior){
         res=1;
     };    
     return res;
