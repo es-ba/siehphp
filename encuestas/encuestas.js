@@ -425,9 +425,8 @@ function negado(valor){
 }
 function enrango(pvalor, pinferior, psuperior){
     var res=0;
-    var vinferior=nsnc(pinferior)?-9:(ignorado(pinferior)?-1:pinferior);
-    var vsuperior=nsnc(psuperior)?-9:(ignorado(psuperior)?-1:psuperior);
-    if (pvalor>=vinferior && pvalor<=vsuperior){
+    var vvalor=nsnc(pvalor)?-9:(ignorado(pvalor)?-1:pvalor);
+    if (vvalor>=pinferior && vvalor<=psuperior){
         res=1;
     };    
     return res;
