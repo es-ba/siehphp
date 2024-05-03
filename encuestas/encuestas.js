@@ -155,6 +155,12 @@ function ValidarOpcion(id_variable_cursor_actual,forzar){
                 rta_ud.var_entrea=2;
                 elemento_existente('var_entrea').value=rta_ud.var_entrea;
             }
+            //OJO CALCULO DE RESIDENTE 
+            if(operativo_actual=='eah2024' && ['var_r2','var_r3','var_r4','var_r7'].includes (id_variable_cursor_actual) /*(id_variable_cursor_actual=='var_r2' ||id_variable_cursor_actual=='var_r3'||id_variable_cursor_actual=='var_r4' ||id_variable_cursor_actual=='var_r7') */){ // OJO: CALCULO DE MIEMBRO RESIDENTE
+                rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4, rta_ud.var_r7);
+                elemento_existente('var_r0').value=rta_ud.var_r0;                
+               //determinar si falta agregarlo en otra ubicación y si se refresca el seteo cuando se cambian los valores de las variables involucradas
+            }    
             marcar_que_fue_modificado();
         }      
         var proximo=Validar_rta_ud(id_variable_cursor_actual);
@@ -914,6 +920,10 @@ function Validar_rta_ud(id_variable_cursor_actual){
             if(!variable_habilitada){
                 if(valor){
                     estados_rta_ud[var_actual]=estados_rta.ingreso_sobre_salto;
+                    /*OJO IF SOLO PARA CALCULO DE RESIDENTE Y COLOR DEL BOTON FORMULARIO QUEDE OK*/
+                    if(operativo_actual=='eah2024' && var_actual=='var_r0' ){
+                        estados_rta_ud[var_actual]=estados_rta.ok;
+                    }
                 }else if(preguntas_ud[var_actual].ocu_sal){
                     estados_rta_ud[var_actual]=estados_rta.salteada_ocultar;
                 }else{
@@ -1556,6 +1566,11 @@ function Llenar_rta_ud(formulario,matriz,invisible){
         copia_ud.copia_cantmen14=dbo.cant_menores(pk_ud.tra_enc, pk_ud.tra_hog,14);
         copia_ud.copia_cantmen65=dbo.cant_menores(pk_ud.tra_enc, pk_ud.tra_hog,65);
     }
+    if(pk_ud.tra_for=='S1' && pk_ud.tra_mat=='P' && pk_ud.tra_ope=='eah2024'){ // OJO: CALCULO DE MIEMBRO RESIDENTE
+        rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4, rta_ud.var_r7);  
+        //determinar si falta agregarlo en otra ubicación y si se refresca el seteo cuando se cambian los valores de las variables involucradas
+    }
+    
    // if(pk_ud.tra_ope==operativo_actual && ( (pk_ud.tra_for=='A1' && operativo_actual=='ppmulti' ) || (pk_ud.tra_for=='PMD' && operativo_actual=='eah2019') ) ){ // OJO: GENERALIZAR OPERATIVO
      if(pk_ud.tra_for=='PMD' && pk_ud.tra_ope==operativo_actual){
         var pk_ud_TEM_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'TEM', tra_mat:'', tra_hog:0, tra_mie:0, tra_exm:0}));
@@ -1842,15 +1857,35 @@ function Llenar_rta_ud(formulario,matriz,invisible){
         }
     }
     
+    /* PARA NO RESIDENTES DESHABILITAR BOTON FALTA COMPLETAR Y VER SI SE DESHABILITA EN CASILLEROS EL S1P
+    if((pk_ud.tra_ope=='eah2024' && pk_ud.tra_for=='I1' && pk_ud.tra_mat==''){ //OJO :DESHABILITAR I1 PARA NO RESIDENTES A COMPLETAR 
+        //BUSCAR EL VALOR DE R0
+        var idboton='boton_I1__'+String(rta_ud.var_r0);
+        if(document.getElementById(idboton)){
+            habilitar_boton(idboton);  // habilitar_boton(idboton, si_o_no, invisibilizar)
+    }
+    */
+}
+function calcular_residente(p_r2, p_r3, p_r4, p_r7) {
+    var  r0=  (p_r2==1 || p_r3==1 || p_r4==3 || p_r7==2 )?1:( ( (p_r2==undefined ||p_r2=="") && (p_r3==undefined||p_r3=="" ) && (p_r4==undefined ||p_r4=="")&& (p_r7==undefined ||p_r7=="") )?null:2 );
+    return r0;
 }
     
 function boton_abre_formulario(parametros,renglon){
+    /* OJO para eah2024 calculo de residente 
+    if (operativo_actual=='eah2024'){
+        var pk_ut=cambiandole(pk_ud,{tra_for:'S1',tra_mat:'P',tra_mie:renglon});
+        var pk_ut=otras_rta[JSON.stringify(pk_ut)];
+            var xr0=pk_ut?pk_ut.var_r0:null;
+    }  
+    
+    */
     var rta="<input type='button' value='"+((parametros.tra_mat=='X')?renglon:parametros.tra_mat||parametros.tra_for)+"'"
         +" style='background-color:"+color_estados_ud[ver_estado_ud(parametros)]+";' " 
 //        +" title='"+JSON.stringify(parametros)+","+JSON.stringify(ver_estado_ud(parametros))+","+JSON.stringify(color_estados_ud[ver_estado_ud(parametros)])+"' " 
         +" onclick='abrir_formulario("+JSON.stringify(parametros)+");'"+
         (soy_un_ipad?' tabindex="-1" ':'')+
-        " id='boton_"+parametros.tra_for+'_'+parametros.tra_mat+'_'+renglon+"'; "+((parametros.tra_for=='I1' && (operativo_actual=='same2014' ||  (operativo_actual.substr(0,2)=='ut' && parametros.tra_for!='SUP') ||  operativo_actual=='ut2016' || operativo_actual=='vcm2018' || operativo_actual=='vcm2023'))?'disabled':'')+">";
+        " id='boton_"+parametros.tra_for+'_'+parametros.tra_mat+'_'+renglon+"'; "+((parametros.tra_for=='I1' && (operativo_actual=='same2014' ||  (operativo_actual.substr(0,2)=='ut' && parametros.tra_for!='SUP') ||  operativo_actual=='ut2016' || operativo_actual=='vcm2018' || operativo_actual=='vcm2023'  /*||(operativo_actual=='eah2024' && xr0==2) */ ))?'disabled':'')+">";
     return rta;
 }
 
