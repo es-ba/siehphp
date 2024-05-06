@@ -1706,6 +1706,13 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                             if (matriz_p7==3 || matriz_p7==4 || (matriz_p7===null && copia_ud.copia_participacion!=1)){
                                 document.getElementById('boton_I1__'+num_renglon).disabled=true;                                
                             };
+                            /* OJO PARA DESHABILITAR BOTON I1 PARA NO RESIDENTES ËAH2024 */
+                            if(pk_ud.tra_ope=='eah2024') {
+                                var matriz_r0=matriz_renglon.var_r0;
+                                if (matriz_r0==2 || matriz_r0==null){
+                                    document.getElementById('boton_I1__'+num_renglon).disabled=true;  
+                                }                                  
+                            };
                             if(pk_ud.tra_ope=='eah2018' && pk_ud.tra_for=='S1' && pk_ud.tra_mat==''){
                                 var pk_ud_I1_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'I1', tra_mat:'', tra_mie:num_renglon, tra_exm:0}));
                                 var rta_ud_I1_json=localStorage.getItem("ud_"+pk_ud_I1_json);
