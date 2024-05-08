@@ -156,8 +156,8 @@ function ValidarOpcion(id_variable_cursor_actual,forzar){
                 elemento_existente('var_entrea').value=rta_ud.var_entrea;
             }
             //OJO CALCULO DE RESIDENTE 
-            if(operativo_actual=='eah2024' && ['var_r2','var_r3','var_r4','var_r7'].includes (id_variable_cursor_actual) /*(id_variable_cursor_actual=='var_r2' ||id_variable_cursor_actual=='var_r3'||id_variable_cursor_actual=='var_r4' ||id_variable_cursor_actual=='var_r7') */){ // OJO: CALCULO DE MIEMBRO RESIDENTE
-                rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4, rta_ud.var_r7);
+            if(operativo_actual=='eah2024' && ['var_r2','var_r3','var_r4', 'var_r5','var_r6','var_r7'].includes (id_variable_cursor_actual) /*(id_variable_cursor_actual=='var_r2' ||id_variable_cursor_actual=='var_r3'||id_variable_cursor_actual=='var_r4' ||id_variable_cursor_actual=='var_r7') */){ // OJO: CALCULO DE MIEMBRO RESIDENTE
+                rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4,rta_ud.var_r5,rta_ud.var_r6, rta_ud.var_r7);
                 elemento_existente('var_r0').value=rta_ud.var_r0;                
                //determinar si falta agregarlo en otra ubicación y si se refresca el seteo cuando se cambian los valores de las variables involucradas
             }    
@@ -1567,7 +1567,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
         copia_ud.copia_cantmen65=dbo.cant_menores(pk_ud.tra_enc, pk_ud.tra_hog,65);
     }
     if(pk_ud.tra_for=='S1' && pk_ud.tra_mat=='P' && pk_ud.tra_ope=='eah2024'){ // OJO: CALCULO DE MIEMBRO RESIDENTE
-        rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4, rta_ud.var_r7);  
+        rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4, rta_ud.var_r5, rta_ud.var_r6, rta_ud.var_r7);  
         //determinar si falta agregarlo en otra ubicación y si se refresca el seteo cuando se cambian los valores de las variables involucradas
     }
     
@@ -1709,9 +1709,11 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                             /* OJO PARA DESHABILITAR BOTON I1 PARA NO RESIDENTES ËAH2024 */
                             if(pk_ud.tra_ope=='eah2024') {
                                 var matriz_r0=matriz_renglon.var_r0;
-                                if (matriz_r0==2 || matriz_r0==null){
-                                    document.getElementById('boton_I1__'+num_renglon).disabled=true;  
-                                }                                  
+                                var id_boton_i1='boton_I1__'+num_renglon;
+                                var el_boton_i1= document.getElementById(id_boton_i1);
+                                if(el_boton_i1){
+                                    habilitar_boton(id_boton_i1,(matriz_r0==1));  
+                                }
                             };
                             if(pk_ud.tra_ope=='eah2018' && pk_ud.tra_for=='S1' && pk_ud.tra_mat==''){
                                 var pk_ud_I1_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'I1', tra_mat:'', tra_mie:num_renglon, tra_exm:0}));
@@ -1873,11 +1875,13 @@ function Llenar_rta_ud(formulario,matriz,invisible){
     }
     */
 }
-function calcular_residente(p_r2, p_r3, p_r4, p_r7) {
-    var  r0=  (p_r2==1 || p_r3==1 || p_r4==3 || p_r7==2 )?1:( ( (p_r2==undefined ||p_r2=="") && (p_r3==undefined||p_r3=="" ) && (p_r4==undefined ||p_r4=="")&& (p_r7==undefined ||p_r7=="") )?null:2 );
+function calcular_residente(p_r2, p_r3, p_r4, p_r5,p_r6,p_r7) {
+     //r4=1 y r4=2 ,r5=1, r6=4,5 r7=1 no residente   
+    var  r0=  (p_r2==1 || p_r3==1 || p_r4==3 || p_r7==2 )?1:(( p_r4==1||p_r4==2||p_r5==1||p_r6==4 ||p_r6==5||p_r7==1 )?2:null);
+      //  ( (p_r2==undefined ||p_r2=="") && (p_r3==undefined||p_r3=="" ) && (p_r4==undefined ||p_r4=="")&& (p_r7==undefined ||p_r7=="") )?null:2 );
     return r0;
 }
-    
+
 function boton_abre_formulario(parametros,renglon){
     /* OJO para eah2024 calculo de residente 
     if (operativo_actual=='eah2024'){
@@ -3561,9 +3565,23 @@ function desplegar_formularios_de_la_vivienda(){
                 }
                 log_pantalla_principal('por agregar el boton '+hogar+'+'+formulario+'+'+cual);
                 if (formulario !=='GH' ||( formulario=='GH' &&( (operativo_actual.substr(0,4)=='etoi' && parseInt(operativo_actual.substr(4))>=162 && parseInt(operativo_actual.substr(4))<=172 ) || (operativo_actual.substr(0,3)=='eah' && anio_operativo=='2016' ) ) && rta_ud_tem.copia_dominio==3)){                
-                    elemento_celda.appendChild(elemento_boton);
-                    elemento_celda=elemento_fila.insertCell(-1);
-                    elemento_celda.textContent=tabla[hogar][formulario][cual].leyenda;
+                    var inserta_boton=true;
+                    /* OJO PARA CALCULAR RESIDENTE Y DESHABILITAR EL BOTON I1 CUANDO CORRESPONDA */
+                    if (operativo_actual=='eah2024' && formulario=='I1') {
+                        var clave_S1_P=cambiandole(pk_ud,{tra_for:'S1', tra_mat:'P', tra_hog:Number(hogar), tra_mie:Number(cual), tra_exm:0});
+                        var pk_ud_S1_P_texto=JSON.stringify(clave_S1_P);                       
+                        var rta_ud_S1_P_json=localStorage.getItem("ud_"+pk_ud_S1_P_texto);
+                        var rta_ud_S1_P_mie=rta_ud_S1_P_json?JSON.parse(rta_ud_S1_P_json):{};
+                        log_pantalla_principal('rta_ud_S1_P_json '+rta_ud_S1_P_json);
+                        if(rta_ud_S1_P_mie.var_r0!=1){  
+                            inserta_boton=false;  
+                        }
+                    }
+                    if(inserta_boton) {  
+                       elemento_celda.appendChild(elemento_boton);
+                       elemento_celda=elemento_fila.insertCell(-1);
+                       elemento_celda.textContent=tabla[hogar][formulario][cual].leyenda;
+                    }   
                 }    
                 if (formulario==='S1'){
                 // leer ud_pk_destino y rescatar var_total_m para informarlo al lado del boton
