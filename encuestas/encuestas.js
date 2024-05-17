@@ -1715,7 +1715,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                                     habilitar_boton(id_boton_i1,(matriz_r0==1));  
                                 }
                             };
-                            if(pk_ud.tra_ope=='eah2018' && pk_ud.tra_for=='S1' && pk_ud.tra_mat==''){
+                            if(operativo_tiene_formulario(pk_ud.tra_ope, 'MD') && pk_ud.tra_for=='S1' && pk_ud.tra_mat==''){
                                 var pk_ud_I1_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'I1', tra_mat:'', tra_mie:num_renglon, tra_exm:0}));
                                 var rta_ud_I1_json=localStorage.getItem("ud_"+pk_ud_I1_json);
                                 var rta_ud_I1=rta_ud_I1_json?JSON.parse(rta_ud_I1_json):{};
@@ -4306,4 +4306,13 @@ function armar_mini_grilla_personas_y_norea(datos,elemento_cercano,mensaje){
     // div_vacio_abajo.textContent='.';
     div.vacio_abajo=vacio_abajo;
     return div;
+}
+
+function operativo_tiene_formulario(pOpe, pFor){
+    var vTiene=false;
+    //probar  if (pFor=='MD' && (/eah20(18|24)/.test(pOpe))){   
+    if (pFor=='MD' && (pOpe=='eah2018' ||pOpe=='eah2024')){ 
+        vTiene=true;
+    }
+    return vTiene;
 }

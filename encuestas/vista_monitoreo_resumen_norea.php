@@ -22,13 +22,14 @@ class Vista_monitoreo_resumen_norea extends Vistas{
         }
         $v_norea='pla_norea';
         $v_rea='pla_rea';
+        $NomAPP=$GLOBALS['NOMBRE_APP'];
         $condicion_en_campo = "pla_estado<69";
         $condicion_noacampo = "not $condicion_en_campo and $v_norea=97";
         $operativo_tiene_990=substr($GLOBALS['NOMBRE_APP'],0,4)=='same'?true:false;
         $operativo_tiene_99=substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'?true:false;
         $operativo_tiene_gh=((substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' && (int)(substr($GLOBALS['NOMBRE_APP'],4))>=162 && (int)(substr($GLOBALS['nombre_app'],4)) <=172) || (substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'&& $GLOBALS['anio_operativo']==2016) )?true:false;
         $operativo_tiene_pyg=$GLOBALS['NOMBRE_APP']=='eah2018'?true:false;
-        $operativo_tiene_md=$GLOBALS['NOMBRE_APP']=='eah2018'?true:false;
+        $operativo_tiene_md=$NomAPP=='eah2018'||$NomAPP=='eah2024'?true:false;
         $es_eah2014=$GLOBALS['NOMBRE_APP']=='eah2014'?true:false;
         $operativo_tiene_pmd=($GLOBALS['NOMBRE_APP']=='eah2019' || $GLOBALS['NOMBRE_APP']=='eah2021')?true:false;
         $this->con_campos_auditoria=false;
