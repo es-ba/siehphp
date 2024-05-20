@@ -418,10 +418,11 @@ JS
     }
  
 */ 
-    /*
+    
     function proceso_desplegar_md(){
         return $this->proceso_desplegar_formulario('MD');
     }
+    /*
     function proceso_desplegar_gh(){
         return $this->proceso_desplegar_formulario('GH');
     }
@@ -1212,11 +1213,11 @@ JS
         return new Proceso_eliminar_formulario_pg1(); 
     }
 */    
-   /*
+   
     function proceso_eliminar_formulario_md(){
         return new Proceso_borrar_md();
     }
-    
+    /*
     function proceso_eliminar_formulario_gh(){
         return new Proceso_eliminar_formulario_gh();
     }
