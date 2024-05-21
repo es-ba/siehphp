@@ -358,6 +358,23 @@ dbo.cant_s1p_x_hog=function(p_enc, p_hog){
         }
         return cant;        
 };
+dbo.cant_residentes=function(p_enc, p_hog){
+    var ud_este;
+    var cant=0;        
+    var nro_mie=1;
+    var pk_este=cambiandole(pk_ud,{tra_for:'S1', tra_mat:'P', tra_enc:p_enc, tra_hog:p_hog, tra_mie:nro_mie}); 
+    ud_este=otras_rta[JSON.stringify(pk_este)];
+    while (ud_este || ud_este!=undefined){
+        if(ud_este.var_r0==1){  
+            cant++;
+        }               
+        nro_mie++;
+        pk_este=cambiandole(pk_este,{tra_mie:nro_mie});
+        ud_este=otras_rta[JSON.stringify(pk_este)];
+    }
+    return cant;        
+};
+
 dbo.cant_i1_x_hog=function(p_enc, p_hog){
         var ud_este;
         var cant=0;        
