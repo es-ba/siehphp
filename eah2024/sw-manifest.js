@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.10a';
+var version = 'v 3.10b';
 var appName = 'eah2024_test';
 var urlsToCache = [
 '../eah2024/eah2024_icon.png',
@@ -42,6 +42,7 @@ var urlsToCache = [
 '../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"S1","tra_mat":"P"}',
 '../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"A1","tra_mat":""}',
 '../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"I1","tra_mat":""}',
+'../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"MD","tra_mat":""}',
 // '../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"PMD","tra_mat":""}',
 //'../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"PG1","tra_mat":""}',
 //'../eah2024/eah2024.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2024","tra_for":"PG1","tra_mat":"M"}',
