@@ -472,3 +472,16 @@ dbo.suma_auh_i3_13a_hog=function(p_enc,p_hog){
 dbo.largo_cadena=function(cvalor){ 
     return cvalor.length; 
 };
+dbo.nombrefamiliar=function(encues, nhogar, respond){
+    //var_nombre
+    if(!respond){
+        return null;
+    }
+    var pk_este=cambiandole(pk_ud,{tra_for:'S1', tra_mat:'P', tra_enc:encues, tra_hog:nhogar, tra_mie:respond}); 
+    var ud_este=otras_rta[JSON.stringify(pk_este)];
+    if (ud_este || ud_este!=undefined){
+        return ud_este.var_nombre;
+    }else{
+        return null;
+    }
+};
