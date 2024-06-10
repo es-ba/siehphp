@@ -29,3 +29,6 @@ ALTER TABLE encu.plana_i1_ ADD COLUMN pla_dd14 integer;
 ALTER TABLE encu.plana_i1_ ADD COLUMN pla_dd15 integer;
 ALTER TABLE encu.plana_i1_ ADD COLUMN pla_pd   integer;
 
+----arreglando filtros
+select * from encu.filtros;
+update encu.filtros set fil_destino='DD1' where  fil_fil='FILTRO9' and fil_destino='fin';
