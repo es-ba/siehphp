@@ -12,7 +12,10 @@ CREATE OR REPLACE FUNCTION dbo.trimestre_operativo_base()
   RETURNS integer AS
   $BODY$
     select case when substr(dbo.ope_actual(),1,4)='etoi' then substr(dbo.ope_actual(),7,1)::integer 
-                when substr(dbo.ope_actual(),1,3)='eah' then  4
+                when substr(dbo.ope_actual(),1,3)='eah' then
+                    case when dbo.anio()>=2024 then 3 -- a partir de 2024, eah cambia trimestre
+                         else 4
+                    end
                 else null
            end
   $BODY$           
