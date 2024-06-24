@@ -95,8 +95,8 @@ BEGIN
         SELECT v.var_var, v.var_optativa , v.var_expresion_habilitar
             INTO vsiguiente, vsig_optativa, vsig_expresion_habilitar
             FROM encu.variables_ordenadas v 
-                JOIN encu.variables_ordenadas x on x.var_ope=v.var_ope and x.orden<v.orden
-                               and x.pre_orden<=v.pre_orden and v.var_for=x.var_for
+                JOIN encu.variables_ordenadas x on x.var_ope=v.var_ope and v.var_for=x.var_for
+                               and x.var_siguiente=v.var_var
             WHERE x.var_var= vvar.sal_var  and x.var_ope=poperativo
             ORDER BY v.orden
             LIMIT 1; 
