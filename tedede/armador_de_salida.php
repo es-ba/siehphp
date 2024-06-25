@@ -106,13 +106,13 @@ class Armador_de_salida{
     <meta charset="UTF-8">
     <title>$agregar_al_titulo{$this->html_title}</title>
     <meta name="format-detection" content="telephone=no">
-    <link rel="manifest" crossorigin="use-credentials" href="$nombre_webmanifest">
+    <meta name='viewport' content='user-scalable=no, width=776'>   
 HTML;
 
     if($GLOBALS['soy_un_ipad']){
-        echo <<<HTML 
-            <meta name='viewport' content='user-scalable=no, width=776'> 
-        HTML;
+        echo <<<HTML
+           <link rel="manifest" crossorigin="use-credentials" href="$nombre_webmanifest">
+HTML;
     }
 
 //  <meta name='viewport' content='user-scalable=no, width=device-width'>
