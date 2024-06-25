@@ -107,11 +107,13 @@ class Armador_de_salida{
     <title>$agregar_al_titulo{$this->html_title}</title>
     <meta name="format-detection" content="telephone=no">
     <link rel="manifest" crossorigin="use-credentials" href="$nombre_webmanifest">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name='viewport' content='user-scalable=no, width=776'>
-
 HTML;
+
+    if($GLOBALS['soy_un_ipad']){
+        echo <<<HTML 
+            <meta name='viewport' content='user-scalable=no, width=776'> 
+        HTML;
+    }
 
 //  <meta name='viewport' content='user-scalable=no, width=device-width'>
 //	<script language="JavaScript" src="comunes.js"> </script>
