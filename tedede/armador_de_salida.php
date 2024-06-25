@@ -91,6 +91,14 @@ class Armador_de_salida{
             $estilos_body[]="background-image:url({$this->img_fondo});";
         }
         $poner_estilo_body="style='".implode("; ",$estilos_body)."'";
+        if($GLOBALS['esta_es_la_base_en_produccion']){
+            $entorno = 'prod';
+        }else if($GLOBALS['esta_es_la_base_de_capacitacion']){
+            $entorno = 'capa';
+        }else{
+            $entorno = 'test';
+        }
+        $nombre_webmanifest= "webmanifest_" $GLOBALS['nombre_app'] . "_". $entorno . ".webmanifest";
         echo <<<HTML
 <!DOCTYPE HTML>
 <html $poner_manifiesto lang="es">
@@ -98,6 +106,7 @@ class Armador_de_salida{
     <meta charset="UTF-8">
     <title>$agregar_al_titulo{$this->html_title}</title>
     <meta name="format-detection" content="telephone=no">
+    <link rel="manifest" crossorigin="use-credentials" href="$nombre_webmanifest">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name='viewport' content='user-scalable=no, width=776'>
