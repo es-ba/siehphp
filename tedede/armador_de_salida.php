@@ -98,7 +98,7 @@ class Armador_de_salida{
         }else{
             $entorno = 'test';
         }
-        $nombre_webmanifest= "webmanifest_" $GLOBALS['nombre_app'] . "_". $entorno . ".webmanifest";
+        $nombre_webmanifest= "webmanifest_" . $GLOBALS['nombre_app'] . "_". $entorno . ".webmanifest";
         echo <<<HTML
 <!DOCTYPE HTML>
 <html $poner_manifiesto lang="es">

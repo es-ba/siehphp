@@ -4,32 +4,32 @@
     "description": "Progressive Web App for eah2024 capa.",
     "icons": [
       {
-        "src": "./img-dm/eah2024-logo-dm-32capa.png",
+        "src": "./img-dm/eah2024-logo-dm-32_capa.png",
         "sizes": "32x32",
         "type": "image/png"
       },
       {
-        "src": "./img-dm/eah2024-logo-dm-48capa.png",
+        "src": "./img-dm/eah2024-logo-dm-48_capa.png",
         "sizes": "48x48",
         "type": "image/png"
       },
       {
-        "src": "./img-dm/eah2024-logo-dm-64capa.png",
+        "src": "./img-dm/eah2024-logo-dm-64_capa.png",
         "sizes": "64x64",
         "type": "image/png"
       },
       {
-        "src": "./img-dm/eah2024-logo-dm-72capa.png",
+        "src": "./img-dm/eah2024-logo-dm-72_capa.png",
         "sizes": "72x72",
         "type": "image/png"
       },
       {
-        "src": "./img-dm/eah2024-logo-dm-192capa.png",
+        "src": "./img-dm/eah2024-logo-dm-192_capa.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "./img-dm/eah2024-logo-dm-512capa.png",
+        "src": "./img-dm/eah2024-logo-dm-512_capa.png",
         "sizes": "512x512",
         "type": "image/png"
       }
