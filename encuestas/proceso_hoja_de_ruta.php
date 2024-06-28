@@ -6,6 +6,7 @@ require_once "procesos.php";
 class Proceso_hoja_de_ruta extends Proceso_Generico{
     function __construct($parametros=array()){
         $para_supervisor=!!@$parametros['para_supervisor'];
+        $GLOBALS['para_supervisor']=$para_supervisor;
         $parametros_proceso=array(
             'titulo'=>'Hoja de ruta',
             'permisos'=>null,
