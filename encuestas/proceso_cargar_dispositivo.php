@@ -6,7 +6,7 @@ require_once "procesos.php";
 class Proceso_cargar_dispositivo extends Proceso_Formulario{
     function __construct(){
         parent::__construct(array(
-            'titulo'=>'Cargar dispositivo (v 3.10d)',
+            'titulo'=>'Cargar dispositivo (v 3.11)',
             'submenu'=>PROCESO_INTERNO,
             'permisos'=>array('grupo'=>'recepcionista'),
             'para_produccion'=>false,
