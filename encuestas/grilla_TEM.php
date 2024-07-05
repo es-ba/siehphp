@@ -105,9 +105,10 @@ class Grilla_respuestas_para_proc extends Grilla_respuestas{
             "tem_estado"=>false,
             "tem_cod_anacon"=>false,
             "pla_etapa_pro"=>false,
+            "tem_semana"=>false,
         );
         $this->tabla->tablas_lookup=array(            
-            '(select pla_enc as tem_enc, pla_bolsa as tem_bolsa, pla_estado as tem_estado, pla_cod_anacon as tem_cod_anacon, pla_etapa_pro as pla_etapa_pro from plana_tem_) tem'=>'pla_enc=tem_enc',
+            '(select pla_enc as tem_enc, pla_bolsa as tem_bolsa, pla_estado as tem_estado, pla_cod_anacon as tem_cod_anacon, pla_etapa_pro as pla_etapa_pro, pla_semana as tem_semana from plana_tem_) tem'=>'pla_enc=tem_enc',
         );
     }
     function responder_grabar_campo(){

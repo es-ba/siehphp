@@ -11,11 +11,12 @@ class Grilla_S1 extends Grilla_respuestas_para_proc{
     function iniciar($nombre_del_objeto_base){
         parent::iniciar('S1_');
         $this->tabla->tablas_lookup["
-           (select pla_enc tem_enc, pla_rea , pla_comuna
+           (select pla_enc tem_enc, pla_rea , pla_comuna, pla_semana
            from plana_tem_   ) t
         "]="pla_enc=t.tem_enc ";
          $this->tabla->campos_lookup['pla_rea']=false;
          $this->tabla->campos_lookup['pla_comuna']=false;
+         $this->tabla->campos_lookup['pla_semana']=false;
     }
     function campos_editables($filtro_para_lectura){
         return array(
@@ -31,9 +32,9 @@ class Grilla_S1 extends Grilla_respuestas_para_proc{
         return false;
     }
     function campos_a_listar($filtro_para_lectura){        
-        return array_merge(array('pla_enc', 'pla_rea','pla_hog', 'pla_comuna','tem_estado',
+        return array_merge(array('pla_enc', 'pla_rea','pla_hog', 'pla_semana','pla_comuna','tem_estado',
                      'tem_bolsa','tem_cod_anacon'),
-          $this->filtrar_campos_del_operativo(array('pla_total_h','pla_telefono', 'pla_movil',  'pla_correo', 'pla_rmod','pla_s1a1_obs', 'pla_obs_grilla_s1' ))
+          $this->filtrar_campos_del_operativo(array('pla_total_h','pla_total_m','pla_total_r','pla_telefono', 'pla_movil',  'pla_correo', 'pla_rmod','pla_s1a1_obs', 'pla_obs_grilla_s1' ))
         );
     }
     function responder_grabar_campo(){

@@ -37,12 +37,14 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         $heredados=parent::campos_solo_lectura();
         $heredados[]='pla_enc';
         $heredados[]='pla_hog';
+        $heredados[]='tem_semana';
         $heredados[]='tem_bolsa';
         $heredados[]='tem_estado';
         $heredados[]='tem_cod_anacon';
         $heredados[]='pla_etapa_pro';
         $heredados[]='pla_v2';
         $heredados[]='pla_v5';
+        $heredados[]='pla_h1';
         $heredados[]='pla_h2'; 
         $heredados[]='pla_h2a'; 
         $heredados[]='pla_h3';  
@@ -76,6 +78,7 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         'pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1' ):array('pla_v1','pla_total_h','pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1') ;
         return array_merge(array('pla_enc',
         'pla_hog', 
+        'tem_semana',
         'tem_bolsa',
         'tem_estado',
         'tem_cod_anacon',
@@ -86,6 +89,7 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         'pla_v5',
         'pla_v5_esp',
         'pla_v12',
+        'pla_h1',
         'pla_h2',
         'pla_h2_esp',
         'pla_h2a',
