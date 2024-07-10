@@ -125,6 +125,7 @@ class Grilla_respuestas_para_proc_ind extends Grilla_respuestas{
     // OJO HAY QUE HACERLA HEREDAR DE Grilla_respuestas_para_proc
     function iniciar($nombre_del_objeto_base){
         parent::iniciar($nombre_del_objeto_base);
+        $tieneresidente=("{$GLOBALS['NOMBRE_APP']}"=='eah2024' ?'1':'0')=='1'? ' pla_r0 as s1_r0 ':' null as s1_r0'; 
         $this->tabla->campos_lookup=array(
             "s1_p_bolsa"=>true,
             "s1_p_estado"=>false,
@@ -142,12 +143,13 @@ class Grilla_respuestas_para_proc_ind extends Grilla_respuestas{
             "s1_p_etapa_pro"=>false,
             "s1_v1"=>false,            
             "s1_total_h"=>false,
+            "s1_r0"=>false,
         );
         $this->tabla->tablas_lookup=array(            
           "(select t.pla_bolsa as s1_p_bolsa, t.pla_estado as s1_p_estado, t.pla_cod_anacon as s1_p_cod_anacon, t.pla_fin_anacon as s1_p_fin_anacon, t.pla_etapa_pro as s1_p_etapa_pro, 
            t.pla_semana as s1_p_semana, t.pla_area as s1_p_area, t.pla_cod_enc as s1_p_cod_enc, t.pla_cod_recu as s1_p_cod_recu, t.pla_recepcionista as s1_p_recepcionista,
            p.pla_enc as s1_p_enc, p.pla_hog as s1_p_hog, p.pla_mie as s1_p_mie, p.pla_exm as s1_p_exm ,pla_sexo as s1_p_sexo, pla_edad as s1_p_edad, {$GLOBALS['PLA_F_NAC_O']} as s1_p_f_nac_o
-           , s1.pla_v1 as s1_v1, s1.pla_total_h as s1_total_h
+           , s1.pla_v1 as s1_v1, s1.pla_total_h as s1_total_h, $tieneresidente
                  from plana_s1_p p
                  inner join plana_tem_ t on t.pla_enc=p.pla_enc 
                  inner join plana_s1_ s1 on s1.pla_enc=p.pla_enc and s1.pla_hog=p.pla_hog
