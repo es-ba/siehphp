@@ -16,18 +16,24 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
         $heredados[]='s1_p_bolsa';
         $heredados[]='s1_p_estado';
         $heredados[]='s1_p_cod_anacon';
-        $heredados[]='s1_p_fin_anacon';
+        //$heredados[]='s1_p_fin_anacon';
         $heredados[]='s1_p_etapa_pro';
         $heredados[]='s1_p_semana';
         $heredados[]='pla_enc';
         $heredados[]='pla_hog';
         $heredados[]='pla_mie';
         $heredados[]='pla_exm';
+        if ("{$GLOBALS['NOMBRE_APP']}"=='eah2024') {
+           $heredados[]='s1_r0';
+        }
         $heredados[]='s1_p_sexo';
         $heredados[]='s1_p_edad';
         $heredados[]='pla_t7';
         $heredados[]='pla_t8';
         $heredados[]='pla_t11';
+        $heredados[]='pla_t11_1';
+        $heredados[]='pla_t28';
+        $heredados[]='pla_t30';
         $heredados[]='pla_t37sd';
         $heredados[]='pla_t38';
         $heredados[]='pla_t39'; 
@@ -87,6 +93,12 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
         $heredados[]='pla_i3_32';
         $heredados[]='pla_i3_32x';
         $heredados[]='pla_i3_13a';
+        $heredados[]='pla_i3_34';
+        $heredados[]='pla_i3_34x';
+        $heredados[]='pla_i3_35';
+        $heredados[]='pla_i3_35x';
+        $heredados[]='pla_i3_36';
+        $heredados[]='pla_i3_36x';
         return $heredados;
     }
     function permite_grilla_sin_filtro(){
@@ -94,11 +106,11 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
     }
     function campos_a_listar($filtro_para_lectura){
         return array_merge(array('pla_enc', 'pla_hog','pla_mie','s1_p_semana',
-                                's1_p_bolsa','s1_p_estado', 's1_p_cod_anacon','s1_p_fin_anacon','s1_p_etapa_pro',
+                                's1_p_bolsa','s1_p_estado', 's1_p_cod_anacon',/*'s1_p_fin_anacon',*/'s1_p_etapa_pro',
                                 's1_p_sexo', 's1_p_edad'),
-                $this->filtrar_campos_del_operativo(array(
-                    'pla_t7', 'pla_t8', 'pla_t8_otro','pla_t11', 'pla_t11_otro', 
-                    'pla_t18', 'pla_t23', 'pla_t24', 'pla_t25', 'pla_t26',
+                $this->filtrar_campos_del_operativo(array('s1_r0',
+                    'pla_t7', 'pla_t8', 'pla_t8_otro','pla_t11', 'pla_t11_otro', 'pla_t11_1', 'pla_t11_1otro',
+                    'pla_t18', 'pla_t23', 'pla_t24', 'pla_t25', 'pla_t26','pla_t28', 'pla_t30',
                     'pla_t37', 'pla_t37sd', 'pla_t38', 'pla_t39', 'pla_t39_barrio', 'pla_t39_partido','pla_t39_otro', 
                     'pla_t39_bis2', 'pla_t39_bis2_esp', 
                     //'pla_t40a',
@@ -110,6 +122,7 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
                     'pla_i4', 'pla_i6_2','pla_i6_3','pla_i6_4','pla_i6_5','pla_i6_6','pla_i6_7','pla_i6_8','pla_i6_9','pla_i6_10','pla_i6_10_esp',
                     'pla_i3_1','pla_i3_1x','pla_i3_2','pla_i3_2x','pla_i3_3','pla_i3_3x','pla_i3_4','pla_i3_4x','pla_i3_5','pla_i3_5x','pla_i3_6','pla_i3_6x','pla_i3_7','pla_i3_7x','pla_i3_13','pla_i3_13x','pla_i3_81','pla_i3_81x','pla_i3_82','pla_i3_82x','pla_i3_11','pla_i3_11x','pla_i3_31','pla_i3_31x','pla_i3_12','pla_i3_12x','pla_i3_10','pla_i3_10x','pla_i3_10_otro',
                     'pla_i3_13a','pla_i3_32','pla_i3_32x', 
+                    'pla_i3_34','pla_i3_34x','pla_i3_35','pla_i3_35x','pla_i3_36','pla_i3_36x',
                     'pla_obs','pla_check_pro_ti','pla_obs_grilla_ti'
                 )));
     }
