@@ -16,7 +16,7 @@ class Grilla_I1_salud extends Grilla_respuestas_para_proc_ind{
         $heredados[]='s1_p_bolsa';
         $heredados[]='s1_p_estado';
         $heredados[]='s1_p_cod_anacon';
-        $heredados[]='s1_p_fin_anacon';
+        //$heredados[]='s1_p_fin_anacon';
         $heredados[]='s1_p_etapa_pro';
         $heredados[]='s1_p_semana';
         $heredados[]='s1_p_sexo';
@@ -48,7 +48,7 @@ class Grilla_I1_salud extends Grilla_respuestas_para_proc_ind{
     }    
     function campos_a_listar($filtro_para_lectura){
         return array_merge(array('pla_enc', 'pla_hog','pla_mie',
-        's1_p_bolsa','s1_p_estado', 's1_p_cod_anacon','s1_p_fin_anacon','s1_p_etapa_pro','s1_p_semana',
+        's1_p_bolsa','s1_p_estado', 's1_p_cod_anacon',/*'s1_p_fin_anacon',*/'s1_p_etapa_pro','s1_p_semana',
         's1_p_sexo', 's1_p_edad'), 
             $this->filtrar_campos_del_operativo(array('s1_r0','pla_sn1_1', 'pla_sn1_1_esp', 'pla_sn1_7', 'pla_sn1_7_esp', 
             'pla_sn1_2', 'pla_sn1_2_esp', 'pla_sn1_3', 'pla_sn1_3_esp', 'pla_sn1_4', 'pla_sn1_4_esp', 
