@@ -1232,7 +1232,7 @@ JS
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'rama_ocupacion_covid19',
                 array(
-                     'tem_estado'=>'#>=77',
+                     's1_p_estado'=>'#>=77',
                 ),
                 null,array());
             }
