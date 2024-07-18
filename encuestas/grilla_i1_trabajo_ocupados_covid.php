@@ -63,6 +63,8 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
         $heredados[]='pla_ts1';
         $heredados[]='pla_ts2';
         $heredados[]='pla_ts3';
+        $heredados[]='pla_ta1';
+        $heredados[]='pla_ta4';
         $heredados[]='pla_i4';
         $heredados[]='pla_i7a';
         $heredados[]='pla_i7_bis';
@@ -102,6 +104,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
            $editables[]='pla_t40bis_b_otro'; 
            $editables[]='pla_t40bis_g6_otro'; 
            $editables[]='pla_t40bis_a3_4_esp';
+           $editables[]='pla_ta4_esp';
            $editables[]='pla_tu3a';
            $editables[]='pla_tu8a';
            $editables[]='pla_tso48b_esp';
@@ -113,15 +116,16 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
            $editables[]='pla_obs_grilla_ti_co1';
         }   
         return $editables;
-    }    
+    }  
+   
     function campos_a_listar($filtro_para_lectura){
-        $array2=("{$GLOBALS['NOMBRE_APP']}"!='eah2024')? array('pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro'):array();
+        $array2=("{$GLOBALS['NOMBRE_APP']}"!='eah2024')? array('pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro'):array('pla_t39');
         return array_merge(array('s1_p_semana','pla_enc', 'pla_hog','pla_mie',
                                 /*'pla_participacion',*/'s1_p_bolsa','s1_p_estado',
                                 /*'s1_p_area',*/'s1_p_cod_anacon',
                                 's1_p_sexo','s1_p_edad',),
                 $this->filtrar_campos_del_operativo(array_merge( array('s1_r0',
-                    'pla_t30', 'pla_t35_0','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd', 'pla_tsd3_0','pla_tsd7','pla_t40bis_a'),
+                    'pla_t28', 'pla_t30', 'pla_t35_0','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd', 'pla_tsd3_0','pla_tsd7','pla_t40bis_a'),
                     $array2,
                     array('pla_tu3','pla_tu3a','pla_tu5','pla_tu7','pla_tu8','pla_tu8a',
                     'pla_t40bis_a1','pla_t40bis_a1_otro',
@@ -129,7 +133,8 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                     'pla_t40bis_b','pla_t40bis_b_barrio','pla_t40bis_b_partido','pla_t40bis_b_otro','pla_t40bis_d',
                     'pla_t40bis_f','pla_t40bis_g6','pla_t40bis_g6_otro',
                     'pla_t40bis_a3_1','pla_t40bis_a3_2','pla_t40bis_a3_3','pla_t40bis_a3_5','pla_t40bis_a3_4','pla_t40bis_a3_4_esp',
-                    'pla_ts1','pla_ts2','pla_ts3','pla_i4','pla_i7a','pla_i7_bis','pla_i8','pla_i9',
+                    'pla_ts1','pla_ts2','pla_ts3','pla_ta1','pla_ta4','pla_ta4_esp',
+                    'pla_i4','pla_i7a','pla_i7_bis','pla_i8','pla_i9',
                     'pla_tso44','pla_tso45','pla_tso47','pla_tso48a','pla_tso48b','pla_tso48b_esp','pla_tso51','pla_tso41',
                     'pla_t37sdo','pla_tso39','pla_tso39_barrio','pla_tso39_partido','pla_tso39_otro','pla_tuso3',
                     'pla_tuso3a','pla_tuso5','pla_tuso7','pla_tuso8','pla_tuso8a',
