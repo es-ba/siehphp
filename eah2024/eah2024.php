@@ -876,27 +876,25 @@ JS
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_trabajo_ingresos',
                 array('pla_t8'=>'# =3|
-                       pla_t8_otro!=NULL|
-                       pla_t11=4|pla_t11_otro!=NULL|
-                       pla_t37!=NULL|pla_t39=2|pla_t39=3|
+                       pla_t8_otro!=NULL| 
+                       pla_t37!=NULL|pla_t39=2|pla_t39=3|                     
                        pla_t39=4|pla_t39_barrio!=NULL|pla_t39_partido!=NULL|                       
-                       pla_t39_otro!=NULL|pla_t41!=NULL|pla_t42!=NULL|
+                       pla_t39_otro!=NULL|pla_t41!=NULL|pla_t42!=NULL|                     
                        pla_t48b_esp!=NULL|                       
-                       pla_i3_10x>=0|pla_i3_10_otro!=NULL|
                        pla_i6_10=1|pla_i6_10_esp!=NULL|
-                       pla_i3_1=1|pla_i3_1x>=0|
                        pla_i3_2=1|pla_i3_2x>=0|
                        pla_i3_3=1|pla_i3_3x>=0|
                        pla_i3_4=1|pla_i3_4x>=0|
                        pla_i3_5=1|pla_i3_5x>=0|
                        pla_i3_6=1|pla_i3_6x>=0|
-                       pla_i3_7=1|pla_i3_7x>=0|
+                       pla_i3_7=1|pla_i3_7x>=0|                     
                        pla_i3_13=1|pla_i3_13x>=0|
                        pla_i3_81=1|pla_i3_82x>=0|
                        pla_i3_82=1|pla_i3_82x>=0|
                        pla_i3_11=1|pla_i3_11x>=0|
-                       pla_i3_31=1|pla_i3_31x>=0|
-                       pla_i3_12=1|pla_i3_12x>=0'                       
+                       pla_i3_31=1|pla_i3_31x>=0| 
+                       pla_i3_12=1|pla_i3_12x>=0'    
+                      
                 ),                
                 null,array());                
             }
