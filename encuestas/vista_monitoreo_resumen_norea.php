@@ -79,8 +79,10 @@ class Vista_monitoreo_resumen_norea extends Vistas{
             $this->definir_campo('v_tiene_pyg'              ,array('tipo'=>'entero', 'operacion' =>'cuenta', 'origen'=>"pla_pyg_tot", 'title' =>'total_pyg', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
         }
         if($operativo_tiene_md) {
-            $this->definir_campo('v_total_md'              ,array('tipo'=>'entero', 'operacion' =>'sum', 'origen'=>"pla_md_tot", 'title' =>'total_md', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
-            $this->definir_campo('v_porc_md'               ,array('tipo'=>'decimal', 'operacion'=>'tasa', 'minimo_denominador'=>20, 'numerador'=>'v_total_md', 'denominador'=>'v_poblacion', 'title' =>'Porcentaje MD', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>false))));
+          //  $this->definir_campo('v_total_md'              ,array('tipo'=>'entero', 'operacion' =>'sum', 'origen'=>"pla_md_tot", 'title' =>'total_md', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
+          //  $this->definir_campo('v_porc_md'               ,array('tipo'=>'decimal', 'operacion'=>'tasa', 'minimo_denominador'=>20, 'numerador'=>'v_total_md', 'denominador'=>'v_poblacion', 'title' =>'Porcentaje MD', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>false))));
+            $this->definir_campo('v_total_md_resp'          ,array('tipo'=>'entero',  'operacion' =>'sum', 'origen'=>"pla_md_tot", 'title' =>'total_md_resp', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
+            $this->definir_campo('v_porc_md_resp'           ,array('tipo'=>'decimal', 'operacion'=>'tasa', 'minimo_denominador'=>20, 'numerador'=>'v_total_md_resp', 'denominador'=>'v_poblacion', 'title' =>'Porcentaje MD RESP', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>false))));
         }
         if ($operativo_tiene_pmd){
             $this->definir_campo('v_pmd_rea'              ,array('tipo'=>'numero' , 'operacion'=>'sum', 'origen'=>'pla_pmd_tot',  'title' =>'resp_pmd', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
