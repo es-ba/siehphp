@@ -24,14 +24,15 @@ select pla_enc, pla_estado, pla_rea, pla_norea, pla_rea_enc, pla_norea_enc, pla_
 --Ejemplo: cambiar rea_enc=1 y norea_enc=null
 update respuestas
   set res_valor='1',
-      res_tlg=nnnnnnnnn--(select pga_tlg from pgadmin ) --NO PROBé DIRECTAMENTE PONER El (SElect )
+      --res_tlg=nnnnnnnnn
+      res_tlg=(select pga_tlg from pgadmin ) 
   --select res_enc, res_for, res_var, res_valor from respuestas    
   where res_ope='pOpe' and res_for='TEM' and res_var='rea_enc' 
       and res_enc in (pEnc1, penc2) and res_valor='0'
 ;
 update respuestas
   set res_valor=null,
-    res_tlg=nnnnnnnnn --(select pga_tlg from pgadmin )
+    res_tlg=(select pga_tlg from pgadmin )
     --select res_enc, res_for, res_var, res_valor from respuestas      
   where res_ope='pOpe' and res_for='TEM'  and res_var='norea_enc'
         and res_enc in (pEnc1, pEnc2)
