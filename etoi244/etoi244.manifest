@@ -1,0 +1,55 @@
+CACHE MANIFEST
+# v 3.00
+# Cosas a cachear !!
+
+../etoi244/etoi244_icon.png
+../etoi244/etoi244_icon_super.png
+../tedede/comunes.js 
+../tedede/cuantas_instancias.js 
+../tedede/probador.css
+../tedede/menu.css
+../encuestas/encuestas.css
+../encuestas/encuestas.js
+../encuestas/mostrar_como_cachea.js
+../encuestas/encu_especiales.js
+../etoi244/etoi244.css
+../etoi244/dbo_etoi244.js
+../tedede/tedede.js 
+../tedede/tedede.css 
+../tedede/editor.js
+../tedede/para_grilla.js
+../tedede/tabulados.js       #agregado para test
+../tedede/test_fondo_t.png   #agregado para test
+../etoi244/estructura_etoi244.js
+../tercera/md5_paj.js
+../tercera/aes.js
+../etoi244/logo_app.png
+../etoi244/logo_esperar.png
+../etoi244/etoi244_fondo_t.png
+../etoi244/etoi244_icon.gif
+../etoi244/etoi244_icon_test.gif
+../etoi244/etoi244_icon_desa.gif
+../etoi244/etoi244_icon_capa.gif
+../etoi244/etoi244.php?hacer=hoja_de_ruta
+../etoi244/etoi244.php?hacer=hoja_de_ruta_super
+../etoi244/etoi244.php?hacer=formularios_de_la_vivienda
+../etoi244/etoi244.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi244","tra_for":"S1","tra_mat":""}
+../etoi244/etoi244.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi244","tra_for":"S1","tra_mat":"P"}
+../etoi244/etoi244.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi244","tra_for":"A1","tra_mat":""}
+../etoi244/etoi244.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi244","tra_for":"I1","tra_mat":""}
+# ../etoi244/etoi244.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi244","tra_for":"GH","tra_mat":""}
+../etoi244/etoi244.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi244","tra_for":"SUP","tra_mat":""}
+../tedede/compatibilidad.js 
+../imagenes/bloq_mayus.jpg
+../encuestas/control_mini_cal.js
+../encuestas/calendario01.png
+../encuestas/lapiz_calendario_active.png
+../encuestas/lapiz_calendario.png
+../encuestas/goma01_calendario_active.png
+../encuestas/goma01_calendario.png
+../encuestas/cuadrado_calendario.png
+../encuestas/cuadradotic_calendario.png
+../encuestas/fondo_calendario.png
+
+FALLBACK:
+../etoi244/etoi244.php?hacer=cargar_dispositivo  ../etoi244/etoi244.php?hacer=aviso_offline
