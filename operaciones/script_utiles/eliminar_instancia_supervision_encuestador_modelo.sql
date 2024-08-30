@@ -18,7 +18,7 @@ select comun.nueva_sesion_pgadmin('usuario','encu  xxxxxx');
 --select * from encu.respuestas    --verifico primero siempre con un select
 update encu.respuestas set res_valor=null, 
  res_tlg=(select pga_tlg from pgadmin) 
-   where res_ope=dbo.ope_actual() and res_var in('sup_aleat','result_sup','sup_dirigida','fecha_carga_sup','fecha_descarga_sup', 'cod_sup','fecha_primcarga_sup') and res_for='TEM'
+   where res_ope=dbo.ope_actual() and res_var in('sup_aleat','result_sup','sup_dirigida','fecha_carga_sup','fecha_descarga_sup', 'cod_sup','fecha_primcarga_sup','dispositivo_sup') and res_for='TEM'
      and res_enc = xxxxxx;
 
 --borrando formulario de supervision
