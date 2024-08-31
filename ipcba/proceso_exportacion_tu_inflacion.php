@@ -11,8 +11,9 @@ class Proceso_exportacion_tu_inflacion extends Proceso_Formulario{
     function post_constructor(){
         parent::post_constructor();
         $cursor=$this->db->ejecutar_sql(new Sql(<<<SQL
-            SELECT Max(periodo) as ultimo FROM cvp.calculos  
-                                          WHERE abierto='N' and calculo=0
+            SELECT Max(periodo) as ultimo FROM cvp.calculos c
+                                          JOIN cvp.calculos_def cd ON c.calculo = cd.calculo  
+                                          WHERE abierto='N' and cd.principal
 SQL
         ));
         $fila=$cursor->fetchObject();
@@ -60,7 +61,8 @@ SQL
         $c_v_per= $this->db->ejecutar_sql(new Sql(<<<SQL
             SELECT c.abierto
               FROM cvp.calculos c 
-              WHERE c.calculo=0 and c.periodo=:p_periodo
+              JOIN cvp.calculos_def cd ON c.calculo = cd.calculo
+              WHERE cd.principal and c.periodo=:p_periodo
 SQL
             , array(':p_periodo'=>$pperiodo)
         )); 

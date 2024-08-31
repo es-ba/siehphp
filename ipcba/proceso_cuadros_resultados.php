@@ -13,9 +13,13 @@ class Proceso_cuadros_resultados extends Proceso_Formulario{
         $ahora->sub(new DateInterval('P1M'));
         //$def_periodo='a'.$ahora->format('Y').'m'.$ahora->format('m');
         $cursor=$this->db->ejecutar_sql(new Sql(<<<SQL
-            SELECT case when min(periodo) is not null then min(periodo) else (select max(periodo) from calculos where calculo=0)  end as ultimo
-              FROM calculos  
-              WHERE abierto='S' and calculo=0
+            SELECT case when min(periodo) is not null then min(periodo) 
+                   else (select max(periodo)
+                         from calculos c join calculos_def cd on c.calculo = cd.calculo
+                         where principal)
+                   end as ultimo
+              FROM calculos c join calculos_def cd on c.calculo = cd.calculo  
+              WHERE abierto='S' and principal
 SQL
         ));
         $fila=$cursor->fetchObject();
@@ -50,18 +54,25 @@ SQL
         $ultimo_periodo_calculado=$fila->ultimo;
         //$this->parametros->parametros['tra_periodo']['def']=$ultimo_periodo_calculado;
 
+        $cursor_otro=$this->db->ejecutar_sql(new Sql(<<<SQL
+            SELECT calculo as principal FROM calculos_def where principal 
+SQL
+        ));
+        $fila_otra=$cursor_otro->fetchObject();
+        $calculo_principal=$fila_otra->principal;
+
         $tabla_calculos=$this->nuevo_objeto("Tabla_calculos");
         $tabla_calculos->definir_campos_orden(array('periodo desc'));
         $tabla_hogares=$this->nuevo_objeto("Tabla_hogares");
         $tabla_agrupaciones=$this->nuevo_objeto("Tabla_agrupaciones");
         $tabla_hogares->definir_campos_orden(array('comun.para_ordenar_numeros(hogar)'));
-        $this->parametros->parametros['tra_periodo']['opciones']=$tabla_calculos->lista_opciones(array('calculo'=>0),'periodo');
-        $this->parametros->parametros['tra_periodo_desde']['opciones']=$tabla_calculos->lista_opciones(array('calculo'=>0),'periodo');
+        $this->parametros->parametros['tra_periodo']['opciones']=$tabla_calculos->lista_opciones(array('calculo'=>$calculo_principal),'periodo');
+        $this->parametros->parametros['tra_periodo_desde']['opciones']=$tabla_calculos->lista_opciones(array('calculo'=>$calculo_principal),'periodo');
         $this->parametros->parametros['tra_hogar']['opciones']=$tabla_hogares->lista_opciones(array());
         $this->parametros->parametros['tra_agrupacion']['opciones']=$tabla_agrupaciones->lista_opciones(array());
         
         $tabla_cuadros=$this->nuevo_objeto("Tabla_cuadros");
-        $this->parametros->parametros['tra_cuadro']['opciones']=$tabla_cuadros->lista_opciones(array());
+        $this->parametros->parametros['tra_cuadro']['opciones']=$tabla_cuadros->lista_opciones(array('activo'=>'S'));
         // en periodos el filtro será algo así como array('cerrado'=>false)
         parent::correr();
         //    vartraperiododesde.disabled =!(vartracuadro.value.indexOf("HC")>=0);
@@ -72,7 +83,7 @@ SQL
                var vartrahogar = document.getElementById("tra_hogar");
                var vartracuadro = document.getElementById("tra_cuadro");
                var vartraagrupacion = document.getElementById("tra_agrupacion")
-               vartraperiododesde.disabled =!/X+|HC|5|10|P|_var+|h+|9b|CC|I/.test(vartracuadro.value);
+               vartraperiododesde.disabled =!/X+|HC|5|10|11|P|_var+|h+|9b|CC|I/.test(vartracuadro.value);
                vartrahogar.disabled =!/HC|I/.test(vartracuadro.value);
                vartraagrupacion.disabled =!/X+|H+/.test(vartracuadro.value);
                var flechaopcper= vartraperiododesde.parentNode.getElementsByTagName('img')[0];
@@ -110,20 +121,25 @@ SQL
                || CASE WHEN f.usa_cuadro        THEN ','''||c.cuadro|| '''' ELSE '' END 
                || CASE WHEN f.usa_hogares       THEN ','||CASE WHEN :tra_cuadro in ('HC','HC_var','I') THEN ''''||:tra_hogar||'''' ELSE c.hogares::text END ELSE '' END 
                || CASE WHEN f.usa_cantdecimales THEN ','||c.cantdecimales::text ELSE '' END 
-               || CASE WHEN f.usa_desde         THEN ','''||CASE WHEN :tra_cuadro in ('X1','X2','HC','HC_var','HH_var','5','10','P','LH_var','9b','CC','I') OR :tra_cuadro like '%h%' THEN :tra_periodo_desde ELSE '' END|| '''' ELSE '' END 
+               || CASE WHEN f.usa_desde         THEN ','''||CASE WHEN :tra_cuadro in ('X1','X2','HC','HC_var','HH_var','5','10','11','P','LH_var','9b','CC','I') OR :tra_cuadro like '%h%' THEN :tra_periodo_desde ELSE '' END|| '''' ELSE '' END 
                || CASE WHEN f.usa_orden         THEN ','''||c.orden|| '''' ELSE '' END
+               || CASE WHEN f.usa_empalmedesde  THEN ','||c.empalmedesde::text ELSE '' END 
+               || CASE WHEN f.usa_empalmehasta  THEN ','||c.empalmehasta::text ELSE '' END 
+               || CASE WHEN f.usa_empalmedesde or f.usa_empalmehasta  THEN ','''||p.periodo_empalme||'''' ELSE '' END
                as str_paramfun 
              , f.usa_periodo
              , :tra_separador_decimal::text as separador_decimal
              , CASE WHEN :tra_agrupacion = 'D' THEN c.encabezado2 ELSE c.encabezado END 
-               || CASE WHEN :tra_cuadro = '6' OR :tra_cuadro = '7' THEN '. '||cvp.devolver_mes_anio(:tra_periodo) 
+               || CASE WHEN :tra_cuadro = '6' OR :tra_cuadro = '7' OR :tra_cuadro = 'LH' THEN '. '||cvp.devolver_mes_anio(:tra_periodo) 
                    WHEN :tra_cuadro like 'HC%' THEN '. '|| cvp.devolver_mes_anio(:tra_periodo_desde)||CASE WHEN :tra_periodo_desde <> :tra_periodo THEN '/'||cvp.devolver_mes_anio(:tra_periodo) ELSE '' END||'. Evolución de su valor en '||CASE WHEN :tra_cuadro like '%var' THEN '%. ' ELSE 'pesos. ' END || :tra_hogar ||'*'
                    WHEN :tra_cuadro like 'I%' THEN  '. '|| cvp.devolver_mes_anio(:tra_periodo_desde)||CASE WHEN :tra_periodo_desde <> :tra_periodo THEN '/'||cvp.devolver_mes_anio(:tra_periodo) ELSE '' END||'. En pesos. '|| :tra_hogar ||'*'
+                   WHEN :tra_cuadro like '11' THEN  ' ' || CASE WHEN :tra_periodo_desde <> :tra_periodo THEN cvp.devolver_mes_anio(:tra_periodo_desde)||'/'||cvp.devolver_mes_anio(:tra_periodo) ELSE cvp.devolver_mes_anio(:tra_periodo) END
+                   WHEN :tra_cuadro like 'X%' OR :tra_cuadro = 'P' THEN  '. ' || CASE WHEN :tra_periodo_desde <> :tra_periodo THEN cvp.devolver_mes_anio(:tra_periodo_desde)||'/'||cvp.devolver_mes_anio(:tra_periodo) ELSE cvp.devolver_mes_anio(:tra_periodo) END
                    ELSE '' END 
                as encabezado
              , c.pie1, c.pie, '(*)'||h.nombrehogar as piehogar 
-          from cvp.cuadros c join cvp.cuadros_funciones f on c.funcion= f.funcion  
-               , (SELECT nombrehogar FROM cvp.hogares WHERE hogar = :tra_hogar) h WHERE cuadro=:tra_cuadro
+          from cvp.cuadros c join cvp.cuadros_funciones f on c.funcion= f.funcion join cvp.parametros p on unicoregistro
+               , (SELECT nombrehogar FROM cvp.hogares WHERE hogar = :tra_hogar) h WHERE cuadro=:tra_cuadro and c.activo = 'S'
 SQL
            , array(':tra_cuadro'=>$this->argumentos->tra_cuadro,':tra_periodo'=>$this->argumentos->tra_periodo, 
                    ':tra_separador_decimal'=>$this->argumentos->tra_separador_decimal,

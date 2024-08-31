@@ -22,6 +22,7 @@ class Tabla_cuadros extends Tabla{
         $this->definir_campo('hogares'      ,array('tipo'=>'entero'            ,'not_null'=>false));
         $this->definir_campo('pie1'         ,array('tipo'=>'texto','largo'=>300,'not_null'=>false));
         $this->definir_campo('cantdecimales',array('tipo'=>'entero'            ,'not_null'=>false));
+        $this->definir_campo('activo'       ,array('tipo'=>'texto','largo'=>1  ,'not_null'=>true));
         $this->definir_campos_orden(array('para_ordenar_numeros(cuadro)'));
 
     }

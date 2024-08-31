@@ -17,8 +17,8 @@ class Proceso_resultados_elegidos extends Proceso_Formulario{
         parent::post_constructor();
         $cursor=$this->db->ejecutar_sql(new Sql(<<<SQL
             SELECT max(periodo) as ultimocalculo
-              FROM calculos
-              WHERE calculo = 0 
+              FROM calculos c join calculos_def cd on c.calculo = cd.calculo
+              WHERE principal 
 SQL
         ));
         $fila=$cursor->fetchObject();
@@ -55,8 +55,8 @@ SQL
     function correr(){
         $cursor=$this->db->ejecutar_sql(new Sql(<<<SQL
             SELECT max(periodo) as ultimocalculo
-              FROM calculos
-              WHERE calculo = 0
+              FROM calculos c join calculos_def cd on c.calculo = cd.calculo
+              WHERE principal
 SQL
         ));
         $fila=$cursor->fetchObject();
@@ -68,6 +68,14 @@ SQL
               WHERE periodo = '$ultimo_periodo_calculado'              
 SQL
         ));
+
+        $cursor_otro=$this->db->ejecutar_sql(new Sql(<<<SQL
+            SELECT calculo as principal FROM calculos_def where principal 
+SQL
+        ));
+        $fila_otra=$cursor_otro->fetchObject();
+        $calculo_principal=$fila_otra->principal;
+
         $fila=$cursor->fetchObject();
         $def_periodo=$fila->anterior;
         $tabla_agrupacion=$this->nuevo_objeto("Tabla_agrupaciones");
@@ -75,7 +83,7 @@ SQL
         $this->parametros->parametros['tra_agrupacion']['opciones']=$tabla_agrupacion->lista_opciones(array());
         $tabla_calculo=$this->nuevo_objeto("Tabla_calculos");
         $tabla_calculo->definir_campos_orden(array('periodo desc'));
-        $this->parametros->parametros['tra_periodo']['opciones']=$tabla_calculo->lista_opciones(array('calculo'=>0),'periodo');
+        $this->parametros->parametros['tra_periodo']['opciones']=$tabla_calculo->lista_opciones(array('calculo'=>$calculo_principal),'periodo');
         $this->parametros->parametros['tra_1_indicador']['opciones']=$this->lista_indicadores;
         $tabla_periodo=$this->nuevo_objeto("Tabla_periodos");
         $tabla_periodo->definir_campos_orden(array('periodo desc'));
