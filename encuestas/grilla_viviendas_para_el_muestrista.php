@@ -28,6 +28,7 @@ class Grilla_viviendas_para_el_muestrista extends Grilla_TEM{
         'pla_hog_tot', 
         'pla_pob_pre', 
         'pla_pob_tot', 
+        'pla_pob_res', 
         'pla_cnombre', 
         'pla_hn', 
         'pla_hp', 
