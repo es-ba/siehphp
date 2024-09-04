@@ -16,26 +16,30 @@ class Grilla_viviendas_para_el_muestrista extends Grilla_TEM{
         return true;    
     }
     function campos_a_listar($filtro_para_lectura){
-        return array(
-        'pla_comuna', 
-        'pla_replica', 
-        'pla_up', 
-        'pla_enc', 
-        'pla_estado',
-        'pla_rea', 
-        'pla_norea', 
-        'pla_hog_pre', 
-        'pla_hog_tot', 
-        'pla_pob_pre', 
-        'pla_pob_tot', 
-        'pla_pob_res', 
-        'pla_cnombre', 
-        'pla_hn', 
-        'pla_hp', 
-        'pla_hd', 
-        'pla_h2_6', 
-        'pla_obs',
-        );  
+        return array_merge(array(
+            'pla_comuna', 
+            'pla_replica', 
+            'pla_up', 
+            'pla_enc', 
+            'pla_estado',
+            'pla_rea', 
+            'pla_norea', 
+            'pla_hog_pre', 
+            'pla_hog_tot', 
+            'pla_pob_pre', 
+            'pla_pob_tot'
+        ), $this->filtrar_campos_del_operativo(array( 
+            'pla_pob_res'
+        )), array( 
+            'pla_cnombre', 
+            'pla_hn', 
+            'pla_hp', 
+            'pla_hd'
+        ), $this->filtrar_campos_del_operativo(array(   
+            'pla_h2_6'
+        )),array(     
+            'pla_obs'
+        ));  
     }
     function campos_editables($filtro_para_lectura){        
         return array();
