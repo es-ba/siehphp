@@ -69,10 +69,10 @@ BEGIN
   CASE 
     WHEN TG_OP= 'UPDATE' THEN
       v_registro=new;    
-      if v_registro.pla_r0 = 1 then 
+      if v_registro.pla_r0 = 1 and old.pla_r0 is distinct from 1 then 
         v_delta = 1; 
       end if;
-      if v_registro.pla_r0 = 2 and old.pla_r0 = 1 then
+      if v_registro.pla_r0 is distinct from 1 and old.pla_r0 = 1 then
         v_delta = -1; 
       end if;
     WHEN TG_OP= 'DELETE' THEN
