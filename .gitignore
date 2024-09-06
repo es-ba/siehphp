@@ -17,3 +17,6 @@ local*
 configuracion_local*
 
 ajus/documentacion
+
+logs
+.vscode

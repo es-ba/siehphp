@@ -1,5 +1,28 @@
--- aggregar pob_res a la tem y agregar trigger para sincronizar con pla_r0
---  tambien agregar en tablas de metadato de planillas pla_var 
+--planilla_monitoreo_tem
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','MON_TEM',false,681,1);
+--planilla_monitoreo_campo
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','MON_TEM_CAMPO',false,391,1);
+--planilla_recepcion_encuestador
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','REC_ENC',false,321,1);
+--planilla_recepcion_recuperador
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','REC_REC',false,321,1);
+--planilla_recepcion_supervisor_campo
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','REC_SUP_CAM',false,211,1);
+--planilla_recepcion_supervisor_telefonico
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','REC_SUP_TEL',false,211,1);
+--planilla_mis_supervisiones_telefonicas
+insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
+values ('eah2024','pob_res','PLA_MIS_SUP_TEL',false,321,1);
+--Las siguientes dos planillas se actualizan agregando pla_pob_res en plana_tem_ y se retocó código en las grillas correspondientes.
+--registro_claves
+--viviendas_para_el_muestrista
+ALTER TABLE encu.plana_tem_ ADD COLUMN pla_pob_res INTEGER;
 
 --variable de la tem : pob_res
 insert into encu.preguntas(pre_ope, pre_pre, pre_texto, pre_abreviado, pre_for, pre_mat, 
@@ -25,57 +48,53 @@ select var_ope, var_for, var_mat, 'pob_res', 'pob_res', 'población residente', 
        1
    from encu.variables where var_var='pob_tot';
    
---seguramente  hay que agregar la variable pla_pob_res en plana_tem_ . fijarse si tambien en tem_  
+--correr seteo de lo que ya esta en tabla
+with cant as (
+    select pla_enc, count(*)filter(where pla_r0=1) can_res, count(*) cant_p from plana_s1_p 
+	group by 1
+  )
+  UPDATE encu.respuestas 
+        SET res_valor=can_res
+		    from cant c
+        WHERE res_ope=dbo.ope_actual() and res_for='TEM' and res_var='pob_res' and res_enc=c.pla_enc and cant_p > 0;
 
---trigger function
 CREATE OR REPLACE FUNCTION encu.sincro_pob_res_trg()
   RETURNS trigger AS
 $BODY$
 DECLARE
-  v_signo integer;
-  v_sum   integer;
+  v_delta   integer;
   v_registro    encu.plana_s1_p%rowtype;
-BEGIN 
-   -- ver si asi  va ok o es mejor hacer una consulta con  group by en plana_s1_p  para hacer el update
-
-    CASE 
-        WHEN TG_OP= 'UPDATE' THEN
-            v_registro=new;
-            v_signo=1            
-        WHEN TG_OP= 'DELETE' THEN
-            v_registro=OLD;
-            v_signo=-1
-        ELSE
-            raise exception 'sincro_pob_res error operacion no considerada %', TG_OP;
-    END CASE;
-    v_sum=CASE WHEN v_registro.r0=1 THEN v_signo ELSE 0 END;
-    --raise notice ' sum % signo % ', v_sum, v_signo,;    
-    if v_sum!=0 then 
-      UPDATE encu.respuestas 
-        SET res_valor=coalesce(res_valor,0) + v_sum 
-        WHERE res_ope=dbo.ope_actual() and res_for='TEM' and res_var='pob_res' and res_enc=v_registro.pla_enc ;
-    END IF;    
-    RETURN v_registro;
+BEGIN
+	v_delta = 0;
+  CASE 
+    WHEN TG_OP= 'UPDATE' THEN
+      v_registro=new;    
+      if v_registro.pla_r0 = 1 and old.pla_r0 is distinct from 1 then 
+        v_delta = 1; 
+      end if;
+      if v_registro.pla_r0 is distinct from 1 and old.pla_r0 = 1 then
+        v_delta = -1; 
+      end if;
+    WHEN TG_OP= 'DELETE' THEN
+      v_registro=OLD;
+      if v_registro.pla_r0 = 1 then v_delta = -1; end if;          
+    ELSE
+      raise exception 'sincro_pob_res error operacion no considerada %', TG_OP;
+  END CASE; 
+  if v_delta!=0 then 
+    UPDATE encu.respuestas 
+      SET res_valor=coalesce(res_valor::integer,0) + v_delta 
+      WHERE res_ope=dbo.ope_actual() and res_for='TEM' and res_var='pob_res' and res_enc=v_registro.pla_enc;
+  END IF;    
+  RETURN v_registro;
 END
 $BODY$
   LANGUAGE plpgsql;
+  
 ALTER FUNCTION encu.sincro_pob_res_trg()
   OWNER TO tedede_php;
 
-
-CREATE TRIGGER sincro_sincro_pob_res_trg
-    AFTER UPDATE of pla_r0 OR DELETE ON encu.plana_s1_p
-    FOR EACH ROW 
-    EXECUTE PROCEDURE encu.sincro_sincro_pob_res_trg();
-
-
---correr seteo de lo que ya esta en tabla
-  with cant as (
-    select pla_enc, count(*)nres from plana_s1_p where pla_r0=1
-  )
-  update plana_tem_
-    set pla_pob_res= nres
-    From cant
-    where pla_enc=cant.pla_enc and pla_rea is distinct from 2 --ver    
-
---- agregar variable pob_tot a  pla_var para las grillas?
+CREATE TRIGGER sincro_pob_res_trg
+  AFTER UPDATE of pla_r0 OR DELETE ON encu.plana_s1_p
+  FOR EACH ROW 
+  EXECUTE PROCEDURE encu.sincro_pob_res_trg();

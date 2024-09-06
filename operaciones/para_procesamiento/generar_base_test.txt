@@ -1,0 +1,8 @@
+Sacar backupe de la base de producción
+renombramos la base de test actua, test_fecha
+creamos la bse nueva de test con el mismo nombre que la anterior
+hacemos restore en la base nueva de test
+modificar campo calle de la tabla tem con replace ('XXXXXXXXXX XXXXXXXXXX')
+
+Nota: avisar en sicen que voy a pisar la base de test. Hacer todo el cambio y luego avisar que se terminó
+Avisar sobre varcal y varcalopc luego de pasar prod a test
