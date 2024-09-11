@@ -14,30 +14,32 @@ class Grilla_rama_ocupacion_covid19 extends Grilla_respuestas_para_proc_ind{
     }
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();
-        $heredados[]='s1_p_estado';
-        $heredados[]='s1_p_bolsa';
-        $heredados[]='s1_p_semana';
-        $heredados[]='pla_enc';
-        $heredados[]='pla_hog';
-        $heredados[]='pla_mie';
-        $heredados[]='pla_exm';
-       // $heredados[]='s1_p_sexo';
-       // $heredados[]='s1_p_edad';
-        if ("{$GLOBALS['NOMBRE_APP']}"=='eah2024') {
-           $heredados[]='s1_r0';
-        } 
-        $heredados[]='pla_t23_1';
-        $heredados[]='pla_t23_1sd';
-        $heredados[]='pla_t40bis_a'; 
-        $heredados[]='pla_t40bis_b';
-        $heredados[]='pla_t40bis_d';
-        $heredados[]='pla_t23_1_cod';
-        $heredados[]='pla_t23_2';
-        $heredados[]='pla_t24_1';
-        $heredados[]='pla_t25_1';
-        $heredados[]='pla_t26_1';
-        $heredados[]='pla_t24_1_cod';
-        $heredados[]='pla_t27_1';
+        $heredados=array_merge($heredados, array(
+            's1_p_estado'
+            ,'s1_p_bolsa'
+            ,'s1_p_semana'
+            ,'pla_enc'
+            ,'pla_hog'
+            ,'pla_mie'
+            ,'pla_exm'
+            // ,'s1_p_sexo'
+            // ,'s1_p_edad'
+        ),    
+        $this->filtrar_campos_del_operativo(array(
+           's1_r0'
+            ,'pla_t23_1'
+            ,'pla_t23_1sd'
+            ,'pla_t40bis_a' 
+            ,'pla_t40bis_b'
+            ,'pla_t40bis_d'
+            ,'pla_t23_1_cod'
+            ,'pla_t23_2'
+            ,'pla_t24_1'
+            ,'pla_t25_1'
+            ,'pla_t26_1'
+            ,'pla_t24_1_cod'
+            ,'pla_t27_1'
+        )));
         return $heredados;
     }
     function permite_grilla_sin_filtro(){

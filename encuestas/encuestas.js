@@ -10,6 +10,7 @@ var para_supervisor=interpretarTrue(localStorage.getItem('para_supervisor'));
 var es_un_recepcionista=false;
 var es_ing_sup=false;
 var puede_ver_todos_los_formularios=false;
+var CON_RESIDENTE;
 
 window.addEventListener('load',function(){
     if(para_supervisor){
@@ -156,7 +157,7 @@ function ValidarOpcion(id_variable_cursor_actual,forzar){
                 elemento_existente('var_entrea').value=rta_ud.var_entrea;
             }
             //OJO CALCULO DE RESIDENTE 
-            if(operativo_actual=='eah2024' && ['var_r2','var_r3','var_r4', 'var_r5','var_r6','var_r7'].includes (id_variable_cursor_actual) /*(id_variable_cursor_actual=='var_r2' ||id_variable_cursor_actual=='var_r3'||id_variable_cursor_actual=='var_r4' ||id_variable_cursor_actual=='var_r7') */){ // OJO: CALCULO DE MIEMBRO RESIDENTE
+            if(operativo_con_residente(operativo_actual) && ['var_r2','var_r3','var_r4', 'var_r5','var_r6','var_r7'].includes (id_variable_cursor_actual) /*(id_variable_cursor_actual=='var_r2' ||id_variable_cursor_actual=='var_r3'||id_variable_cursor_actual=='var_r4' ||id_variable_cursor_actual=='var_r7') */){ // OJO: CALCULO DE MIEMBRO RESIDENTE
                 rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4,rta_ud.var_r5,rta_ud.var_r6, rta_ud.var_r7);
                 elemento_existente('var_r0').value=rta_ud.var_r0;                
                //determinar si falta agregarlo en otra ubicación y si se refresca el seteo cuando se cambian los valores de las variables involucradas
@@ -921,7 +922,7 @@ function Validar_rta_ud(id_variable_cursor_actual){
                 if(valor){
                     estados_rta_ud[var_actual]=estados_rta.ingreso_sobre_salto;
                     /*OJO IF SOLO PARA CALCULO DE RESIDENTE Y COLOR DEL BOTON FORMULARIO QUEDE OK*/
-                    if(operativo_actual=='eah2024' && var_actual=='var_r0' ){
+                    if(operativo_con_residente(operativo_actual) && var_actual=='var_r0' ){
                         estados_rta_ud[var_actual]=estados_rta.ok;
                     }
                 }else if(preguntas_ud[var_actual].ocu_sal){
@@ -1566,7 +1567,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
         copia_ud.copia_cantmen14=dbo.cant_menores(pk_ud.tra_enc, pk_ud.tra_hog,14);
         copia_ud.copia_cantmen65=dbo.cant_menores(pk_ud.tra_enc, pk_ud.tra_hog,65);
     }
-    if(pk_ud.tra_for=='S1' && pk_ud.tra_mat=='P' && pk_ud.tra_ope=='eah2024'){ // OJO: CALCULO DE MIEMBRO RESIDENTE
+    if(pk_ud.tra_for=='S1' && pk_ud.tra_mat=='P' && operativo_con_residente(pk_ud.tra_ope)){ // OJO: CALCULO DE MIEMBRO RESIDENTE
         rta_ud.var_r0=calcular_residente(rta_ud.var_r2, rta_ud.var_r3, rta_ud.var_r4, rta_ud.var_r5, rta_ud.var_r6, rta_ud.var_r7);  
         //determinar si falta agregarlo en otra ubicación y si se refresca el seteo cuando se cambian los valores de las variables involucradas
     }
@@ -1707,7 +1708,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
                                 document.getElementById('boton_I1__'+num_renglon).disabled=true;                                
                             };
                             /* OJO PARA DESHABILITAR BOTON I1 PARA NO RESIDENTES ËAH2024 */
-                            if(pk_ud.tra_ope=='eah2024') {
+                            if(operativo_con_residente(pk_ud.tra_ope)) {
                                 var matriz_r0=matriz_renglon.var_r0;
                                 var id_boton_i1='boton_I1__'+num_renglon;
                                 var el_boton_i1= document.getElementById(id_boton_i1);
@@ -3567,7 +3568,7 @@ function desplegar_formularios_de_la_vivienda(){
                 if (formulario !=='GH' ||( formulario=='GH' &&( (operativo_actual.substr(0,4)=='etoi' && parseInt(operativo_actual.substr(4))>=162 && parseInt(operativo_actual.substr(4))<=172 ) || (operativo_actual.substr(0,3)=='eah' && anio_operativo=='2016' ) ) && rta_ud_tem.copia_dominio==3)){                
                     var inserta_boton=true;
                     /* OJO PARA CALCULAR RESIDENTE Y DESHABILITAR EL BOTON I1 CUANDO CORRESPONDA */
-                    if (operativo_actual=='eah2024' && formulario=='I1') {
+                    if (operativo_con_residente(operativo_actual) && formulario=='I1') {
                         var clave_S1_P=cambiandole(pk_ud,{tra_for:'S1', tra_mat:'P', tra_hog:Number(hogar), tra_mie:Number(cual), tra_exm:0});
                         var pk_ud_S1_P_texto=JSON.stringify(clave_S1_P);                       
                         var rta_ud_S1_P_json=localStorage.getItem("ud_"+pk_ud_S1_P_texto);
@@ -4315,4 +4316,12 @@ function operativo_tiene_formulario(pOpe, pFor){
         vTiene=true;
     }
     return vTiene;
+}
+function operativo_con_residente(pOpe){
+    var v_residente=false;
+    //probar  if (variables['r0'].var_var){   
+    if (['eah2024','etoi244'].includes(pOpe)){ 
+        v_residente=true;
+    }
+    return v_residente;
 }

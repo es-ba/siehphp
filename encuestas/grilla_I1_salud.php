@@ -13,34 +13,35 @@ class Grilla_I1_salud extends Grilla_respuestas_para_proc_ind{
     }    
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();
-        $heredados[]='s1_p_bolsa';
-        $heredados[]='s1_p_estado';
-        $heredados[]='s1_p_cod_anacon';
-        //$heredados[]='s1_p_fin_anacon';
-        $heredados[]='s1_p_etapa_pro';
-        $heredados[]='s1_p_semana';
-        $heredados[]='s1_p_sexo';
-        $heredados[]='s1_p_edad';
-        $heredados[]='pla_enc';
-        $heredados[]='pla_hog';
-        $heredados[]='pla_mie';
-        $heredados[]='pla_exm';
-        if ("{$GLOBALS['NOMBRE_APP']}"=='eah2024') {
-           $heredados[]='s1_r0';
-        }
-        $heredados[]='pla_sn1_1';
-        $heredados[]='pla_sn1_7';
-        $heredados[]='pla_sn1_2';
-        $heredados[]='pla_sn1_3';
-        $heredados[]='pla_sn1_4';
-        $heredados[]='pla_sn1_5';
-        $heredados[]='pla_sn4_esp';
-        $heredados[]='pla_sn5_esp';
-        $heredados[]='pla_sn11';
-        $heredados[]='pla_sn13';
-        $heredados[]='pla_sn14';
-        $heredados[]='pla_sn15k_esp';
-        $heredados[]='pla_sn2';
+        $heredados==array_merge($heredados, array(
+            's1_p_bolsa'
+            ,'s1_p_estado'
+            ,'s1_p_cod_anacon'
+            //,'s1_p_fin_anacon'
+            ,'s1_p_etapa_pro'
+            ,'s1_p_semana'
+            ,'s1_p_sexo'
+            ,'s1_p_edad'
+            ,'pla_enc'
+            ,'pla_hog'
+            ,'pla_mie'
+            ,'pla_exm'
+        ), $this->filtrar_campos_del_operativo(array(
+            's1_r0'
+            ,'pla_sn1_1'
+            ,'pla_sn1_7'
+            ,'pla_sn1_2'
+            ,'pla_sn1_3'
+            ,'pla_sn1_4'
+            ,'pla_sn1_5'
+            ,'pla_sn4_esp'
+            ,'pla_sn5_esp'
+            ,'pla_sn11'
+            ,'pla_sn13'
+            ,'pla_sn14'
+            ,'pla_sn15k_esp'
+            ,'pla_sn2'
+        )));    
         return $heredados;
     }
     function permite_grilla_sin_filtro(){
