@@ -1069,6 +1069,21 @@ JS
             }
         ));
     }
+    function proceso_grilla_I1_rama_ocupacion_sec(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Preguntas para codificar rama y ocupación secundaria',
+            'permisos'=>array('grupo'=>'procesamiento'),
+            'submenu'=>'procesamiento',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'I1_rama_ocupacion_sec',
+                array(
+                    's1_p_estado'=>'#>=77',
+                ),                
+                null,array());                
+            }
+        ));
+    }
     function proceso_grilla_registro_claves(){
         return new Proceso_generico(array(
             'titulo'=>'Planilla registro de cambio de claves',
