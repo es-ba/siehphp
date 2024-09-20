@@ -1,24 +1,24 @@
 --planilla_monitoreo_tem
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','MON_TEM',false,681,1);
+values (dbo.ope_actual(),'pob_res','MON_TEM',false,681,1);
 --planilla_monitoreo_campo
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','MON_TEM_CAMPO',false,391,1);
+values (dbo.ope_actual(),'pob_res','MON_TEM_CAMPO',false,391,1);
 --planilla_recepcion_encuestador
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','REC_ENC',false,321,1);
+values (dbo.ope_actual(),'pob_res','REC_ENC',false,321,1);
 --planilla_recepcion_recuperador
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','REC_REC',false,321,1);
+values (dbo.ope_actual(),'pob_res','REC_REC',false,321,1);
 --planilla_recepcion_supervisor_campo
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','REC_SUP_CAM',false,211,1);
+values (dbo.ope_actual(),'pob_res','REC_SUP_CAM',false,211,1);
 --planilla_recepcion_supervisor_telefonico
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','REC_SUP_TEL',false,211,1);
+values (dbo.ope_actual(),'pob_res','REC_SUP_TEL',false,211,1);
 --planilla_mis_supervisiones_telefonicas
 insert into encu.pla_var (plavar_ope,plavar_var,plavar_planilla,plavar_editable,plavar_orden,plavar_tlg) 
-values ('eah2024','pob_res','PLA_MIS_SUP_TEL',false,321,1);
+values (dbo.ope_actual(),'pob_res','PLA_MIS_SUP_TEL',false,321,1);
 --Las siguientes dos planillas se actualizan agregando pla_pob_res en plana_tem_ y se retocó código en las grillas correspondientes.
 --registro_claves
 --viviendas_para_el_muestrista
