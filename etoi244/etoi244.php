@@ -1047,7 +1047,7 @@ JS
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'I1_rama_ocupacion',
                 array(
-                   'tem_estado'=>'#>=77', 
+                   's1_p_estado'=>'#>=77', 
                 ),                
                 null,array());                
             }
