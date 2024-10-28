@@ -182,6 +182,47 @@ ALTER FUNCTION dbo.mie_bu(integer, integer, integer)
   -- limit 200 
   --quedan sin valor en enc_bu las norea.  
 
+--9.0 Si es una EAH generar enc_bu_etoi 
+--EAH
+--CUANDO ES UNA EAH , HAY QUE GENERAR enc_bu_etoi para el subconjunto de encuestas de la ETOI contenido en la EAH
+
+set role tedede_php;
+set search_path=encu, dbo, comun, public;
+
+-- 1. Agregar columna enc_etoi_bu
+  alter table encu.tem
+    add column tem_enc_etoi_bu integer;
+  alter table encu.plana_tem_
+    add column pla_enc_etoi_bu integer;
+
+create table operaciones.para_numerar_base_usuario_etoi as 
+      select  row_number() over (order by pla_edad, pla_e2, pla_e6, pla_e12, substr(i.pla_enc::text,4,2) desc, i.pla_enc) as serial_number_etoi,
+        pla_edad, pla_e2, pla_e6, pla_e12, substr(i.pla_enc::text,4,2), 
+        i.pla_enc, i.pla_hog, i.pla_mie, pla_mie_bu
+     from encu.plana_i1_ i
+       inner join encu.plana_s1_p p on p.pla_mie = i.pla_mie and p.pla_hog = i.pla_hog and  i.pla_enc = p.pla_enc
+       inner join encu.pla_ext_hog t on t.pla_enc= i.pla_enc and t.pla_modo='ETOI' AND t.pla_hog=1
+     where pla_mie_bu =1 and i.pla_hog = 1 ;
+alter table operaciones.para_numerar_base_usuario_etoi add primary key (pla_enc);
+alter table operaciones.para_numerar_base_usuario_etoi add unique (serial_number_etoi);
+
+SELECT count(*)
+from operaciones.para_numerar_base_usuario_etoi;--1885
+
+update encu.plana_tem_ t
+    set pla_enc_etoi_bu = serial_number_etoi 
+    from operaciones.para_numerar_base_usuario_etoi x
+    where t.pla_enc = x.pla_enc;
+--UPDATE 1885 Query returned successfully in 456 msec.
+
+  update encu.tem t
+    set tem_enc_etoi_bu = serial_number_etoi 
+    from operaciones.para_numerar_base_usuario_etoi x
+    where t.tem_enc = x.pla_enc;
+--UPDATE 1885 Query returned successfully in 181 msec.
+select count(pla_enc_etoi_bu),count(*)
+from encu.plana_tem_; --1885	9570
+;
 ----------------/*
 --9. Desde la app
   9.1 Varcal : 
@@ -190,4 +231,5 @@ ALTER FUNCTION dbo.mie_bu(integer, integer, integer)
 
   9.2 Actualizar instalacion desde el programa        
 ----------------*/
+
 ---fin -----------
