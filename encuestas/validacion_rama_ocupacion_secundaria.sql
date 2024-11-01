@@ -1,17 +1,17 @@
-set search_path=encu;
+set search_path=encu,dbo, comun;
 
 insert into varcal (varcal_ope,varcal_varcal,varcal_destino,varcal_orden,varcal_nombre,varcal_comentarios,varcal_activa,varcal_tipo,varcal_baseusuario,varcal_nombrevar_baseusuario,varcal_tipodedato,varcal_nombre_dr,varcal_nsnc_atipico,varcal_grupo,varcal_tem,varcal_valida,varcal_opciones_excluyentes,varcal_filtro,varcal_cerrado,varcal_tlg)
 select varcal_ope,varcal_varcal||'_sec',varcal_destino,varcal_orden,varcal_nombre||' SEC',varcal_comentarios,varcal_activa,varcal_tipo,varcal_baseusuario,varcal_nombrevar_baseusuario,varcal_tipodedato,varcal_nombre_dr,varcal_nsnc_atipico,varcal_grupo,varcal_tem,varcal_valida,varcal_opciones_excluyentes,varcal_filtro,varcal_cerrado,varcal_tlg 
 from varcal
-where varcal_varcal ~ '^(rama1|rama2|obsrama|ocu1|ocu2|ocu3|ocu4|ocu5|obsocu)$'
+where varcal_varcal ~ '^(rama1|rama2|obsrama|ocu1|ocu2|ocu3|ocu4|ocu5|obsocu)$';
 
 insert into varcal (varcal_ope,varcal_varcal,varcal_destino,varcal_orden,varcal_nombre,varcal_comentarios,varcal_activa,varcal_tipo,varcal_baseusuario,varcal_nombrevar_baseusuario,varcal_tipodedato,varcal_nombre_dr,varcal_nsnc_atipico,varcal_grupo,varcal_tem,varcal_valida,varcal_opciones_excluyentes,varcal_filtro,varcal_cerrado,varcal_tlg)
 values 
-(dbo.ope_actual(),'cptso37_cod','mie',1,'Código rama de actividad para ocupados SEC',null,true,'especial',true,'cptso37_cod','entero',null,null,'ocupacion',null,true,false,null,true,1)
+(dbo.ope_actual(),'cptso37_cod','mie',1,'Código rama de actividad para ocupados SEC',null,true,'especial',true,'cptso37_cod','entero',null,null,'ocupacion',null,true,false,null,true,1);
 
 insert into varcal (varcal_ope,varcal_varcal,varcal_destino,varcal_orden,varcal_nombre,varcal_comentarios,varcal_activa,varcal_tipo,varcal_baseusuario,varcal_nombrevar_baseusuario,varcal_tipodedato,varcal_nombre_dr,varcal_nsnc_atipico,varcal_grupo,varcal_tem,varcal_valida,varcal_opciones_excluyentes,varcal_filtro,varcal_cerrado,varcal_tlg)
 values 
-(dbo.ope_actual(),'tso41_cod2','mie',1,'Código ocupación para ocupados SEC',null,true,'especial',true,'tso41_cod2','entero',null,null,'ocupacion',null,true,false,null,true,1)
+(dbo.ope_actual(),'tso41_cod2','mie',1,'Código ocupación para ocupados SEC',null,true,'especial',true,'tso41_cod2','entero',null,null,'ocupacion',null,true,false,null,true,1);
 
 alter table plana_i1_ add column pla_rama1_sec text;
 alter table plana_i1_ add column pla_rama2_sec text;
@@ -25,6 +25,20 @@ alter table plana_i1_ add column pla_obsocu_sec text;
 
 alter table plana_i1_ add column pla_cptso37_cod integer;
 alter table plana_i1_ add column pla_tso41_cod2 integer;
+
+--agregar campos en la tabla his 
+alter table his.plana_i1_ add column pla_rama1_sec text;
+alter table his.plana_i1_ add column pla_rama2_sec text;
+alter table his.plana_i1_ add column pla_obsrama_sec text;
+alter table his.plana_i1_ add column pla_ocu1_sec text;
+alter table his.plana_i1_ add column pla_ocu2_sec text;
+alter table his.plana_i1_ add column pla_ocu3_sec text;
+alter table his.plana_i1_ add column pla_ocu4_sec text;
+alter table his.plana_i1_ add column pla_ocu5_sec text;
+alter table his.plana_i1_ add column pla_obsocu_sec text;
+alter table his.plana_i1_ add column pla_cptso37_cod integer;
+alter table his.plana_i1_ add column pla_tso41_cod2 integer;
+
 
 CREATE OR REPLACE FUNCTION encu.unir_rama_ocupacion_sec_trg()
     RETURNS trigger
