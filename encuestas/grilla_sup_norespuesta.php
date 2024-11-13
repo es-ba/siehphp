@@ -5,24 +5,30 @@ require_once "grilla_respuestas.php";
 require_once "grilla_TEM.php";
 
 class Grilla_supervision_para_proc extends Grilla_respuestas_para_proc{
+    var $campo_total_personas='';
+    var $alias_total_personas='';
     function __construct(){
         parent::__construct();
     }
     function iniciar($nombre_del_objeto_base){
         parent::iniciar('SUP_');
+        $this->campo_total_personas=count($this->filtrar_campos_del_operativo(array('total_r')))==0?'pla_total_m' :'pla_total_r';
+        $this->alias_total_personas=str_replace('pla_', 's1_',$this->campo_total_personas);
+        $t_pers= $this->campo_total_personas;
+        $alias_t_pers= $this->alias_total_personas;
         $this->tabla->tablas_lookup["
            (select s.pla_enc as s1_enc, s.pla_hog as s1_hog, pla_respond s1_respond, pla_dominio as tem_dominio, pla_comuna as tem_comuna,
-            pla_semana as tem_semana, pla_cod_enc as tem_cod_enc, pla_cod_recu as tem_cod_recu,pla_cod_sup as tem_cod_sup,
+            pla_cod_enc as tem_cod_enc, pla_cod_recu as tem_cod_recu,pla_cod_sup as tem_cod_sup,
             pla_sup_aleat tem_sup_aleat, pla_sup_dirigida tem_sup_dirigida, pla_rea tem_rea, pla_norea tem_norea, pla_result_sup tem_result_sup,
             pla_norea_enc tem_norea_enc,pla_norea_recu tem_norea_recu, pla_norea_sup tem_norea_sup,
-            pla_v1, pla_total_h as s1_total_h, pla_total_m as s1_total_m,
+            pla_v1, pla_total_h as s1_total_h, $t_pers as $alias_t_pers,
             pla_razon1, pla_razon2_1,pla_razon2_2,pla_razon2_3,pla_razon2_4,pla_razon2_5,pla_razon2_6,pla_razon3,pla_razon2_7,pla_razon2_8,pla_razon2_9, i.pla_respondi i1_respondi
            from plana_s1_  s join plana_tem_ t on s.pla_enc=t.pla_enc  left join plana_i1_ i on s.pla_enc=i.pla_enc and s.pla_hog=i.pla_hog and s.pla_respond=i.pla_mie ) s1
         "]="pla_enc=s1_enc and pla_hog=s1_hog";
         $this->tabla->campos_lookup['s1_respond']=false;
         $this->tabla->campos_lookup['pla_v1']=false;
         $this->tabla->campos_lookup['s1_total_h']=false;
-        $this->tabla->campos_lookup['s1_total_m']=false;
+        $this->tabla->campos_lookup[$alias_t_pers]=false;
         $this->tabla->campos_lookup['pla_razon1']=false;
         $this->tabla->campos_lookup['pla_razon2_1']=false;
         $this->tabla->campos_lookup['pla_razon2_2']=false;
@@ -150,7 +156,7 @@ class Grilla_sup_vivhog extends Grilla_supervision_para_proc{
     }
     function campos_a_listar($filtro_para_lectura){
         return array_merge(parent::campos_a_listar($filtro_para_lectura),
-            $this->filtrar_campos_del_operativo(array('pla_sp3','pla_v1', 'pla_sp3_total','pla_tot_hoesp' ,'s1_total_h', 'pla_sp6','s1_total_m', 'pla_sp7','a1_v4', 'pla_sp8', 'a1_h3')
+            $this->filtrar_campos_del_operativo(array('pla_sp3','pla_v1', 'pla_sp3_total','pla_tot_hoesp' ,'s1_total_h', 'pla_sp6',$this->alias_total_personas, 'pla_sp7','a1_v4', 'pla_sp8', 'a1_h3')
         ));
     }
     function campos_solo_lectura(){
@@ -159,7 +165,7 @@ class Grilla_sup_vivhog extends Grilla_supervision_para_proc{
         $heredados[]='a1_h3';  
         $heredados[]='pla_v1';
         $heredados[]='s1_total_h';        
-        $heredados[]='s1_total_m';        
+        $heredados[]=$this->alias_total_personas;        
         return $heredados;
     }
 }
@@ -169,9 +175,11 @@ class Grilla_sup_familiar extends Grilla_supervision_para_proc{
         parent::iniciar('SUP_');
         $this->tabla->tablas_lookup["
            (select p.pla_enc as p_enc, p.pla_hog as p_hog, p.pla_mie p_mie , pla_sexo p_sexo, pla_f_nac_d as p_f_nac_d, pla_f_nac_m as p_f_nac_m, pla_f_nac_a as p_f_nac_a, pla_p4 p_p4, pla_p5 p_p5, pla_edad_30
-           from plana_s1_ s left join plana_s1_p  p on s.pla_enc= p.pla_enc and s.pla_hog=p.pla_hog and s.pla_respond=p.pla_mie
+           from plana_s1_ s 
+                left join plana_s1_p  p on s.pla_enc= p.pla_enc and s.pla_hog=p.pla_hog and s.pla_respond=p.pla_mie
                 left join encu.plana_i1_ i on p.pla_enc=i.pla_enc and p.pla_hog= i.pla_hog and p.pla_mie= i.pla_mie
-                left join encu.plana_sup_ sp on sp.pla_enc=i.pla_enc and sp.pla_hog= i.pla_hog) a1
+                --left join encu.plana_sup_ sp on sp.pla_enc=i.pla_enc and sp.pla_hog= i.pla_hog
+            ) a1
         "]="pla_enc=p_enc and pla_hog=p_hog ";
         $this->tabla->campos_lookup['p_sexo']=false;
         $this->tabla->campos_lookup['p_p4']=false;      
@@ -202,64 +210,75 @@ class Grilla_sup_familiar extends Grilla_supervision_para_proc{
 }
 
 class Grilla_sup_trabajo extends Grilla_supervision_para_proc{
+    var $campos_por_ope=[];
+    var $lista_por_ope='';
     function iniciar($nombre_del_objeto_base){
         parent::iniciar('SUP_');
+        $this->campos_por_ope=$this->filtrar_campos_del_operativo(array('pla_t11','pla_t11_otro','pla_t11_0'));
+        $this->lista_por_ope=implode(',' ,$this->campos_por_ope);
         $this->tabla->tablas_lookup["
-           (select i.pla_enc as p_enc, i.pla_hog as p_hog, i.pla_mie p_mie , pla_t1 i_t1, pla_t2 as i_t2, pla_t3 as i_t3, pla_t9 as i_t9, pla_t11 i_t11, pla_t11_otro i_t11_otro, pla_t12 i_t12, pla_cond_activ i_cond_activ 
+           (select i.pla_enc as p_enc, i.pla_hog as p_hog, i.pla_mie p_mie , pla_t1 , pla_t2, pla_t3, pla_t9, $this->lista_por_ope, pla_t12, pla_cond_activ 
            from plana_s1_ s left join plana_i1_  i on s.pla_enc= i.pla_enc and s.pla_hog=i.pla_hog and s.pla_respond=i.pla_mie) i1
         "]="pla_enc=p_enc and pla_hog=p_hog ";
-        $this->tabla->campos_lookup['i_t1']=false;
-        $this->tabla->campos_lookup['i_t2']=false;      
-        $this->tabla->campos_lookup['i_t3']=false;      
-        $this->tabla->campos_lookup['i_t9']=false;      
-        $this->tabla->campos_lookup['i_t11']=false;      
-        $this->tabla->campos_lookup['i_t11_otro']=false;      
-        $this->tabla->campos_lookup['i_t12']=false;      
-        $this->tabla->campos_lookup['i_cond_activ']=false;      
+        $this->tabla->campos_lookup['pla_t1']=false;
+        $this->tabla->campos_lookup['pla_t2']=false;      
+        $this->tabla->campos_lookup['pla_t3']=false;      
+        $this->tabla->campos_lookup['pla_t9']=false;      
+        $this->tabla->campos_lookup['pla_t12']=false;      
+        $this->tabla->campos_lookup['pla_cond_activ']=false;
+        foreach ($this->campos_por_ope as $var_i1) {
+            $this->tabla->campos_lookup[$var_i1]=false;
+        }    
     }
     function campos_a_listar($filtro_para_lectura){
         return array_merge(parent::campos_a_listar($filtro_para_lectura),
-            $this->filtrar_campos_del_operativo(array('pla_sp13', 'i_t1', 'pla_sp14', 'i_t2','pla_sp15', 'i_t3',
-                'pla_sp16', 'i_t9', 'pla_sp16a', 'i_t11','pla_sp16a_esp', 'i_t11_otro','pla_sp17', 'i_t12', 'pla_sp_cond_activ', 'i_cond_activ')
+            $this->filtrar_campos_del_operativo(array('pla_sp13', 'pla_t1', 'pla_sp14', 'pla_t2','pla_sp15', 'pla_t3',
+                'pla_sp16', 'pla_t9', 'pla_sp16a', 'pla_t11','pla_sp16a_esp', 'pla_t11_otro','pla_t11_0', 'pla_sp16b','pla_sp17', 'pla_t12', 'pla_sp_cond_activ', 'pla_cond_activ')
         ));
     }
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();
-        $heredados[]='i_t1';
-        $heredados[]='i_t2';  
-        $heredados[]='i_t3';
-        $heredados[]='i_t9';        
-        $heredados[]='i_t11';        
-        $heredados[]='i_t11_otro';        
-        $heredados[]='i_t12';        
-        $heredados[]='i_cond_activ';        
-        $heredados[]='pla_sp_cond_activ';        
+        $heredados[]='pla_t1';
+        $heredados[]='pla_t2';  
+        $heredados[]='pla_t3';
+        $heredados[]='pla_t9';        
+        $heredados[]='pla_t12';        
+        $heredados[]='pla_cond_activ';        
+        $heredados[]='pla_sp_cond_activ'; 
+        foreach ($this->campos_por_ope as $var_i1) {
+            $heredados[]=$var_i1;
+        }           
         return $heredados;
     }
 }
 
 class Grilla_sup_ingresos extends Grilla_supervision_para_proc{
-    var $existe_i3_32;
+    var $campos_por_ope=[];
+    var $lista_por_ope='';
     function iniciar($nombre_del_objeto_base){
         parent::iniciar('SUP_');
-        //$this->existe_i3_32=($GLOBALS['NOMBRE_APP']=='eah2021')?', pla_i3_32 ':'';
         //--variables que dependen de operativos
+        /*
         $tabla_variables=$this->contexto->nuevo_objeto("Tabla_variables");
         $tabla_variables->leer_uno_si_hay(array(
             'var_ope'=>$GLOBALS['NOMBRE_APP'],
             'var_var'=>'i3_32'
         )); 
         $this->existe_i3_32=($tabla_variables->obtener_leido())?', pla_i3_32 ':'';
+        */
+        $this->campos_por_ope=$this->filtrar_campos_del_operativo(array('pla_i3_32', 'pla_i3_1', 'pla_i3_34', 'pla_i3_35', 'pla_i3_36'));
+        $this->lista_por_ope=implode(',' ,$this->campos_por_ope);
+
         $q_lookup="
-           (select i.pla_enc as p_enc, i.pla_hog as p_hog, i.pla_mie p_mie , pla_i3_1, pla_i3_2, pla_i3_3, pla_i3_4, pla_i3_5, pla_i3_6, pla_i3_7
+           (select i.pla_enc as p_enc, i.pla_hog as p_hog, i.pla_mie p_mie , pla_i3_2, pla_i3_3, pla_i3_4, pla_i3_5, pla_i3_6, pla_i3_7
               , pla_i3_81, pla_i3_82, pla_i3_11, pla_i3_31, pla_i3_12, pla_i3_13, pla_i3_13a, pla_i3_10, pla_i3_10_otro, pla_cant_i3
-              {$this->existe_i3_32}
+              , $this->lista_por_ope
               from plana_s1_ s left join plana_i1_  i on s.pla_enc= i.pla_enc and s.pla_hog=i.pla_hog and s.pla_respond=i.pla_mie
             ) i1
         ";
         $this->tabla->tablas_lookup[
         $q_lookup]="pla_enc=p_enc and pla_hog=p_hog ";
-        $this->tabla->campos_lookup['pla_i3_1'] =false;
+        //$this->tabla->campos_lookup['pla_i3_1'] =false;
         $this->tabla->campos_lookup['pla_i3_2'] =false;
         $this->tabla->campos_lookup['pla_i3_3'] =false;
         $this->tabla->campos_lookup['pla_i3_4'] =false;
@@ -276,13 +295,15 @@ class Grilla_sup_ingresos extends Grilla_supervision_para_proc{
         $this->tabla->campos_lookup['pla_i3_13a']=false;
         $this->tabla->campos_lookup['pla_i3_31'] =false;
         $this->tabla->campos_lookup['pla_cant_i3']=false;
-        if ($this->existe_i3_32) {
-            $this->tabla->campos_lookup['pla_i3_32']=false;
-        }
+        foreach ($this->campos_por_ope as $var_i1) {
+            $this->tabla->campos_lookup[$var_i1]=false;
+        }    
+
     }
     function campos_a_listar($filtro_para_lectura){
         return array_merge(parent::campos_a_listar($filtro_para_lectura),
-            $this->filtrar_campos_del_operativo(array('pla_sp19_1','pla_i3_1', 'pla_sp19_2','pla_i3_2','pla_sp19_3', 'pla_i3_3', 'pla_sp19_4', 'pla_i3_4', 'pla_sp19_5','pla_i3_5', 'pla_sp19_6','pla_i3_6', 'pla_sp19_7','pla_i3_7'
+            $this->filtrar_campos_del_operativo(array('pla_sp19_1','pla_i3_1','pla_sp19_34','pla_i3_34','pla_sp19_35','pla_i3_35','pla_sp19_36','pla_i3_36'
+              , 'pla_sp19_2','pla_i3_2','pla_sp19_3', 'pla_i3_3', 'pla_sp19_4', 'pla_i3_4', 'pla_sp19_5','pla_i3_5', 'pla_sp19_6','pla_i3_6', 'pla_sp19_7','pla_i3_7'
               , 'pla_sp19_81','pla_i3_81', 'pla_sp19_82','pla_i3_82','pla_sp19_11','pla_i3_11','pla_sp19_32','pla_i3_32','pla_sp19_31','pla_i3_31'
               , 'pla_sp19_12','pla_i3_12', 'pla_sp19_13','pla_i3_13','pla_sp19_13a','pla_i3_13a'
               , 'pla_sp19_10','pla_i3_10', 'pla_sp19_especificar','pla_i3_10_otro','pla_cant_sp19','pla_cant_i3'
@@ -291,7 +312,7 @@ class Grilla_sup_ingresos extends Grilla_supervision_para_proc{
     }
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();
-        $heredados[]='pla_i3_1';
+       // $heredados[]='pla_i3_1';
         $heredados[]='pla_i3_2';
         $heredados[]='pla_i3_3';
         $heredados[]='pla_i3_4';
@@ -301,9 +322,6 @@ class Grilla_sup_ingresos extends Grilla_supervision_para_proc{
         $heredados[]='pla_i3_81';
         $heredados[]='pla_i3_82';
         $heredados[]='pla_i3_11';
-        if ($this->existe_i3_32) {
-            $heredados[]='pla_i3_32';
-        }
         $heredados[]='pla_i3_31';
         $heredados[]='pla_i3_12';
         $heredados[]='pla_i3_13';
@@ -312,6 +330,10 @@ class Grilla_sup_ingresos extends Grilla_supervision_para_proc{
         $heredados[]='pla_i3_10_otro';
         $heredados[]='pla_cant_i3';
         $heredados[]='pla_cant_sp19';
+        foreach ($this->campos_por_ope as $var_i1) {
+            $heredados[]=$var_i1;
+        }           
+
         return $heredados;
     }
 }
@@ -414,5 +436,51 @@ class Grilla_sup_pmd extends Grilla_supervision_para_proc{
        }
     }
 }
+
+
+class Grilla_sup_discapacidad extends Grilla_supervision_para_proc{
+    var $var_disca =['dd1','dd2','dd3','dd4','dd5','dd6','dd7','dd8','dd9','dd10','dd11','dd12','dd13','dd14','dd15','pd'];
+    
+    var $vcampos=[];
+    var $vcampos_ls='';
+    function iniciar($nombre_del_objeto_base){
+        parent::iniciar('SUP_');
+        foreach ($this->var_disca as $vari) {
+            $this->vcampos[] = 'pla_'.$vari;
+        };
+        $this->vcampos_ls=implode(',',$this->filtrar_campos_del_operativo($this->vcampos));
+        $this->vcampos_ls=$this->vcampos_ls==',' ||$this->vcampos_ls==null? '':','.$this->vcampos_ls; 
+        
+        $this->tabla->tablas_lookup["
+           (select i.pla_enc as p_enc, i.pla_hog as p_hog, i.pla_mie p_mie  $this->vcampos_ls
+                from plana_s1_ s 
+                left join plana_i1_  i on s.pla_enc= i.pla_enc and s.pla_hog=i.pla_hog and s.pla_respond=i.pla_mie
+                ) i1
+        "]="pla_enc=p_enc and pla_hog=p_hog ";
+        foreach ($this->vcampos as $vari) {
+            $this->tabla->campos_lookup[$vari] =false;
+        };
+    }
+    function campos_a_listar($filtro_para_lectura){
+        $vlista=[];
+        foreach ($this->vcampos as $vari) {
+            $vlista[]=str_replace('pla_','pla_sp',$vari);
+            $vlista[]=$vari;
+        };
+
+        return array_merge(parent::campos_a_listar($filtro_para_lectura),
+            $this->filtrar_campos_del_operativo($vlista)
+        );
+    }
+    function campos_solo_lectura(){
+        $heredados=parent::campos_solo_lectura();
+        foreach ($this->vcampos as $vari) {
+            $heredados[]=$vari;
+        }
+        return $heredados;
+    }
+};
+
+
 
 ?>

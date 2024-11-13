@@ -11,11 +11,13 @@ alter table encu.plana_sup_
   add column pla_sp_e_nivelb integer;
   
   
-CREATE OR REPLACE FUNCTION encu.calculo_variables_calculadas_sup_trg()
+set search_path= encu, dbo, comun;
+CREATE OR REPLACE FUNCTION encu.calculo_variables_calculadas_sup_v3_trg()
   RETURNS trigger AS
 $BODY$
     DECLARE
     v_edad integer;
+    vsp19_categoria1 integer;
     BEGIN
     /*
      SELECT pla_edad
@@ -23,16 +25,19 @@ $BODY$
        FROM encu.plana_s1_p s
        WHERE  s.pla_enc = new.pla_enc and s.pla_hog = new.pla_hog and s.pla_mie = new.pla_mie and s.pla_exm = 0;
     */
+     --vsp19_categoria1=enrango(new.pla_sp19_1,1,1);
+     vsp19_categoria1=enrango(new.pla_sp19_34,1,1)+enrango(new.pla_sp19_34,1,1)+enrango(new.pla_sp19_35,1,1)+enrango(new.pla_sp19_36,1,1);
+     --ademas en sp_cond_activ comenté variables que no estan en eah2024
      new.pla_sp_cond_activ:=case 
         when ((new.pla_sp13<0 and new.pla_sp14<1) or new.pla_sp15<0 or new.pla_sp17<0) then -9
-        when ((new.pla_sp13=1 or new.pla_sp14=1 or new.pla_sp15=5) and not informado(new.pla_sp16a) and not informado(new.pla_sp17)) then 1
+        when ((new.pla_sp13=1 or new.pla_sp14=1 or new.pla_sp15=5) /*and not informado(new.pla_sp16a)*/ and not informado(new.pla_sp17)) then 1
         when ((new.pla_sp13=2 and new.pla_sp14=2 and new.pla_sp15>1 and new.pla_sp15<5 and not new.pla_sp17=2) or new.pla_sp17=1) then 2
-        when ((new.pla_sp13=2 and new.pla_sp14=2 and new.pla_sp15=1) or (new.pla_sp16a>1 and new.pla_sp16a<6) or new.pla_sp17=2 ) then 3
+        when ((new.pla_sp13=2 and new.pla_sp14=2 and new.pla_sp15=1) /*or (new.pla_sp16a>1 and new.pla_sp16a<6)*/ or new.pla_sp17=2 ) then 3
          else null end;
 
      new.pla_cant_sp19:=case 
-        when (new.pla_sp19_1<0 or new.pla_sp19_2<0 or new.pla_sp19_3<0 or new.pla_sp19_4<0 or new.pla_sp19_5<0 or new.pla_sp19_6<0 or new.pla_sp19_7<0 or new.pla_sp19_81<0 or new.pla_sp19_82<0 or new.pla_sp19_11<0 or new.pla_sp19_31<0 or new.pla_sp19_12<0 or new.pla_sp19_13<0 or new.pla_sp19_10<0) then -9
-        when (true) then (enrango(new.pla_sp19_1,1,1)) + (enrango(new.pla_sp19_2,1,1)) + (enrango(new.pla_sp19_3,1,1)) + (enrango(new.pla_sp19_4,1,1)) + (enrango(new.pla_sp19_5,1,1)) + (enrango(new.pla_sp19_6,1,1)) + (enrango(new.pla_sp19_7,1,1)) + (enrango(new.pla_sp19_81,1,1)) + (enrango(new.pla_sp19_82,1,1)) + (enrango(new.pla_sp19_11,1,1)) + (enrango(new.pla_sp19_31,1,1)) + (enrango(new.pla_sp19_12,1,1)) + (enrango(new.pla_sp19_13,1,1)) + (enrango(new.pla_sp19_10,1,1))
+        when (new.pla_sp19_34<0 or new.pla_sp19_35<0 or new.pla_sp19_36<0 or new.pla_sp19_2<0 or new.pla_sp19_3<0 or new.pla_sp19_4<0 or new.pla_sp19_5<0 or new.pla_sp19_6<0 or new.pla_sp19_7<0 or new.pla_sp19_81<0 or new.pla_sp19_82<0 or new.pla_sp19_11<0 or new.pla_sp19_31<0 or new.pla_sp19_12<0 or new.pla_sp19_13<0 or new.pla_sp19_10<0) then -9
+        when (true) then  vsp19_categoria1 + (enrango(new.pla_sp19_2,1,1)) + (enrango(new.pla_sp19_3,1,1)) + (enrango(new.pla_sp19_4,1,1)) + (enrango(new.pla_sp19_5,1,1)) + (enrango(new.pla_sp19_6,1,1)) + (enrango(new.pla_sp19_7,1,1)) + (enrango(new.pla_sp19_81,1,1)) + (enrango(new.pla_sp19_82,1,1)) + (enrango(new.pla_sp19_11,1,1)) + (enrango(new.pla_sp19_31,1,1)) + (enrango(new.pla_sp19_12,1,1)) + (enrango(new.pla_sp19_13,1,1)) + (enrango(new.pla_sp19_10,1,1))
          else null end; 
 
      new.pla_sp_edad_30:=case 
@@ -75,19 +80,20 @@ $BODY$
         when (new.pla_sp20=2 and new.pla_sp22=14 and new.pla_sp23=1) then 16
         when (new.pla_sp20=2 and new.pla_sp22=14 and new.pla_sp23=2) then 17
         when (new.pla_sp20=2 and new.pla_sp22=6) then 18
-         else null end;          
+         else null end;
     return new;
     END;
     $BODY$
   LANGUAGE plpgsql ;
-ALTER FUNCTION encu.calculo_variables_calculadas_sup_trg()
+ALTER FUNCTION encu.calculo_variables_calculadas_sup_v3_trg()
   OWNER TO tedede_php;
 
+DROP TRIGGER IF EXISTS calculo_variables_calculadas_sup_trg ON encu.plana_sup_;
 CREATE TRIGGER calculo_variables_calculadas_sup_trg
   BEFORE UPDATE
   ON encu.plana_sup_
   FOR EACH ROW
-  EXECUTE PROCEDURE encu.calculo_variables_calculadas_sup_trg();
+  EXECUTE PROCEDURE encu.calculo_variables_calculadas_sup_v3_trg();
 
 -- varcal
   INSERT INTO encu.varcal(

@@ -526,6 +526,11 @@ JS
     function proceso_planilla_recepcion_supervisor_telefonico(){
         return new Planilla_recepcion_supervisor_telefonico();
     }
+    /*
+    function proceso_planilla_correcciones_especiales_TEM(){
+        return new Planilla_correcciones_especiales_TEM();
+    }
+    */
     function proceso_planilla_analista_consistencias(){
         return new Planilla_analista_consistencias();
     }
@@ -1173,6 +1178,20 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
                 enviar_grilla($este->salida,'sup_educacion',array(
+            'pla_sp1'=>'#=1'
+                )                    
+                ,null,array());
+            }            
+        ));
+    }
+    function proceso_grilla_sup_discapacidad(){
+        return new Proceso_generico(array(
+            'titulo'=>'Grilla de Supervision de modulo detección discapacidad',
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
+            'submenu'=>'supervisión',
+            'para_produccion'=>true,
+            'funcion'=>function(Procesos $este){
+                enviar_grilla($este->salida,'sup_discapacidad',array(
             'pla_sp1'=>'#=1'
                 )                    
                 ,null,array());
