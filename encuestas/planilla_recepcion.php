@@ -77,13 +77,18 @@ JS
 
 class Planilla_correcciones_especiales_TEM extends Planilla_basada_en_TEM{
     function titulo(){
-        return 'Correciones especiales de la TEM';
+        return 'Correcciones ESPECIALES de la TEM';
     }
     function permisos(){
-        return array('grupo'=>'coor_campo');
+        return array('grupo'=>'procesamiento','grupo1'=>'programador');
     }
     function submenu(){
-        return 'coordinación de campo';
+        return 'procesamiento';
+    }
+    function filtro_personal(){
+        if( tiene_rol('programador')|| tiene_rol('procesamiento')){
+            return array();
+        }
     }
 }
 
@@ -507,11 +512,35 @@ class Grilla_planilla_dom5_campo extends Grilla_planilla_monitoreo_TEM{
         return 2;
     }
 }
-class Grilla_correccion_TEM extends Grilla_planilla_recepcion_encuestador{
+class Grilla_planilla_correcciones_especiales_TEM extends Grilla_planilla_monitoreo_TEM{
+    function iniciar($tov){
+        parent::iniciar($tov);
+        $this->tabla->clausula_where_agregada_manual="  and pla_estado>60 " ;        
+    }
     function campos_editables($filtro_para_lectura){
+        $xeditables=array();
+        $tabla_pla_var=$this->contexto->nuevo_objeto("Tabla_pla_var");
+        $tabla_pla_var->definir_campos_orden("plavar_orden asc");
+        $tabla_pla_var->leer_varios(array(
+            'plavar_ope'=>$GLOBALS['NOMBRE_APP'],
+            'plavar_planilla'=>'MON_TEM',
+            'plavar_editable'=>false,
+            'plavar_orden'=>Filtro_Normal::IS_NOT_NULL,
+        ));
+        while($tabla_pla_var->obtener_leido()){
+            $xvar= $tabla_pla_var->datos->plavar_var;
+            $pattern = "/(enc|recu)$/";
+            if (preg_match($pattern, $xvar)){ 
+                $xeditables[]='pla_'.$xvar;
+            };
+        };
+        $anio_ope=$GLOBALS["anio_operativo"];
+        if($anio_ope<=2014){
+            $xeditables= array('pla_per','pla_cod_enc','pla_norea_e','pla_cod_recu','pla_norea_r','pla_dispositivo','pla_norea','pla_fecha_carga', 'pla_fecha_descarga', 'pla_estado_carga','pla_codsup');
+        }
         return array_merge(
             parent::campos_editables($filtro_para_lectura),
-            array('pla_per','pla_cod_enc','pla_norea_e','pla_cod_recu','pla_norea_r','pla_dispositivo','pla_norea','pla_fecha_carga', 'pla_fecha_descarga', 'pla_estado_carga','pla_codsup')
+            $xeditables
         );
     }
 }

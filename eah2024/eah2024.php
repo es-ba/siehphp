@@ -526,11 +526,6 @@ JS
     function proceso_planilla_recepcion_supervisor_telefonico(){
         return new Planilla_recepcion_supervisor_telefonico();
     }
-    /*
-    function proceso_planilla_correcciones_especiales_TEM(){
-        return new Planilla_correcciones_especiales_TEM();
-    }
-    */
     function proceso_planilla_analista_consistencias(){
         return new Planilla_analista_consistencias();
     }
@@ -1261,6 +1256,9 @@ JS
    */
     function proceso_eliminar_formulario_sup(){
         return new Proceso_eliminar_formulario_sup();
+    }
+    function proceso_planilla_correcciones_especiales_TEM(){
+        return new Planilla_correcciones_especiales_TEM();
     }
     function proceso_fin_de_campo(){
         return new Proceso_fin_de_campo();
