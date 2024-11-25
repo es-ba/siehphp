@@ -515,7 +515,7 @@ class Grilla_planilla_dom5_campo extends Grilla_planilla_monitoreo_TEM{
 class Grilla_planilla_correcciones_especiales_TEM extends Grilla_planilla_monitoreo_TEM{
     function iniciar($tov){
         parent::iniciar($tov);
-        $this->tabla->clausula_where_agregada_manual="  and pla_estado>60 " ;        
+        $this->tabla->clausula_where_agregada_manual="  and pla_estado>=65 " ;        
     }
     function campos_editables($filtro_para_lectura){
         $xeditables=array();
