@@ -529,19 +529,20 @@ class Grilla_planilla_correcciones_especiales_TEM extends Grilla_planilla_monito
         ));
         while($tabla_pla_var->obtener_leido()){
             $xvar= $tabla_pla_var->datos->plavar_var;
-            $pattern = "/(enc|recu)$/";
-            if (preg_match($pattern, $xvar)){ 
+            $pattern_suf = "/(enc|recu)$/";
+            $pattern_pre = "/^(rea|norea)/";
+            if (preg_match($pattern_suf, $xvar) && preg_match($pattern_pre, $xvar)){ 
                 $xeditables[]='pla_'.$xvar;
             };
         };
         $anio_ope=$GLOBALS["anio_operativo"];
         if($anio_ope<=2014){
-            $xeditables= array('pla_per','pla_cod_enc','pla_norea_e','pla_cod_recu','pla_norea_r','pla_dispositivo','pla_norea','pla_fecha_carga', 'pla_fecha_descarga', 'pla_estado_carga','pla_codsup');
+            $xeditables= array_merge(
+                parent::campos_editables($filtro_para_lectura),
+                array('pla_per','pla_cod_enc','pla_norea_e','pla_cod_recu','pla_norea_r','pla_dispositivo','pla_norea','pla_fecha_carga', 'pla_fecha_descarga', 'pla_estado_carga','pla_codsup')
+                );
         }
-        return array_merge(
-            parent::campos_editables($filtro_para_lectura),
-            $xeditables
-        );
+        return $xeditables;
     }
 }
 
