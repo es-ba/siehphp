@@ -27,7 +27,7 @@ DECLARE
 BEGIN
   --RAISE NOTICE 'ENTRO CON %',p_cual;
   FOR v_cursor IN
-    SELECT x[1] as encontrado, fun_fun, fun_abreviado
+    SELECT distinct x[1] as encontrado, fun_fun, fun_abreviado
       FROM regexp_matches(p_cual,'@\(.*?\)@','g') x 
          LEFT JOIN dbx.funciones_automaticas ON x[1]=fun_fun
   LOOP
