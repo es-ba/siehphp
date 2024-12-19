@@ -125,7 +125,7 @@ class Grilla_respuestas_para_proc_ind extends Grilla_respuestas{
     // OJO HAY QUE HACERLA HEREDAR DE Grilla_respuestas_para_proc
     function iniciar($nombre_del_objeto_base){
         parent::iniciar($nombre_del_objeto_base);
-        $tieneresidente=(in_array("{$GLOBALS['NOMBRE_APP']}",['eah2024','etoi244']) /*|| "{$GLOBALS['anio_operativo']}" >=2025 */) ? ' pla_r0 as s1_r0 ':' null as s1_r0'; 
+        $tieneresidente=(in_array("{$GLOBALS['NOMBRE_APP']}",['eah2024','etoi244']) || $GLOBALS['anio_operativo'] >=2025 ) ? ' pla_r0 as s1_r0 ':' null as s1_r0'; 
         $this->tabla->campos_lookup=array(
             "s1_p_bolsa"=>true,
             "s1_p_estado"=>false,
