@@ -120,7 +120,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
     }  
    
     function campos_a_listar($filtro_para_lectura){
-        $array2=(!in_array("{$GLOBALS['NOMBRE_APP']}",['eah2024','etoi244']))? array('pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro'):array('pla_t39');
+        $array2=(!in_array("{$GLOBALS['NOMBRE_APP']}",['eah2024','etoi244','etoi251']))? array('pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro'):array('pla_t39');
         return array_merge(array('s1_p_semana','pla_enc', 'pla_hog','pla_mie',
                                 /*'pla_participacion',*/'s1_p_bolsa','s1_p_estado',
                                 /*'s1_p_area',*/'s1_p_cod_anacon',
