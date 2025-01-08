@@ -13,9 +13,17 @@ $GLOBALS['esquema_principal']='encu';
 $GLOBALS['titulo_corto_app']="etoi251";
 
 $es_teletoi_desa = false;
+$es_prp_etoi251_desa= false;
 
-$GLOBALS['es_tele_etoi']=strpos(__DIR__,"alserver_tele_etoi251/")>0 || !strpos(__DIR__,"alserver_etoi251/")>0 && $es_teletoi_desa;
+$GLOBALS['es_tele_etoi']= strpos(__DIR__,"alserver_tele_etoi251/")>0 || !strpos(__DIR__,"alserver_etoi251/")>0 && $es_teletoi_desa;
 $GLOBALS['titulo_corto_app']=$GLOBALS['es_tele_etoi']?'TELE '.$GLOBALS['titulo_corto_app'].'*': $GLOBALS['titulo_corto_app'];
+
+//para prp_etoi251 fue necesario agregar las sentencias a continuación
+$GLOBALS['es_prp_etoi251']= strpos(__DIR__,"prp_etoi251/")>0 || !strpos(__DIR__,"prp_etoi251/")>0  && $es_prp_etoi251_desa;
+$GLOBALS['titulo_corto_app']=$GLOBALS['es_prp_etoi251']?'PRP-ACJ  -ACCESO A LA JUSTICIA '.'*': $GLOBALS['titulo_corto_app'];
+
+//hasta aqui prp_etoi251
+
 require_once "lo_imprescindible.php";
 require_once "aplicaciones.php";
 require_once "tabla_operativos.php";
