@@ -44,7 +44,9 @@ class Aplicacion_etoi251 extends Aplicacion_encuesta{
         );
         parent::__construct();
         if($esta_es_la_base_en_produccion){
-            $this->salida->html_title=" ETOI 251";
+            //para prp_etoi251  cambia el título
+            //$this->salida->html_title=" ETOI 251";
+            $this->salida->html_title= $GLOBALS['es_prp_etoi251']?" PRP-ACJ":" ETOI 251";
         }else if($esta_es_la_base_de_capacitacion){
             $this->salida->html_title="CAPA - etoi251";
         }else{
