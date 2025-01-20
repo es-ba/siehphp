@@ -1,0 +1,507 @@
+-- para limpiar esquema operaciones
+set search_path= encu, dbo, comun;
+select  concat('drop table operaciones.',tablename,';') from pg_tables 
+    where schemaname='operaciones' 
+    order by tablename;
+-- luego comentar las tablas que no se desea eliminar    
+
+--ARMADO DE TABLAS AUXILIARES EN BASE ORIGEN
+--diccionarios
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.dicc_etoi244; set role tedede_php;select * into operaciones.dicc_etoi244 from encu.diccionario order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.dicvar_etoi244; set role tedede_php;select * into operaciones.dicvar_etoi244 from encu.dicvar order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.dictra_etoi244; set role tedede_php;select * into operaciones.dictra_etoi244 from encu.dictra order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\dicc_etoi244.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.dicc_etoi244" --table "operaciones.dicvar_etoi244" --table "operaciones.dictra_etoi244" "etoi244_produc_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\dicc_etoi244.backup"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\dicc_etoi244.backup"
+
+
+--consistencias para test
+/*
+set role tedede_php;
+--tabla auxiliar en etoi244
+--drop table if exists operaciones.consistencias_etoi244;
+select * into operaciones.consistencias_etoi244
+  from encu.consistencias
+  where con_con not ilike 'flujo%' and con_con not ilike 'audi%'
+  order by con_con;--474
+*/  
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.consistencias_etoi244;set role tedede_php;select * into operaciones.consistencias_etoi244 from encu.consistencias where con_con not ilike 'flujo%' and con_con not ilike 'audi%' order by con_con" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" -f "C:\\proyectos\\eah_etoi\\consist_etoi244.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.consistencias_etoi244"  "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\consist_etoi244.backup"
+
+
+
+--rama
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "select * into operaciones.rama_etoi244 from encu.rama order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\rama_etoi244.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.rama_etoi244" "etoi244_produc_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\rama_etoi244.backup"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\rama_etoi244.backup"
+
+set search_path= encu,dbo,comun;
+select blo_blo,blo_texto,blo_orden,var_pre,var_var,var_texto,var_aclaracion,var_tipovar,var_subordinada_var,var_desp_nombre,var_expresion_habilitar,var_optativa,var_orden,pre_orden,orden,var_ultima_for,var_siguiente
+from variables_ordenadas
+where var_for='I1'
+order by orden;
+
+--ocup
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "select * into operaciones.ocupacion_etoi244 from encu.ocupacion order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\ocup_etoi244.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.ocupacion_etoi244" "etoi244_produc_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\ocup_etoi244.backup"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\ocup_etoi244.backup"
+
+
+--INSERTS  EN BASE DESTINO
+--sql
+INSERT INTO encu.diccionario(dic_dic,dic_completo,dic_tlg) --11 filas
+        select dic_dic,dic_completo,1
+          from  operaciones.dicc_etoi244 d
+          where not exists (select * from encu.diccionario a where a.dic_dic=d.dic_dic)  ;
+--INSERT 0 11 Query returned successfully in 37 msec.
+
+INSERT INTO encu.dicvar(dicvar_dic,dicvar_var,dicvar_tlg) --13 filas
+        select dicvar_dic,dicvar_var,1 
+        from operaciones.dicvar_etoi244 d
+        where not exists (select * from encu.dicvar a where d.dicvar_dic=a.dicvar_dic and a.dicvar_var=a.dicvar_var);
+--INSERT 0 15 Query returned successfully in 35 msec.
+
+--dictra
+INSERT INTO encu.dictra( dictra_dic,dictra_ori,dictra_des, dictra_tlg)
+select dictra_dic,dictra_ori,dictra_des,1 
+          from operaciones.dictra_etoi244 o where not exists (select * from encu.dictra d where d.dictra_dic=o.dictra_dic and d.dictra_ori=o.dictra_ori)  
+--INSERT 0 11092 Query returned successfully in 255 msec.
+
+
+set search_path= encu,comun,dbo;
+--select count(*) from consistencias;--0
+select count(*) from consistencias;
+INSERT INTO encu.consistencias(
+       con_ope,con_con,con_precondicion,con_rel,con_postcondicion,
+       con_activa,con_explicacion,con_expl_ok,con_estado,con_tipo,
+       con_falsos_positivos,con_importancia,con_momento,con_grupo,
+       con_descripcion,con_modulo,con_valida,con_junta,con_clausula_from,
+       con_expresion_sql,con_error_compilacion,con_ultima_variable,
+       con_orden,con_gravedad,con_version,con_rev,con_ultima_modificacion,
+       con_ignorar_nulls,con_observaciones,con_variables_contexto,
+       con_demora_compilacion,con_origen,con_tlg)
+select 
+       dbo.ope_actual(),con_con,con_precondicion,con_rel,con_postcondicion,
+       con_activa,con_explicacion,con_expl_ok,con_estado,con_tipo,
+       con_falsos_positivos,con_importancia,con_momento,con_grupo,
+       con_descripcion,con_modulo,con_valida,con_junta,con_clausula_from,
+       con_expresion_sql,con_error_compilacion,con_ultima_variable,
+       con_orden,con_gravedad,con_version,con_rev,con_ultima_modificacion,
+       con_ignorar_nulls,con_observaciones,con_variables_contexto,
+       con_demora_compilacion,con_origen, 1
+from operaciones.consistencias_etoi244
+order by con_con;
+--578
+
+
+select con_tipo,con_activa,con_valida,count(*)
+from operaciones.consistencias_etoi244
+group by 1,2,3
+order by 1,2,3;
+select * from operaciones.consistencias_etoi244
+where con_activa and not con_valida;
+
+--compilacion
+500 compiladas
+ 11 sin compilar
+
+--GENERACION DE CONSISTENCIAS DE AUDITORIA
+set search_path=encu,comun,dbo,public;
+select encu.generar_consistencias_flujo(ope_actual());
+-- demora 234s
+
+select encu.generar_consistencias_audi_rango(ope_actual());
+-- demora <1s
+
+
+select encu.generar_consistencias_audi_nsnc(ope_actual());
+-- demora <1s
+
+select encu.generar_consistencias_audi_opc(ope_actual());
+
+select encu.generar_consistencias_filtro(ope_actual());
+
+select encu.generar_consistencias_flujo_obligatorio();
+
+select encu.generar_consistencias_continuidad();
+
+audi  632 1
+flujo 522 2
+
+select substr(con_con,1,4),con_valida,count(*)
+from consistencias
+where con_con ~'flujo|audi'
+group by 1,2
+order by 1,2;
+"audi"	false	1
+"audi"	true	632
+"fluj"	false	2
+"fluj"	true	522
+
+modificadas a mano
+  240321 MODIFCADA  F_REALIZ_RANGO
+  flujo_s_r de personas sacar r0 que no es editable
+
+---
+set search_path= encu,dbo,comun,public;
+--select * from rama
+insert into rama(ram_ram,ram_descripcion,ram_tlg)
+select ram_ram,ram_descripcion,1
+from operaciones.rama_etoi244;
+--INSERT 0 141 Query returned successfully in 67 msec.
+
+insert into ocupacion (ocu_ocu,ocu_descripcion,ocu_tlg)
+select ocu_ocu,ocu_descripcion,1
+from operaciones.ocupacion_etoi244;
+--INSERT 0 1307 Query returned successfully in 70 msec.
+
+
+--consistencias_test
+----pasar a Relevamiento ticket 289
+select * from consistencias
+where con_observaciones~'Pasar a R' and con_modulo!~'INGRESO'
+    and con_activa and con_valida;
+alter table consistencias disable trigger consistencias_upd_trg;
+update consistencias
+  set con_momento= substr(con_observaciones,9)
+  where con_observaciones~'Pasar a R' and con_modulo!~'INGRESO'
+    and con_activa and con_valida;
+alter table consistencias enable trigger consistencias_upd_trg;
+
+--
+--tabulados tanda1
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "select * into operaciones.tab_etoi244_1 from encu.tabulados where tab_grupo~*'corte' order by 1" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\tab_etoi244_1.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.tab_etoi244_1" "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\tab_etoi244_1.backup"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\tab_etoi244_1.backup"
+"C:\Program Files\PostgreSQL\16\bin\psql.exe"  --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi251_produc_db"
+set search_path= encu, dbo, comun;
+INSERT INTO encu.tabulados(
+tab_tab, tab_titulo, tab_fila1, tab_fila2, tab_columna, tab_cel_exp,
+tab_cel_tipo, tab_filtro, tab_notas, tab_observaciones, tab_decimales,
+tab_cerrado, tab_grupo, tab_tlg)
+select --tab_grupo, count(*)
+tab_tab, tab_titulo, tab_fila1, tab_fila2, tab_columna, tab_cel_exp,
+tab_cel_tipo, tab_filtro, tab_notas, tab_observaciones, tab_decimales,
+tab_cerrado, tab_grupo, 1
+from operaciones.tab_etoi244_1 b
+where  not exists(select 1 from tabulados where tab_tab=b.tab_tab)
+order by tab_tab;
+--INSERT 0 19 
+select count(*) from tabulados; 
+
+/c etoi251_test_db
+--idem para test, conectarse y ejecutar insert
+
+---\q
+
+
+---varcal tanda1
+--categori, t_categ, cond_activ, t_ocup, t_desoc, t_ina,categ_covid, categori_os, t_categ_os
+
+
+select * from varcal 
+where varcal_varcal~'^(categori|t_categ|cond_activ|t_ocup|t_desoc|t_ina|categ_covid|categori_os|t_categ_os)$' 
+order by 1,2
+
+--etoi244
+set search_path= encu, dbo, comun;
+drop table if exists operaciones.varcal_etoi244_1 ;
+select * into operaciones.varcal_etoi244_1
+    from varcal
+    where --varcal_activa and 
+    varcal_tipo='normal' and varcal_varcal~'^(categori|t_categ|cond_activ|t_ocup|t_desoc|t_ina|categ_covid|categori_os|t_categ_os)$'
+    and varcal_grupo !~*'pobreza'
+    order by 1,2,3;--9
+drop table if exists operaciones.varcalopc_etoi244_1;
+select o.* into operaciones.varcalopc_etoi244_1
+    from varcalopc o join varcal on varcal_ope=varcalopc_ope and varcal_varcal=varcalopc_varcal 
+    where --varcal_activa and 
+    varcal_tipo='normal' 
+    and varcal_varcal~'^(categori|t_categ|cond_activ|t_ocup|t_desoc|t_ina|categ_covid|categori_os|t_categ_os)$'
+    and varcal_grupo !~*'pobreza'
+order by 1,2,3;--62
+
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\varcal_etoi244_1.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.varcal_etoi244_1" --table "operaciones.varcalopc_etoi244_1" "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\varcal_etoi244_1.backup"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\varcal_etoi244_1.backup"
+
+--en etoi251, revision con etoi244
+set search_path= encu, dbo, comun;
+---insercion de las que no estan desde etoi244
+INSERT INTO encu.varcal(
+  varcal_ope, varcal_varcal, varcal_destino, varcal_orden, varcal_nombre, 
+  varcal_comentarios, varcal_activa, varcal_tipo, varcal_baseusuario, 
+  varcal_nombrevar_baseusuario, varcal_tipodedato, varcal_nombre_dr, 
+  varcal_nsnc_atipico, varcal_grupo, varcal_tem, varcal_valida, 
+  varcal_opciones_excluyentes, varcal_filtro, varcal_cerrado, varcal_tlg)
+select dbo.ope_actual(), o.varcal_varcal, o.varcal_destino, o.varcal_orden, o.varcal_nombre,
+  o.varcal_comentarios, false, o.varcal_tipo, o.varcal_baseusuario,
+  o.varcal_nombrevar_baseusuario, o.varcal_tipodedato, o.varcal_nombre_dr, 
+  o.varcal_nsnc_atipico, o.varcal_grupo, o.varcal_tem, false,
+  o.varcal_opciones_excluyentes, o.varcal_filtro, o.varcal_cerrado, 1
+from operaciones.varcal_etoi244_1 o
+where varcal_tipo='normal' and varcal_activa 
+and not exists (select * from varcal where  varcal_varcal=o.varcal_varcal)
+and exists (select 1 from operaciones.varcalopc_etoi244_1 where varcalopc_varcal=o.varcal_varcal);
+--0
+INSERT INTO encu.varcalopc(
+            varcalopc_ope, varcalopc_varcal, varcalopc_opcion, varcalopc_expresion_condicion, 
+            varcalopc_etiqueta, varcalopc_expresion_valor, varcalopc_origen, 
+            varcalopc_orden, varcalopc_comentarios, varcalopc_tlg)
+select      dbo.ope_actual(), varcalopc_varcal, varcalopc_opcion, varcalopc_expresion_condicion, 
+            varcalopc_etiqueta, varcalopc_expresion_valor, varcalopc_origen, 
+            varcalopc_orden, varcalopc_comentarios, 1
+            from operaciones.varcalopc_etoi244_1 o
+            where not exists (select 1 from varcalopc b where b.varcalopc_varcal=o.varcalopc_varcal and b.varcalopc_opcion=o.varcalopc_opcion)
+            order by varcalopc_ope, varcalopc_varcal, varcalopc_opcion
+--INSERT 0 
+
+--exiten las opciones de variables que no estan activas desde donde se toman las variables 
+select * from varcalopc o where  exists (select * from operaciones.varcal_etoi244_1
+where varcal_activa is false and varcal_varcal=o.varcalopc_varcal);--00
+delete from varcalopc o where  exists (select * from operaciones.varcal_etoi244_1
+where varcal_activa is false and varcal_varcal=o.varcalopc_varcal);
+--sin opciones
+select * from varcal where varcal_tipo='normal'
+ and not exists (select * from varcalopc o where o.varcalopc_varcal=varcal_varcal)
+--0
+
+-- comparacion con las que estan en etoi244
+with diferencias as(
+ Select v.varcal_varcal, 'varcal_destino' columna, v.varcal_destino val_act, o.varcal_destino val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_destino is distinct from o.varcal_destino union 
+ Select v.varcal_varcal, 'varcal_orden' columna, v.varcal_orden::text val_act, o.varcal_orden::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_orden is distinct from o.varcal_orden union 
+ Select v.varcal_varcal, 'varcal_nombre' columna, v.varcal_nombre val_act, o.varcal_nombre val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_nombre is distinct from o.varcal_nombre union 
+ Select v.varcal_varcal, 'varcal_comentarios' columna, v.varcal_comentarios val_act, o.varcal_comentarios val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_comentarios is distinct from o.varcal_comentarios union 
+ Select v.varcal_varcal, 'varcal_activa' columna, v.varcal_activa::text val_act, o.varcal_activa::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_activa is distinct from o.varcal_activa union 
+ Select v.varcal_varcal, 'varcal_tipo' columna, v.varcal_tipo val_act, o.varcal_tipo val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_tipo is distinct from o.varcal_tipo union 
+ Select v.varcal_varcal, 'varcal_baseusuario' columna, v.varcal_baseusuario::text val_act, o.varcal_baseusuario::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_baseusuario is distinct from o.varcal_baseusuario union 
+ Select v.varcal_varcal, 'varcal_nombrevar_baseusuario' columna, v.varcal_nombrevar_baseusuario val_act, o.varcal_nombrevar_baseusuario val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_nombrevar_baseusuario is distinct from o.varcal_nombrevar_baseusuario union 
+ Select v.varcal_varcal, 'varcal_tipodedato' columna, v.varcal_tipodedato val_act, o.varcal_tipodedato val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_tipodedato is distinct from o.varcal_tipodedato union 
+ Select v.varcal_varcal, 'varcal_nombre_dr' columna, v.varcal_nombre_dr val_act, o.varcal_nombre_dr val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_nombre_dr is distinct from o.varcal_nombre_dr union 
+ Select v.varcal_varcal, 'varcal_nsnc_atipico' columna, v.varcal_nsnc_atipico::text val_act, o.varcal_nsnc_atipico::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_nsnc_atipico is distinct from o.varcal_nsnc_atipico union 
+ Select v.varcal_varcal, 'varcal_grupo' columna, v.varcal_grupo val_act, o.varcal_grupo val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_grupo is distinct from o.varcal_grupo union 
+ Select v.varcal_varcal, 'varcal_tem' columna, v.varcal_tem val_act, o.varcal_tem val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_tem is distinct from o.varcal_tem union 
+ Select v.varcal_varcal, 'varcal_valida' columna, v.varcal_valida::text val_act, o.varcal_valida::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_valida is distinct from o.varcal_valida union 
+ Select v.varcal_varcal, 'varcal_opciones_excluyentes' columna, v.varcal_opciones_excluyentes::text val_act, o.varcal_opciones_excluyentes::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_opciones_excluyentes is distinct from o.varcal_opciones_excluyentes union 
+ Select v.varcal_varcal, 'varcal_filtro' columna, v.varcal_filtro val_act, o.varcal_filtro val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_filtro is distinct from o.varcal_filtro union 
+ Select v.varcal_varcal, 'varcal_cerrado' columna, v.varcal_cerrado::text val_act, o.varcal_cerrado::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_cerrado is distinct from o.varcal_cerrado 
+order by 1,2
+)
+select columna, count(*) casos
+from diferencias
+group by 1 order by count(*) desc
+--"varcal_activa"	1
+
+Select v.varcal_varcal, 'varcal_activa' columna, v.varcal_activa::text val_act, o.varcal_activa::text val_anterior from encu.varcal v join operaciones.varcal_etoi244_1 o using (varcal_varcal) where o.varcal_tipo='normal' and v.varcal_activa is distinct from o.varcal_activa 
+order by 1, 2 ;
+--"categ_covid"	"varcal_activa"	"false"	"true"
+
+--sentencias de modifcacion
+--activo por app
+
+--revision opciones
+with vv as(
+select a.varcal_grupo, a.varcal_activa, v.*
+  from varcal a join varcalopc v on a.varcal_varcal=v.varcalopc_varcal)
+, comp as(  
+select vv.varcal_grupo,vv.varcal_activa, vv.varcalopc_varcal, vv.varcalopc_opcion, 'expresion_condicion' col ,vv.varcalopc_expresion_condicion val_act, o.varcalopc_expresion_condicion val_anterior from operaciones.varcalopc_etoi244_1 o join vv using (varcalopc_varcal, varcalopc_opcion)
+  where o.varcalopc_expresion_condicion is distinct from vv.varcalopc_expresion_condicion union
+select vv.varcal_grupo,vv.varcal_activa, vv.varcalopc_varcal, vv.varcalopc_opcion, 'expresion_valor' col ,vv.varcalopc_expresion_valor val_act, o.varcalopc_expresion_valor val_anterior from operaciones.varcalopc_etoi244_1 o join vv using (varcalopc_varcal, varcalopc_opcion)
+  where o.varcalopc_expresion_valor is distinct from vv.varcalopc_expresion_valor union
+select vv.varcal_grupo,vv.varcal_activa, vv.varcalopc_varcal, vv.varcalopc_opcion, 'etiqueta' col ,vv.varcalopc_etiqueta val_act, o.varcalopc_etiqueta val_anterior from operaciones.varcalopc_etoi244_1 o join vv using (varcalopc_varcal, varcalopc_opcion)
+  where o.varcalopc_etiqueta is distinct from vv.varcalopc_etiqueta union
+select vv.varcal_grupo,vv.varcal_activa, vv.varcalopc_varcal, vv.varcalopc_opcion, 'comentarios' col ,vv.varcalopc_comentarios val_act, o.varcalopc_comentarios val_anterior from operaciones.varcalopc_etoi244_1 o join vv using (varcalopc_varcal, varcalopc_opcion)
+  where o.varcalopc_comentarios is distinct from vv.varcalopc_comentarios
+)
+select * 
+--select concat('update varcalopc set varcalopc_',col,'=', quote_literal(val_anterior),' where varcalopc_ope=',quote_literal(dbo.ope_actual()),' and varcalopc_varcal=',quote_literal(varcalopc_varcal),' and varcalopc_opcion=',varcalopc_opcion,';')    
+from comp
+--where varcal_grupo ~* 'general|Ocupaci|demograf|EDUCA|familia|SD|supervisi|VIVIENDA|SALUD|fecundidad|tipohogar|rama y tarea|hogar|migraci|edad|actividades esenciales'
+-- and varcal_grupo !~*'imput|pobreza|rentas'
+order by 3,4,5;--00
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=-9;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=1;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=2;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=3;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=4;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=5;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=6;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=7;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=8;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=9;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=10;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=11;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=12;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=13;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=14;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_desoc' and varcalopc_opcion=15;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ina' and varcalopc_opcion=1;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ina' and varcalopc_opcion=2;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ina' and varcalopc_opcion=3;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ina' and varcalopc_opcion=4;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=-9;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=1;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=2;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=3;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=4;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=5;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=6;
+update varcalopc set varcalopc_comentarios='MOD3T2024' where varcalopc_ope='etoi251' and varcalopc_varcal='t_ocup' and varcalopc_opcion=7;
+--UPDATE 1
+select * 
+from varcal
+where not varcal_activa and 
+varcal_tipo='normal' and varcal_varcal~*'^(categori|t_categ|cond_activ|t_ocup|t_desoc|t_ina|categ_covid)$'
+and varcal_grupo !~*'pobreza'
+order by 1,2,3;
+-- falta activar categ_covid
+
+
+
+------
+--consistencias
+--ticket etoi-295
+--BORRAR: ~Elim
+--'i7a_max','i3_35x_min','i3_35x_max','i3_36x_max','i3_36x_min'
+with c as(select con_con
+from consistencias
+where con_modulo='INGRESO' and con_observaciones~'Elim' 
+),d_1 as (
+ delete from con_var where convar_con in (select * from c)
+),d_2 as (
+delete from inconsistencias where inc_con in (select * from c)
+)
+delete from consistencias a where a.con_con in (select * from c);
+DELETE 5
+
+
+-- -----
+--ticket etoi-276
+--pasaje a produc
+set search_path= encu, comun, dbo;
+set role tedede_php;
+drop table if exists operaciones.consistencias_etoi251_test;
+select * into operaciones.consistencias_etoi251_test
+  from encu.consistencias
+  where con_con !~'^(flujo|audi)'
+  order by con_con;--584
+select * from  operaciones.consistencias_etoi251_test where con_con like 'flujo%';--0
+
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\consistencias_etoi251_test.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.consistencias_etoi251_test" "etoi251_test_db"
+
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\consistencias_etoi251_test.backup"
+
+--en prod
+
+set search_path= encu,comun, dbo;
+--select count(*) from consistencias;--0
+select count(*) from consistencias;
+INSERT INTO encu.consistencias(
+       con_ope, con_con, con_precondicion, con_rel, con_postcondicion, 
+       con_activa, con_explicacion, con_expl_ok, con_estado, con_tipo, 
+       con_falsos_positivos, con_importancia, con_momento, con_grupo, 
+       con_descripcion, con_modulo, con_valida, con_junta, con_clausula_from, 
+       con_expresion_sql, con_error_compilacion, con_ultima_variable, 
+       con_orden, con_gravedad, con_version, con_rev, con_ultima_modificacion, 
+       con_ignorar_nulls, con_observaciones, con_variables_contexto, 
+       con_demora_compilacion, con_origen, con_tlg)
+select 
+       dbo.ope_actual(), con_con, con_precondicion, con_rel, con_postcondicion, 
+       con_activa, con_explicacion, con_expl_ok, con_estado, con_tipo, 
+       con_falsos_positivos, con_importancia, con_momento, con_grupo, 
+       con_descripcion, con_modulo, con_valida, con_junta, con_clausula_from, 
+       con_expresion_sql, con_error_compilacion, con_ultima_variable, 
+       con_orden, con_gravedad, con_version, con_rev, con_ultima_modificacion, 
+       con_ignorar_nulls, con_observaciones, con_variables_contexto, 
+       con_demora_compilacion, con_origen,  1
+from operaciones.consistencias_eah2024_test
+order by con_con;
+--INSERT 0 584
+-- compilar todo desde app
+483 compiladas, 14 sin compilar
+
+set search_path=encu, comun, dbo, public;
+select substr(con_con,1,4),con_valida,count(*)
+from consistencias
+where con_con ~'flujo|audi'
+group by 1,2
+order by 1,2;
+select encu.generar_consistencias_flujo(ope_actual());
+-- demora 234s
+
+select encu.generar_consistencias_audi_rango(ope_actual());
+-- demora <1s
+
+select encu.generar_consistencias_audi_nsnc(ope_actual());
+-- demora <1s
+
+select encu.generar_consistencias_audi_opc(ope_actual());
+
+select encu.generar_consistencias_filtro(ope_actual());
+
+select encu.generar_consistencias_flujo_obligatorio();
+
+select encu.generar_consistencias_continuidad();
+
+--compiladas
+--correcciones hechas en flujo_s_r... sacar r0 y resto de variables del s1
+-- f_realiz_rango modificadaa
+
+--en ambos entornos
+select * from consistencias
+  where con_con in ('tso_asal_i17a','tso_indep_i17b');
+alter table consistencias disable trigger consistencias_upd_trg;
+update consistencias
+  set con_momento='Relevamiento 1'
+  where con_con in ('tso_asal_i17a','tso_indep_i17b');
+alter table consistencias enable trigger consistencias_upd_trg;
+ 
+
+
+--bases tanda1 ticket etoi-280
+ control_rama_tarea y ingr_cons_prox_onda
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.baspro_etoi244_1;select * into operaciones.baspro_etoi244_1 from encu.baspro where baspro_baspro~*'ingr_cons_prox|control_rama_tarea' order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.basprovar_etoi244_1;select * into operaciones.basprovar_etoi244_1 from encu.baspro_var where basprovar_baspro~*'ingr_cons_prox|control_rama_tarea' order by 1,2" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi244_produc_db"
+                              
+"C:\Program Files\PostgreSQL\16\bin\pg_dump.exe" --file "C:\\proyectos\\eah_etoi\\baspro_etoi244_1.backup" --host "192.168.3.44" --port "5433" --username "raquel_admin" --verbose --format=c --blobs --encoding "UTF8" --table "operaciones.baspro_etoi244_1" --table "operaciones.basprovar_etoi244_1" "etoi244_produc_db"
+/*                            
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.baspro_etoi244_1;drop table if exists operaciones.basprovar_etoi244_1;" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi251_produc_db"
+"C:\Program Files\PostgreSQL\16\bin\psql.exe" -c "drop table if exists operaciones.baspro_etoi244_1;drop table if exists operaciones.basprovar_etoi244_1;" --host "192.168.3.44" --port "5433" --username "raquel_admin"  "etoi251_test_db"
+*/                            
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_test_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\baspro_etoi244_1.backup"
+"C:\Program Files\PostgreSQL\16\bin\pg_restore.exe" --host "192.168.3.44" --port "5433" --username "raquel_admin"  --dbname "etoi251_produc_db" --verbose --schema "operaciones" "C:\\proyectos\\eah_etoi\\baspro_etoi244_1.backup"
+
+ 
+--select * from baspro
+
+INSERT INTO encu.baspro(
+baspro_ope, baspro_baspro, baspro_nombre, baspro_cambiar_especiales,
+baspro_cambiar_nsnc_por, baspro_cambiar_sindato_por, baspro_cambiar_null_por,
+baspro_sin_pk, baspro_tlg)
+select dbo.ope_actual(), baspro_baspro, baspro_nombre, baspro_cambiar_especiales,
+baspro_cambiar_nsnc_por, baspro_cambiar_sindato_por, baspro_cambiar_null_por,
+baspro_sin_pk,1
+from operaciones.baspro_etoi244_1 b
+where not exists(select 1 from baspro  where baspro_baspro=b.baspro_baspro)
+order by 2;--INSERT 0 3
+INSERT INTO encu.baspro_var(
+basprovar_ope, basprovar_baspro, basprovar_var, basprovar_alias,
+basprovar_cantdecimales, basprovar_orden, basprovar_exportar_en,
+basprovar_tlg)
+select dbo.ope_actual(), basprovar_baspro, basprovar_var, basprovar_alias,
+basprovar_cantdecimales, basprovar_orden, basprovar_exportar_en,1
+from operaciones.basprovar_etoi244_1 b
+where  not exists(select 1 from baspro_var where basprovar_baspro=b.basprovar_baspro and basprovar_var=b.basprovar_var)
+order by 2,3;--INSERT 0 220
+
