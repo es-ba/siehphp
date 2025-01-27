@@ -12,6 +12,13 @@ set role tedede_php;
 --dar acceso por spss a las tabla s1_p_noresidentes para que vea proie
 
 --revision previa
+--estados
+select pla_estado, count(*)
+from plana_tem_
+group by 1
+order by 1
+--todos deben ser >=77
+
 --no residentes
 select count(*)
     --s.pla_enc, s.pla_hog, s.pla_mie, t.pla_estado, case when i.pla_enc is null then false else true end tiene_i1
@@ -194,5 +201,5 @@ order by 1,2;
 --consistir nuevamente las encuestas con noresidente?
 --habrá que desactivar la consistencia total_m contra cant s1P? No recuerdo si hay otras
 --hacer grillas de las tablas de noresidente?
-
+-- cambiar al rol adecuado
 grant select on plana_s1_p_noresidentes to eah2024_ro;
