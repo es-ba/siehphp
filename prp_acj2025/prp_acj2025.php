@@ -13,14 +13,14 @@ $GLOBALS['esquema_principal']='encu';
 $GLOBALS['titulo_corto_app']="prp_acj2025";
 
 $es_teletoi_desa = false;
-$es_prp_prp_acj2025_desa= false;
+//$es_prp_prp_acj2025_desa= false;
 
 $GLOBALS['es_tele_etoi']= strpos(__DIR__,"alserver_tele_prp_acj2025/")>0 || !strpos(__DIR__,"alserver_prp_acj2025/")>0 && $es_teletoi_desa;
 $GLOBALS['titulo_corto_app']=$GLOBALS['es_tele_etoi']?'TELE '.$GLOBALS['titulo_corto_app'].'*': $GLOBALS['titulo_corto_app'];
 
 //para prp_prp_acj2025 fue necesario agregar las sentencias a continuación
-$GLOBALS['es_prp_prp_acj2025']= strpos(__DIR__,"prp_prp_acj2025/")>0 || !strpos(__DIR__,"prp_prp_acj2025/")>0  && $es_prp_prp_acj2025_desa;
-$GLOBALS['titulo_corto_app']=$GLOBALS['es_prp_prp_acj2025']?'PRP-ACJ  -ACCESO A LA JUSTICIA '.'*': $GLOBALS['titulo_corto_app'];
+//$GLOBALS['es_prp_prp_acj2025']= strpos(__DIR__,"prp_prp_acj2025/")>0 || !strpos(__DIR__,"prp_prp_acj2025/")>0  && $es_prp_prp_acj2025_desa;
+//$GLOBALS['titulo_corto_app']=$GLOBALS['es_prp_prp_acj2025']?'PRP-ACJ  -ACCESO A LA JUSTICIA '.'*': $GLOBALS['titulo_corto_app'];
 
 //hasta aqui prp_prp_acj2025
 
@@ -44,9 +44,9 @@ class Aplicacion_prp_acj2025 extends Aplicacion_encuesta{
         );
         parent::__construct();
         if($esta_es_la_base_en_produccion){
-            //para prp_prp_acj2025  cambia el título
-            //$this->salida->html_title=" ETOI 251";
-            $this->salida->html_title= $GLOBALS['es_prp_prp_acj2025']?" PRP-ACJ":" ETOI 251";
+            //para prp_acj2025  cambia el título
+            $this->salida->html_title=" PRP_ACJ 2025";
+           // $this->salida->html_title= $GLOBALS['es_prp_prp_acj2025']?" PRP-ACJ":" ETOI 251";
         }else if($esta_es_la_base_de_capacitacion){
             $this->salida->html_title="CAPA - prp_acj2025";
         }else{
