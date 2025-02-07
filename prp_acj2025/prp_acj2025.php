@@ -97,7 +97,7 @@ class Aplicacion_prp_acj2025 extends Aplicacion_encuesta{
         $this->salida->cerrar_grupo_interno();
     }
     function obtener_titulo(){
-        return "E.T.O.I 251";
+        return "PRP_ACJ 2025";
     }
     function probar_aplicacion(){
     }
