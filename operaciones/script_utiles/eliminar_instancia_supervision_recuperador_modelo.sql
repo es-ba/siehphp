@@ -1,9 +1,9 @@
 --xxxxx
 --Esta encuesta se asigno a supervision por error,
 --no paso por la instancia de recepción, se solicita sacar asignacion  y  cuestionario de de supervision 
--- Es una supervisión de recuperador
-select t.pla_enc,pla_estado,pla_rea, pla_rea_enc,pla_norea, pla_norea_enc,pla_entrea,
-pla_verificado_recu,pla_fecha_carga_sup, pla_cod_sup,pla_entrea,pla_rea_recu,
+-- Es una supervisión de recuperador, (miramos de paso también cuantos hogares tienen y su entrea)
+select t.pla_enc,s.pla_hog,pla_estado,pla_rea, pla_rea_enc,pla_norea, pla_norea_enc,pla_entrea,
+pla_verificado_recu,pla_fecha_carga_sup, pla_cod_sup,pla_rea_recu,
 pla_fecha_descarga_sup, pla_dispositivo_sup, pla_norea_sup,pla_sup_aleat, pla_sup_dirigida,
 pla_cod_recu, pla_norea_recu,pla_verificado_recu,pla_rea_recu,
 pla_fin_ingreso_enc, pla_con_dato_enc, pla_a_ingreso_enc,pla_verificado_enc
