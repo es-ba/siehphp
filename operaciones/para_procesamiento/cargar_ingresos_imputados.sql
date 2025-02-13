@@ -11,9 +11,11 @@
    *lista de variables: ioph_neto_imp, ioa_imp, ios_imp, i3_1x_imp, i3_2x_imp, i3_3x_imp, i3_4x_imp, i3_5x_imp, i3_6x_imp, i3_7x_imp, i3_10x_imp
         , i3_11x_imp, i3_12x_imp, i3_13x_imp, i3_31x_imp, i3_32x_imp, i3_81x_imp, i3_82x_imp, ioph_imp, iop_imp, iop_neto_imp, fexp 
         (fexp viene desde el excel y no se usa en el update)
-
-    */         
---INSERT 0 4628
+ "i3_36x_imp"
+ "i3_35x_imp"
+ "i3_34x_imp"   y se elimina  "i3_1x_imp"
+ */                          
+--INSERT 0 4628               
 --ptabla_auxiliar
 
 ---2- control conteo cantidad de registros involucrados
@@ -38,7 +40,10 @@ alter table plana_i1_
 add column	pla_ioph_neto_imp		integer,
 add column	pla_ioa_imp		integer,
 add column	pla_ios_imp		integer,
-add column	pla_i3_1x_imp		integer,
+--add column	pla_i3_1x_imp		integer,
+add column	pla_i3_36x_imp		integer,
+add column	pla_i3_35x_imp		integer,
+add column	pla_i3_34x_imp		integer,
 add column	pla_i3_2x_imp		integer,
 add column	pla_i3_3x_imp		integer,
 add column	pla_i3_4x_imp		integer,
@@ -65,7 +70,10 @@ set
    pla_ioph_neto_imp  = o.ioph_neto_imp ,
    pla_ioa_imp        = o.ioa_imp       ,
    pla_ios_imp        = o.ios_imp       ,
-   pla_i3_1x_imp      = o.i3_1x_imp     ,
+   --pla_i3_1x_imp      = o.i3_1x_imp     ,
+   pla_i3_36x_imp     = o.i3_36x_imp    ,
+   pla_i3_35x_imp     = o.i3_35x_imp    ,
+   pla_i3_34x_imp     = o.i3_34x_imp    ,
    pla_i3_2x_imp      = o.i3_2x_imp     ,
    pla_i3_3x_imp      = o.i3_3x_imp     ,
    pla_i3_4x_imp      = o.i3_4x_imp     ,
@@ -92,7 +100,10 @@ select 'sumas_i1',
    sum(pla_ioph_neto_imp ),
    sum(pla_ioa_imp       ),
    sum(pla_ios_imp       ),
-   sum(pla_i3_1x_imp     ),
+   --sum(pla_i3_1x_imp     ),
+   sum(pla_i3_36x_imp     ),
+   sum(pla_i3_35x_imp     ),
+   sum(pla_i3_34x_imp     ),
    sum(pla_i3_2x_imp     ),
    sum(pla_i3_3x_imp     ),
    sum(pla_i3_4x_imp     ),
@@ -116,7 +127,10 @@ union
     sum(ioph_neto_imp ),
    sum(ioa_imp       ),
    sum(ios_imp       ),
-   sum(i3_1x_imp     ),
+   --sum(i3_1x_imp     ),
+   sum(i3_36x_imp    ),
+   sum(i3_35x_imp    ),
+   sum(i3_34x_imp    ),
    sum(i3_2x_imp     ),
    sum(i3_3x_imp     ),
    sum(i3_4x_imp     ),
@@ -141,12 +155,15 @@ from operaciones."ptabla_auxiliar";
 
 --6- activar en varcal
 select * from varcal
-where varcal_varcal in('ioph_neto_imp','ioa_imp','ios_imp','i3_1x_imp','i3_2x_imp','i3_3x_imp','i3_4x_imp','i3_5x_imp','i3_6x_imp','i3_7x_imp','i3_10x_imp','i3_11x_imp','i3_12x_imp','i3_13x_imp','i3_31x_imp','i3_32x_imp','i3_81x_imp','i3_82x_imp','ioph_imp','iop_imp','iop_neto_imp')
+where varcal_varcal in('ioph_neto_imp','ioa_imp','ios_imp',--'i3_1x_imp',
+'i3_36x_imp', 'i3_35x_imp', 'i3_34x_imp','i3_2x_imp','i3_3x_imp',
+'i3_4x_imp','i3_5x_imp','i3_6x_imp','i3_7x_imp','i3_10x_imp','i3_11x_imp','i3_12x_imp','i3_13x_imp','i3_31x_imp','i3_32x_imp','i3_81x_imp','i3_82x_imp','ioph_imp','iop_imp','iop_neto_imp')
 order by 2;--21
 
 update varcal set varcal_activa=true
 where varcal_tipo='externo' and varcal_activa is false 
-and varcal_varcal in ('ioph_neto_imp','ioa_imp','ios_imp','i3_1x_imp','i3_2x_imp','i3_3x_imp','i3_4x_imp','i3_5x_imp','i3_6x_imp','i3_7x_imp','i3_10x_imp','i3_11x_imp','i3_12x_imp','i3_13x_imp','i3_31x_imp','i3_32x_imp','i3_81x_imp','i3_82x_imp','ioph_imp','iop_imp','iop_neto_imp')
+and varcal_varcal in ('ioph_neto_imp','ioa_imp','ios_imp',--'i3_1x_imp',
+'i3_36x_imp', 'i3_35x_imp', 'i3_34x_imp','i3_2x_imp','i3_3x_imp','i3_4x_imp','i3_5x_imp','i3_6x_imp','i3_7x_imp','i3_10x_imp','i3_11x_imp','i3_12x_imp','i3_13x_imp','i3_31x_imp','i3_32x_imp','i3_81x_imp','i3_82x_imp','ioph_imp','iop_imp','iop_neto_imp')
 --UPDATE 21
 
 --7- actualizar instalacion desde la app
