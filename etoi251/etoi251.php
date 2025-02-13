@@ -1138,7 +1138,7 @@ JS
     function proceso_grilla_sup_norespuesta(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de no respuesta',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
@@ -1152,7 +1152,7 @@ JS
     function proceso_grilla_sup_vivhog(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de vivienda y hogar',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
@@ -1166,7 +1166,7 @@ JS
     function proceso_grilla_sup_familiar(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de modulo familiar',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
@@ -1180,7 +1180,7 @@ JS
     function proceso_grilla_sup_trabajo(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de modulo trabajo',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
@@ -1194,7 +1194,7 @@ JS
     function proceso_grilla_sup_ingresos(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de modulo ingresos',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
@@ -1208,7 +1208,7 @@ JS
     function proceso_grilla_sup_educacion(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de modulo educación',
-            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con'),
+            'permisos'=>array('grupo'=>'procesamiento', 'grupo1'=>'dis_con', 'grupo2'=>'subcoor_campo'),
             'submenu'=>'supervisión',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
