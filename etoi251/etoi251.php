@@ -13,15 +13,14 @@ $GLOBALS['esquema_principal']='encu';
 $GLOBALS['titulo_corto_app']="etoi251";
 
 $es_teletoi_desa = false;
-$es_prp_etoi251_desa= false;
+//$es_prp_etoi251_desa= false;
 
 $GLOBALS['es_tele_etoi']= strpos(__DIR__,"alserver_tele_etoi251/")>0 || !strpos(__DIR__,"alserver_etoi251/")>0 && $es_teletoi_desa;
 $GLOBALS['titulo_corto_app']=$GLOBALS['es_tele_etoi']?'TELE '.$GLOBALS['titulo_corto_app'].'*': $GLOBALS['titulo_corto_app'];
 
 //para prp_etoi251 fue necesario agregar las sentencias a continuación
-$GLOBALS['es_prp_etoi251']= strpos(__DIR__,"prp_etoi251/")>0 || !strpos(__DIR__,"prp_etoi251/")>0  && $es_prp_etoi251_desa;
-$GLOBALS['titulo_corto_app']=$GLOBALS['es_prp_etoi251']?'PRP-ACJ  -ACCESO A LA JUSTICIA '.'*': $GLOBALS['titulo_corto_app'];
-
+//$GLOBALS['es_prp_etoi251']= strpos(__DIR__,"prp_etoi251/")>0 || !strpos(__DIR__,"prp_etoi251/")>0  && $es_prp_etoi251_desa;
+//$GLOBALS['titulo_corto_app']=$GLOBALS['es_prp_etoi251']?'PRP-ACJ  -ACCESO A LA JUSTICIA '.'*': $GLOBALS['titulo_corto_app'];
 //hasta aqui prp_etoi251
 
 require_once "lo_imprescindible.php";
@@ -45,8 +44,8 @@ class Aplicacion_etoi251 extends Aplicacion_encuesta{
         parent::__construct();
         if($esta_es_la_base_en_produccion){
             //para prp_etoi251  cambia el título
-            //$this->salida->html_title=" ETOI 251";
-            $this->salida->html_title= $GLOBALS['es_prp_etoi251']?" PRP-ACJ":" ETOI 251";
+            $this->salida->html_title=" ETOI 251";
+            //$this->salida->html_title= $GLOBALS['es_prp_etoi251']?" PRP-ACJ":" ETOI 251";
         }else if($esta_es_la_base_de_capacitacion){
             $this->salida->html_title="CAPA - etoi251";
         }else{
