@@ -16,8 +16,8 @@ $CUERPO$
 DECLARE
     v_enter text:=chr(13)||chr(10);
     v_tab TEXT;
-    v_script_principio text;
-    v_script_final     text;
+    v_script_func_inicio text;
+    v_script_func_final  text;
     v_script_creador   text;
     v_script_trigger   text;    
     v_variables record;
@@ -65,7 +65,6 @@ DECLARE
     v_sincro     text;
     v_sincro_fin text;
 
-    
 BEGIN
   v_tab=repeat(' ',4);
   -- v_identifica_var_regexp := '\m(?!AND)(?!OR)(?!NOT)(?!IS)(?!NULL)(?!IN)(?!TRUE)(?!FALSE)(?!EXISTS)(?!DISTINCT)(?!FROM)(?!BETWEEN)(?!dbo)([a-z]\w*)(?!\s*(\(|\$\$))\M';
@@ -85,7 +84,7 @@ BEGIN
                 's1_'::text as otro_destino_2 , mat_for as formulario, mat_mat as matriz, 1 orden
                         from encu.matrices
                         where mat_ope= dbo.ope_actual() and mat_for='A1' and mat_mat='X'
-             ) x
+        ) x
         order by orden
   LOOP
     v_alterplanas_add:='';
@@ -153,10 +152,10 @@ BEGIN
                                 ' t.pla_enc = new.pla_enc and t.pla_hog = 0 and t.pla_mie = 0 and t.pla_exm = 0 '::text as v_condic
                    union select blo_for as v_otro_for, blo_mat as v_otra_mat, 'Viv' as v_otro_blo,'a'::text as v_alias,
                                 ' a.pla_enc = new.pla_enc and a.pla_hog=1 and a.pla_mie = 0 and a.pla_exm = 0 '::text as v_condic
-                            from encu.bloques where blo_blo ='Viv'
+                            from encu.bloques where blo_blo ='Viv' and blo_ope = dbo.ope_actual()
                    union select blo_for as v_otro_for, blo_mat as v_otra_mat, '' as v_otro_blo,'a'::text as v_alias,
                                ' a.pla_enc = new.pla_enc and a.pla_hog=new.pla_hog and a.pla_mie = 0 and a.pla_exm = 0 '::text as v_condic
-                            from encu.bloques where blo_blo in ('Hog','HEH')
+                            from encu.bloques where blo_blo in ('Hog','HEH', 'INAL_INTRO') and blo_ope = dbo.ope_actual()
                    union select blo_for as v_otro_for, blo_mat as v_otra_mat, '' as v_otro_blo,'a'::text as v_alias,
                                ' a.pla_enc = new.pla_enc and a.pla_hog=new.pla_hog and a.pla_mie = 0 and a.pla_exm = 0 '::text as v_condic
                             from encu.bloques where blo_blo in ('CR') and blo_for='S1' and blo_ope='ut2016'        
@@ -164,7 +163,10 @@ BEGIN
                                ' v.pla_ope ='||v_cond_valcan::text as v_condic        
                    union select 'PMD'::text  as v_otro_for, ''::text as v_otra_mat, '' as v_otro_blo,'pm'::text as v_alias,
                                 ' pm.pla_enc = new.pla_enc and pm.pla_hog = new.pla_hog and pm.pla_exm = 0 '::text as v_condic
-        ) x
+                   union select 'S1'::text as v_otro_for, ''::text as v_otra_mat, '' as v_otro_blo, 's1'::text as v_alias,
+                               ' s1.pla_enc = new.pla_enc and s1.pla_hog = new.pla_hog and s1.pla_exm = 0 '
+                                 where v_destinos.destino is distinct from 'hog'
+            ) x
     LOOP
         -- acá van las variables de formularios distintos al del trigger que se está creando
         -- en el caso de variables del bloque Viv, hay que leer el hogar 1
@@ -178,14 +180,16 @@ BEGIN
                     select var_var, var_for, var_mat, CASE WHEN coalesce(pre_blo,'') ='Viv' THEN pre_blo ELSE '' END as v_blo,var_tipovar, pre_orden, var_orden
                         from encu.variables join encu.preguntas on var_pre = pre_pre and pre_ope=var_ope
                         where var_ope = dbo.ope_actual() and
-                            (var_for='PMD' or var_mat='P' or pre_blo in ('Viv','Hog','HEH', 'CR'))
+                            (var_for='PMD' or var_mat='P' or pre_blo in ('Viv','Hog','HEH', 'CR', 'INAL_INTRO')
+                             or var_var='f_realiz_o'
+                            )
                     union select 'comuna'::text  as var_var, 'TEM'::text as var_for, '' as var_mat,'' as v_blo, 'integer' as var_tipovar, 1 pre_orden, 1 var_orden
                     union select 'estado'::text  as var_var, 'TEM'::text as var_for, '' as var_mat,'' as v_blo, 'integer' as var_tipovar, 2 pre_orden, 2 var_orden
                     union select 'dominio'::text as var_var, 'TEM'::text as var_for, '' as var_mat,'' as v_blo, 'integer' as var_tipovar ,3 pre_orden, 3 var_orden
                     union select  varcal_varcal, 'VALCAN'::text as var_for, '' var_mat ,'' as v_blo, 'decimal' as var_tipovar, 0 pre_orden, varcal_orden 
                              from encu.varcal where varcal_ope=dbo.ope_actual() and varcal_destino='vcan' and varcal_tipo='interno' 
                     order by var_for,var_mat, v_blo,pre_orden, var_orden
-                    ) x 
+            ) x 
             where var_for = v_otro_formulario.v_otro_for and var_mat=v_otro_formulario.v_otra_mat and v_blo=v_otro_formulario.v_otro_blo;
         if v_listavar is not null then      
             v_select_str_otro_for:=v_select_str_otro_for||
@@ -292,46 +296,46 @@ BEGIN
             v_nombre_funcion:=replace(v_nombre_funcion,'tmp','');
         end if;
 
-        v_script_principio:='
-    CREATE OR REPLACE FUNCTION encu.$1()
-         RETURNS trigger AS
-    $BODY$
-    DECLARE'
-    ||v_declare_total||'
-    BEGIN'||v_enter
-    ||v_sincro||v_enter
-    ||v_select_str_otro_for ;
+        v_script_func_inicio:=concat_ws(v_enter 
+            ,'CREATE OR REPLACE FUNCTION encu.#nombre_fun#()'
+            ,'    RETURNS trigger AS'
+            ,E'    \$BODY\$ '
+            ,'DECLARE'
+            ,'  '|| v_declare_total
+            ,'BEGIN'
+            ,v_sincro
+            ,v_select_str_otro_for
+        );
     
-    
-        v_script_final:=$SCRIPT2$
-     $v_sincro_fin   
-    return new;
-    END;
-    $BODY$
-    LANGUAGE plpgsql;
-    ALTER FUNCTION encu.$1()
-            OWNER TO tedede_php;
-    $SCRIPT2$;
-        v_script_trigger= $SCRIPT3$;
-    DROP TRIGGER IF EXISTS $1 ON $2;
-    DROP TRIGGER IF EXISTS z$1 ON $2;
-    CREATE TRIGGER z$1
-        BEFORE UPDATE
-            ON $2
-            FOR EACH ROW
-            EXECUTE PROCEDURE encu.$1();
-    $SCRIPT3$;
-        
+        v_script_func_final:=concat_ws(v_enter
+             ,'#v_sincro_fin#'   
+            ,'return new;'
+            ,'END;'
+            ,E'\$BODY\$'
+            ,'LANGUAGE plpgsql;'
+            ,'ALTER FUNCTION encu.#nombre_fun#()'
+            ,'OWNER TO tedede_php;'
+        );    
+        v_script_trigger= concat_ws(v_enter
+            ,'DROP TRIGGER IF EXISTS #nombre_fun# ON #nombre_tabla#;'
+            ,'DROP TRIGGER IF EXISTS z#nombre_fun# ON #nombre_tabla#;'
+            ,'CREATE TRIGGER z#nombre_fun#'
+            ,'  BEFORE UPDATE'
+            ,'  ON #nombre_tabla# '
+            ,'  FOR EACH ROW'
+            ,'  EXECUTE FUNCTION encu.#nombre_fun#();'
+        );
+
         v_script_creador:= v_alterplanas_drop||v_alterhisplanas_drop||
                            v_alterplanas_add||v_alterhisplanas_add;
         v_script_creador:=v_script_creador
-                        || v_script_principio
+                        || v_script_func_inicio
                         || v_sentencia_calculo
-                        || v_script_final;
+                        || v_script_func_final;
          --raise notice 'script creador %', v_script_creador;
-        v_script_creador:=replace(v_script_creador,'$1',v_nombre_funcion);
-        v_script_creador:=replace(v_script_creador,'$v_sincro_fin',v_sincro_fin);
-        v_script_trigger:=replace(replace(v_script_trigger,'$1',v_nombre_funcion),'$2',v_plana_trigger);
+        v_script_creador:=replace(v_script_creador,'#nombre_fun#',v_nombre_funcion);
+        v_script_creador:=replace(v_script_creador,'#v_sincro_fin#',v_sincro_fin);
+        v_script_trigger:=replace(replace(v_script_trigger,'#nombre_fun#',v_nombre_funcion),'#nombre_tabla#',v_plana_trigger);
         BEGIN
           raise notice ' v_script_creador % ', v_script_creador;
           EXECUTE v_script_creador;
