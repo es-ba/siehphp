@@ -4320,7 +4320,7 @@ function operativo_tiene_formulario(pOpe, pFor){
 function operativo_con_residente(pOpe){
     var v_residente=false;
     //probar  if (variables['r0'].var_var){   
-    if (['eah2024','etoi244','etoi251','prp_acj2025'].includes(pOpe)){ 
+    if (['eah2024','etoi244','etoi251','prp_acj2025','etoi252'].includes(pOpe)){ 
         v_residente=true;
     }
     return v_residente;
