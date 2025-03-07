@@ -1573,7 +1573,10 @@ function Llenar_rta_ud(formulario,matriz,invisible){
     }
     
    // if(pk_ud.tra_ope==operativo_actual && ( (pk_ud.tra_for=='A1' && operativo_actual=='ppmulti' ) || (pk_ud.tra_for=='PMD' && operativo_actual=='eah2019') ) ){ // OJO: GENERALIZAR OPERATIVO
-     if(pk_ud.tra_for=='PMD' && pk_ud.tra_ope==operativo_actual){
+    if(pk_ud.tra_ope==operativo_actual && pk_ud.tra_for=='A1' && operativo_actual=='etoi252' ){
+        copia_ud.copia_cantmen15=dbo.cant_menores(pk_ud.tra_enc, pk_ud.tra_hog,15);
+    }   
+    if(pk_ud.tra_for=='PMD' && pk_ud.tra_ope==operativo_actual){
         var pk_ud_TEM_json=JSON.stringify(cambiandole(pk_ud,{tra_for:'TEM', tra_mat:'', tra_hog:0, tra_mie:0, tra_exm:0}));
         var datos_TEM=(
             otras_rta[pk_ud_TEM_json]||
