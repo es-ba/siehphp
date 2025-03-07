@@ -133,7 +133,7 @@ class Estructura_js extends Objeto_de_la_base{
                         }
                     }
                     if(!isset($tipo_de_la_base[$tabla_variables->datos->var_tipovar])){
-                        throw new Exception_Tedede("No se encuentra el tipo del tipo ".$tabla_variables->datos->var_tipovar);
+                        throw new Exception_Tedede("No se encuentra el tipo del tipo ".$tabla_variables->datos->var_tipovar. " en variable ". $tabla_variables->datos->var_var);
                     }
                     $tipo=$tipo_de_la_base[$tabla_variables->datos->var_tipovar];
                     if ($tipo=='entero'){

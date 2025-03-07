@@ -82,7 +82,7 @@ class Tabla_planas extends Tabla{
                 $tipo='entero';
             }else{
                 if(!isset($tipo_de_la_base[$tabla_variables->datos->var_tipovar])){
-                    throw new Exception_Tedede("No se encuentra el tipo del tipo ".$tabla_variables->datos->var_tipovar);
+                    throw new Exception_Tedede("No se encuentra el tipo del tipo ".$tabla_variables->datos->var_tipovar. " de la variable ".$tabla_variables->datos->var_var);
                 }
                 $tipo=$tipo_de_la_base[$tabla_variables->datos->var_tipovar];
             }
