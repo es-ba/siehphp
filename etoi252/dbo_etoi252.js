@@ -253,7 +253,7 @@ dbo.cant_menores=function(encues,nhogar,nedad){
     var pk_este=cambiandole(pk_ud,{tra_for:'S1', tra_mat:'P', tra_enc:encues, tra_hog:nhogar, tra_mie:nro_mie}); 
     ud_este=otras_rta[JSON.stringify(pk_este)];
     while(ud_este || ud_este!=undefined){
-        if(ud_este.var_edad<nedad){
+        if(ud_este.var_edad !=null && ud_este.var_edad<nedad){
             cant_menores++;    
         }
         nro_mie++;
