@@ -2613,7 +2613,8 @@ function grabar_si_es_necesario_o_seguir(forzar_modificado_db){
 
 function grabar_y_salir(){
     if(grabar_si_es_necesario_o_seguir()){
-    if(/OS 7/i.test(navigator.userAgent) || /OS 8/i.test(navigator.userAgent) || /OS 9/i.test(navigator.userAgent) || /OS [1-9][0-9]/i.test(navigator.userAgent)){
+//PRUEBA para que muestre bien la info de la grilla de Personas al volver del S1p
+        if(true ||/OS 7/i.test(navigator.userAgent) || /OS 8/i.test(navigator.userAgent) || /OS 9/i.test(navigator.userAgent) || /OS [1-9][0-9]/i.test(navigator.userAgent)){
             var pk_nuevo_ud={tra_ope:pk_ud.tra_ope, tra_for:pk_ud.tra_for, tra_mat:''};
             if((pk_ud.tra_for=='S1' || pk_ud.tra_for=='SUP') && pk_ud.tra_mat==''){
                 ir_a_url(location.pathname+'?hacer=formularios_de_la_vivienda');
@@ -2624,7 +2625,6 @@ function grabar_y_salir(){
             ir_a_url(location.pathname+'?hacer=desplegar_formulario&todo='+JSON.stringify(pk_nuevo_ud));
         }else{
            history.go(-1);
-           window.location.reload(true);
         }
     }
 }
