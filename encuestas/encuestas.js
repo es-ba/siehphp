@@ -2623,7 +2623,8 @@ function grabar_y_salir(){
             }
             ir_a_url(location.pathname+'?hacer=desplegar_formulario&todo='+JSON.stringify(pk_nuevo_ud));
         }else{
-            history.go(-1);
+           history.go(-1);
+           window.location.reload(true);
         }
     }
 }
