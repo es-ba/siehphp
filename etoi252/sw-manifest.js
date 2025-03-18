@@ -6,6 +6,7 @@ var urlsToCache = [
 '../etoi252/etoi252_icon.png',
 '../etoi252/etoi252_icon_super.png',
 '../etoi252/etoi252_icon_capa.png',
+'../etoi252/etoi252_icon_test.png',
 '../tedede/comunes.js ',
 '../tedede/cuantas_instancias.js ',
 '../tedede/probador.css',
