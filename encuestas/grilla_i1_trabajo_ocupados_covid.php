@@ -48,8 +48,10 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
             ,'pla_tu3'
             ,'pla_tu4'
             ,'pla_tu5'
+            ,'pla_tu6'
             ,'pla_tu7'
             ,'pla_tu8'
+            ,'pla_tu9'
             ,'pla_t40bis_a1'
             ,'pla_t40bis_a2'
             ,'pla_t40bis_b'
@@ -83,8 +85,10 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
             ,'pla_tuso3'
             ,'pla_tuso4'
             ,'pla_tuso5'
+            ,'pla_tuso6'
             ,'pla_tuso7'
             ,'pla_tuso8'
+            ,'pla_tuso9'
             ,'pla_obs'
         )));    
         return $heredados;
@@ -130,7 +134,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                 $this->filtrar_campos_del_operativo(array_merge( array('s1_r0',
                     'pla_t28', 'pla_t30', 'pla_t35_0','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd', 'pla_tsd3_0','pla_tsd7','pla_t40bis_a'),
                     $array2,
-                    array('pla_tu3','pla_tu3a', 'pla_tu4','pla_tu5','pla_tu7','pla_tu8','pla_tu8a',
+                    array('pla_tu3','pla_tu3a', 'pla_tu4','pla_tu5','pla_tu6','pla_tu7','pla_tu8','pla_tu8a','pla_tu9',
                     'pla_t40bis_a1','pla_t40bis_a1_otro',
                     'pla_t40bis_a2','pla_t40bis_a2_otro',
                     'pla_t40bis_b','pla_t40bis_b_barrio','pla_t40bis_b_partido','pla_t40bis_b_otro','pla_t40bis_d',
@@ -140,7 +144,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                     'pla_i4','pla_i7a','pla_i7_bis','pla_i8','pla_i9',
                     'pla_tso44','pla_tso45','pla_tso47','pla_tso48a','pla_tso48b','pla_tso48b_esp','pla_tso51','pla_tso41',
                     'pla_t37sdo','pla_tso39','pla_tso39_barrio','pla_tso39_partido','pla_tso39_otro','pla_tuso3',
-                    'pla_tuso3a','pla_tuso4','pla_tuso5','pla_tuso7','pla_tuso8','pla_tuso8a',
+                    'pla_tuso3a','pla_tuso4','pla_tuso5','pla_tuso6','pla_tuso7','pla_tuso8','pla_tuso8a','pla_tuso9',
                     'pla_obs','pla_obs_grilla_ti_co1'
                    )
                   )                   
