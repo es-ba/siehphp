@@ -63,8 +63,8 @@ class Tabla_matrices extends Tabla{
         }
         if($this->datos->mat_for=='S1' and !$this->datos->mat_mat ){
              $this->contexto->salida->abrir_grupo_interno('confidencial_ley',array('id'=>'ley'));                
-                $this->contexto->salida->enviar('(CARÁCTER ESTRICTAMENTE CONFIDENCIAL Y RESERVADO - LEY 17.622)','',array('tipo'=>'div','id'=>'titulo_ley'));                
-                 $this->contexto->salida->enviar('Artículo 10: Las informaciones que se suministran a los organismos que integran el Sistema Estadístico Nacional, en cumplimiento de la presente ley serán estrictamente secretas y sólo se utilizarán con fines estadísticos. Los datos deberán ser suministrados y publicados en compilaciones de conjunto, de modo que no pueda ser violado el secreto comercial o patrimonial, ni individualizarse las personas o entidades a quienes se refieran.','',array('tipo'=>'div','id'=>'articulo_ley'));                
+                $this->contexto->salida->enviar('(CARÁCTER ESTRICTAMENTE CONFIDENCIAL - Ley N° 6.724 -CABA-)','',array('tipo'=>'div','id'=>'titulo_ley'));                
+                $this->contexto->salida->enviar('La información que usted suministra tiene carácter estrictamente confidencial Todas las estadísticas producidas y publicadas son anónimas. Los datos relevados están protegidos por el Secreto Estadístico, cuyo marco normativo se encuentra contemplado en la Ley N° 6.724 –CABA– (Capítulo VI - Arts. 31 a 36). “Las personas humanas o jurídicas que desarrollen cualquier tipo de actividad en la Ciudad, están obligadas a suministrar a los integrantes del Sistema Estadístico de la Ciudad, los datos e información que se les solicite”. Ley N° 6.724 –CABA– (Capítulo II - Art. 4 inciso d).','',array('tipo'=>'div','id'=>'articulo_ley'));                
              $this->contexto->salida->cerrar_grupo_interno();
         }
         $this->desplegar_encabezado();
