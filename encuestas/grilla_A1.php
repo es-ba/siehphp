@@ -48,6 +48,11 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
         $heredados[]='pla_h2'; 
         $heredados[]='pla_h2a'; 
         $heredados[]='pla_h3';  
+        $heredados[]='pla_vac2a';
+        $heredados[]='pla_vac3a';
+        $heredados[]='pla_vac3b';
+        $heredados[]='pla_vac9f';
+        $heredados[]='pla_vac10';
         $heredados[]='pla_v1';  
         $heredados[]='pla_total_h';  
         $heredados[]='pla_v5_esp';  
@@ -75,7 +80,7 @@ class Grilla_A1 extends Grilla_respuestas_para_proc{
     }
     function campos_a_listar($filtro_para_lectura){
          $camposa=($GLOBALS['anio_operativo']<2021  | "{$GLOBALS['NOMBRE_APP']}"=='etoi211'  )?array('pla_telefono','pla_movil','pla_correo','pla_v1','pla_total_h',
-        'pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1' ):array('pla_v1','pla_total_h','pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1') ;
+        'pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1' ):array('pla_v1','pla_total_h','pla_vac2a', 'pla_vac3a', 'pla_vac3b', 'pla_vac3besp', 'pla_vac9f', 'pla_vac9f_esp', 'pla_vac10', 'pla_vac10_esp','pla_obs_pmd','pla_obs_a1','pla_obs_grilla_a1') ;
         return array_merge(array('pla_enc',
         'pla_hog', 
         'tem_semana',

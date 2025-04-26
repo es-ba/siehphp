@@ -18,13 +18,14 @@ class Grilla_S1 extends Grilla_respuestas_para_proc{
          $this->tabla->campos_lookup['pla_comuna']=false;
     }
     function campos_editables($filtro_para_lectura){
-        return array(
+        return array_merge(array(
         'pla_telefono',
         'pla_movil',
         'pla_correo', 
-        'pla_rmod',
+        //'pla_rmod',
         'pla_s1a1_obs',
         'pla_obs_grilla_s1'         
+        ),$this->filtrar_campos_del_operativo(array('pla_rmod', 'pla_rmod_e', 'pla_tel_1','pla_tel_3' ))
         );  
     }    
     function permite_grilla_sin_filtro(){
@@ -33,7 +34,7 @@ class Grilla_S1 extends Grilla_respuestas_para_proc{
     function campos_a_listar($filtro_para_lectura){        
         return array_merge(array('pla_enc', 'pla_rea','pla_hog', 'tem_semana','pla_comuna','tem_estado',
                      'tem_bolsa','tem_cod_anacon'),
-          $this->filtrar_campos_del_operativo(array('pla_total_h','pla_total_m','pla_total_r','pla_telefono', 'pla_movil',  'pla_correo', 'pla_rmod','pla_s1a1_obs', 'pla_obs_grilla_s1' ))
+          $this->filtrar_campos_del_operativo(array('pla_total_h','pla_total_m','pla_total_r','pla_telefono', 'pla_movil',  'pla_correo', 'pla_rmod', 'pla_rmod_e','pla_tel_1', 'pla_tel_3','pla_s1a1_obs', 'pla_obs_grilla_s1' ))
         );
     }
     function responder_grabar_campo(){
