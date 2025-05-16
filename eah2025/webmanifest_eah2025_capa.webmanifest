@@ -1,0 +1,41 @@
+{
+    "name": "eah2025 capa Progressive Web App",
+    "short_name": "eah2025 capa PWA",
+    "description": "Progressive Web App for eah2025 capa.",
+    "icons": [
+      {
+        "src": "./img-dm/eah2025-logo-dm-32_capa.png",
+        "sizes": "32x32",
+        "type": "image/png"
+      },
+      {
+        "src": "./img-dm/eah2025-logo-dm-48_capa.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+      {
+        "src": "./img-dm/eah2025-logo-dm-64_capa.png",
+        "sizes": "64x64",
+        "type": "image/png"
+      },
+      {
+        "src": "./img-dm/eah2025-logo-dm-72_capa.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+      {
+        "src": "./img-dm/eah2025-logo-dm-192_capa.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "./img-dm/eah2025-logo-dm-512_capa.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "./eah2025.php?hacer=hoja_de_ruta",
+    "display": "standalone",
+    "theme_color": "#3F51B5",
+    "background_color": "#6d60ed"
+  }
