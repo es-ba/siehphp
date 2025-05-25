@@ -418,10 +418,11 @@ JS
     }
  
 */ 
-    
+/*    
     function proceso_desplegar_md(){
         return $this->proceso_desplegar_formulario('MD');
     }
+*/    
     /*
     function proceso_desplegar_gh(){
         return $this->proceso_desplegar_formulario('GH');
