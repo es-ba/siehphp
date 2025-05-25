@@ -13,7 +13,7 @@ class Tabla_varcal extends Tabla{
         $this->definir_campo('varcal_destino',array('tipo'=>'texto','largo'=>50,'validart'=>'codigo'));
         $this->definir_campo('varcal_orden',array('tipo'=>'entero'));
         $this->definir_campo('varcal_nombre',array('tipo'=>'texto','largo'=>300,'validart'=>'castellano'));
-        $this->definir_campo('varcal_comentarios',array('tipo'=>'texto','largo'=>200,'validart'=>'castellano'));
+        $this->definir_campo('varcal_comentarios',array('tipo'=>'texto','largo'=>350,'validart'=>'castellano'));
         $this->definir_campo('varcal_activa',array('tipo'=>'logico'));
         $this->definir_campo('varcal_tipo',array('tipo'=>'texto','largo'=>50,'not_null'=>true,'def'=>'normal'));         
         $this->definir_campo('varcal_baseusuario',array('tipo'=>'logico','not_null'=>true,'def'=>false));

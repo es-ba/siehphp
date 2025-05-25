@@ -95,7 +95,7 @@ class Tabla_plana_I1_   extends Tabla_planas{}
 class Tabla_plana_A1_   extends Tabla_planas{}
 //class Tabla_plana_A1_X extends Tabla_planas{}
 //class Tabla_plana_PMD_  extends Tabla_planas{}
-class Tabla_plana_MD_   extends Tabla_planas{}
+//class Tabla_plana_MD_   extends Tabla_planas{}
 class Tabla_plana_SUP_  extends Tabla_planas{}
 //class Tabla_plana_PG1_  extends Tabla_planas{}
 //class Tabla_plana_PG1_M extends Tabla_planas{}
