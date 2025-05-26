@@ -400,12 +400,10 @@ JS
     }
     function proceso_desplegar_i1(){
         return $this->proceso_desplegar_formulario('I1');
-    }
- /*   
+    }   
     function proceso_desplegar_pmd(){
         return $this->proceso_desplegar_formulario('PMD');
     } 
- */   
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
     }

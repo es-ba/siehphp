@@ -198,7 +198,7 @@ class Tablas_planas extends Objeto_de_la_base{
         $tabla_matrices->leer_varios(array('mat_ope'=>$GLOBALS['NOMBRE_APP']));
         while($tabla_matrices->obtener_leido()){
         if ($tabla_matrices->datos->mat_for!='TEM'){
-        // if ($tabla_matrices->datos->mat_for=='MD'){    /* SOLO PARA TEST*/
+        // if ($tabla_matrices->datos->mat_for=='PMD'){    
                 $tra_for=$tabla_matrices->datos->mat_for;
                 $tra_mat=$tabla_matrices->datos->mat_mat;
                 Tabla_planas::crear_jsones($this->contexto,$tra_for,$tra_mat);
