@@ -1,6 +1,6 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.11';
+var version = 'v 3.14';
 var appName = 'eah2025_test';
 var urlsToCache = [
 '../eah2025/eah2025_icon.png',
@@ -42,8 +42,8 @@ var urlsToCache = [
 '../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"S1","tra_mat":"P"}',
 '../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"A1","tra_mat":""}',
 '../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"I1","tra_mat":""}',
-'../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"MD","tra_mat":""}',
-// '../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"PMD","tra_mat":""}',
+//'../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"MD","tra_mat":""}',
+'../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"PMD","tra_mat":""}',
 //'../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"PG1","tra_mat":""}',
 //'../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"PG1","tra_mat":"M"}',
 // '../eah2025/eah2025.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2025","tra_for":"GH","tra_mat":""}',

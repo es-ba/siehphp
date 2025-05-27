@@ -1,11 +1,12 @@
 "use strict";
 // TEMPLATE-START
-var version = 'v 3.12';
+var version = 'v 3.14';
 var appName = 'prp_acj2025_test';
 var urlsToCache = [
 '../prp_acj2025/prp_acj2025_icon.png',
 '../prp_acj2025/prp_acj2025_icon_super.png',
 '../prp_acj2025/prp_acj2025_icon_capa.png',
+'../prp_acj2025/prp_acj2025_icon_test.png',
 '../tedede/comunes.js ',
 '../tedede/cuantas_instancias.js ',
 '../tedede/probador.css',
