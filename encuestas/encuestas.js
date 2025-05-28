@@ -1818,7 +1818,7 @@ function Llenar_rta_ud(formulario,matriz,invisible){
             var boton_general_GH=elemento_existente('boton_general_GH');
             boton_general_GH.innerHTML=boton_abre_formulario(cambiandole(pk_ud,{tra_for:'GH'}),'');
         }
-        if(formulario=='S1' && (operativo_actual=='eah2019' || operativo_actual=='eah2021') ){
+        if(formulario=='S1' && (operativo_actual=='eah2019' || operativo_actual=='eah2021'|| operativo_actual=='eah2025') ){
             var boton_general_PMD=elemento_existente('boton_general_PMD');
             boton_general_PMD.innerHTML=boton_abre_formulario(cambiandole(pk_ud,{tra_for:'PMD'}),'');
         }
