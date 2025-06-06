@@ -845,7 +845,7 @@ JS
                  enviar_grilla($este->salida,'A1',
                   array('tem_estado'=>'#>=77',)
                   ,
-                   null, array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_pmd!=NULL|pla_h36_6_esp!=NULL'));             
+                   null, array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_a1!=NULL|pla_h36_6_esp!=NULL'));             
             }
         ));
     }
