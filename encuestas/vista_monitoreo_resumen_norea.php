@@ -31,7 +31,7 @@ class Vista_monitoreo_resumen_norea extends Vistas{
         $operativo_tiene_pyg=$GLOBALS['NOMBRE_APP']=='eah2018'?true:false;
         $operativo_tiene_md=$NomAPP=='eah2018'||$NomAPP=='eah2024'?true:false;
         $es_eah2014=$GLOBALS['NOMBRE_APP']=='eah2014'?true:false;
-        $operativo_tiene_pmd=($GLOBALS['NOMBRE_APP']=='eah2019' || $GLOBALS['NOMBRE_APP']=='eah2021')?true:false;
+        $operativo_tiene_pmd=($GLOBALS['NOMBRE_APP']=='eah2019' || $GLOBALS['NOMBRE_APP']=='eah2021' || $GLOBALS['NOMBRE_APP']=='eah2025')?true:false;
         $this->con_campos_auditoria=false;
         $this->definir_esquema('encu');
         if($this->campo_corte){
