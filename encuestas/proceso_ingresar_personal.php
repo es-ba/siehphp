@@ -19,7 +19,7 @@ class Proceso_ingresar_personal extends Proceso_Formulario{
                 'tra_num'=>array('label'=>'número de persona'),
                 'tra_apellido'=>array('label'=>'apellido'),
                 'tra_nombre'=>array('label'=>'nombre'),
-                'tra_rol'=>array('label'=>'rol','def'=>'encuestador','opciones'=>array('encuestador','recuperador','supervisor','recepcionista','acom_campo','coor_campo','subcoor_campo')),
+                'tra_rol'=>array('label'=>'rol','def'=>'encuestador','opciones'=>array('encuestador','recuperador','supervisor','recepcionista','acom_campo','coor_campo','subcoor_campo','ana_campo')),
                 'tra_dominio'=>array('label'=>'dominio'),
                 'tra_comuna'=>array('label'=>'comuna'),
             ),
