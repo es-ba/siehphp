@@ -837,15 +837,18 @@ JS
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este) { 
                 /*
-               enviar_grilla($este->salida,'A1',
+                enviar_grilla($este->salida,'A1',
                  array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp=!NULL|pla_h2_esp=!NULL'),  
                  array('tem_estado'=>'#>=77',) ,               
                  null,array());
-               */  
-                 enviar_grilla($este->salida,'A1',
+               */
+               /*
+                enviar_grilla($este->salida,'A1',
                   array('tem_estado'=>'#>=77',)
                   ,
-                   null, array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_a1!=NULL|pla_h36_6_esp!=NULL'));             
+                   null, array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_a1!=NULL|pla_h36_6_esp!=NULL')); 
+                */                   
+                enviar_grilla($este->salida,'A1', array('tem_estado'=>'#>=77',),null,array());   
             }
         ));
     }
@@ -1178,6 +1181,7 @@ JS
             }            
         ));
     }
+    /*
     function proceso_grilla_sup_discapacidad(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Supervision de modulo detección discapacidad',
@@ -1192,6 +1196,7 @@ JS
             }            
         ));
     }
+    */
     function proceso_setear_modo_encuesta(){
         return new Proceso_setear_modo_encuesta();
     }
@@ -1239,20 +1244,20 @@ JS
         return new Proceso_eliminar_formulario_pg1(); 
     }
 */    
-   
+   /*
     function proceso_eliminar_formulario_md(){
         return new Proceso_borrar_md();
     }
+    */
     /*
     function proceso_eliminar_formulario_gh(){
         return new Proceso_eliminar_formulario_gh();
     }
  
-
+    */
     function proceso_eliminar_formulario_pmd(){
         return new Proceso_eliminar_formulario_pmd();
     }
-   */
     function proceso_eliminar_formulario_sup(){
         return new Proceso_eliminar_formulario_sup();
     }
@@ -1291,7 +1296,7 @@ JS
             }
         ));
     }
-/*
+
     function proceso_grilla_PMD_proc(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de preguntas abiertas del PMD',
@@ -1321,7 +1326,7 @@ JS
             }            
         ));
     }
-*/
+
    function proceso_grilla_I1_rama_ocupacion_covid19(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla para codificar rama y ocupación Covid19',
