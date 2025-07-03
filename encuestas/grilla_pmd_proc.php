@@ -21,6 +21,7 @@ class Grilla_PMD_proc extends Grilla_respuestas_para_proc{
         $heredados[]='tem_estado';
         $heredados[]='tem_cod_anacon';
         $heredados[]='pla_etapa_pro';
+        $heredados[]='pla_hpm4';
         $heredados[]='pla_pm3';
         $heredados[]='pla_pm6';
         $heredados[]='pla_pm9';
@@ -62,7 +63,7 @@ class Grilla_PMD_proc extends Grilla_respuestas_para_proc{
         'tem_estado',
         'tem_cod_anacon',
         'pla_etapa_pro'), 
-            $this->filtrar_campos_del_operativo(array('pla_pm3', 'pla_pm3_esp', 'pla_pm6', 'pla_pm6_esp', 'pla_pm9', 'pla_pm9_esp', 'pla_pm15','pla_pm15_esp',
+            $this->filtrar_campos_del_operativo(array('pla_pm3', 'pla_pm3_esp', 'pla_hpm4','pla_pm6', 'pla_pm6_esp', 'pla_pm9', 'pla_pm9_esp', 'pla_pm15','pla_pm15_esp',
                                                       'pla_pm21','pla_pm21_esp','pla_pm24','pla_pm24_esp','pla_pm27','pla_pm27_esp','pla_pm30','pla_pm30_esp',
                                                       'pla_pm33','pla_pm33_esp','pla_pm36','pla_pm36_esp','pla_pm39','pla_pm39_esp','pla_pm42','pla_pm42_esp',
                                                       'pla_pm45','pla_pm45_esp','pla_pm48','pla_pm48_esp','pla_pm51','pla_pm51_esp','pla_pm54','pla_pm54_esp',
