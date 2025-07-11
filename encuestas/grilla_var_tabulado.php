@@ -102,7 +102,7 @@ SQL;
             $tablas_hogar="inner join plana_a1_ a1 on s1.pla_enc=a1.pla_enc and s1.pla_hog=a1.pla_hog";
         }
         $otras_tablas_hogar="";
-        if($GLOBALS['NOMBRE_APP']==='eah2019' or $GLOBALS['NOMBRE_APP']==='eah2021'){
+        if(in_array($GLOBALS['NOMBRE_APP'],['eah2019', 'eah2021','eah2025'])){
             $otras_tablas_hogar="left join plana_pmd_ pm on pm.pla_enc=s1.pla_enc and pm.pla_hog=s1.pla_hog";
         }
         return <<<SQL
