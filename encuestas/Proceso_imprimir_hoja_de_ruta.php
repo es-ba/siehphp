@@ -234,7 +234,12 @@ SQL
                                             if(periodicidad($tabla_tem->datos->pla_rotaci_n_etoi, $tabla_tem->datos->pla_dominio)=='A'){
                                                 $operativo='eah'.(intval($anio)-substr($operativo,strlen($operativo)-1,1));
                                             }else{
-                                                $vtrim=(substr($operativo,strlen($operativo)-1,1)=='1')?'3':'2';
+                                                if($anio <'2024'){
+                                                   $vtrim=(substr($operativo,strlen($operativo)-1,1)=='1')?'3':'2';
+                                                }else{
+                                                //Loguear('2025-07-14','*****************operativo ');
+                                                   $vtrim=(substr($operativo,strlen($operativo)-1,1)=='1')?'2':'1';
+                                                }
                                                 $operativo='etoi'.substr($anio,2,2).$vtrim;
                                             }
                                         }
@@ -348,7 +353,11 @@ SQL
                                         if(periodicidad($tabla_tem->datos->pla_rotaci_n_etoi,$tabla_tem->datos->pla_dominio)=='A'){
                                             $vope_ant='eah'.(intval($anio)-1);
                                         }else{
-                                            $vope_ant='etoi'.substr($anio,2,2).'3';
+                                            if($anio <'2024'){
+                                               $vope_ant='etoi'.substr($anio,2,2).'3';
+                                            }else{ 
+                                               $vope_ant='etoi'.substr($anio,2,2).'2';
+                                            } 
                                         }
                                     }
                                     $dato_obs_ant[]="Respondente/s $vope_ant:".$para_respondentes;
