@@ -474,6 +474,7 @@ class Grilla_planilla_monitoreo_campo extends Grilla_planilla_monitoreo_TEM{
             if(tiene_rol('subcoor_campo','coor_campo')){
                 $editables[]='pla_cod_recu';
                 $editables[]='pla_cod_sup';
+                $editables[]='pla_sup_dirigida';
             }
             if(tiene_rol('coor_campo')){
                 $editables[]='pla_recepcionista';
