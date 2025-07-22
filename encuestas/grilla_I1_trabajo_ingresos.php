@@ -34,6 +34,7 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
             ,'pla_t11_1'
             ,'pla_t28'
             ,'pla_t30'
+            ,'pla_t30_1'
             ,'pla_t37sd'
             ,'pla_t38'
             ,'pla_t39' 
@@ -111,7 +112,7 @@ class Grilla_I1_trabajo_ingresos extends Grilla_respuestas_para_proc_ind{
                                 's1_p_sexo', 's1_p_edad'),
                 $this->filtrar_campos_del_operativo(array('s1_r0',
                     'pla_t7', 'pla_t8', 'pla_t8_otro','pla_t11', 'pla_t11_otro', 'pla_t11_1', 'pla_t11_1otro',
-                    'pla_t23', 'pla_t24', 'pla_t25', 'pla_t26','pla_t28', 'pla_t30',
+                    'pla_t23', 'pla_t24', 'pla_t25', 'pla_t26','pla_t28', 'pla_t30','pla_t30_1',
                     'pla_t37', 'pla_t37sd', 'pla_t38', 'pla_t39', 'pla_t39_barrio', 'pla_t39_partido','pla_t39_otro', 
                     'pla_t39_bis2', 'pla_t39_bis2_esp', 
                     //'pla_t40a',

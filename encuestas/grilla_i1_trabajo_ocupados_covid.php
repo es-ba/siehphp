@@ -14,8 +14,10 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
            (select pla_enc as t_enc, pla_participacion  from plana_tem_) t
         "]="pla_enc=t_enc";
         $this->tabla->campos_lookup['pla_participacion']=false;
-        $this->tabla->clausula_where_agregada_manual="  and (pla_t30>=1 or pla_t35=1 or pla_t35=2) " ; 
+        $vsent=" or pla_t35=1 or pla_t35=2 )" ;      
+        $this->tabla->clausula_where_agregada_manual="{$GLOBALS['NOMBRE_APP']}"=='eah2025' ?"  and ( pla_t30_1>=1  ".$vsent:"  and (pla_t30>=1  ".$vsent ; 
     }
+//"  and (  pla_t35=1 or pla_t35=2 or  ".
     function campos_solo_lectura(){
         $heredados=parent::campos_solo_lectura();
         $heredados= array_merge($heredados, array(
@@ -36,6 +38,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
         ), $this->filtrar_campos_del_operativo(array(    
             's1_r0'
             ,'pla_t30'
+            ,'pla_t30_1'
             ,'pla_t35_0'
             ,'pla_t44'
             ,'pla_t45'
@@ -132,7 +135,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
                                 /*'s1_p_area',*/'s1_p_cod_anacon',
                                 's1_p_sexo','s1_p_edad',),
                 $this->filtrar_campos_del_operativo(array_merge( array('s1_r0',
-                    'pla_t28', 'pla_t30', 'pla_t35_0','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd', 'pla_tsd3_0','pla_tsd7','pla_t40bis_a'),
+                    'pla_t28', 'pla_t30', 'pla_t30_1', 'pla_t35_0','pla_t44','pla_t45','pla_t47','pla_t51','pla_t41','pla_t37sd', 'pla_tsd3_0','pla_tsd7','pla_t40bis_a'),
                     $array2,
                     array('pla_tu3','pla_tu3a', 'pla_tu4','pla_tu5','pla_tu6','pla_tu7','pla_tu8','pla_tu8a','pla_tu9',
                     'pla_t40bis_a1','pla_t40bis_a1_otro',
