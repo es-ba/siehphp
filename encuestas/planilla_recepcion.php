@@ -531,7 +531,7 @@ class Grilla_planilla_correcciones_especiales_TEM extends Grilla_planilla_monito
         while($tabla_pla_var->obtener_leido()){
             $xvar= $tabla_pla_var->datos->plavar_var;
             $pattern_suf = "/(enc|recu)$/";
-            $pattern_pre = "/^(rea|norea)/";
+            $pattern_pre = "/^(rea|norea|con_dato)/";
             if (preg_match($pattern_suf, $xvar) && preg_match($pattern_pre, $xvar)){ 
                 $xeditables[]='pla_'.$xvar;
             };
