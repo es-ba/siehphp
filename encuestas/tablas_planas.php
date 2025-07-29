@@ -90,7 +90,7 @@ class Tabla_planas extends Tabla{
         }
         foreach(array('mie'=>array('for'=>'I1', 'mat'=>''), 'hog'=>array('for'=>'S1', 'mat'=>''),
             'gh'=>array('for'=>'GH', 'mat'=>''),  'a1'=>array('for'=>'A1', 'mat'=>''), 'exm'=>array('for'=>'A1', 'mat'=>'X'),
-            'sup'=>array('for'=>'SUP', 'mat'=>''),'per'=>array('for'=>'S1', 'mat'=>'P')) as $cual_destino=>$cual_formumatriz){
+            'sup'=>array('for'=>'SUP', 'mat'=>''), 'pmd'=>array('for'=>'PMD', 'mat'=>''),'per'=>array('for'=>'S1', 'mat'=>'P')) as $cual_destino=>$cual_formumatriz){
             if($tra_for==$cual_formumatriz['for'] && $tra_mat==$cual_formumatriz['mat']){
                 $tabla_varcal=$contexto->nuevo_objeto('Tabla_varcal');
                 $tabla_varcal->definir_orden_por_otra('varcal_orden');

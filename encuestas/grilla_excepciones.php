@@ -20,5 +20,8 @@ class Grilla_excepciones extends Grilla_tabla{
     function puede_insertar(){
         return true;
     }
+    function puede_eliminar(){
+        return tiene_rol('procesamiento');
+    }   
 }
 ?>
