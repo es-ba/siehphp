@@ -6,7 +6,7 @@ require_once "grilla.php";
 
 class Grilla_excepciones extends Grilla_tabla{
     function campos_editables($filtro_para_lectura){
-        return array('exc_enc','exc_excepcion');
+        return array('exc_enc','exc_excepcion','exc_obs');
     }
     function permite_grilla_sin_filtro(){
         return false;
