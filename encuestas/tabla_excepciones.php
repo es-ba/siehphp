@@ -9,7 +9,9 @@ class Tabla_excepciones extends Tabla{
         $this->definir_esquema($GLOBALS['esquema_principal']);
         $this->definir_campo('exc_ope',array('hereda'=>'operativos','modo'=>'pk','def'=>$GLOBALS['NOMBRE_APP'],'validart'=>'codigo'));
         $this->definir_campo('exc_enc',array('tipo'=>'entero','es_pk'=>true));
-        $this->definir_campo('exc_excepcion',array('tipo'=>'texto','validart'=>'castellano'));  
+        $this->definir_campo('exc_excepcion',array('tipo'=>'texto','validart'=>'castellano')); 
+        $this->definir_campo('exc_obs', array('tipo'=>'texto', 'validart'=>'castellano'));
+ 
     }
     function restricciones_especificas(){
         $BODY='$BODY';
