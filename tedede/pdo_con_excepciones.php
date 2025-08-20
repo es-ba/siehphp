@@ -112,6 +112,7 @@ class PDO_con_excepciones_sin_cache extends PDO{
     //loguear('2023-02-14', ' dsn:'.$dsn. ' puerto:'.$parametros_db->port. 'password :'.$password);
     function __construct($dsn, $username, $password){
         $this->es_postgres=substr($dsn,0,5)=='pgsql';
+        //var_dump($dsn, $username, $password);
         parent::__construct($dsn, $username, $password);
     }
     function no_implementado(){
