@@ -15,7 +15,7 @@ class Grilla_excepciones extends Grilla_tabla{
         return false;
     }
     function campos_a_listar($filtro_para_lectura){
-        return array('exc_ope','exc_enc','exc_excepcion');
+        return array('exc_ope','exc_enc','exc_excepcion', 'exc_obs');
     }
     function puede_insertar(){
         return true;
