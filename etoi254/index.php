@@ -1,5 +1,5 @@
 <?phpetoi252
 //UTF-8:SÍ
-header('Location: etoi252.php');
+header('Location: etoi254.php');
 
 ?>

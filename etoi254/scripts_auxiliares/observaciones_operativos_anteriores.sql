@@ -70,7 +70,7 @@ select * into operaciones_metadatos_eah2024.variableseah2024
   
 ----carga de metadatos
 
-update encu.operativos set ope_ope_anterior='etoi244' where ope_ope='etoi252';
+update encu.operativos set ope_ope_anterior='etoi244' where ope_ope='etoi254';
 INSERT INTO encu.operativos(
             ope_ope, ope_nombre, ope_ope_anterior, ope_en_campo, ope_tlg)
     VALUES      
@@ -92,7 +92,7 @@ union
 select 'eah2024', ua_ua, ua_prefijo_respuestas, ua_sufijo_tablas, ua_pk, 
        1
     from operaciones_metadatos.ua
-    where ua_ope='etoi252';
+    where ua_ope='etoi254';
 
 INSERT INTO encu.matrices(
             mat_ope, mat_for, mat_mat, mat_texto, mat_ua, mat_ultimo_campo_pk, 
@@ -108,7 +108,7 @@ union
 select      'eah2024', mat_for, mat_mat, mat_texto, mat_ua, mat_ultimo_campo_pk, 
             mat_orden, mat_blanquear_clave_al_retroceder, 1 
     from operaciones_metadatos.matrices 
-    where mat_ope = 'etoi252' and mat_for in ('A1', 'S1');    
+    where mat_ope = 'etoi254' and mat_for in ('A1', 'S1');    
 
 INSERT INTO encu.bloques(
             blo_ope, blo_for, blo_blo, blo_mat, blo_texto, blo_incluir_mat, 
@@ -245,7 +245,7 @@ alter table encu.claves enable trigger claves_ins_trg;
 --comprobacion
 select res_ope,res_enc, count(*) -- 1100 filas 800+300
 from encu.respuestas
-where res_ope <> 'etoi252' and res_enc 
+where res_ope <> 'etoi254' and res_enc 
 in (select pla_enc from encu.plana_tem_  where pla_dominio=3 --and  pla_participacion=2
     and pla_semana  between 1 and 4)
 group by 1,2
@@ -253,7 +253,7 @@ order by 1,2;
 
 select cla_ope,cla_enc, count(*) ----1100 filas
 from encu.claves
-where cla_ope <> 'etoi252'
+where cla_ope <> 'etoi254'
 and cla_enc in (select pla_enc from encu.plana_tem_  where pla_dominio=3  --and pla_participacion=2
     and pla_semana  between 1 and 4)
 group by 1,2
@@ -262,7 +262,7 @@ order by 1,2;
 select distinct res_ope, res_enc, res_hog,res_for,res_mat, res_valor
 --,count(*) --filas --1108 filas
 from encu.respuestas
-where res_ope <> 'etoi252' and res_var='s1a1_obs' --and res_hog >1
+where res_ope <> 'etoi254' and res_var='s1a1_obs' --and res_hog >1
 --group by 1,2,3,4,5
 --having count(*) >1
 
@@ -358,7 +358,7 @@ alter table encu.claves enable trigger claves_ins_trg;
  --comprobacion
 select res_ope,res_enc, count(*) --  
 from encu.respuestas
-where res_ope <> 'etoi252' and res_enc 
+where res_ope <> 'etoi254' and res_enc 
 in (select pla_enc from encu.plana_tem_  where pla_dominio=3 --and  pla_participacion=2
     and pla_semana  between 5 and 12)
 group by 1,2
@@ -366,7 +366,7 @@ order by 1,2;
 
 select cla_ope,cla_enc, count(*) ----
 from encu.claves
-where cla_ope <> 'etoi252'
+where cla_ope <> 'etoi254'
 and cla_enc in (select pla_enc from encu.plana_tem_  where pla_dominio=3  --and pla_participacion=2
     and pla_semana  between 5 and 12)
 group by 1,2
@@ -375,7 +375,7 @@ order by 1,2;
 select distinct res_ope, res_enc, res_hog,res_for,res_mat, res_valor
 --,count(*) --filas --1108 filas
 from encu.respuestas
-where res_ope <> 'etoi252' and res_var='s1a1_obs' --and res_hog >1
+where res_ope <> 'etoi254' and res_var='s1a1_obs' --and res_hog >1
 --group by 1,2,3,4,5
 --having count(*) >1
 

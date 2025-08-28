@@ -28,20 +28,20 @@ END;
 $BODY$;
 
 /*
-select agregar_variable_tem('etoi252','1', 'norea_e',10,'NO REA Encuestador',null,'numeros');
-select agregar_variable_tem('etoi252','1', 'norea_r',20,'NO REA Recuperador',null,'numeros');
-select agregar_variable_tem('etoi252','1', 'cod_enc',9,'Código de encuestador',null,'numeros');
--- select agregar_variable_tem('etoi252','1', 'cod_recu',19,'Código de recuperador',null,'numeros');
--- select agregar_variable_tem('etoi252','1', 'cod_sup',30,'Código de supervisor',null,'numeros');
-select agregar_variable_tem('etoi252','1', 'cod_recep',40,'Código de recepcionista',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'norea_e',10,'NO REA Encuestador',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'norea_r',20,'NO REA Recuperador',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'cod_enc',9,'Código de encuestador',null,'numeros');
+-- select agregar_variable_tem('etoi254','1', 'cod_recu',19,'Código de recuperador',null,'numeros');
+-- select agregar_variable_tem('etoi254','1', 'cod_sup',30,'Código de supervisor',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'cod_recep',40,'Código de recepcionista',null,'numeros');
 
-select agregar_variable_tem('etoi252','1', 'sup_dirigida',315,'Supervision dirigida',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'sup_dirigida',315,'Supervision dirigida',null,'numeros');
 
-select agregar_variable_tem('etoi252','1', 'estado_procesamiento',2400,'Estado procesamiento',null,'numeros');
-select agregar_variable_tem('etoi252','1', 'devolucion_campo',2410,'Devolución campo',null,'numeros');
-select agregar_variable_tem('etoi252','1', 'devolucion_tematico',2420,'Devolución temático',null,'numeros');
-select agregar_variable_tem('etoi252','1', 'destinatario_tematico',2430,'Destinatario temático',null,'texto');
-select agregar_variable_tem('etoi252','1', 'estado',2490,'Estado',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'estado_procesamiento',2400,'Estado procesamiento',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'devolucion_campo',2410,'Devolución campo',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'devolucion_tematico',2420,'Devolución temático',null,'numeros');
+select agregar_variable_tem('etoi254','1', 'destinatario_tematico',2430,'Destinatario temático',null,'texto');
+select agregar_variable_tem('etoi254','1', 'estado',2490,'Estado',null,'numeros');
 
 
 */

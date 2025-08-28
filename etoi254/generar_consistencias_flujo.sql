@@ -2,16 +2,16 @@
 
 UPDATE encu.variables
         set var_orden=1
-        where var_ope='etoi252' and var_var='v5_esp';
+        where var_ope='etoi254' and var_var='v5_esp';
 UPDATE encu.variables
         set var_orden=1
-        where var_ope='etoi252' and var_var='lugar_esp1';
+        where var_ope='etoi254' and var_var='lugar_esp1';
 UPDATE encu.variables
         set var_orden=3
-        where var_ope='etoi252' and var_var='lugar_esp3';
+        where var_ope='etoi254' and var_var='lugar_esp3';
 UPDATE encu.variables
         set var_orden=12
-        where var_ope='etoi252' and var_var='sn15k_esp';
+        where var_ope='etoi254' and var_var='sn15k_esp';
         
 set search_path= encu, comun, public;
 
@@ -139,7 +139,7 @@ LANGUAGE plpgsql;
 ALTER FUNCTION encu.variables_saltadas(pope TEXT, porigen TEXT, pdestino TEXT)
   OWNER TO tedede_php;
 
---SELECT encu.variables_saltadas('etoi252','t3','t13'), ('t3') --{t4,t5,t6,t7,t8,t8_otro,t9,t10,t11,t11_otro,t12}
+--SELECT encu.variables_saltadas('etoi254','t3','t13'), ('t3') --{t4,t5,t6,t7,t8,t8_otro,t9,t10,t11,t11_otro,t12}
 
 CREATE OR REPLACE FUNCTION encu.generar_consistencias_flujo(poperativo TEXT)
   RETURNS void AS

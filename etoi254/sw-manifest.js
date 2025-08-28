@@ -1,12 +1,12 @@
 "use strict";
 // TEMPLATE-START
 var version = 'v 3.14';
-var appName = 'etoi252_test';
+var appName = 'etoi254_test';
 var urlsToCache = [
-'../etoi252/etoi252_icon.png',
-'../etoi252/etoi252_icon_super.png',
-'../etoi252/etoi252_icon_capa.png',
-'../etoi252/etoi252_icon_test.png',
+'../etoi254/etoi254_icon.png',
+'../etoi254/etoi254_icon_super.png',
+'../etoi254/etoi254_icon_capa.png',
+'../etoi254/etoi254_icon_test.png',
 '../tedede/comunes.js ',
 '../tedede/cuantas_instancias.js ',
 '../tedede/probador.css',
@@ -15,33 +15,33 @@ var urlsToCache = [
 '../encuestas/encuestas.js',
 '../encuestas/mostrar_como_cachea.js',
 '../encuestas/encu_especiales.js',
-'../etoi252/etoi252.css',
-'../etoi252/dbo_etoi252.js',
+'../etoi254/etoi254.css',
+'../etoi254/dbo_etoi254.js',
 '../tedede/tedede.js ',
 '../tedede/tedede.css ',
 '../tedede/editor.js',
 '../tedede/para_grilla.js',
 '../tedede/tabulados.js',     //   #agregado para test
 '../tedede/test_fondo_t.png', //   #agregado para test
-'../etoi252/estructura_etoi252.js',
+'../etoi254/estructura_etoi254.js',
 '../tercera/md5_paj.js',
 '../tercera/aes.js',
-'../etoi252/logo_app.png',
-'../etoi252/logo_esperar.png',
-'../etoi252/etoi252_fondo_t.png',
-'../etoi252/etoi252_icon.gif',
-'../etoi252/etoi252_icon_test.gif',
-'../etoi252/etoi252_icon_desa.gif',
-'../etoi252/etoi252_icon_capa.gif',
-'../etoi252/etoi252.php?hacer=hoja_de_ruta',
-'../etoi252/etoi252.php?hacer=hoja_de_ruta_super',
-'../etoi252/etoi252.php?hacer=formularios_de_la_vivienda',
-'../etoi252/etoi252.php?hacer=aviso_offline',
-'../etoi252/etoi252.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi252","tra_for":"S1","tra_mat":""}',
-'../etoi252/etoi252.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi252","tra_for":"S1","tra_mat":"P"}',
-'../etoi252/etoi252.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi252","tra_for":"A1","tra_mat":""}',
-'../etoi252/etoi252.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi252","tra_for":"I1","tra_mat":""}',
-'../etoi252/etoi252.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi252","tra_for":"SUP","tra_mat":""}',
+'../etoi254/logo_app.png',
+'../etoi254/logo_esperar.png',
+'../etoi254/etoi254_fondo_t.png',
+'../etoi254/etoi254_icon.gif',
+'../etoi254/etoi254_icon_test.gif',
+'../etoi254/etoi254_icon_desa.gif',
+'../etoi254/etoi254_icon_capa.gif',
+'../etoi254/etoi254.php?hacer=hoja_de_ruta',
+'../etoi254/etoi254.php?hacer=hoja_de_ruta_super',
+'../etoi254/etoi254.php?hacer=formularios_de_la_vivienda',
+'../etoi254/etoi254.php?hacer=aviso_offline',
+'../etoi254/etoi254.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi254","tra_for":"S1","tra_mat":""}',
+'../etoi254/etoi254.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi254","tra_for":"S1","tra_mat":"P"}',
+'../etoi254/etoi254.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi254","tra_for":"A1","tra_mat":""}',
+'../etoi254/etoi254.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi254","tra_for":"I1","tra_mat":""}',
+'../etoi254/etoi254.php?hacer=desplegar_formulario&todo={"tra_ope":"etoi254","tra_for":"SUP","tra_mat":""}',
 '../tedede/compatibilidad.js ',
 '../imagenes/bloq_mayus.jpg',
 '../encuestas/control_mini_cal.js',
@@ -58,7 +58,7 @@ var urlsToCache = [
 ];
   
 var fallback = [
-    {"path":"../etoi252/etoi252.php?hacer=cargar_dispositivo","fallback":"../etoi252/etoi252.php?hacer=aviso_offline"},
+    {"path":"../etoi254/etoi254.php?hacer=cargar_dispositivo","fallback":"../etoi254/etoi254.php?hacer=aviso_offline"},
 ];
 // TEMPLATE-END
 var CACHE_NAME = appName + ':' + version;

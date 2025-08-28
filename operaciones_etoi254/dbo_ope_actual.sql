@@ -2,7 +2,7 @@
   RETURNS text AS
 $BODY$
 begin
-    return 'etoi252';
+    return 'etoi254';
 end;
 $BODY$
   LANGUAGE plpgsql IMMUTABLE;
