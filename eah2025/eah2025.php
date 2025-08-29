@@ -884,6 +884,9 @@ JS
                        pla_t39_otro!=NULL|pla_t41!=NULL|pla_t42!=NULL|                     
                        pla_t48b_esp!=NULL|                       
                        pla_i6_10=1|pla_i6_10_esp!=NULL|
+                       pla_i3_34=1|pla_i3_34x>=0|
+                       pla_i3_35=1|pla_i3_35x>=0|
+                       pla_i3_36=1|pla_i3_36x>=0|
                        pla_i3_2=1|pla_i3_2x>=0|
                        pla_i3_3=1|pla_i3_3x>=0|
                        pla_i3_4=1|pla_i3_4x>=0|
