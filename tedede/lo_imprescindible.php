@@ -86,9 +86,9 @@ $soy_un_ipad=isset($_COOKIE['soy_un_ipad'])?$_COOKIE['soy_un_ipad']!='no':strpos
 
 $_SESSION['modo_encuesta']=isset($_SESSION['modo_encuesta'])?$_SESSION['modo_encuesta']:'Completo';
 
-if (!class_exists('Exception_Tedede')) {
-    class Exception_Tedede extends Exception {
-    }
+/* modificado como estaba originalmente no como vino desde rama alternativa, hasta revisión */
+class Exception_Tedede extends Exception {
+
 }
 
 
