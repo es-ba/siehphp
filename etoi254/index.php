@@ -1,4 +1,4 @@
-<?phpetoi252
+<?php
 //UTF-8:SÍ
 header('Location: etoi254.php');
 

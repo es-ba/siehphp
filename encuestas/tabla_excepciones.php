@@ -21,8 +21,9 @@ ALTER TABLE excepciones
 /*OTRA*/
 ALTER TABLE excepciones
   ADD CONSTRAINT "texto invalido en exc_ope de tabla excepciones" CHECK (comun.cadena_valida(exc_ope::text, 'codigo'::text));
+/*OTRA*/  
   ALTER TABLE excepciones
-  ADD CONSTRAINT "texto invalido en exc_obs de tabla excepciones" CHECK (comun.cadena_valida(exc_obs::text, 'codigo'::text))
+  ADD CONSTRAINT "texto invalido en exc_obs de tabla excepciones" CHECK (comun.cadena_valida(exc_obs::text, 'codigo'::text));
 SQL;
         $sqls=new Sqls();
         foreach(explode('/*OTRA*/',$todas) as $sentencia){
