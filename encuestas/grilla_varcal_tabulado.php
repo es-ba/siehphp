@@ -66,7 +66,7 @@ SQL
             $variables=expresion_regular_extraer_variables(strtolower($datos_varcal->variables));
             $varNoRepetidas=[];
             foreach($variables  as $unavar ){
-                if(!in_array($unavar,$varNoRepetidas)){
+                if(!in_array($unavar,$varNoRepetidas) && $unavar!='p_mie' && $unavar!='nmiembro'){
                     $varNoRepetidas[]=$unavar;
                 }
             };
