@@ -15,7 +15,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
         "]="pla_enc=t_enc";
         $this->tabla->campos_lookup['pla_participacion']=false;
         $vsent=" or pla_t35=1 or pla_t35=2 )" ; 
-        $vcondicion= "{$GLOBALS['NOMBRE_APP']}"."=='eah2025' " . " or substr({$GLOBALS['NOMBRE_APP']},0,4)=='etoi' && (int)(substr({$GLOBALS['NOMBRE_APP']},4))>252";
+        $vcondicion=$GLOBALS['NOMBRE_APP']=='eah2025'|| ( substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' && (int)(substr($GLOBALS['NOMBRE_APP'],4))>252 )?true:false;
         $this->tabla->clausula_where_agregada_manual= $vcondicion ?"  and ( pla_t30_1>=1  ".$vsent:"  and (pla_t30>=1  ".$vsent ; 
        
     }
