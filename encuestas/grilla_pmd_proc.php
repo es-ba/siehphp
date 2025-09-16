@@ -51,6 +51,7 @@ class Grilla_PMD_proc extends Grilla_respuestas_para_proc{
         $heredados[]='pla_pm84';
         $heredados[]='pla_pm87';
         $heredados[]='pla_pm90';
+        $heredados[]='pla_obs_pm';
         return $heredados;
     }
     function permite_grilla_sin_filtro(){
@@ -72,7 +73,7 @@ class Grilla_PMD_proc extends Grilla_respuestas_para_proc{
                                                       'pla_pm57','pla_pm57_esp','pla_pm60','pla_pm60_esp','pla_pm63','pla_pm63_esp','pla_pm66','pla_pm66_esp',
                                                       'pla_pm69','pla_pm69_esp','pla_pm72','pla_pm72_esp','pla_pm75','pla_pm75_esp','pla_pm78','pla_pm78_esp',
                                                       'pla_pm81','pla_pm81_esp','pla_pm84','pla_pm84_esp','pla_pm87','pla_pm87_esp','pla_pm90','pla_pm90_esp',
-                                                      'pla_razon_pm','pla_razon_pm_esp','pla_obs_pm'
+                                                      'pla_razon_pm','pla_razon_pm_esp','pla_obs_pm','pla_obs_grilla_pmd'
             )));
     }    
     function permite_grilla_sin_filtro_manual(){
