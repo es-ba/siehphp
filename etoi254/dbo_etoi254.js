@@ -413,6 +413,51 @@ dbo.inghort53bis=function(encues, nhogar, nmiembro){
     };
     return ingh;
 };
+dbo.meshort53bis_v2=function(encues, nhogar, nmiembro){ // pensado en la pk actual que corresponde a I1
+    //sobre pk_ud_actual
+    var mesh=0; 
+    if (!(pk_ud.tra_enc==encues && pk_ud.tra_hog==nhogar && pk_ud.tra_mie==nmiembro)){
+        return null;
+    }
+    if ( evaluar_en_encuestas(
+            '(i1=1 or i4=1 or informado(i10)) and t53_bis1<0 or t53_bis2<0 or (t53_bis1=1 or t53_bis1=2) and t53_bis1_sem<0 or t53_bis1=3 and t53_bis1_mes<0'
+            , true)){
+        mesh= -9;
+    }else if(evaluar_en_encuestas('(not informado(t28) and not informado(t30_1)) or t45=3 or i1=2 and i4<>1', true)){
+        mesh= 0;
+    }else if(evaluar_en_encuestas('(t53_bis1=1 or t53_bis1=2 or t53_bis1<0) and t53_bis1_sem>0 and t53_bis2>0',true)){
+        mesh=evaluar_en_encuestas('t53_bis1_sem*t53_bis2*4.3');
+    }else if(evaluar_en_encuestas('(t53_bis1=3 or t53_bis1<0) and t53_bis1_mes>0 and t53_bis2>0',true)){
+        mesh=evaluar_en_encuestas('t53_bis1_mes*t53_bis2',true); 
+    }else{
+        mesh=null;
+    };
+    return mesh;
+};
+dbo.inghort53bis_v2=function(encues, nhogar, nmiembro){ 
+    //sobre pk_ud_actual que corresponde a I1
+    if (!(pk_ud.tra_enc==encues && pk_ud.tra_hog==nhogar && pk_ud.tra_mie==nmiembro)){
+        return null;
+    }
+    var ingh=0;
+    var v_meshort=dbo.meshort53bis_v2(encues, nhogar, nmiembro); 
+    if (nulo_a_neutro(v_meshort)<0 || nulo_a_neutro(rta_ud.var_i7a)<0 || nulo_a_neutro(rta_ud.var_i11)<0 ||
+        nulo_a_neutro(rta_ud.var_i12)<0 || nulo_a_neutro(rta_ud.var_i13)<0 || nulo_a_neutro(rta_ud.var_i14)<0){
+        ingh= -9;
+    }else if(v_meshort>0 && rta_ud.var_i7a>0){
+        ingh= parseInt(rta_ud.var_i7a/v_meshort);
+    }else if(v_meshort>0 && rta_ud.var_i14>0){
+        ingh=parseInt(rta_ud.var_i14/v_meshort);
+    }else if(v_meshort>0 && rta_ud.var_i11==1 && rta_ud.var_i12 >0&& rta_ud.var_i13>0){
+        ingh=parseInt((rta_ud.var_i12+ rta_ud.var_i13)/v_meshort);
+    }else if(v_meshort>0 && rta_ud.var_i11==2 && rta_ud.var_i13>0){
+        ingh=parseInt(rta_ud.var_i13/v_meshort); 
+    }else{
+        ingh=null;
+    };
+    return ingh;
+};
+
 dbo.suma_auh_i3_13a_hog=function(p_enc,p_hog){
     var ud_este;
     var ss=0;
