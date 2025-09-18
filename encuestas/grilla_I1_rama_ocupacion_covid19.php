@@ -38,6 +38,7 @@ class Grilla_rama_ocupacion_covid19 extends Grilla_respuestas_para_proc_ind{
             ,'pla_t25_1'
             ,'pla_t26_1'
             ,'pla_t24_1_cod'
+            ,'pla_t27_1'
         )));
         return $heredados;
     }
