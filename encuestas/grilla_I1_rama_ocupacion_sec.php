@@ -38,7 +38,6 @@ class Grilla_I1_rama_ocupacion_sec extends Grilla_respuestas_para_proc_ind{
             ,'pla_tso42'
             ,'pla_tso43'
             ,'pla_tuso9'
-            ,'pla_tuso10_1'
         )));    
         return $heredados;
     }
