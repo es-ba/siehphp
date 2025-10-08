@@ -33,6 +33,8 @@ class Grilla_I1_migracion extends Grilla_respuestas_para_proc_ind{
             ,'pla_m1_anio'
             ,'pla_m3'
             ,'pla_m3_anio'
+            ,'pla_aj_m1'
+            ,'pla_aj_m3'
         )));
         return $heredados;
     }
@@ -43,7 +45,8 @@ class Grilla_I1_migracion extends Grilla_respuestas_para_proc_ind{
         return array_merge(array('pla_enc', 'pla_hog','pla_mie','s1_p_semana',
             's1_p_bolsa','s1_p_estado', 's1_p_cod_anacon', /*'s1_p_fin_anacon',*/'s1_p_etapa_pro','s1_p_sexo', 's1_p_edad'),
             $this->filtrar_campos_del_operativo(array('s1_r0', 'pla_m1', 'pla_m1_anio', 'pla_m1_esp2', 'pla_m1_esp3','pla_m1_esp4', 
-            'pla_m3', 'pla_m3_anio', 'pla_m4', 'pla_m4_esp1', 'pla_m4_esp2','pla_m4_esp3', 'pla_obs_grilla_mi'))
+            'pla_m3', 'pla_m3_anio', 'pla_m4', 'pla_m4_esp1', 'pla_m4_esp2','pla_m4_esp3', 
+            'pla_aj_m1','pla_aj_m1_anio', 'pla_aj_m1_esp2', 'pla_aj_m1_esp3','pla_aj_m1_esp4', 'pla_aj_m3','pla_aj_m3_anio','pla_obs_grilla_mi'))
         );
     }
     function permite_grilla_sin_filtro_manual(){

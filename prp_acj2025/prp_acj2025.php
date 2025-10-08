@@ -898,7 +898,7 @@ JS
             'submenu'=>'procesamiento',
             'para_produccion'=>true,
             'funcion'=>function(Procesos $este){
-                enviar_grilla($este->salida,'I1_migracion',array('pla_m1'=>'#=2|pla_m1=3|pla_m1=4'),null,array());
+                enviar_grilla($este->salida,'I1_migracion',array('pla_aj_m1'=>'#=2|pla_aj_m1=3|pla_aj_m1=4'),null,array());
             }
         ));
     }
