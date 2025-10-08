@@ -16,6 +16,7 @@ CREATE OR REPLACE FUNCTION dbo.trimestre_operativo_base()
                     case when dbo.anio()>=2024 then 3 -- a partir de 2024, eah cambia trimestre
                          else 4
                     end
+                when dbo.ope_actual() ='prp_acj2025' then 4   
                 else null
            end
   $BODY$           
