@@ -75,7 +75,7 @@ INSERT INTO encu.operativos(
             ope_ope, ope_nombre, ope_ope_anterior, ope_en_campo, ope_tlg)
     VALUES    
     ( 'eah2024', 'Encuesta Anual de Hogares 2024', 'etoi242', false, 1),
-    ( 'etoi242', 'Encuesta de Trabajo, Ocupación e Ingreso 2024 2', false, false, 1);
+    ( 'etoi242', 'Encuesta de Trabajo, Ocupación e Ingreso 2024 2', '', false, 1);
 INSERT INTO encu.formularios(
             for_ope, for_for, for_nombre, for_tlg) values         
             ('eah2024', 'A1', 'Vivienda', 1),
