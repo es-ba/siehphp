@@ -1111,6 +1111,9 @@ JS
     function proceso_eliminar_formulario_sup(){
         return new Proceso_eliminar_formulario_sup();
     }
+    function proceso_planilla_correcciones_especiales_TEM(){
+        return new Planilla_correcciones_especiales_TEM();
+    }
     function proceso_fin_de_campo(){
         return new Proceso_fin_de_campo();
     }
