@@ -833,12 +833,13 @@ JS
             'permisos'=>array('grupo'=>'procesamiento'),
             'submenu'=>'procesamiento',
             'para_produccion'=>true,
-            'funcion'=>function(Procesos $este) {           
+            'funcion'=>function(Procesos $este) {
                enviar_grilla($este->salida,'A1',
                //array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp=!NULL|pla_h2_esp=!NULL'),
-              array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_a1!=NULL'),   
-               //array(),                  
-               null,array('tem_estado'=>'#>=77',));                 
+               //array('pla_v2'=>'# =8|pla_h2=7|pla_v2_esp!=NULL|pla_h2_esp!=NULL|pla_obs_a1!=NULL'),   
+               array('tem_estado'=>'#>=77',),
+               null,array());
+               
             }
         ));
     }
