@@ -21,12 +21,12 @@ BEGIN
                 con_postcondicion,
                 con_activa, con_explicacion, con_tipo, con_falsos_positivos,
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_f0', 'hog>1', '=>',
+        values( 'etoi261', 'flujo_f_f0', 'hog>1', '=>',
                 'v2 is null and v2_esp is null and v4 is null and v5 is null and v5_esp is null and v6 is null and v7 is null and v12 is null',
                 true, 'Filtro Vivienda', 'Auditoría', false,
                 'ALTA', 'Recepción', 'flujo', 'Error', 1) ;
 
-    r_saltadas=encu.variables_saltadas('etoi254', 'respondi', 'e1' );
+    r_saltadas=encu.variables_saltadas('etoi261', 'respondi', 'e1' );
       raise notice 'f1 str_saltadas_condicion % largo %', r_saltadas.psaltadas_cond_str, length(r_saltadas.psaltadas_cond_str) ; 
        rcons.con_ope=poperativo;
        rcons.con_con='flujo_f_' || 'f1' ;
@@ -40,7 +40,7 @@ BEGIN
                 con_postcondicion,
                 con_activa, con_explicacion, con_tipo, con_falsos_positivos,
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_f2', 'edad<3', '=>',
+        values( 'etoi261', 'flujo_f_f2', 'edad<3', '=>',
             'e1 is null',
             true, 'Filtro2 I1 E, no debe ingresar e1', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ; 
@@ -48,7 +48,7 @@ BEGIN
             con_postcondicion,
             con_activa, con_explicacion, con_tipo, con_falsos_positivos,
             con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_f3', 'edad<14 or sexo=1', '=>',
+        values( 'etoi261', 'flujo_f_f3', 'edad<14 or sexo=1', '=>',
             's28 is null and s29 is null and s30 is null and s31_anio is null and s31_mes is null',
             true, 'Filtro3 I1 SMM,  no debe ingresar s28, s29, s30, s31_anio, s31_mes', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ;
@@ -58,7 +58,7 @@ BEGIN
             con_postcondicion,
             con_activa, con_explicacion, con_tipo, con_falsos_positivos,
             con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_fv_f0', 'hog>1', '=>',
+        values( 'etoi261', 'flujo_fv_f0', 'hog>1', '=>',
             'informado(h1)',
             true, 'Con Filtro Vivienda, debe informar h1', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ;
@@ -66,7 +66,7 @@ BEGIN
                 con_postcondicion,
                 con_activa, con_explicacion, con_tipo, con_falsos_positivos,
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_fv_f2', 'edad<3', '=>',
+        values( 'etoi261', 'flujo_fv_f2', 'edad<3', '=>',
             'informado(e2)',
             true, 'Con Filtro2 I1 E , debe informar e2', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ; 
@@ -75,7 +75,7 @@ BEGIN
             con_postcondicion,
             con_activa, con_explicacion, con_tipo, con_falsos_positivos,
             con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_v_f0', 'hog=1', '=>',
+        values( 'etoi261', 'flujo_f_v_f0', 'hog=1', '=>',
             'informado(v2)',
             true, 'Filtro Vivienda sin salto, debe informar v2', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ;
@@ -83,7 +83,7 @@ BEGIN
                 con_postcondicion,
                 con_activa, con_explicacion, con_tipo, con_falsos_positivos,
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_v_f1', 'edad>=10', '=>',
+        values( 'etoi261', 'flujo_f_v_f1', 'edad>=10', '=>',
             'informado(t1)',
             true, 'Filtro1 I1 T sin salto, debe ingresar t1', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ; 
@@ -91,7 +91,7 @@ BEGIN
                 con_postcondicion,
                 con_activa, con_explicacion, con_tipo, con_falsos_positivos,
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_v_f2', 'edad>=3', '=>',
+        values( 'etoi261', 'flujo_f_v_f2', 'edad>=3', '=>',
             'informado(e1)',
             true, 'Filtro2 I1 T sin salto, debe ingresar e1', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ; 
@@ -99,7 +99,7 @@ BEGIN
                 con_postcondicion,
                 con_activa, con_explicacion, con_tipo, con_falsos_positivos,
                 con_importancia, con_momento, con_grupo, con_gravedad, con_tlg)
-        values( 'etoi254', 'flujo_f_v_f3', 'edad>=14 and sexo=2', '=>',
+        values( 'etoi261', 'flujo_f_v_f3', 'edad>=14 and sexo=2', '=>',
             'informado(s28)',
             true, 'Filtro3 I1 SMM sin salto, debe ingresar s28', 'Auditoría', false,
             'ALTA', 'Recepción', 'flujo', 'Error', 1) ; 

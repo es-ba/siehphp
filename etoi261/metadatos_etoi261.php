@@ -5,7 +5,7 @@ require_once "tabla_operativos.php";
 require_once "nuestro_mini_yaml_parse.php";
 require_once "insertador_multiple.php";
 
-class Metadatos_etoi254 extends Objeto_de_la_base{ 
+class Metadatos_etoi261 extends Objeto_de_la_base{ 
     private $metadatos_ajus;
     function __construct(){
         parent::__construct();
@@ -16,9 +16,9 @@ class Metadatos_etoi254 extends Objeto_de_la_base{
         // $via_json=false;
         if($via_json){
             $separador=";/*FIN*/\n";
-            $json=json_decode(json_arreglar(file_get_contents('..\operaciones_etoi254\etoi254_dump.json')),true);
+            $json=json_decode(json_arreglar(file_get_contents('..\operaciones_etoi261\etoi261_dump.json')),true);
             if(!$json){
-                throw new Exception_Tedede("Error al parsear el json etoi254_dump.json. Error ".json_str_error());
+                throw new Exception_Tedede("Error al parsear el json etoi261_dump.json. Error ".json_str_error());
             }
             $sentencias="";
             foreach($json['tablas'] as $tabla=>$contenido){
@@ -28,7 +28,7 @@ class Metadatos_etoi254 extends Objeto_de_la_base{
             // Loguear('2014-06-14',"**********\n".$sentencias,null,null,true);
         }else{
             $separador=";\n";
-            $sentencias=file_get_contents('..\operaciones_etoi254\migraciones\metadatos.sql');
+            $sentencias=file_get_contents('..\operaciones_etoi261\migraciones\metadatos.sql');
         }
         foreach(explode($separador,$sentencias) as $sentencia){
             if($sentencia){
@@ -92,12 +92,12 @@ class Metadatos_etoi254 extends Objeto_de_la_base{
                 }
             }
             $this->contexto->db->ejecutar_sql(new Sql("update tem set tem_dominio=case tem_replica when 8 then 4 when 7 then 5 else 3 end; "));
-            if($GLOBALS['NOMBRE_APP']=='etoi254'){
+            if($GLOBALS['NOMBRE_APP']=='etoi261'){
                 $this->contexto->db->ejecutar_sql(new Sql("update tem set tem_participacion=case tem_replica when 1 then 3 when 2 then 3 when 3 then 2 when 4 then 2 else 1 end; "));
             }else{
                 throw new Exception_Tedede("hay que definir la conversion de replicas en participacion para {$GLOBALS['NOMBRE_APP']}");
             }
-            $this->contexto->db->ejecutar_sql(new Sql("INSERT INTO claves (cla_ope, cla_for, cla_mat, cla_enc, cla_tlg)   SELECT 'etoi254','TEM','',tem_enc,tem_tlg     FROM tem; "));
+            $this->contexto->db->ejecutar_sql(new Sql("INSERT INTO claves (cla_ope, cla_for, cla_mat, cla_enc, cla_tlg)   SELECT 'etoi261','TEM','',tem_enc,tem_tlg     FROM tem; "));
         }
     }
     function instalar_personal_para_capacitacion(){
