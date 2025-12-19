@@ -43,7 +43,7 @@ SQL
         $cursor=$this->db->ejecutar_sql(new Sql(
             "select current_date-date(sem_carga_recu_hasta+interval ".$this->db->quote($dias_str).")>=0 momentohabilitado
                from semanas
-                where sem_sem=12
+                where sem_sem=(select max(sem_sem) from semanas)
             "
           ,array()
         ));
