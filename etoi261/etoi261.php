@@ -191,10 +191,10 @@ JS
                                   '..\operaciones\insercion_tabla_relaciones.sql',//ok normalizado         
                                   '..\operaciones\insercion_tabla_planillas.sql',//ok normalizado     
                                   '..\operaciones\insercion_tabla_pla_var.sql',  //ok normalizado     
-                                              //EMILIO: ESTAS POR AHORA NO
-                                              //'..\operaciones\insercion_tabla_diccionario.sql',  // ok n
-                                              //'..\operaciones\insercion_tabla_dictra.sql',  // ok n
-                                              //'..\operaciones\insercion_tabla_dicvar.sql',  // ok n
+                                // 2025-12-11 habilitamos carga de diccionarios
+                                    '..\operaciones\insercion_tabla_diccionario.sql',  // ok n
+                                    '..\operaciones\insercion_tabla_dictra.sql',  // ok n
+                                    '..\operaciones\insercion_tabla_dicvar.sql',  // ok n
                                   '..\operaciones\insercion_tabla_dispositivo.sql',  // ok n
                                   '..\operaciones\insercion_tabla_dominio.sql',  // ok n
                                   '..\operaciones\insercion_tabla_replica.sql',  // ok n
