@@ -12,7 +12,7 @@ CREATE OR REPLACE FUNCTION dbo.anio()
   RETURNS integer AS
 $BODY$
 begin
-    return 2024;
+    return 2026;
 end;
 $BODY$
   LANGUAGE plpgsql IMMUTABLE;
