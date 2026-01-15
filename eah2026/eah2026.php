@@ -202,6 +202,8 @@ JS
                                   '..\operaciones\insercion_tabla_varcal.sql', //ok n
                                   '..\operaciones\insercion_tabla_varcalopc.sql',// ok n
                                   '..\operaciones\insercion_tabla_est_var.sql', 
+                                  '..\operaciones\insercion_tabla_rama_instalacion.sql', 
+                                  '..\operaciones\insercion_tabla_ocupacion_instalacion.sql', 
                                   '..\operaciones\vista_var_orden.sql',// ok
                                   '..\operaciones\insercion_tabla_import_info.sql', //
                                    ) as $archivo)
@@ -400,10 +402,12 @@ JS
     }
     function proceso_desplegar_i1(){
         return $this->proceso_desplegar_formulario('I1');
-    }   
+    }  
+/*    
     function proceso_desplegar_pmd(){
         return $this->proceso_desplegar_formulario('PMD');
     } 
+*/    
     function proceso_desplegar_sup(){
         return $this->proceso_desplegar_formulario('SUP');
     }
@@ -1257,10 +1261,11 @@ JS
         return new Proceso_eliminar_formulario_gh();
     }
  
-    */
+   
     function proceso_eliminar_formulario_pmd(){
         return new Proceso_eliminar_formulario_pmd();
     }
+    */
     function proceso_eliminar_formulario_sup(){
         return new Proceso_eliminar_formulario_sup();
     }
@@ -1302,7 +1307,7 @@ JS
             }
         ));
     }
-
+/*
     function proceso_grilla_PMD_proc(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de preguntas abiertas del PMD',
@@ -1332,7 +1337,7 @@ JS
             }            
         ));
     }
-
+*/
    function proceso_grilla_I1_rama_ocupacion_covid19(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla para codificar rama y ocupación Covid19',
