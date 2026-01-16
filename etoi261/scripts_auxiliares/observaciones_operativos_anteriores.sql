@@ -4,14 +4,26 @@ create schema operaciones_ope_claves_respuestas
   AUTHORIZATION tedede_php;
 --Traemos la información de claves y respuestas 
 ---claves y respuestas
+drop table if exists operaciones_ope_claves_respuestas.claves254;
+drop table if exists operaciones_ope_claves_respuestas.respuestas254;
+
 drop table if exists operaciones_ope_claves_respuestas.claves2025;
 drop table if exists operaciones_ope_claves_respuestas.respuestas2025;
 
-
-drop table if exists operaciones_ope_claves_respuestas.claves252;
-drop table if exists operaciones_ope_claves_respuestas.respuestas252;
 ---claves y respuestas
 set role tedede_php;
+
+--SELECT 
+select * into operaciones_ope_claves_respuestas.claves254
+  from encu.claves
+  where cla_ope='etoi254' and cla_for in ('A1','S1')
+  order by cla_ope, cla_for, cla_mat, cla_enc, cla_hog, cla_mie, cla_exm;
+--SELECT 
+select *  into operaciones_ope_claves_respuestas.respuestas254
+  from encu.respuestas
+  where res_ope='etoi254' and res_for in ('A1','S1')
+  order by res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, res_var;
+----
 --SELECT 
 select * into operaciones_ope_claves_respuestas.claves2025
   from encu.claves
@@ -22,19 +34,6 @@ select *  into operaciones_ope_claves_respuestas.respuestas2025
   from encu.respuestas
   where res_ope='eah2025' and res_for in ('A1','S1')
   order by res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, res_var;
-
---SELECT 
-select * into operaciones_ope_claves_respuestas.claves252
-  from encu.claves
-  where cla_ope='etoi252' and cla_for in ('A1','S1')
-  order by cla_ope, cla_for, cla_mat, cla_enc, cla_hog, cla_mie, cla_exm;
---SELECT 
-select *  into operaciones_ope_claves_respuestas.respuestas252
-  from encu.respuestas
-  where res_ope='etoi252' and res_for in ('A1','S1')
-  order by res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, res_var;
-----
-
 --obtener metadatos de operativos anteriores
 /*
 set role tedede_php;
@@ -68,24 +67,24 @@ select * into operaciones_ope_ant.variableseah2025
   
 ----carga de metadatos
 
-update encu.operativos set ope_ope_anterior='eah2025' where ope_ope='etoi254';
+update encu.operativos set ope_ope_anterior='etoi254' where ope_ope='etoi261';
 INSERT INTO encu.operativos(
             ope_ope, ope_nombre, ope_ope_anterior, ope_en_campo, ope_tlg)
-    VALUES    
-    ( 'eah2025', 'Encuesta Anual de Hogares 2025', 'etoi252', false, 1),
-    ( 'etoi252', 'Encuesta de Trabajo, Ocupación e Ingreso 2025 2', '' false, 1);
+    VALUES 
+    ( 'etoi254', 'Encuesta de Trabajo, Ocupación e Ingreso 2025 4', 'eah2025', false, 1),    
+    ( 'eah2025', 'Encuesta Anual de Hogares 2025', '', false, 1);
 INSERT INTO encu.formularios(
-            for_ope, for_for, for_nombre, for_tlg) values         
+            for_ope, for_for, for_nombre, for_tlg) values                  
+            ('etoi254', 'A1', 'Vivienda', 1),
+            ('etoi254', 'S1', 'Carátula - componentes del hogar', 1),
             ('eah2025', 'A1', 'Vivienda', 1),
-            ('eah2025', 'S1', 'Carátula - componentes del hogar', 1),
-            ('etoi252', 'A1', 'Vivienda', 1),
-            ('etoi252', 'S1', 'Carátula - componentes del hogar', 1);
+            ('eah2025', 'S1', 'Carátula - componentes del hogar', 1);
 
 insert into encu.ua 
 select ua_ope, ua_ua, ua_prefijo_respuestas, ua_sufijo_tablas, ua_pk, 
        1
     from encu_anterior.ua 
-    where ua_ope='etoi252'
+    where ua_ope='etoi254'
 union
 select 'eah2025', ua_ua, ua_prefijo_respuestas, ua_sufijo_tablas, ua_pk, 
        1
@@ -100,7 +99,7 @@ INSERT INTO encu.matrices(
 select      mat_ope, mat_for, mat_mat, mat_texto, mat_ua, mat_ultimo_campo_pk, 
             mat_orden, mat_blanquear_clave_al_retroceder, 1 
     from encu_anterior.matrices 
-    where mat_ope = 'etoi252' and mat_for in ('A1', 'S1')
+    where mat_ope = 'etoi254' and mat_for in ('A1', 'S1')
     
 union    
 select      'eah2025', mat_for, mat_mat, mat_texto, mat_ua, mat_ultimo_campo_pk, 
@@ -115,7 +114,7 @@ INSERT INTO encu.bloques(
 select blo_ope, blo_for, blo_blo, blo_mat, blo_texto, blo_incluir_mat, 
             blo_orden, blo_aclaracion, 1 
     from  encu_anterior.bloques
-    where blo_ope ='etoi252' and blo_for in ('A1', 'S1')
+    where blo_ope ='etoi254' and blo_for in ('A1', 'S1')
 union 
 select blo_ope, blo_for, blo_blo, blo_mat, blo_texto, blo_incluir_mat, 
             blo_orden, blo_aclaracion, 1 
@@ -132,7 +131,7 @@ select pre_ope, pre_pre, pre_texto, pre_abreviado, pre_for, pre_mat,
             pre_blo, pre_aclaracion, pre_destino, pre_desp_opc, pre_desp_nombre, 
             pre_orden, pre_aclaracion_superior, 1 
     from encu_anterior.preguntas
-    where pre_ope ='etoi252' and pre_for in ('A1', 'S1')
+    where pre_ope ='etoi254' and pre_for in ('A1', 'S1')
 union
 select pre_ope, pre_pre, pre_texto, pre_abreviado, pre_for, pre_mat, 
             pre_blo, pre_aclaracion, pre_destino, pre_desp_opc, pre_desp_nombre, 
@@ -144,7 +143,7 @@ INSERT INTO encu.con_opc(
             conopc_ope, conopc_conopc, conopc_texto, conopc_despliegue, conopc_tlg)
 select conopc_ope, conopc_conopc, conopc_texto, conopc_despliegue, 1
     from encu_anterior.con_opc
-    where conopc_ope = 'etoi252' 
+    where conopc_ope = 'etoi254' 
 union
 select conopc_ope, conopc_conopc, conopc_texto, conopc_despliegue, 1
     from operaciones_metadatos_eah2025.con_opc
@@ -166,7 +165,7 @@ select      var_ope, var_for, var_mat, var_pre, var_var, var_texto, var_aclaraci
             var_advertencia_inf, var_destino_nsnc, var_calculada, var_nombre_dr, 
             1 
     from encu_anterior.variables
-    where var_ope ='etoi252' and var_for in ('A1', 'S1')
+    where var_ope ='etoi254' and var_for in ('A1', 'S1')
  union
 select      var_ope, var_for, var_mat, var_pre, var_var, var_texto, var_aclaracion, 
             var_conopc, var_conopc_texto, var_tipovar, var_destino, var_subordinada_var, 
@@ -187,8 +186,8 @@ select pla_participacion, pla_rotaci_n_eah, pla_rotaci_n_etoi, count(*)
     and pla_semana  between 1 and 4
   group by pla_participacion, pla_rotaci_n_eah, pla_rotaci_n_etoi
   order by pla_participacion;
---2	1	2	300
---3	1	1	400
+--2	1	3	300
+--3	1	2	300
 
 set role tedede_php;
 alter table encu.claves disable trigger claves_ins_trg;
@@ -199,23 +198,23 @@ insert into encu.claves (cla_ope, cla_for, cla_mat, cla_enc,
  
   select cla_ope, cla_for, cla_mat, cla_enc, 
        cla_hog, cla_mie, cla_exm, 1
---select distinct  cla_ope,  cla_enc --400
-    from operaciones_ope_claves_respuestas.claves252
+--select distinct  cla_ope,  cla_enc --300
+    from operaciones_ope_claves_respuestas.claves2025
     where cla_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (3)
+                          where pla_dominio=3 and pla_participacion in (3) and pla_rotaci_n_eah=1
     and pla_semana  between 1 and 4)
-        and cla_ope in ('etoi252') and cla_for in ('A1', 'S1')
+        and cla_ope in ('eah2025') and cla_for in ('A1', 'S1')
 union
 select cla_ope, cla_for, cla_mat, cla_enc, 
        cla_hog, cla_mie, cla_exm, 1
---select distinct  cla_ope,  cla_enc -700
-    from operaciones_ope_claves_respuestas.claves2025
+--select distinct  cla_ope,  cla_enc --600
+    from operaciones_ope_claves_respuestas.claves254
     where cla_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (2,3)  and pla_rotaci_n_eah=1
+                          where pla_dominio=3 and pla_participacion in (2,3)  
     and pla_semana  between 1 and 4)
-        and cla_ope in ('eah2025') and cla_for in ('A1', 'S1');    
---3006
---INSERT 
+        and cla_ope in ('etoi254') and cla_for in ('A1', 'S1');    
+--INSERT 0 2550
+
 --
 INSERT INTO encu.respuestas(
             res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, 
@@ -224,46 +223,46 @@ INSERT INTO encu.respuestas(
 select res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, --
        res_var, res_valor, res_valesp, res_valor_con_error, res_estado, 
        res_anotaciones_marginales, 1         
---select distinct  res_ope,  res_enc -- 400
-    from operaciones_ope_claves_respuestas.respuestas252
+--select distinct  res_ope,  res_enc -- 300
+    from operaciones_ope_claves_respuestas.respuestas2025
     where res_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (3)
+                          where pla_dominio=3 and pla_participacion in (3) and pla_rotaci_n_eah=1
     and pla_semana  between 1 and 4)
-        and res_ope in ('etoi252') and res_for in ('A1', 'S1')
+        and res_ope in ('eah2025') and res_for in ('A1', 'S1')
 union
 select res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, --
        res_var, res_valor, res_valesp, res_valor_con_error, res_estado, 
        res_anotaciones_marginales, 1         
---select distinct  res_ope,  res_enc --  700
-    from operaciones_ope_claves_respuestas.respuestas2025
+--select distinct  res_ope,  res_enc --  600
+    from operaciones_ope_claves_respuestas.respuestas254
     where res_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (2,3)  and pla_rotaci_n_eah=1
+                          where pla_dominio=3 and pla_participacion in (2,3)  
     and pla_semana  between 1 and 4)
-        and res_ope in ('eah2025') and res_for in ('A1', 'S1');
---INSERT 0 63885
+        and res_ope in ('etoi254') and res_for in ('A1', 'S1');
+--INSERT 0 47473
 alter table encu.claves enable trigger claves_ins_trg; 
 
 --comprobacion
-select res_ope,res_enc, count(*) -- 1100 700+400 filas 
+select res_ope,res_enc, count(*) -- 900 600+300 filas 
 from encu.respuestas
-where res_ope <> 'etoi254' and res_enc 
+where res_ope <> 'etoi261' and res_enc 
 in (select pla_enc from encu.plana_tem_  where pla_dominio=3 --and  pla_participacion=2
     and pla_semana  between 1 and 4)
 group by 1,2
 order by 1,2;
 
-select cla_ope,cla_enc, count(*) ----1100 filas
+select cla_ope,cla_enc, count(*) ----900 filas
 from encu.claves
-where cla_ope <> 'etoi254'
+where cla_ope <> 'etoi261'
 and cla_enc in (select pla_enc from encu.plana_tem_  where pla_dominio=3  --and pla_participacion=2
     and pla_semana  between 1 and 4)
 group by 1,2
 order by 1,2;
 
 select distinct res_ope, res_enc, res_hog,res_for,res_mat, res_valor
---,count(*) --filas --1102 filas
+--,count(*) --filas --902 filas
 from encu.respuestas
-where res_ope <> 'etoi254' and res_var='s1a1_obs' --and res_hog >1
+where res_ope <> 'etoi261' and res_var='s1a1_obs' --and res_hog >1
 --group by 1,2,3,4,5
 --having count(*) >1
 
@@ -276,17 +275,17 @@ SEGUNDA TANDA CUANDO LO SOLICITEN
 SET ROLE tedede_php;
 --Traemos la información NUEVAMENTE de claves y respuestas del último  operativo anterior
 ---claves y respuestas
-drop table if exists operaciones_ope_claves_respuestas.claves2025;
-drop table if exists operaciones_ope_claves_respuestas.respuestas2025;
+drop table if exists operaciones_ope_claves_respuestas.claves254;
+drop table if exists operaciones_ope_claves_respuestas.respuestas254;
 --SELECT 
-select * into operaciones_ope_claves_respuestas.claves2025
+select * into operaciones_ope_claves_respuestas.claves254
   from encu.claves
-  where cla_ope='eah2025' and cla_for in ('A1','S1')
+  where cla_ope='etoi254' and cla_for in ('A1','S1')
   order by cla_ope, cla_for, cla_mat, cla_enc, cla_hog, cla_mie, cla_exm;
 --SELECT 
-select *  into operaciones_ope_claves_respuestas.respuestas2025
+select *  into operaciones_ope_claves_respuestas.respuestas254
   from encu.respuestas
-  where res_ope='eah2025' and res_for in ('A1','S1')
+  where res_ope='etoi254' and res_for in ('A1','S1')
   order by res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, res_var;
   
 -----
@@ -299,8 +298,8 @@ select pla_participacion, pla_rotaci_n_eah, pla_rotaci_n_etoi, count(*)
     and pla_semana between 5 and 12
   group by pla_participacion, pla_rotaci_n_eah, pla_rotaci_n_etoi
   order by pla_participacion;
---2	1	2	700
---3	1	1	600
+--2	1	3	700
+--3	1	2	700
 
 set role tedede_php;
 alter table encu.claves disable trigger claves_ins_trg;
@@ -310,23 +309,23 @@ insert into encu.claves (cla_ope, cla_for, cla_mat, cla_enc,
 
 select cla_ope, cla_for, cla_mat, cla_enc, 
        cla_hog, cla_mie, cla_exm, 1
---select distinct  cla_ope,  cla_enc --600
-    from operaciones_ope_claves_respuestas.claves252
+--select distinct  cla_ope,  cla_enc --700
+    from operaciones_ope_claves_respuestas.claves2025
     where cla_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (3)
+                          where pla_dominio=3 and pla_participacion in (3)  and pla_rotaci_n_eah=1
     and pla_semana  between 5 and 12)
-        and cla_ope in ('etoi252') and cla_for in ('A1', 'S1')
+        and cla_ope in ('eah2025') and cla_for in ('A1', 'S1')
 union
 select cla_ope, cla_for, cla_mat, cla_enc, 
        cla_hog, cla_mie, cla_exm, 1
---select distinct  cla_ope,  cla_enc --1300
-    from operaciones_ope_claves_respuestas.claves2025
+--select distinct  cla_ope,  cla_enc --1400
+    from operaciones_ope_claves_respuestas.claves254
     where cla_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (2,3)  and pla_rotaci_n_eah=1
+                          where pla_dominio=3 and pla_participacion in (2,3)  
     and pla_semana  between 5 and 12)
-        and cla_ope in ('eah2025') and cla_for in ('A1', 'S1');    
+        and cla_ope in ('etoi254') and cla_for in ('A1', 'S1');    
 
---INSERT 0 5282
+--
 --
 INSERT INTO encu.respuestas(
             res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, 
@@ -335,49 +334,49 @@ INSERT INTO encu.respuestas(
 select res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, --
        res_var, res_valor, res_valesp, res_valor_con_error, res_estado, 
        res_anotaciones_marginales, 1         
---select distinct  res_ope,  res_enc --  600 casos
-    from operaciones_ope_claves_respuestas.respuestas252
+--select distinct  res_ope,  res_enc --  700 casos
+    from operaciones_ope_claves_respuestas.respuestas2025
     where res_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (3)
+                          where pla_dominio=3 and pla_participacion in (3) and pla_rotaci_n_eah=1
     and pla_semana  between 5 and 12)
-        and res_ope in ('etoi252') and res_for in ('A1', 'S1')
+        and res_ope in ('eah2025') and res_for in ('A1', 'S1')
 union
 select res_ope, res_for, res_mat, res_enc, res_hog, res_mie, res_exm, --
        res_var, res_valor, res_valesp, res_valor_con_error, res_estado, 
        res_anotaciones_marginales, 1         
---select distinct  res_ope,  res_enc -- 1300
-    from operaciones_ope_claves_respuestas.respuestas2025
+--select distinct  res_ope,  res_enc -- 1400
+    from operaciones_ope_claves_respuestas.respuestas254
     where res_enc in (select pla_enc from encu.plana_tem_  
-                          where pla_dominio=3 and pla_participacion in (2,3)  and pla_rotaci_n_eah=1
+                          where pla_dominio=3 and pla_participacion in (2,3)  
     and pla_semana  between 5 and 12)
-        and res_ope in ('eah2025') and res_for in ('A1', 'S1');
---INSERT 0 110922
+        and res_ope in ('etoi254') and res_for in ('A1', 'S1');
+--
 alter table encu.claves enable trigger claves_ins_trg; 
         
  
  --comprobacion
 
  --comprobacion
-select res_ope,res_enc, count(*) --  1900 filas = (600 partic=3)+(1300 part2+3)
+select res_ope,res_enc, count(*) --  2100 filas = (700 partic=3)+(1400 part2+3)
 from encu.respuestas
-where res_ope <> 'etoi254' and res_enc 
+where res_ope <> 'etoi261' and res_enc 
 in (select pla_enc from encu.plana_tem_  where pla_dominio=3 --and  pla_participacion=2
     and pla_semana  between 5 and 12)
 group by 1,2
 order by 1,2;
 
-select cla_ope,cla_enc, count(*) ----1900  filas = (600 partic=3)+(1300 part2+3)
+select cla_ope,cla_enc, count(*) ---- 2100 filas = (700 partic=3)+(1400 part2+3)
 from encu.claves
-where cla_ope <> 'etoi254'
+where cla_ope <> 'etoi261'
 and cla_enc in (select pla_enc from encu.plana_tem_  where pla_dominio=3  --and pla_participacion=2
     and pla_semana  between 5 and 12)
 group by 1,2
 order by 1,2;
 
 select distinct res_ope, res_enc, res_hog,res_for,res_mat, res_valor
---,count(*) --  1907 filas
+--,count(*) --   filas
 from encu.respuestas
-where res_ope <> 'etoi254' and res_var='s1a1_obs' --and res_hog >1
+where res_ope <> 'etoi261' and res_var='s1a1_obs' --and res_hog >1
 and res_enc in (select pla_enc from encu.plana_tem_ where pla_semana between 5 and 12)
 --group by 1,2,3,4,5
 --having count(*) >1 SET ROLE tedede_php;

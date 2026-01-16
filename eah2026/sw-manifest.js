@@ -43,7 +43,7 @@ var urlsToCache = [
 '../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"A1","tra_mat":""}',
 '../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"I1","tra_mat":""}',
 //'../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"MD","tra_mat":""}',
-'../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"PMD","tra_mat":""}',
+//'../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"PMD","tra_mat":""}',
 //'../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"PG1","tra_mat":""}',
 //'../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"PG1","tra_mat":"M"}',
 // '../eah2026/eah2026.php?hacer=desplegar_formulario&todo={"tra_ope":"eah2026","tra_for":"GH","tra_mat":""}',
