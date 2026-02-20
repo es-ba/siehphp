@@ -208,7 +208,9 @@ JS
                                   
                                   '..\operaciones\insercion_tabla_varcal.sql', //ok n
                                   '..\operaciones\insercion_tabla_varcalopc.sql',// ok n                                  
-                                  '..\operaciones\insercion_tabla_est_var.sql', 
+                                  '..\operaciones\insercion_tabla_est_var.sql',
+                                  '..\operaciones\insercion_tabla_rama_instalacion.sql', 
+                                  '..\operaciones\insercion_tabla_ocupacion_instalacion.sql',                                  
                                   '..\operaciones\vista_var_orden.sql',// ok
                                   '..\operaciones\insercion_tabla_import_info.sql', //
                                    ) as $archivo)
