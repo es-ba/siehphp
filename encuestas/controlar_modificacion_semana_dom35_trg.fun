@@ -44,10 +44,10 @@ $BODY$
 					raise exception  'No se puede modificar la semana en encuestas que no cumplen: (dominio 5) y estado =vacío ó 18 y sel_etoi14_villa con valor';
 				end if;	
 			elsif new.pla_dominio =3 then	
-				if new.pla_estado in (19,20) then
+				if new.pla_estado in (19,20,22,32) then
 					vpermitido =true;
 				else		
-					raise exception 'No se puede modificar la semana en encuestas que no cumplen: (dominio 3) y estado 19,20';
+					raise exception 'No se puede modificar la semana en encuestas que no cumplen: (dominio 3) y estado 19,20,22,32';
 				end if;
 			else
 			   raise exception 'No se puede modificar la semana en encuestas : (dominio %) no considerado',new.dominio;
