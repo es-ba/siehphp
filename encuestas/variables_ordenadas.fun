@@ -42,12 +42,12 @@ CREATE OR REPLACE VIEW encu.variables_ordenadas
             WHEN v.var_orden IS NOT NULL THEN lpad(v.var_orden::text, 4, '0'::text)
             ELSE NULL::text
         END, v.var_var::text))), (COALESCE(v.var_subordinada_var, ''::character varying))) AS orden,
-    last_value(v.var_var) OVER (PARTITION BY b.blo_for, b.blo_mat ORDER BY f.for_orden, b.blo_orden, b.blo_mat, p.pre_orden, (comun.para_ordenar_numeros(COALESCE(
+    last_value(v.var_var) OVER (PARTITION BY f.for_for, b.blo_mat ORDER BY f.for_orden, b.blo_orden, b.blo_mat, p.pre_orden, (comun.para_ordenar_numeros(COALESCE(
         CASE
             WHEN v.var_orden IS NOT NULL THEN lpad(v.var_orden::text, 4, '0'::text)
             ELSE NULL::text
         END, v.var_var::text))), (COALESCE(v.var_subordinada_var, ''::character varying)) ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING) AS var_ultima_for,
-    lead(v.var_var, 1, 'fin'::character varying) OVER (PARTITION BY b.blo_for, b.blo_mat ORDER BY f.for_orden, b.blo_orden, b.blo_mat, p.pre_orden, (comun.para_ordenar_numeros(COALESCE(
+    lead(v.var_var, 1, 'fin'::character varying) OVER (PARTITION BY f.for_for, b.blo_mat ORDER BY f.for_orden, b.blo_orden, b.blo_mat, p.pre_orden, (comun.para_ordenar_numeros(COALESCE(
         CASE
             WHEN v.var_orden IS NOT NULL THEN lpad(v.var_orden::text, 4, '0'::text)
             ELSE NULL::text
@@ -56,7 +56,7 @@ CREATE OR REPLACE VIEW encu.variables_ordenadas
      JOIN encu.preguntas p ON p.pre_ope::text = v.var_ope::text AND p.pre_pre::text = v.var_pre::text AND p.pre_for::text = v.var_for::text AND p.pre_mat::text = v.var_mat::text
      JOIN encu.bloques b ON b.blo_blo::text = p.pre_blo::text AND b.blo_ope::text = p.pre_ope::text AND b.blo_for::text = p.pre_for::text AND b.blo_mat::text = p.pre_mat::text
      JOIN encu.formularios f ON f.for_for::text = b.blo_for::text AND f.for_ope::text = b.blo_ope::text
-  WHERE f.for_for::text <> 'TEM'::text
+  WHERE f.for_ope::text = dbo.ope_actual() AND f.for_for::text <> 'TEM'::text
   ORDER BY f.for_orden, b.blo_orden, b.blo_mat, p.pre_orden, (comun.para_ordenar_numeros(COALESCE(
         CASE
             WHEN v.var_orden IS NOT NULL THEN lpad(v.var_orden::text, 4, '0'::text)
