@@ -1130,6 +1130,11 @@ JS
     function proceso_eliminar_no_residentes(){
         return new Proceso_eliminar_no_residentes();
     }
+    /*
+    function proceso_generar_claves_bu_especiales(){
+        return new Proceso_generar_claves_bu_especiales();
+    }
+    */
     function proceso_fin_de_campo(){
         return new Proceso_fin_de_campo();
     }
@@ -1304,6 +1309,11 @@ JS
             }
         ));
     }
+	/*
+    function proceso_auxiliar_metadatos(){
+        return new Proceso_auxiliar_metadatos();
+    }
+	*/
 }
 if(!isset($no_ejecutar_aplicacion)){
     Aplicacion::correr(new Aplicacion_etoi261());
