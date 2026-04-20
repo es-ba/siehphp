@@ -27,6 +27,7 @@ class Tabla_varcal extends Tabla{
         $this->definir_campo('varcal_opciones_excluyentes',array('tipo'=>'logico', 'def'=>true));
         $this->definir_campo('varcal_filtro',array('tipo'=>'texto','largo'=>1000));
         $this->definir_campo('varcal_cerrado',array('tipo'=>'logico','def'=>false));
+        $this->definir_campo('varcal_origen',array('tipo'=>'texto','largo'=>50));
         $this->definir_tablas_hijas(array(
             'varcalopc'=>true,
         ));
@@ -57,6 +58,9 @@ ALTER TABLE varcal
 /*OTRA*/
 ALTER TABLE encu.varcal
  ADD CONSTRAINT "texto invalido en varcal_tipodedato de tabla varcal" CHECK (varcal_tipodedato::text in ('entero','decimal','texto'));
+/*OTRA*/
+ALTER TABLE varcal
+  ADD CONSTRAINT "texto invalido en varcal_origen de tabla varcal" CHECK (comun.cadena_valida(varcal_origen::text, 'extendido'::text));
 SQL;
         $sqls=new Sqls();
         foreach(explode('/*OTRA*/',$todas) as $sentencia){
