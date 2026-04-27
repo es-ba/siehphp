@@ -1130,11 +1130,9 @@ JS
     function proceso_eliminar_no_residentes(){
         return new Proceso_eliminar_no_residentes();
     }
-    /*
     function proceso_generar_claves_bu_especiales(){
         return new Proceso_generar_claves_bu_especiales();
     }
-    */
     function proceso_fin_de_campo(){
         return new Proceso_fin_de_campo();
     }
