@@ -902,7 +902,8 @@ JS
                        pla_i3_82=1|pla_i3_82x>=0|
                        pla_i3_11=1|pla_i3_11x>=0|
                        pla_i3_31=1|pla_i3_31x>=0| 
-                       pla_i3_12=1|pla_i3_12x>=0'    
+                       pla_i3_12=1|pla_i3_12x>=0|
+                       pla_i3_10=1'    
                       
                 ),                
                 null,array());                
