@@ -822,9 +822,6 @@ JS
     function proceso_borrar_ex_miembros(){
         return new Proceso_borrar_ex_miembros();
     }
-    function proceso_borrar_mascotas(){
-        return new Proceso_borrar_mascotas();
-    }
     */
     function proceso_migrar_visitas_a_anoenc(){
         return new Proceso_migrar_visitas_a_anoenc();
