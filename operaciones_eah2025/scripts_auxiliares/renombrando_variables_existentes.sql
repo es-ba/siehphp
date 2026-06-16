@@ -1,5 +1,5 @@
 set role tedede_php;
---modificando variables 
+--modificando variables  tp5b pasa a p5b
 select *
 from encu.variables
 where var_var='tp5b'
@@ -7,7 +7,7 @@ where var_var='tp5b'
 select *
 from encu.saltos
 where sal_var='tp5b' --no hay
-
+/* esto comentado sirve si no hay aun  información cargada de encuestas- 
 
 update encu.variables set var_var='p5b' where var_var='tp5b'
 update encu.respuestas set res_var='p5b' where res_var='tp5b';
@@ -19,12 +19,12 @@ where var_var='tp5b'
 
 ALTER TABLE encu.plana_s1_p RENAME  COLUMN pla_tp5b TO pla_p5b;
 
-
+*/
 
 Insertar nueva variable en tabla variables:
 
 --la actualización de la pregunta de TP5B a P5B permite hacerla por el sistema en produc y test por el update CASCADE
---la variable no se puede actualizar en test desde el sistema porque ya existe info cargada en respuestas
+--la variable no se puede actualizar en test desde el sistema porque ya existe info cargada en respuestas(de encuestas ingresadas)
 INSERT INTO encu.variables 
 (var_ope, var_for, var_mat, var_var, var_pre, var_texto, var_aclaracion, 
             var_conopc, var_conopc_texto, var_tipovar, var_destino, var_subordinada_var, 
