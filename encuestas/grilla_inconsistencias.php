@@ -28,6 +28,7 @@ class Grilla_inconsistencias extends Grilla_tabla{
             "pla_bolsa   as inc_bolsa"                    =>false,
             "pla_estado  as inc_estado"                   =>false,
             "pla_comuna  as inc_comuna"                   =>false,
+            "pla_semana  as inc_semana"                   =>false,
             "con_momento as inc_momento"                  =>false,
             "con_modulo  as inc_modulo"                   =>false,
             <<<SQL
@@ -104,7 +105,8 @@ SQL
           'explicacion',
           'inc_bolsa',
           'inc_estado',
-          'inc_comuna'),
+          'inc_comuna',
+          'inc_semana'),
           $this->var_empa_arr,
           array(
           'inc_momento',
