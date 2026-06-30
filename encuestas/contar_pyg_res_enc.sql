@@ -25,7 +25,7 @@ BEGIN
     CASE 
             WHEN  (TG_OP ='INSERT' OR TG_OP= 'UPDATE') THEN
                 v_rea_pyg:=0;
-                select count(pla_entrea_pg1) into v_rea_pyg from encu.plana_pyg_ where pla_entrea_pg1=1 and pla_enc=NEW.pla_enc;
+                select count(pla_entrea_pg1) into v_rea_pyg from encu.plana_pg1_ where pla_entrea_pg1=1 and pla_enc=NEW.pla_enc;
                 --raise notice 'enc, v_rea_pyg: %,% ', new.pla_enc,v_rea_pyg;  
                 EXECUTE v_sentencia  INTO v_total_pyg  USING NEW.pla_enc;
                 --raise notice 'valor,%', v_total_pyg ;
@@ -35,7 +35,7 @@ BEGIN
                 RETURN NEW;
             WHEN TG_OP ='DELETE' THEN
                 v_rea_pyg:=0;
-                select count(pla_entrea_pg1) into v_rea_pyg from encu.plana_pyg_ where pla_entrea_pg1=1 and pla_enc=NEW.pla_enc;
+                select count(pla_entrea_pg1) into v_rea_pyg from encu.plana_pg1_ where pla_entrea_pg1=1 and pla_enc=OLD.pla_enc;
                 EXECUTE v_sentencia  INTO v_total_pyg  USING OLD.pla_enc;
                 --raise notice 'valor,%', v_total_pyg ;
                 if (v_total_pyg> 0 ) then
@@ -55,8 +55,10 @@ $BODY$;
 ALTER FUNCTION encu.contar_pyg_res_enc_trg()
     OWNER TO tedede_php;
 
+/*
 --INICIALIZAR variable PYG_TOT
 select count(*) from encu.respuestas
 --update encu.respuestas set res_valor=0 
   where res_ope=dbo.ope_actual() and res_for='TEM' and res_mat='' and res_var='pyg_tot' and res_valor is null;
 --9551 
+*/
