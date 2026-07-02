@@ -28,7 +28,7 @@ class Vista_monitoreo_resumen_norea extends Vistas{
         $operativo_tiene_990=substr($GLOBALS['NOMBRE_APP'],0,4)=='same'?true:false;
         $operativo_tiene_99=substr($GLOBALS['NOMBRE_APP'],0,3)=='vcm'?true:false;
         $operativo_tiene_gh=((substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' && (int)(substr($GLOBALS['NOMBRE_APP'],4))>=162 && (int)(substr($GLOBALS['nombre_app'],4)) <=172) || (substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'&& $GLOBALS['anio_operativo']==2016) )?true:false;
-        $operativo_tiene_pyg=$GLOBALS['NOMBRE_APP']=='eah2018'?true:false;
+        $operativo_tiene_pyg=$GLOBALS['NOMBRE_APP']=='eah2018' || $GLOBALS['NOMBRE_APP']=='eah2022' || $GLOBALS['NOMBRE_APP']=='eah2026'?true:false;
         $operativo_tiene_md=$NomAPP=='eah2018'||$NomAPP=='eah2024'?true:false;
         $es_eah2014=$GLOBALS['NOMBRE_APP']=='eah2014'?true:false;
         $operativo_tiene_pmd=($GLOBALS['NOMBRE_APP']=='eah2019' || $GLOBALS['NOMBRE_APP']=='eah2021' || $GLOBALS['NOMBRE_APP']=='eah2025')?true:false;
@@ -76,7 +76,8 @@ class Vista_monitoreo_resumen_norea extends Vistas{
             $this->definir_campo('v_total_gh'               ,array('tipo'=>'entero', 'operacion' =>'sum', 'origen'=>"pla_gh_tot", 'title' =>'total_gh', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
         }
         if($operativo_tiene_pyg) {
-            $this->definir_campo('v_tiene_pyg'              ,array('tipo'=>'entero', 'operacion' =>'cuenta', 'origen'=>"pla_pyg_tot", 'title' =>'total_pyg', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
+           // $this->definir_campo('v_tiene_pyg'              ,array('tipo'=>'entero', 'operacion' =>'cuenta', 'origen'=>"pla_pyg_tot", 'title' =>'total_pyg', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
+            $this->definir_campo('v_tiene_pyg_resp'           ,array('tipo'=>'entero', 'operacion' =>'sum', 'origen'=>"pla_pyg_tot", 'title' =>'total_pyg_resp', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
         }
         if($operativo_tiene_md) {
           //  $this->definir_campo('v_total_md'              ,array('tipo'=>'entero', 'operacion' =>'sum', 'origen'=>"pla_md_tot", 'title' =>'total_md', 'invisible'=>$this->es_invisible(array('campo'=>true,'planificacion'=>true))));
