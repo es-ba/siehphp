@@ -1075,6 +1075,7 @@ JS
             }
         ));
     }
+    /*
     function proceso_grilla_I1_rama_ocupacion_sec(){
         return new Proceso_generico(array(
             'titulo'=>'Grilla de Preguntas para codificar rama y ocupación secundaria',
@@ -1090,6 +1091,7 @@ JS
             }
         ));
     }
+    */
     function proceso_grilla_registro_claves(){
         return new Proceso_generico(array(
             'titulo'=>'Planilla registro de cambio de claves',
