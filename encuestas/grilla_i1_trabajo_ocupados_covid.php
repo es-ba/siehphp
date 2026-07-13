@@ -15,7 +15,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
         "]="pla_enc=t_enc";
         $this->tabla->campos_lookup['pla_participacion']=false;
         $vsent=" or pla_t35=1 or pla_t35=2 )" ; 
-        $vcondicion=$GLOBALS['NOMBRE_APP']=='eah2025'|| ( substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' && (int)(substr($GLOBALS['NOMBRE_APP'],4))>252 )?true:false;
+        $vcondicion=( substr($GLOBALS['NOMBRE_APP'],0,3)=='eah' && (int)(substr($GLOBALS['NOMBRE_APP'],3))>=2025 )|| ( substr($GLOBALS['NOMBRE_APP'],0,4)=='etoi' && (int)(substr($GLOBALS['NOMBRE_APP'],4))>252 )?true:false;
         $this->tabla->clausula_where_agregada_manual= $vcondicion ?"  and ( pla_t30_1>=1  ".$vsent:"  and (pla_t30>=1  ".$vsent ; 
        
     }
@@ -140,7 +140,7 @@ class Grilla_i1_trabajo_ocupados_covid extends Grilla_respuestas_para_proc_ind{
     }  
    
     function campos_a_listar($filtro_para_lectura){
-        $array2=(!in_array("{$GLOBALS['NOMBRE_APP']}",['eah2024','etoi244','etoi251','etoi252','eah2025']))? array('pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro'):array('pla_t39');
+        $array2=(!in_array("{$GLOBALS['NOMBRE_APP']}",['eah2024','etoi244','etoi251','etoi252','eah2025','eah2026']))? array('pla_t39','pla_t39_barrio','pla_t39_partido','pla_t39_otro'):array();
         return array_merge(array('s1_p_semana','pla_enc', 'pla_hog','pla_mie',
                                 /*'pla_participacion',*/'s1_p_bolsa','s1_p_estado',
                                 /*'s1_p_area',*/'s1_p_cod_anacon',
