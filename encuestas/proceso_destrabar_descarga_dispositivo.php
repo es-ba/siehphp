@@ -36,7 +36,7 @@ update encu.respuestas set res_valor=null
   where res_ope='{$GLOBALS['nombre_app']}'
     and res_for='TEM'
     and res_hog=0
-    and res_var in ('comenzo_ingreso','con_dato_enc')         
+    and res_var in ('comenzo_ingreso','con_dato_enc','fin_ingreso_enc')
     and res_enc in (
         select pla_enc 
           from plana_tem_ 
@@ -52,7 +52,7 @@ SQL
                 )
             ));
         }
-        $cantidad_de_variables_del_update=2;
+        $cantidad_de_variables_del_update=3;
         return new Respuesta_Positiva("Se destrabó ".($this->db->ultima_consulta->rowCount()/$cantidad_de_variables_del_update));
     }
 }
