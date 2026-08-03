@@ -37,7 +37,7 @@ class Grilla_var_tabulado extends Grilla_vistas{
         $this->vista->definir_campo("vis_$variable",array('agrupa'=>true,'tipo'=>'entero','origen'=>"coalesce(pla_$variable::text,opc_opc)"));
         $this->vista->definir_campo("vis_etiqueta",array('agrupa'=>true,'tipo'=>'entero','origen'=>"opc_texto"));
         $cur=$db->ejecutar(new Sql(<<<SQL
-            SELECT :variables::text as variables, var_conopc, mat_ua as destino
+            SELECT :variables::text as variables, var_conopc, mat_ua as destino, var_for, var_mat
               FROM variables inner join matrices on mat_ope=var_ope and mat_for=var_for and mat_mat=var_mat
               WHERE var_ope=:ope
                 AND var_var=:var
@@ -49,6 +49,8 @@ SQL
             $variables=expresion_regular_extraer_variables($datos_var->variables);
             $this->vista->destino=$destino=$datos_var->destino;
             $this->vista->conopc=$datos_var->var_conopc;
+            $this->vista->var_for=$datos_var->var_for;
+            $this->vista->var_mat=$datos_var->var_mat;
             loguear('2014-12-20','----------------------variables:'.implode($variables));
             if($variables){
                 foreach($variables as $varaux){
@@ -105,6 +107,13 @@ SQL;
         if(in_array($GLOBALS['NOMBRE_APP'],['eah2019', 'eah2021','eah2025'])){
             $otras_tablas_hogar="left join plana_pmd_ pm on pm.pla_enc=s1.pla_enc and pm.pla_hog=s1.pla_hog";
         }
+        $otros_modulos="";
+        if ($this->var_for=='PG1' ){
+            $otros_modulos="left join plana_pg1_ pg on pg.pla_enc=s1.pla_enc and pg.pla_hog=s1.pla_hog ";
+        }
+        if ($this->var_for=='PG1' && $this->var_mat=='M'){
+           $otros_modulos .= "left join plana_pg1_m pgm on pgm.pla_enc=pg.pla_enc and pgm.pla_hog=pg.pla_hog ";
+        }
         return <<<SQL
             (select *, t.pla_enc as pla_enc_, s1.pla_hog as pla_hog_, s1.pla_mie as pla_mie_
                 from plana_tem_ t 
@@ -112,6 +121,7 @@ SQL;
                 {$tablas_hogar}
                 {$otras_tablas_hogar}
                 {$tablas_especificias}
+                {$otros_modulos}
                 where pla_estado>={$this->tra_estado_desde} and pla_estado<={$this->tra_estado_hasta}{$vcondicion}
             ) x full outer join 
             (select * 
