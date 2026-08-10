@@ -786,9 +786,11 @@ JS
             }
         ));
     }
+    /*
     function proceso_destrabar_carga_dispositivo(){
         return new Proceso_destrabar_carga_dispositivo();
-    }    
+    }
+*/
     function proceso_ingresar_personal(){
         return new Proceso_ingresar_personal();
     }    
