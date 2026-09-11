@@ -159,6 +159,7 @@ function controlar_hoja_de_ruta_es_seguro(cargar_o_descargar){
         });
         razon=rta.atencion;
     }else if(cargar_o_descargar=='cargar'){
+    /* //este bloque comentado para probar el que sigue, pueden dejar sin completar la rta y eso genera un error reportado por campo en Julio 2026
         ok=localStorage.getItem('estado_carga')=='descargado' {$or_capacitando_1};
         var rta = prompt('No hay registro de que se hayan terminado de descargar las encuestas. Verifique en el sistema central que esten descargadas!!. Anote BORRAR TODO si está seguro de BORRAR TODO para cargar las encuestas (todo lo que esté en el dispositivo se va a perder).')
         if(rta.trim()=='BORRAR TODO'){
@@ -166,7 +167,16 @@ function controlar_hoja_de_ruta_es_seguro(cargar_o_descargar){
         }else{
             razon='No hay registro de que las encuestas cargadas hayan sido descargadas';
         }
-    }
+    */
+        ok = (localStorage.getItem('estado_carga') == 'descargado') {$or_capacitando_1};
+        //if (!ok){
+        var rta = prompt('No hay registro de que se hayan terminado de descargar las encuestas. Verifique en el sistema central que esten descargadas!!. Anote BORRAR TODO si está seguro de BORRAR TODO para cargar las encuestas (todo lo que esté en el dispositivo se va a perder).');
+        if(rta && rta.trim() === 'BORRAR TODO'){
+            ok=true;
+        }else{
+            razon='No hay registro de que las encuestas cargadas hayan sido descargadas y no se confirmó el borrado.';
+        }
+        //}
     if(!ok){
         alert('No se procederá a '+cargar_o_descargar+' este dispositivo. '+razon);
     }
