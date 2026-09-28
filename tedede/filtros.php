@@ -1,6 +1,6 @@
 <?php
 //UTF-8:SÍ
-require "lo_imprescindible.php";
+require_once "lo_imprescindible.php";
 
 abstract class Filtro{
     public static $nombres_simples=false;
