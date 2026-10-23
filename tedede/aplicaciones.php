@@ -65,7 +65,7 @@ abstract class Aplicacion extends Contexto{
         }else{
         }
     }
-    final private function obtener_proceso($nombre_de_proceso,$incluye_prefijo){
+    private function obtener_proceso($nombre_de_proceso,$incluye_prefijo){
         global $db;
         if($incluye_prefijo){
             $nombre_metodo=$nombre_de_proceso;
@@ -82,7 +82,7 @@ abstract class Aplicacion extends Contexto{
         return $proceso;
     }
     const PREFIJO_PROCESO='proceso_';
-    final private function obtener_procesos(){
+    private function obtener_procesos(){
         $arr=array();
         foreach(get_class_methods(get_class($this)) as $nombre_metodo){
             if(empieza_con($nombre_metodo,'proceso_')){
