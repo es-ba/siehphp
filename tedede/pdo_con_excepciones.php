@@ -66,6 +66,7 @@ class Sqls implements Sqlsable, IteratorAggregate{
     function obtener_sqls(){
         return $this->sqls;
     }
+    #[\ReturnTypeWillChange]
     public function getIterator() {
         return new ArrayIterator($this->sqls);
     }
