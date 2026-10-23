@@ -312,3 +312,29 @@ PHP-FPM corre como `www-data`, y las carpetas son de `usuario` con permisos `755
 > Ojo: los procesos de tipo `Proceso_Generico` se ejecutan con solo abrir la URL (`?hacer=...`), sin confirmación. "Instalar" está en Mantenimiento: no abrirlo por error.
 
 - Para ver los errores: `sudo tail -f /var/log/nginx/error.log`
+
+---
+
+## 2026-10-23
+
+### 8. PHP 8.3: Deprecated corregidos
+
+Los tres cambios son compatibles con PHP 7.
+
+#### `tedede/proceso_login.php` (línea 50)
+**Error:** `Deprecated: file_put_contents(): Passing null to parameter #3 ($flags) of type int is deprecated`
+
+En la función `registrar()`, `$modo=NULL` al abrir el log. En PHP 8.3, pasar `null` donde se espera `int` es deprecated y —con `display_errors = On`— aparece antes del JSON, corrompiéndolo.
+- Cambiado `$modo=NULL` → `$modo=0` (equivalente; `0` = sin flags).
+
+#### `tedede/esquemas.php` — `class Objeto_de_la_base`
+**Error:** `Deprecated: Creation of dynamic property Tablas_planas::$contexto is deprecated` (ídem `Triggers_tem` y `Estructura_etoi262`)
+
+En PHP 8.2+ crear propiedades dinámicas (no declaradas) es deprecated. La propiedad `$contexto` la asigna `Contexto::nuevo_objeto()` (`contextos.php:25`) a cualquier objeto que no sea `Contexto`. Todas las clases afectadas (`Tablas_planas`, `Triggers_tem`, `Estructura_etoi262`) extienden `Objeto_de_la_base`.
+- Declarado `public $contexto;` en `Objeto_de_la_base`. Todas las subclases la heredan.
+
+#### `tedede/comunes.php` — función `MomentoRelativoHTML()` (líneas 219, 221)
+**Error:** (potencial) `DateTimeZone::__construct(): Unknown or bad timezone (America/Buenos_Aires)`
+
+`America/Buenos_Aires` ya no existe en el tzdata de Ubuntu 24.04 (se quitó como alias).
+- Cambiado a `America/Argentina/Buenos_Aires`.
