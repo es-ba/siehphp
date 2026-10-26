@@ -86,7 +86,7 @@ class Proceso_correr_consistencias extends Proceso_Formulario{
         while($este->con_var->obtener_leido()){
             $agregar_variable($este->con_var->datos->convar_var);
         }
-        foreach(explode(' ',$this->tabla_consistencias->datos->con_variables_contexto) as $variable){
+        foreach(explode(' ',$this->tabla_consistencias->datos->con_variables_contexto??'') as $variable){
             if($variable){
                 $agregar_variable($variable);
             }
