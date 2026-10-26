@@ -196,7 +196,7 @@ HTML;
         die();
     }
     static function escapar_caracteres_antes_de_enviar_texto($mensaje){
-        return htmlspecialchars($mensaje,ENT_NOQUOTES)."";
+        return htmlspecialchars($mensaje??'',ENT_NOQUOTES)."";
     }
     public function enviar($mensaje,$clase='',$parametros=NULL){
         global $tags_sin_relleno;
