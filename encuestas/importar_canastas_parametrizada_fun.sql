@@ -37,6 +37,6 @@ begin
 end;
 $BODY$;
 
-ALTER FUNCTION encu.importar_canastas_fun()
+ALTER FUNCTION encu.importar_canastas_fun(text)
     OWNER TO tedede_php;
     
