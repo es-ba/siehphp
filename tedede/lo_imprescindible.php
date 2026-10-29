@@ -3,7 +3,7 @@
 /* 
    incluirlo en todos los archivos .php (pero incluirlo sin especificar la carpeta)
 */
-date_default_timezone_set('America/Buenos_Aires');
+date_default_timezone_set('America/Argentina/Buenos_Aires');
 
 require_once "../tercera/mersenne_twister.php";
 use mersenne_twister\twister;

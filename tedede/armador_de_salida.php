@@ -9,6 +9,7 @@ require_once "lo_imprescindible.php";
 $esta_fun_tiene_el_unico_armador_de_salida_principal=FALSE; // FALSE=todavía no hay ninguno
 $tags_sin_relleno=array('script'=>true, 'textarea'=>true, 'pre'=>true);
 
+#[\AllowDynamicProperties]
 class Nodo_de_salida{
     public $acumulador_paquetes=""; // lo que está listo para un echo
     public $padre=NULL; // el nodo que tiene el padre si pongo un abrir_grupo_interno
@@ -17,6 +18,7 @@ class Nodo_de_salida{
     public $cerrar_con_opciones="";
 }
 
+#[\AllowDynamicProperties]
 class Armador_de_salida{
     private $ya_envio_algo_al_cliente=FALSE; // DOBLE USO: 1. si todavía no envió nada se pueden seguir agregando headers. 2. en el primer envío de algo hay que enviar antes los headers
     private $nodo;
@@ -194,7 +196,7 @@ HTML;
         die();
     }
     static function escapar_caracteres_antes_de_enviar_texto($mensaje){
-        return htmlspecialchars($mensaje,ENT_NOQUOTES)."";
+        return htmlspecialchars($mensaje??'',ENT_NOQUOTES)."";
     }
     public function enviar($mensaje,$clase='',$parametros=NULL){
         global $tags_sin_relleno;

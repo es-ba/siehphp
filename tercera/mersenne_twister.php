@@ -49,6 +49,7 @@ function define_constants() {
 
 define_constants();
 
+#[\AllowDynamicProperties]
 class twister {
   const N = N;
   # the class constant is not used anywhere in this namespace,

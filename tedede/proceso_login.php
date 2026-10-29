@@ -47,7 +47,7 @@ class Proceso_login extends Proceso_Formulario{
     }
     function registrar($mensaje){
         if($mensaje=='BEGIN'){
-            $modo=NULL;
+            $modo=0;
             $ahora=new DateTime();
             $mensaje='BEGIN LOGIN '.$this->argumentos->tra_usu.' '.$ahora->format('Y-m-d H:i:s');
         }else{

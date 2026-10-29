@@ -216,9 +216,9 @@ function Probar_ParsearCualquierFecha(){
 
 function MomentoRelativoHTML($momento,$href){
   $dt=new DateTime($momento);
-  $dt->setTimezone(new DateTimeZone("America/Buenos_Aires"));
+  $dt->setTimezone(new DateTimeZone("America/Argentina/Buenos_Aires"));
   $ahora=new DateTime();
-  $ahora->setTimezone(new DateTimeZone("America/Buenos_Aires"));
+  $ahora->setTimezone(new DateTimeZone("America/Argentina/Buenos_Aires"));
   if($dt->format('Y-m-d')==$ahora->format('Y-m-d')){
     $rta=coalesce(Hace(GetDeltaTime($ahora,$dt,60*60),"hora")
          ,Hace(GetDeltaTime($ahora,$dt,60),"minuto")
