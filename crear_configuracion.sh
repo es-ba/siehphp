@@ -3,6 +3,7 @@
 # Crea configuracion_local.php para un operativo.
 # Uso:
 #   ./crear_configuracion.sh etoi264
+#   ./crear_configuracion.sh etoi264 capa     (ambiente: test, capa o produccion; por defecto test)
 #   ./crear_configuracion.sh          (pide el nombre interactivo)
 
 set -e
@@ -10,6 +11,12 @@ set -e
 # ── Nombre del operativo ─────────────────────────────────────────────────────
 
 OPERATIVO="${1:-}"
+AMBIENTE="${2:-test}"
+
+case "$AMBIENTE" in
+    test|capa|produccion) ;;
+    *) echo "Error: ambiente '$AMBIENTE' inválido (test, capa o produccion)." >&2; exit 1 ;;
+esac
 
 if [ -z "$OPERATIVO" ]; then
     # Listar carpetas que parecen operativos (tienen un .php con el mismo nombre)
@@ -45,17 +52,22 @@ fi
 DB_HOST_DEF="192.168.3.44"
 DB_PORT_DEF="5433"
 DB_USER_DEF="tedede_php"
-DB_NAME_DEF="${OPERATIVO}_test_db"
 DB_PASS_DEF=""
 DEBUG_DEF="true"
 PRODUCCION_DEF="false"
+CAPACITACION="false"
+case "$AMBIENTE" in
+    test)       DB_NAME_DEF="${OPERATIVO}_test_db" ;;
+    capa)       DB_NAME_DEF="${OPERATIVO}_capa_db"; CAPACITACION="true" ;;
+    produccion) DB_NAME_DEF="${OPERATIVO}_db"; PRODUCCION_DEF="true" ;;
+esac
 COLOR_DEF="#C6DEBA"
 ES_TELE_DEF="false"
 
 # ── Pedir datos ───────────────────────────────────────────────────────────────
 
 echo ""
-echo "Configuración de base de datos para '$OPERATIVO'"
+echo "Configuración de base de datos para '$OPERATIVO' (ambiente $AMBIENTE)"
 echo "(Enter para aceptar el valor entre corchetes)"
 echo ""
 
@@ -155,9 +167,10 @@ cat > "$DESTINO" <<PHP
 //UTF-8:SÍ
 global \$parametros_db, \$ICON_APP, \$detenido, \$debug_via_notepadPP,
        \$color_de_fondo_de_la_aplicacion, \$img_de_fondo_de_la_aplicacion,
-       \$revisando_metadatos, \$es_tele_etoi;
+       \$revisando_metadatos, \$es_tele_etoi, \$esta_es_la_base_de_capacitacion;
 
 \$esta_es_la_base_en_produccion = $PRODUCCION;
+\$esta_es_la_base_de_capacitacion = $CAPACITACION;
 \$revisando_metadatos           = true;
 \$es_tele_etoi                  = $ES_TELE;
 
