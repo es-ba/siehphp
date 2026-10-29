@@ -338,3 +338,39 @@ En PHP 8.2+ crear propiedades dinámicas (no declaradas) es deprecated. La propi
 
 `America/Buenos_Aires` ya no existe en el tzdata de Ubuntu 24.04 (se quitó como alias).
 - Cambiado a `America/Argentina/Buenos_Aires`.
+
+---
+
+## 2026-10-28
+
+### 9. Scripts de deploy
+
+Pasos para instalar un operativo en un servidor:
+
+```bash
+cd /var/www/adpe
+bash descargar_operativo.sh etoi264     # 1. baja solo lo necesario a ./etoi264/
+cd etoi264
+bash crear_configuracion.sh etoi264     # 2. config local + permisos
+# 3. en el navegador, logueado como programador: etoi264.php?hacer=actualizar_instalacion
+```
+
+La app queda en `https://<servidor>/adpe/etoi264/etoi264/etoi264.php`: la primera `etoi264` es el repo y la segunda, la carpeta del operativo.
+
+#### `descargar_operativo.sh` (en coderun/operaciones)
+
+Clona el repo con `git sparse-checkout`: en el disco quedan solo la carpeta del operativo, las carpetas compartidas que usa y los archivos de la raíz. `git pull` sigue funcionando para actualizar.
+
+- Vive en el repo coderun (`coderun/operaciones/descargar_operativo.sh`), no en siehphp: no depende de nada de este repo y crea el clon en el directorio desde donde se lo llama. Se copia suelto al servidor.
+- Carpetas compartidas: `tedede`, `encuestas`, `tercera`, `imagenes`, `tools`. Salen de las rutas `../<carpeta>/` que usan el operativo y el código compartido. Si en el futuro hace falta otra: `git sparse-checkout add <carpeta>`.
+- La rama por defecto es `migracionphp8.3.36`. Se puede pasar otra como segundo argumento: `bash descargar_operativo.sh etoi264 master`.
+- `--filter=blob:none` baja solo los archivos de las carpetas elegidas. Con `etoi264` ocupa ~11 MB y tarda unos segundos.
+- Si el operativo no existe en la rama, avisa y borra el clon.
+
+#### `crear_configuracion.sh`
+
+- Pregunta los datos de conexión a la base interactivamente.
+- La clave se ingresa sin eco (`stty -echo`) para compatibilidad con `sh/dash`.
+- Crea `export/` y `logs/` en la raíz del proyecto, al lado de los operativos. `export/` va en la raíz porque `encuestas/proceso_exportar_base.php` escribe en `../export/`; está ignorada por git con `/export/` en `.gitignore`.
+- Les da grupo `www-data` y `chmod 2775` a la carpeta del operativo, a `export/` y a `logs/`, y permiso de escritura de grupo a los archivos de una instalación anterior (`estructura_*.js`, `Tabla_plana_*.estructura.json`, `*.log`), para que el instalador web los pueda pisar.
+- Al terminar indica qué poner en la URL para instalar: `<operativo>.php?hacer=actualizar_instalacion`.

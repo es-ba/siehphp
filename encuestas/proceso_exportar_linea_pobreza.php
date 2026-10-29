@@ -59,6 +59,12 @@ SQL
         $tabla_valcan->leer_uno_si_hay(array('pla_ope'=>$this->argumentos->tra_ope));
         $tabla_bitacora=$this->nuevo_objeto("Tabla_bitacora");
         $tabla_valcan->leer_uno_si_hay(array('pla_ope'=>$this->argumentos->tra_ope));
+        global $para_linea_pobreza;
+        if( !isset($para_linea_pobreza) ){
+             return new Respuesta_Negativa("Falta parámetro para línea de pobreza en la configuración local");
+        }else{
+            $vpar=$para_linea_pobreza;
+        }    
         $this->db->beginTransaction();
         try{
             $sqls=array(
@@ -66,7 +72,7 @@ SQL
                             delete from encu.valcan where pla_ope='{$this->argumentos->tra_ope}';
 SQL
                         , <<<SQL
-                                select encu.importar_canastas_fun(); 
+                                 select encu.importar_canastas_fun('{$vpar}'); 
 SQL
             );
             foreach($sqls as $sql_parcial){
