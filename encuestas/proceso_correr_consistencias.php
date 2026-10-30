@@ -86,7 +86,7 @@ class Proceso_correr_consistencias extends Proceso_Formulario{
         while($este->con_var->obtener_leido()){
             $agregar_variable($este->con_var->datos->convar_var);
         }
-        foreach(explode(' ',$this->tabla_consistencias->datos->con_variables_contexto) as $variable){
+        foreach(explode(' ',$this->tabla_consistencias->datos->con_variables_contexto??'') as $variable){
             if($variable){
                 $agregar_variable($variable);
             }
@@ -219,7 +219,7 @@ SQL;
         if($que_encuentra=$cursor->fetchObject()){
             $vinconsistencias['total_en_s1']=$que_encuentra->total_en_s1;
             $vinconsistencias['lista_en_s1']=$que_encuentra->lista_en_s1;
-            $encontradas['en_observaciones']=explode(' ',$que_encuentra->lista_en_s1);
+            $encontradas['en_observaciones']=explode(' ',$que_encuentra->lista_en_s1??'');
         }
         $interseccion = array_intersect($encontradas['en_inconsistencias'], $encontradas['en_observaciones']);
         $diferencias=array(
