@@ -285,3 +285,27 @@ Clona el repo con `git sparse-checkout`: en el disco quedan solo la carpeta del 
 - `ajustes20261026.md` (pruebas en XAMPP) se unió a este archivo como la entrada del 2026-10-26 (puntos 9 a 15).
 - La guía de instalación (PHP 8.3, nginx, permisos, arranque y problemas frecuentes), que estaba al principio de este archivo, pasó al [README](README.md), generalizada para cualquier operativo. El README también describe la estructura del repo, `crear_configuracion.sh` (con el ambiente `test`, `capa` o `produccion`), `descargar_operativo.sh` y las variables de `configuracion_local.php`, incluidas las del SMTP.
 - Este archivo queda solo como bitácora por fecha.
+
+---
+
+## 2026-11-03
+
+### 18. `crear_configuracion.sh`: mismo formato que los `configuracion_local.php` de los servidores
+
+- El archivo generado sigue la forma de los de test y producción de etoi264, con sus líneas comentadas: el bloque de `display_errors` por fecha, `$detenido` por IP y la lista de colores anteriores.
+- Según el ambiente:
+  - `produccion`: `revisando_metadatos=true`, `$color_de_fondo_de_la_aplicacion` (se pregunta, por defecto `#C6DEBA`) e imagen `<operativo>_fondo_t.png`. Base propuesta: `<operativo>_produc_db` (antes `<operativo>_db`).
+  - `test` y `capa`: `revisando_metadatos=false`, color e imagen del operativo comentados y fondo `../tedede/test_fondo_t.png`.
+  - Ícono: `<operativo>_icon_test.png`, `_icon_capa.png` o `_icon.png`; si el operativo no tiene el del ambiente, usa `_icon.png`.
+- Pide la fecha hasta la que se loguean excepciones y SQL (`$loguear_excepciones_hasta`, `$pdo_log_sql_hasta_fecha`; por defecto, hoy + 30 días). Antes quedaban comentadas.
+- Pide `$para_linea_pobreza` (lo usa `encuestas/proceso_exportar_linea_pobreza.php`); vacío deja la línea comentada. En la plantilla de test le faltaba el `;`.
+- Mantiene `$esta_es_la_base_de_capacitacion` (los `<operativo>.php` lo usan para el título "CAPA") y la línea comentada de `search_path`.
+- Ya no se pregunta `esta_es_la_base_en_produccion`: sale del ambiente.
+- `stty -echo` ya no corta el script (`set -e`) cuando no hay terminal.
+
+### 19. Violación "unload is not allowed in this document" al abrir un formulario
+
+- Chrome ya no permite el evento `unload` y lo informa en consola cada vez que se carga `?hacer=desplegar_formulario`.
+- `encuestas/tabla_matrices.php`: el script del formulario escuchaba `unload` y `beforeunload` para llamar a `guardar_o_avisar()`. `unload` se cambió por `pagehide`, que es su reemplazo y en iPad también se dispara (ahí `beforeunload` no anda, y por eso estaba el `unload`).
+- `tedede/tedede.js` (`instalar_contolador_cuantas_instancias`): mismo cambio. Esa función hoy no se llama desde ningún lado.
+- El service worker guarda en caché las páginas de los formularios: para ver el cambio puede hacer falta recargar sin caché o volver a descargar la aplicación en el dispositivo.

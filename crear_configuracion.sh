@@ -54,15 +54,23 @@ DB_PORT_DEF="5433"
 DB_USER_DEF="tedede_php"
 DB_PASS_DEF=""
 DEBUG_DEF="true"
-PRODUCCION_DEF="false"
+PRODUCCION="false"
 CAPACITACION="false"
+REVISANDO_METADATOS="false"
+ICON_SUFIJO="_test"
 case "$AMBIENTE" in
     test)       DB_NAME_DEF="${OPERATIVO}_test_db" ;;
-    capa)       DB_NAME_DEF="${OPERATIVO}_capa_db"; CAPACITACION="true" ;;
-    produccion) DB_NAME_DEF="${OPERATIVO}_db"; PRODUCCION_DEF="true" ;;
+    capa)       DB_NAME_DEF="${OPERATIVO}_capa_db"; CAPACITACION="true"; ICON_SUFIJO="_capa" ;;
+    produccion) DB_NAME_DEF="${OPERATIVO}_produc_db"; PRODUCCION="true"; REVISANDO_METADATOS="true"; ICON_SUFIJO="" ;;
 esac
+# Si el operativo no tiene ícono propio del ambiente, se usa el general
+ICON_APP="../${OPERATIVO}/${OPERATIVO}_icon${ICON_SUFIJO}.png"
+if [ ! -f "$OPERATIVO/${OPERATIVO}_icon${ICON_SUFIJO}.png" ]; then
+    ICON_APP="../${OPERATIVO}/${OPERATIVO}_icon.png"
+fi
 COLOR_DEF="#C6DEBA"
 ES_TELE_DEF="false"
+LOG_HASTA_DEF="$(date -d '+30 days' +%Y-%m-%d 2>/dev/null || date +%Y-%m-%d)"
 
 # ── Pedir datos ───────────────────────────────────────────────────────────────
 
@@ -104,7 +112,7 @@ while true; do
     DB_NAME="${DB_NAME:-$DB_NAME_DEF}"
 
     printf "  Clave DB: "
-    stty -echo 2>/dev/null; read -r DB_PASS; stty echo 2>/dev/null
+    stty -echo 2>/dev/null || true; read -r DB_PASS; stty echo 2>/dev/null || true
     echo ""
     DB_PASS="${DB_PASS:-$DB_PASS_DEF}"
 
@@ -139,19 +147,30 @@ echo ""
 read -rp "  debug_via_notepadPP       [$DEBUG_DEF]: " DEBUG
 DEBUG="${DEBUG:-$DEBUG_DEF}"
 
-read -rp "  esta_es_la_base_en_produccion [$PRODUCCION_DEF]: " PRODUCCION
-PRODUCCION="${PRODUCCION:-$PRODUCCION_DEF}"
-
-if [[ "$PRODUCCION" =~ ^[tT]rue$|^1$ ]]; then
-    read -rp "  color_de_fondo            [$COLOR_DEF]: " COLOR
-    COLOR="${COLOR:-$COLOR_DEF}"
-    COLOR_LINE="\$color_de_fondo_de_la_aplicacion = '$COLOR';"
-else
-    COLOR_LINE="// \$color_de_fondo_de_la_aplicacion = '$COLOR_DEF';  // descomentar para activar"
-fi
-
 read -rp "  es_tele_etoi              [$ES_TELE_DEF]: " ES_TELE
 ES_TELE="${ES_TELE:-$ES_TELE_DEF}"
+
+read -rp "  loguear excepciones y SQL hasta [$LOG_HASTA_DEF]: " LOG_HASTA
+LOG_HASTA="${LOG_HASTA:-$LOG_HASTA_DEF}"
+
+read -rp "  para_linea_pobreza        [vacío = no se define]: " LINEA_POBREZA
+if [ -n "$LINEA_POBREZA" ]; then
+    LINEA_POBREZA_LINE="\$para_linea_pobreza='$LINEA_POBREZA';"
+else
+    LINEA_POBREZA_LINE="// \$para_linea_pobreza='xxxxxxxxx'; //cambiar por el valor correspondiente"
+fi
+
+# Producción: color verde e imagen del operativo. Test y capa: fondo de test de tedede.
+if [ "$AMBIENTE" = produccion ]; then
+    read -rp "  color_de_fondo            [$COLOR_DEF]: " COLOR
+    COLOR="${COLOR:-$COLOR_DEF}"
+    FONDO_LINES="\$color_de_fondo_de_la_aplicacion='$COLOR';  // '#AAEABC'; //'#ECF6CE'; //'#ABEBC6'; //'#7DCEA0'; //'#CCFFCC';   //#CBE0A5 verde anterior
+\$img_de_fondo_de_la_aplicacion= '${OPERATIVO}_fondo_t.png';"
+else
+    FONDO_LINES="//\$color_de_fondo_de_la_aplicacion='#EBF2EA';  // '#AAEABC'; //'#ECF6CE'; //'#ABEBC6'; //'#7DCEA0'; //'#CCFFCC';   //#CBE0A5 verde anterior
+//\$img_de_fondo_de_la_aplicacion= '${OPERATIVO}_fondo_t.png';
+\$img_de_fondo_de_la_aplicacion= '../tedede/test_fondo_t.png';"
+fi
 
 # ── Permisos de escritura ─────────────────────────────────────────────────────
 
@@ -164,32 +183,36 @@ fi
 
 cat > "$DESTINO" <<PHP
 <?php
-//UTF-8:SÍ
-global \$parametros_db, \$ICON_APP, \$detenido, \$debug_via_notepadPP,
-       \$color_de_fondo_de_la_aplicacion, \$img_de_fondo_de_la_aplicacion,
-       \$revisando_metadatos, \$es_tele_etoi, \$esta_es_la_base_de_capacitacion;
+ // if(date("Y-m-d H:i:s")<'$LOG_HASTA 14:00'){
+//    ini_set('display_errors', 'On');
+ // }
 
-\$esta_es_la_base_en_produccion = $PRODUCCION;
-\$esta_es_la_base_de_capacitacion = $CAPACITACION;
-\$revisando_metadatos           = true;
-\$es_tele_etoi                  = $ES_TELE;
+\$esta_es_la_base_en_produccion=$PRODUCCION;
+\$esta_es_la_base_de_capacitacion=$CAPACITACION;
+\$loguear_ultimos_debug_trace=1;
+\$loguear_excepciones_hasta='$LOG_HASTA';
 
-\$detenido           = false;
-\$debug_via_notepadPP = $DEBUG;
+\$pdo_log_sql_hasta_fecha='$LOG_HASTA';
 
-\$loguear_ultimos_debug_trace = 1;
-// \$loguear_excepciones_hasta = '2026-01-01';   // descomentar para activar
-// \$pdo_log_sql_hasta_fecha   = '2026-01-01';   // descomentar para activar
+global \$parametros_db,\$color_de_fondo_de_la_aplicacion,\$ICON_APP,\$detenido,\$revisando_metadatos,\$img_de_fondo_de_la_aplicacion, \$es_tele_etoi, \$para_linea_pobreza, \$esta_es_la_base_de_capacitacion;
+\$revisando_metadatos=$REVISANDO_METADATOS;
+$LINEA_POBREZA_LINE
 
-$COLOR_LINE
-\$img_de_fondo_de_la_aplicacion   = '${OPERATIVO}_fondo_t.png';
-\$ICON_APP                        = '../${OPERATIVO}/${OPERATIVO}_icon.png';
+\$es_tele_etoi=$ES_TELE;
+\$ICON_APP='$ICON_APP';
 
-\$parametros_db->user          = '$DB_USER';
-\$parametros_db->pass          = '$DB_PASS';
-\$parametros_db->base_de_datos = '$DB_NAME';
-\$parametros_db->host          = '$DB_HOST';
-\$parametros_db->port          = '$DB_PORT';
+// \$detenido=(\$_SERVER["REMOTE_ADDR"]=='10.32.72.150'?false:"DETENIDO. Instalando nueva version");
+\$detenido=false;
+
+$FONDO_LINES
+
+\$debug_via_notepadPP=$DEBUG;
+
+\$parametros_db->user='$DB_USER';
+\$parametros_db->pass='$DB_PASS';
+\$parametros_db->base_de_datos='$DB_NAME';
+\$parametros_db->host='$DB_HOST';
+\$parametros_db->port='$DB_PORT';
 PHP
 
 cat >> "$DESTINO" <<'PHP'

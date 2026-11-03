@@ -184,8 +184,8 @@ bash crear_configuracion.sh etoi264 test        # ambiente: test (por defecto), 
 
 `crear_configuracion.sh` (en la raíz del repo):
 
-- Pide los datos de conexión a la base (la clave sin eco) y prueba la conexión con `php`. Si falla, lista las bases disponibles. El nombre de base propuesto depende del ambiente: `<operativo>_test_db`, `<operativo>_capa_db` o `<operativo>_db`.
-- Escribe `<operativo>/configuracion_local.php`. Si ya existe, pregunta antes de pisarlo.
+- Pide los datos de conexión a la base (la clave sin eco) y prueba la conexión con `php`. Si falla, lista las bases disponibles. El nombre de base propuesto depende del ambiente: `<operativo>_test_db`, `<operativo>_capa_db` o `<operativo>_produc_db`.
+- Escribe `<operativo>/configuracion_local.php` con la misma forma que los de los servidores, según el ambiente: en producción `revisando_metadatos=true`, color verde e imagen de fondo del operativo; en test y capa, fondo `../tedede/test_fondo_t.png` y el color comentado. El ícono es `<operativo>_icon_test.png`, `_icon_capa.png` o `_icon.png` (si falta el del ambiente usa `_icon.png`). Pide la fecha hasta la que se loguean excepciones y SQL (por defecto, dentro de 30 días) y `para_linea_pobreza` (vacío lo deja comentado). Conserva las líneas comentadas (`display_errors`, `$detenido` por IP, colores anteriores). Si ya existe, pregunta antes de pisarlo.
 - Crea `export/` y `logs/` en la raíz y les da grupo `www-data` y `chmod 2775`, igual que a la carpeta del operativo, para que PHP pueda escribir.
 
 Después, en el navegador, entrar con un usuario de rol `programador` a:

@@ -662,7 +662,7 @@ function instalar_contolador_cuantas_instancias(){
         }
     });
     contolador_cuantas_instancias.port.start();
-    window.addEventListener('unload',function(){ 
+    window.addEventListener('pagehide',function(){
     "use strict";
         contolador_cuantas_instancias.port.postMessage({accion:'desconectar',id_desconectando:contolador_cuantas_instancias.port.asignar_id});
     });
