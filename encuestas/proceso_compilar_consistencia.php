@@ -187,7 +187,7 @@ SQL;
         }
         */
         $lista_var_contexto='';
-        foreach(explode(' ',$this->tabla_consistencias->datos->con_variables_contexto) as $variable){
+        foreach(explode(' ',$this->tabla_consistencias->datos->con_variables_contexto??'') as $variable){
             if($variable){
                 $lista_var_contexto.="pla_{$variable},";
             }

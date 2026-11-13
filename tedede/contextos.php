@@ -4,6 +4,7 @@ require_once "lo_imprescindible.php";
 require_once "pdo_con_excepciones.php";
 require_once "armador_de_salida.php";
 
+#[\AllowDynamicProperties]
 class Contexto{
     public $db;
     public $salida;

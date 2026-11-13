@@ -7,6 +7,7 @@ function Puede(){
     return true;
 }
 
+#[\AllowDynamicProperties]
 abstract class Grilla{
     var $nombre_grilla=null;
     var $esquema='';

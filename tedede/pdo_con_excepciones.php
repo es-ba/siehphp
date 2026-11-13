@@ -66,6 +66,7 @@ class Sqls implements Sqlsable, IteratorAggregate{
     function obtener_sqls(){
         return $this->sqls;
     }
+    #[\ReturnTypeWillChange]
     public function getIterator() {
         return new ArrayIterator($this->sqls);
     }
@@ -118,7 +119,9 @@ class PDO_con_excepciones_sin_cache extends PDO{
     function no_implementado(){
         throw new Exception('Nuestra PDO debe usarse con las nuevas funciones');
     }
-    function query(){ return $this->no_implementado(); }
+    #[\ReturnTypeWillChange]
+    function query($statement=null, $fetch_mode=null, ...$fetch_mode_args){ return $this->no_implementado(); }
+    #[\ReturnTypeWillChange]
     function prepare($statement, $driver_options = array()){ return $this->no_implementado(); }
     function info(){
         $str="";
@@ -133,6 +136,7 @@ class PDO_con_excepciones_sin_cache extends PDO{
         }
         return $str;
     }
+    #[\ReturnTypeWillChange]
     function quote($nombre,$tipo='dato'){
         if($tipo=='dato'){
             if($nombre===true){

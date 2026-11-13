@@ -12,14 +12,17 @@ class Tabla_pla_ext_hog extends Tabla{
         $this->definir_campo('pla_hog',array('es_pk'=>true,'tipo'=>'entero'));
         $this->definir_campo('pla_modo',array('es_pk'=>true,'tipo'=>'texto','largo'=>50,'validart'=>'codigo'));
         $this->definir_campo('pla_fexp',array('tipo'=>'entero'));
-        $this->definir_campo('pla_qipcf_2',array('tipo'=>'entero'));
-        $this->definir_campo('pla_dipcf_2',array('tipo'=>'entero'));
-        $this->definir_campo('pla_qitf_2',array('tipo'=>'entero'));
-        $this->definir_campo('pla_ditf_2',array('tipo'=>'entero'));         
-        $this->definir_campo('pla_qipcf',array('tipo'=>'entero'));
-        $this->definir_campo('pla_dipcf',array('tipo'=>'entero'));
-        $this->definir_campo('pla_qitf',array('tipo'=>'entero'));
-        $this->definir_campo('pla_ditf',array('tipo'=>'entero'));
+        //if (substr($GLOBALS['NOMBRE_APP'],0,3)=='eah'&& $GLOBALS['anio_operativo']<2024 ){ 
+          //desde eah2024 se eliminan los siguientes campos
+          $this->definir_campo('pla_qipcf_2',array('tipo'=>'entero'));
+          $this->definir_campo('pla_dipcf_2',array('tipo'=>'entero'));
+          $this->definir_campo('pla_qitf_2',array('tipo'=>'entero'));
+          $this->definir_campo('pla_ditf_2',array('tipo'=>'entero'));         
+          $this->definir_campo('pla_qipcf',array('tipo'=>'entero'));
+          $this->definir_campo('pla_dipcf',array('tipo'=>'entero'));
+          $this->definir_campo('pla_qitf',array('tipo'=>'entero'));
+          $this->definir_campo('pla_ditf',array('tipo'=>'entero'));
+        //}
     }
 }
 

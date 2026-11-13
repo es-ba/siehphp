@@ -11,6 +11,7 @@ require_once "pdo_con_excepciones.php";
 require_once "esquemas.php";
 require_once "campos.php";
 
+#[\AllowDynamicProperties]
 abstract class Tablas_o_Vistas extends Objeto_de_la_base{
     public $campos=array();
     public $fin_de_definicion_estructura=false;

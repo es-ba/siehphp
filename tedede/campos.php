@@ -10,6 +10,7 @@ require_once "para_parametros_con_nombre.php";
 require_once "pdo_con_excepciones.php";
 require_once "esquemas.php";
 
+#[\AllowDynamicProperties]
 class Campo{
     function __construct($parametros_opcionales){
         foreach($parametros_opcionales as $param=>$valor){
