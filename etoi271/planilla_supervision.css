@@ -1,0 +1,56 @@
+body {
+    font-family:Arial, Tahoma, sans-serif;
+    font-size:100%;
+    background-color:white;
+}
+.plasup_tabla{
+    border:2px solid black;
+    border-collapse:collapse;
+}
+
+.plasup_tabla td{
+    border:1px solid black;
+    background-color:#AAA;
+    text-align: center;
+    vertical-align: middle; 
+}
+
+.plasup_tabla .ingresable{
+    background-color:White;
+}
+.plasup_tabla .renglon_en_blanco{
+    border:1px solid black;
+    background-color:#AAA;    
+}
+.plasup_tabla .nota_pie{
+    text-align: left;    
+}
+.plasup_tabla .obs{
+    border:1px solid black;
+    background-color:White;
+}
+.plasup_tabla .visitas{
+    border:1px solid black;
+    background-color:#AAA;
+    font-size:70%;
+    text-align: left;
+}
+.plasup_tabla .fila_40{
+    height:40px;    
+}
+.plasup_tabla .fila_60{
+    height:60px;    
+}
+.SaltoDePagina{
+     PAGE-BREAK-AFTER: always;
+}
+.plasup_tabla .variable_existente{    
+    font-weight:bold;           
+    background-color:#CCCCCC;
+}
+.plasup_tabla .formato_reducido{    
+    font-size:70%;              
+}
+.plasup_tabla .alinea_izq{    
+    text-align: left;
+}

@@ -4,6 +4,7 @@ require_once "lo_imprescindible.php";
 
 class Objeto_de_la_base{
     protected $nombre_esquema;
+    public $contexto;
     function __construct(){
     }
     function definir_esquema($nombre_esquema){

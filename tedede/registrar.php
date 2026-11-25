@@ -16,7 +16,8 @@ if(isset($_REQUEST['control_compatibiliad_pre_login'])){
     if($_REQUEST['registro_incompatibilidad']){
         date_default_timezone_set('America/Argentina/Buenos_Aires');
         $ahora=new DateTime();
-        $registro="\n###### ".$ahora->format('Y-m-d H:i:s')." addr ".$_SERVER["REMOTE_ADDR"]." local ".$_REQUEST["LOCAL_ADDR"]." UA ".$HTTP_USER_AGENT."\n";
+        $user_agent=@$_SERVER["HTTP_USER_AGENT"];
+        $registro="\n###### ".$ahora->format('Y-m-d H:i:s')." addr ".$_SERVER["REMOTE_ADDR"]." local ".@$_REQUEST["LOCAL_ADDR"]." UA ".$user_agent."\n";
         $registro.=$incompatibilidad;
         file_put_contents('../logs/pre_login_incompatibilidades.txt',$registro,FILE_APPEND);
     }

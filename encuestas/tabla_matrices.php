@@ -108,7 +108,7 @@ JS
         }
         return null;
     }
-    window.addEventListener('unload',function(){ 
+    window.addEventListener('pagehide',function(){
         return guardar_o_avisar();
     });
     window.addEventListener('beforeunload',function(){ 

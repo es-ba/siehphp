@@ -1,0 +1,31 @@
+INSERT INTO encu.tem(
+            tem_enc, tem_id_marco, tem_comuna, tem_replica, tem_up, tem_lote, 
+            tem_clado, tem_ccodigo, tem_cnombre, tem_hn, tem_hp, tem_hd, 
+            tem_hab, tem_h4, tem_usp, tem_barrio, tem_ident_edif, tem_obs, 
+            tem_frac_comun, tem_radio_comu, tem_mza_comuna, tem_dominio, 
+            tem_marco, tem_titular, tem_zona, tem_lote2011, tem_para_asignar, 
+            tem_participacion, tem_codpos, tem_etiquetas, tem_tipounidad, 
+            tem_tot_hab, tem_estrato, tem_fexp, tem_areaup, tem_trimestre, 
+            tem_semana, tem_rotaci_n_etoi, tem_rotaci_n_eah, tem_idtipounidad, 
+            tem_h1_mues, tem_idcuerpo, tem_cuerpo, tem_cuit, tem_rama_act, 
+            tem_nomb_inst, tem_pzas, tem_te, tem_idprocedencia, tem_procedencia, 
+            tem_yearfuente, tem_anio_list, tem_marco_anio, tem_nro_orden, 
+            tem_operacion, tem_area, tem_reserva, tem_up_comuna, tem_h4_mues, 
+            tem_ups, tem_sel_etoi14_villa, tem_obs_campo, tem_inq_tot_hab, 
+            tem_inq_ocu_flia, tem_tlg)
+select
+            tem_enc, tem_id_marco, tem_comuna, tem_replica, tem_up, tem_lote, 
+            tem_clado, tem_ccodigo, tem_cnombre, tem_hn, tem_hp, tem_hd, 
+            tem_hab, tem_h4, tem_usp, tem_barrio, tem_ident_edif, tem_obs, 
+            tem_frac_comun, tem_radio_comu, tem_mza_comuna, tem_dominio, 
+            tem_marco, tem_titular, tem_zona, tem_lote2011, tem_para_asignar, 
+            tem_participacion, tem_codpos, tem_etiquetas, tem_tipounidad, 
+            tem_tot_hab, tem_estrato, tem_fexp, tem_areaup, tem_trimestre, 
+            tem_semana, tem_rotaci_n_etoi, tem_rotaci_n_eah, tem_idtipounidad, 
+            tem_h1_mues, tem_idcuerpo, tem_cuerpo, tem_cuit, tem_rama_act, 
+            tem_nomb_inst, tem_pzas, tem_te, tem_idprocedencia, tem_procedencia, 
+            tem_yearfuente, tem_anio_list, tem_marco_anio, tem_nro_orden, 
+            tem_operacion, tem_area, tem_reserva, tem_up_comuna, tem_h4_mues, 
+            tem_ups, tem_sel_etoi14_villa, tem_obs_campo, tem_inq_tot_hab, 
+            tem_inq_ocu_flia, /*CAMPOS_AUDITORIA*/ tem_tlg
+            from encu_anterior.tem;

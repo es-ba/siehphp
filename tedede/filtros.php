@@ -2,6 +2,7 @@
 //UTF-8:SÍ
 require_once "lo_imprescindible.php";
 
+#[\AllowDynamicProperties]
 abstract class Filtro{
     public static $nombres_simples=false;
     public static $parametro_numero=1;
